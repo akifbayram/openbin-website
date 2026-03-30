@@ -141,5 +141,100 @@
         </div>
       </div>
     </section>
+
+    <!-- Self-Host vs Cloud -->
+    <section class="px-6 py-24">
+      <div class="mx-auto max-w-5xl">
+        <h2
+          class="mb-16 text-center text-3xl font-bold lg:text-4xl"
+          style="color: var(--vp-c-text-1)"
+        >
+          Choose how you run it
+        </h2>
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+          <div
+            class="rounded-lg p-8"
+            style="border: 1px solid var(--vp-c-divider); background: var(--vp-c-bg-soft)"
+          >
+            <h3
+              class="text-2xl font-semibold"
+              style="color: var(--vp-c-text-1)"
+            >
+              Self-Host
+            </h3>
+            <p class="mt-4 text-lg" style="color: var(--vp-c-text-2)">
+              Free forever. Run on your own hardware with Docker. Full control
+              over your data, backups, and configuration.
+            </p>
+            <ul class="mt-6 space-y-2" style="color: var(--vp-c-text-2)">
+              <li>Single Docker container</li>
+              <li>SQLite — no external database</li>
+              <li>Automatic backups</li>
+              <li>All features included</li>
+            </ul>
+            <div class="mt-8">
+              <a
+                href="https://docs.openbin.app/getting-started/"
+                class="btn-primary"
+              >
+                Get Started
+              </a>
+            </div>
+          </div>
+
+          <div
+            class="rounded-lg p-8"
+            style="border: 1px solid var(--vp-c-brand-1); background: var(--vp-c-bg-soft)"
+          >
+            <h3
+              class="text-2xl font-semibold"
+              style="color: var(--vp-c-text-1)"
+            >
+              Cloud
+            </h3>
+            <p class="mt-4 text-lg" style="color: var(--vp-c-text-2)">
+              Managed hosting with automatic updates. No server setup required.
+              Sign up and start organizing in seconds.
+            </p>
+            <ul class="mt-6 space-y-2" style="color: var(--vp-c-text-2)">
+              <li>No setup or maintenance</li>
+              <li>Automatic updates</li>
+              <li>Managed backups</li>
+              <li>Priority support</li>
+            </ul>
+            <div class="mt-8">
+              <a href="https://cloud.openbin.app/" class="btn-secondary">
+                Try Cloud
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom CTA -->
+    <section
+      class="px-6 py-24 text-center"
+      style="background: var(--vp-c-bg-soft)"
+    >
+      <h2
+        class="text-3xl font-bold lg:text-4xl"
+        style="color: var(--vp-c-text-1)"
+      >
+        Ready to get organized?
+      </h2>
+      <p class="mx-auto mt-4 max-w-xl text-lg" style="color: var(--vp-c-text-2)">
+        Free to self-host. Cloud plans available for those who prefer managed
+        hosting.
+      </p>
+      <div class="mt-10 flex flex-wrap justify-center gap-4">
+        <a href="https://docs.openbin.app/getting-started/" class="btn-primary">
+          Get Started
+        </a>
+        <a href="https://cloud.openbin.app/" class="btn-secondary">
+          Try Cloud
+        </a>
+      </div>
+    </section>
   </div>
 </template>
