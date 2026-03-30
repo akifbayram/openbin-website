@@ -197,145 +197,149 @@ onMounted(() => {
       </div>
     </section>
 
-    <!-- Features -->
-    <section class="px-6 py-16" style="background: var(--vp-c-bg-soft)">
+    <!-- Feature Showcase -->
+    <section class="px-6 py-16">
       <div class="mx-auto max-w-6xl">
         <h2
-          class="display-heading scroll-reveal mb-10 text-center text-3xl lg:text-4xl"
+          class="display-heading scroll-reveal mb-2 text-center text-3xl lg:text-4xl"
           style="color: var(--vp-c-text-1)"
         >
-          What's in OpenBin
+          What OpenBin Does
         </h2>
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-          <div
-            class="feature-card scroll-reveal rounded-lg p-8"
-            style="background: var(--vp-c-bg)"
-          >
-            <svg
-              class="mb-4"
-              width="40"
-              height="40"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              style="color: var(--vp-c-brand-1)"
-            >
-              <path d="M3 7V5a2 2 0 0 1 2-2h2" />
-              <path d="M17 3h2a2 2 0 0 1 2 2v2" />
-              <path d="M21 17v2a2 2 0 0 1-2 2h-2" />
-              <path d="M7 21H5a2 2 0 0 1-2-2v-2" />
-              <line x1="7" x2="17" y1="12" y2="12" />
-            </svg>
+        <p
+          class="scroll-reveal mb-14 text-center text-lg"
+          style="color: var(--vp-c-text-2)"
+        >
+          More than a spreadsheet. Less than an ERP.
+        </p>
+
+        <!-- Row 1: text left, image right -->
+        <div class="feature-row mb-16">
+          <div class="scroll-slide-left flex flex-col justify-center">
             <h3
-              class="text-xl font-semibold"
+              class="text-2xl font-semibold"
               style="color: var(--vp-c-text-1)"
             >
-              QR Labels
+              What's in that box?
             </h3>
-            <p class="mt-2" style="color: var(--vp-c-text-2)">
-              Print and scan QR labels to find anything instantly. Customize
-              label formats, colors, and styles.
+            <p class="mt-4 text-lg" style="color: var(--vp-c-text-2)">
+              AI photo recognition identifies contents, suggests names and
+              tags, builds your item list from a single photo. Bring your own
+              API key from OpenAI, Anthropic, or Gemini.
             </p>
           </div>
+          <div class="scroll-slide-right">
+            <div class="window-chrome">
+              <div class="window-chrome-bar">
+                <span class="window-chrome-dot window-chrome-dot--close"></span>
+                <span class="window-chrome-dot window-chrome-dot--minimize"></span>
+                <span class="window-chrome-dot window-chrome-dot--maximize"></span>
+                <span class="window-chrome-url">openbin.app</span>
+              </div>
+              <img
+                src="/screenshots/dashboard.png"
+                alt="AI photo recognition in OpenBin"
+                class="w-full"
+              />
+            </div>
+          </div>
+        </div>
 
+        <!-- Row 2: image left, text right -->
+        <div class="feature-row mb-16">
+          <div class="scroll-slide-left order-2 lg:order-1">
+            <div class="window-chrome">
+              <div class="window-chrome-bar">
+                <span class="window-chrome-dot window-chrome-dot--close"></span>
+                <span class="window-chrome-dot window-chrome-dot--minimize"></span>
+                <span class="window-chrome-dot window-chrome-dot--maximize"></span>
+                <span class="window-chrome-url">openbin.app</span>
+              </div>
+              <img
+                src="/screenshots/dashboard.png"
+                alt="Search and filter bins in OpenBin"
+                class="w-full"
+              />
+            </div>
+          </div>
           <div
-            class="feature-card scroll-reveal rounded-lg p-8"
-            style="background: var(--vp-c-bg)"
+            class="scroll-slide-right flex flex-col justify-center order-1 lg:order-2"
           >
-            <svg
-              class="mb-4"
-              width="40"
-              height="40"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              style="color: var(--vp-c-brand-1)"
-            >
-              <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
-              <path d="M5 3v4" />
-              <path d="M19 17v4" />
-              <path d="M3 5h4" />
-              <path d="M17 19h4" />
-            </svg>
             <h3
-              class="text-xl font-semibold"
+              class="text-2xl font-semibold"
               style="color: var(--vp-c-text-1)"
             >
-              Built-in Intelligence
+              Find it in seconds
             </h3>
-            <p class="mt-2" style="color: var(--vp-c-text-2)">
-              Snap a photo or describe what's in a bin. It gets named, tagged,
-              and sorted. Bring your own API key.
+            <p class="mt-4 text-lg" style="color: var(--vp-c-text-2)">
+              Search across all your bins by name, tag, item, or area. Filter
+              and sort to narrow down exactly what you need.
             </p>
           </div>
+        </div>
 
-          <div
-            class="feature-card scroll-reveal rounded-lg p-8"
-            style="background: var(--vp-c-bg)"
-          >
-            <svg
-              class="mb-4"
-              width="40"
-              height="40"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              style="color: var(--vp-c-brand-1)"
-            >
-              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-              <circle cx="9" cy="7" r="4" />
-              <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-            </svg>
+        <!-- Row 3: text left, image right -->
+        <div class="feature-row mb-16">
+          <div class="scroll-slide-left flex flex-col justify-center">
             <h3
-              class="text-xl font-semibold"
+              class="text-2xl font-semibold"
               style="color: var(--vp-c-text-1)"
             >
-              Multi-User
+              Labels that look good
             </h3>
-            <p class="mt-2" style="color: var(--vp-c-text-2)">
-              Share locations with your household or team. Role-based access
-              permissions.
+            <p class="mt-4 text-lg" style="color: var(--vp-c-text-2)">
+              Print QR labels in multiple formats, sizes, and styles.
+              Customize colors, icons, and layout. Scan any label to jump
+              straight to the bin.
             </p>
           </div>
+          <div class="scroll-slide-right">
+            <div class="window-chrome">
+              <div class="window-chrome-bar">
+                <span class="window-chrome-dot window-chrome-dot--close"></span>
+                <span class="window-chrome-dot window-chrome-dot--minimize"></span>
+                <span class="window-chrome-dot window-chrome-dot--maximize"></span>
+                <span class="window-chrome-url">openbin.app</span>
+              </div>
+              <img
+                src="/screenshots/dashboard.png"
+                alt="QR label printing in OpenBin"
+                class="w-full"
+              />
+            </div>
+          </div>
+        </div>
 
+        <!-- Row 4: image left, text right -->
+        <div class="feature-row">
+          <div class="scroll-slide-left order-2 lg:order-1">
+            <div class="window-chrome">
+              <div class="window-chrome-bar">
+                <span class="window-chrome-dot window-chrome-dot--close"></span>
+                <span class="window-chrome-dot window-chrome-dot--minimize"></span>
+                <span class="window-chrome-dot window-chrome-dot--maximize"></span>
+                <span class="window-chrome-url">openbin.app</span>
+              </div>
+              <img
+                src="/screenshots/dashboard.png"
+                alt="Multi-user collaboration in OpenBin"
+                class="w-full"
+              />
+            </div>
+          </div>
           <div
-            class="feature-card scroll-reveal rounded-lg p-8"
-            style="background: var(--vp-c-bg)"
+            class="scroll-slide-right flex flex-col justify-center order-1 lg:order-2"
           >
-            <svg
-              class="mb-4"
-              width="40"
-              height="40"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              style="color: var(--vp-c-brand-1)"
-            >
-              <polyline points="16 18 22 12 16 6" />
-              <polyline points="8 6 2 12 8 18" />
-            </svg>
             <h3
-              class="text-xl font-semibold"
+              class="text-2xl font-semibold"
               style="color: var(--vp-c-text-1)"
             >
-              Open Source
+              Share with your household
             </h3>
-            <p class="mt-2" style="color: var(--vp-c-text-2)">
-              Your data stays on your hardware. AGPL-3.0 licensed. REST API
-              and MCP server included.
+            <p class="mt-4 text-lg" style="color: var(--vp-c-text-2)">
+              Invite your family or team. Three roles — admin, member, viewer
+              — control who can edit and who can browse. Everyone sees the
+              same inventory.
             </p>
           </div>
         </div>

@@ -323,3 +323,18 @@
   background: var(--vp-c-brand-1);
   border-radius: 50%;
 }
+
+/* ── Feature showcase rows ── */
+
+.feature-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .feature-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
