@@ -40,7 +40,7 @@
         >
           What's in the box
         </h2>
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
           <div
             class="feature-card animate-in delay-2 rounded-lg p-8"
             style="background: var(--vp-c-bg)"
