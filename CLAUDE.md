@@ -1,7 +1,7 @@
 # OpenBin Marketing Website
 
 **Website**: https://openbin.app
-**Product**: Self-hosted bin inventory with QR codes and AI
+**Product**: Inventory with intelligence — QR codes, photo recognition, and multi-user collaboration
 **Target Audience**: Self-hosters, small teams, households organizing physical storage
 **Goal**: Convert visitors to self-host (docs) or sign up for cloud hosting
 
@@ -87,13 +87,13 @@ Each layout component (`HomeLayout.vue`, `PricingLayout.vue`) includes its own `
 ### Home (`index.md` → `HomeLayout.vue`)
 
 1. **Hero**: Gradient headline, subtitle, two CTAs (Get Started / Try Cloud), live demo iframe (desktop) or screenshot (mobile) in macOS window chrome
-2. **Features**: "What's in the bin" — 4 icon cards in a row (QR Labels, AI-Powered, Multi-User, Open Source)
+2. **Features**: "What's in OpenBin" — 4 icon cards in a row (QR Labels, Built-in Intelligence, Multi-User, Open Source)
 3. **Self-Host vs Cloud**: Two-column comparison cards, cloud card highlighted with brand border
 4. **Bottom CTA**: "Stop searching. Start finding."
 
 ### Pricing (`pricing.md` → `PricingLayout.vue`)
 
-Three plan columns: Self-Hosted (free), Lite ($5/mo), Pro ($12/mo highlighted). Feature checklist with check/dash SVG icons. Prices are placeholders — update in the `plans` array in `PricingLayout.vue`.
+Two plan columns: Lite ($5/mo) and Pro ($12/mo, highlighted). Pro shows "All of Lite, plus:" preamble. Feature checklist with check/dash SVG icons. Prices are placeholders — update in the `plans` array in `PricingLayout.vue`.
 
 ## Adding New Pages
 
