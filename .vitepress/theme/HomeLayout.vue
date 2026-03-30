@@ -38,7 +38,7 @@
           class="display-heading animate-in mb-16 text-center text-3xl lg:text-4xl"
           style="color: var(--vp-c-text-1)"
         >
-          Everything you need to stay organized
+          What's in the box
         </h2>
         <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
           <div
@@ -83,8 +83,8 @@
                 AI-Powered
               </h3>
               <p class="mt-2" style="color: var(--vp-c-text-2)">
-                Auto-categorize items with photos, voice, or text. Works with
-                OpenAI, Anthropic, and Gemini.
+                Snap a photo or describe what's in a bin. AI names it, tags it,
+                and sorts it. Bring your own API key.
               </p>
             </div>
           </div>
@@ -140,8 +140,8 @@
                 Self-Hosted &amp; Open Source
               </h3>
               <p class="mt-2" style="color: var(--vp-c-text-2)">
-                Your data stays on your hardware. AGPL-3.0 licensed, fully
-                transparent, with a complete REST API and MCP server.
+                Your data stays on your hardware. AGPL-3.0 licensed. REST API
+                and MCP server included.
               </p>
             </div>
           </div>
@@ -170,8 +170,8 @@
               Self-Host
             </h3>
             <p class="mt-4 text-lg" style="color: var(--vp-c-text-2)">
-              Free forever. Run on your own hardware with Docker. Full control
-              over your data, backups, and configuration.
+              Free forever. One Docker container, your hardware. You own the
+              data and the backups.
             </p>
             <ul class="mt-6 space-y-2" style="color: var(--vp-c-text-2)">
               <li>Single Docker container</li>
@@ -200,8 +200,8 @@
               Cloud
             </h3>
             <p class="mt-4 text-lg" style="color: var(--vp-c-text-2)">
-              Managed hosting with automatic updates. No server setup required.
-              Sign up and start organizing in seconds.
+              We run it, you use it. No server, no Docker, no maintenance.
+              Just sign up.
             </p>
             <ul class="mt-6 space-y-2" style="color: var(--vp-c-text-2)">
               <li>No setup or maintenance</li>
@@ -231,8 +231,7 @@
         Stop searching. Start finding.
       </h2>
       <p class="mx-auto mt-4 max-w-xl text-lg" style="color: var(--vp-c-text-2)">
-        Free to self-host. Cloud plans available for those who prefer managed
-        hosting.
+        Free to self-host. Cloud if you'd rather not.
       </p>
       <div class="mt-10 flex flex-wrap justify-center gap-4">
         <a href="https://docs.openbin.app/getting-started/" class="btn-primary">
