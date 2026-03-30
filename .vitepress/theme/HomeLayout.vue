@@ -346,6 +346,148 @@ onMounted(() => {
       </div>
     </section>
 
+    <!-- Use Cases -->
+    <section class="px-6 py-16" style="background: var(--vp-c-bg-soft)">
+      <div class="mx-auto max-w-6xl">
+        <h2
+          class="display-heading scroll-reveal mb-10 text-center text-3xl lg:text-4xl"
+          style="color: var(--vp-c-text-1)"
+        >
+          Built for real life
+        </h2>
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <!-- Moving -->
+          <div
+            class="feature-card scroll-reveal rounded-lg p-8"
+            style="background: var(--vp-c-bg)"
+          >
+            <svg
+              class="mb-4"
+              width="40"
+              height="40"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              style="color: var(--vp-c-brand-1)"
+            >
+              <path d="m7.5 4.27 9 5.15" />
+              <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" />
+              <path d="m3.3 7 8.7 5 8.7-5" />
+              <path d="M12 22V12" />
+            </svg>
+            <h3
+              class="text-xl font-semibold"
+              style="color: var(--vp-c-text-1)"
+            >
+              Moving
+            </h3>
+            <p class="mt-2" style="color: var(--vp-c-text-2)">
+              Know what's in every box before you open it.
+            </p>
+          </div>
+          <!-- Workshop -->
+          <div
+            class="feature-card scroll-reveal rounded-lg p-8"
+            style="background: var(--vp-c-bg)"
+          >
+            <svg
+              class="mb-4"
+              width="40"
+              height="40"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              style="color: var(--vp-c-brand-1)"
+            >
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76Z" />
+            </svg>
+            <h3
+              class="text-xl font-semibold"
+              style="color: var(--vp-c-text-1)"
+            >
+              Workshop
+            </h3>
+            <p class="mt-2" style="color: var(--vp-c-text-2)">
+              Find the right part bin without digging through drawers.
+            </p>
+          </div>
+          <!-- Shared spaces -->
+          <div
+            class="feature-card scroll-reveal rounded-lg p-8"
+            style="background: var(--vp-c-bg)"
+          >
+            <svg
+              class="mb-4"
+              width="40"
+              height="40"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              style="color: var(--vp-c-brand-1)"
+            >
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg>
+            <h3
+              class="text-xl font-semibold"
+              style="color: var(--vp-c-text-1)"
+            >
+              Shared spaces
+            </h3>
+            <p class="mt-2" style="color: var(--vp-c-text-2)">
+              One inventory for the whole household or team.
+            </p>
+          </div>
+          <!-- Collections -->
+          <div
+            class="feature-card scroll-reveal rounded-lg p-8"
+            style="background: var(--vp-c-bg)"
+          >
+            <svg
+              class="mb-4"
+              width="40"
+              height="40"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              style="color: var(--vp-c-brand-1)"
+            >
+              <rect width="7" height="7" x="3" y="3" rx="1" />
+              <rect width="7" height="7" x="14" y="3" rx="1" />
+              <rect width="7" height="7" x="14" y="14" rx="1" />
+              <rect width="7" height="7" x="3" y="14" rx="1" />
+            </svg>
+            <h3
+              class="text-xl font-semibold"
+              style="color: var(--vp-c-text-1)"
+            >
+              Collections
+            </h3>
+            <p class="mt-2" style="color: var(--vp-c-text-2)">
+              Catalog board games, LEGO sets, craft supplies, tools.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section divider -->
+    <div class="section-divider"></div>
+
     <!-- Self-Host vs Cloud -->
     <section class="px-6 py-16">
       <div class="mx-auto max-w-5xl">

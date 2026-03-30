@@ -338,3 +338,10 @@
     grid-template-columns: 1fr 1fr;
   }
 }
+
+/* ── Section divider ── */
+
+.section-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--vp-c-brand-1), transparent);
+}
