@@ -26,6 +26,7 @@ export default defineConfig({
     },
     siteTitle: false,
     nav: [
+      { text: 'Pricing', link: 'https://cloud.openbin.app/pricing' },
       { text: 'Documentation', link: 'https://docs.openbin.app/' },
       { text: 'Login', link: 'https://cloud.openbin.app/' },
       { text: 'Billing', link: 'https://billing.openbin.app/' },
