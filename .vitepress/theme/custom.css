@@ -291,3 +291,20 @@
 .dark .btn-secondary:hover {
   background: rgba(155, 122, 247, 0.1);
 }
+
+/* ── Try Me badge ── */
+
+.try-me-badge {
+  position: absolute;
+  top: -12px;
+  left: 24px;
+  z-index: 2;
+  padding: 4px 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--vp-c-brand-1);
+  border-radius: 999px;
+  pointer-events: none;
+  white-space: nowrap;
+}

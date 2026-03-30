@@ -52,21 +52,24 @@ onMounted(() => {
       </div>
       <!-- Live demo (desktop) / static screenshot (mobile) -->
       <div class="animate-in delay-3 mx-auto mt-12 max-w-5xl">
-        <div class="window-chrome hidden lg:block">
-          <div class="window-chrome-bar">
-            <span class="window-chrome-dot window-chrome-dot--close"></span>
-            <span class="window-chrome-dot window-chrome-dot--minimize"></span>
-            <span class="window-chrome-dot window-chrome-dot--maximize"></span>
-            <span class="window-chrome-url">demo.openbin.app</span>
+        <div class="relative hidden lg:block">
+          <span class="try-me-badge">Try Me — click around, it's a live demo</span>
+          <div class="window-chrome">
+            <div class="window-chrome-bar">
+              <span class="window-chrome-dot window-chrome-dot--close"></span>
+              <span class="window-chrome-dot window-chrome-dot--minimize"></span>
+              <span class="window-chrome-dot window-chrome-dot--maximize"></span>
+              <span class="window-chrome-url">demo.openbin.app</span>
+            </div>
+            <iframe
+              src="https://demo.openbin.app"
+              title="OpenBin Demo"
+              loading="lazy"
+              allow="clipboard-write"
+              class="w-full"
+              style="height: 600px; border: none; background: var(--vp-c-bg)"
+            />
           </div>
-          <iframe
-            src="https://demo.openbin.app"
-            title="OpenBin Demo"
-            loading="lazy"
-            allow="clipboard-write"
-            class="w-full"
-            style="height: 600px; border: none; background: var(--vp-c-bg)"
-          />
         </div>
         <div class="window-chrome lg:hidden">
           <div class="window-chrome-bar">
