@@ -1,5 +1,11 @@
 <script setup>
-import { onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
+
+const openFaq = ref(null)
+
+function toggleFaq(index) {
+  openFaq.value = openFaq.value === index ? null : index
+}
 
 onMounted(() => {
   const targets = document.querySelectorAll(
@@ -552,6 +558,184 @@ onMounted(() => {
               <a href="https://cloud.openbin.app/" class="btn-secondary">
                 Try Cloud <span class="btn-arrow">&rarr;</span>
               </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="px-6 py-16" style="background: var(--vp-c-bg-soft)">
+      <div class="mx-auto max-w-3xl">
+        <h2
+          class="display-heading scroll-reveal mb-10 text-center text-3xl lg:text-4xl"
+          style="color: var(--vp-c-text-1)"
+        >
+          Questions
+        </h2>
+        <div class="scroll-reveal">
+          <!-- Q1 -->
+          <div class="faq-item" style="border-bottom: 1px solid var(--vp-c-divider)">
+            <button
+              class="flex w-full items-center justify-between py-4 text-left"
+              style="color: var(--vp-c-text-1)"
+              @click="toggleFaq(0)"
+            >
+              <span class="pr-4 text-lg font-semibold">Do I need AI to use OpenBin?</span>
+              <svg
+                class="faq-chevron shrink-0"
+                :class="{ 'faq-chevron--open': openFaq === 0 }"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </button>
+            <div class="faq-answer" :class="{ 'faq-answer--open': openFaq === 0 }">
+              <div class="overflow-hidden">
+                <p class="pb-4" style="color: var(--vp-c-text-2)">
+                  No. AI is optional — it speeds up cataloging but everything works
+                  without it. Bring your own API key from OpenAI, Anthropic, or
+                  Gemini if you want it.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Q2 -->
+          <div class="faq-item" style="border-bottom: 1px solid var(--vp-c-divider)">
+            <button
+              class="flex w-full items-center justify-between py-4 text-left"
+              style="color: var(--vp-c-text-1)"
+              @click="toggleFaq(1)"
+            >
+              <span class="pr-4 text-lg font-semibold">Is my data private?</span>
+              <svg
+                class="faq-chevron shrink-0"
+                :class="{ 'faq-chevron--open': openFaq === 1 }"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </button>
+            <div class="faq-answer" :class="{ 'faq-answer--open': openFaq === 1 }">
+              <div class="overflow-hidden">
+                <p class="pb-4" style="color: var(--vp-c-text-2)">
+                  Yes. Self-host on your own hardware and your data never leaves your
+                  network. The cloud version stores data on managed infrastructure.
+                  No telemetry, no analytics, no third-party sharing. AGPL-3.0
+                  licensed — read every line of code.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Q3 -->
+          <div class="faq-item" style="border-bottom: 1px solid var(--vp-c-divider)">
+            <button
+              class="flex w-full items-center justify-between py-4 text-left"
+              style="color: var(--vp-c-text-1)"
+              @click="toggleFaq(2)"
+            >
+              <span class="pr-4 text-lg font-semibold">What if OpenBin shuts down?</span>
+              <svg
+                class="faq-chevron shrink-0"
+                :class="{ 'faq-chevron--open': openFaq === 2 }"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </button>
+            <div class="faq-answer" :class="{ 'faq-answer--open': openFaq === 2 }">
+              <div class="overflow-hidden">
+                <p class="pb-4" style="color: var(--vp-c-text-2)">
+                  It's open source. Your self-hosted instance keeps running. Cloud
+                  users can export everything (bins, items, photos, tags) in one
+                  click.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Q4 -->
+          <div class="faq-item" style="border-bottom: 1px solid var(--vp-c-divider)">
+            <button
+              class="flex w-full items-center justify-between py-4 text-left"
+              style="color: var(--vp-c-text-1)"
+              @click="toggleFaq(3)"
+            >
+              <span class="pr-4 text-lg font-semibold">Can I use it with my team?</span>
+              <svg
+                class="faq-chevron shrink-0"
+                :class="{ 'faq-chevron--open': openFaq === 3 }"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </button>
+            <div class="faq-answer" :class="{ 'faq-answer--open': openFaq === 3 }">
+              <div class="overflow-hidden">
+                <p class="pb-4" style="color: var(--vp-c-text-2)">
+                  Yes. Create a location, share an invite code. Three roles — admin,
+                  member, viewer — control who can edit and who can only browse.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Q5 -->
+          <div class="faq-item">
+            <button
+              class="flex w-full items-center justify-between py-4 text-left"
+              style="color: var(--vp-c-text-1)"
+              @click="toggleFaq(4)"
+            >
+              <span class="pr-4 text-lg font-semibold">What do I need to self-host?</span>
+              <svg
+                class="faq-chevron shrink-0"
+                :class="{ 'faq-chevron--open': openFaq === 4 }"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+            </button>
+            <div class="faq-answer" :class="{ 'faq-answer--open': openFaq === 4 }">
+              <div class="overflow-hidden">
+                <p class="pb-4" style="color: var(--vp-c-text-2)">
+                  One Docker container and a few hundred megabytes of disk space. No
+                  external database — SQLite is embedded. Works on a Raspberry Pi.
+                </p>
+              </div>
             </div>
           </div>
         </div>

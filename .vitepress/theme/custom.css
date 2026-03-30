@@ -345,3 +345,23 @@
   height: 1px;
   background: linear-gradient(to right, transparent, var(--vp-c-brand-1), transparent);
 }
+
+/* ── FAQ accordion ── */
+
+.faq-chevron {
+  transition: transform 0.3s;
+}
+
+.faq-chevron--open {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.3s;
+}
+
+.faq-answer--open {
+  grid-template-rows: 1fr;
+}
