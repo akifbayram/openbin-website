@@ -3,7 +3,7 @@
     <!-- Hero -->
     <section class="hero-bg px-6 pt-24 pb-16 text-center">
       <h1
-        class="display-heading gradient-text animate-in mx-auto max-w-3xl text-4xl tracking-tight lg:text-6xl"
+        class="display-heading gradient-text animate-in mx-auto max-w-3xl text-4xl lg:text-6xl"
       >
         Organize Your Physical World
       </h1>
@@ -42,7 +42,7 @@
         </h2>
         <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
           <div
-            class="feature-card animate-in delay-2 overflow-hidden rounded-lg"
+            class="feature-card animate-in delay-2 overflow-hidden rounded-lg text-left"
             style="background: var(--vp-c-bg)"
           >
             <img
@@ -66,7 +66,7 @@
           </div>
 
           <div
-            class="feature-card animate-in delay-3 overflow-hidden rounded-lg"
+            class="feature-card animate-in delay-3 overflow-hidden rounded-lg text-left"
             style="background: var(--vp-c-bg)"
           >
             <img
@@ -90,7 +90,7 @@
           </div>
 
           <div
-            class="feature-card animate-in delay-4 overflow-hidden rounded-lg"
+            class="feature-card animate-in delay-4 overflow-hidden rounded-lg text-left"
             style="background: var(--vp-c-bg)"
           >
             <img
@@ -160,7 +160,7 @@
         </h2>
         <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
           <div
-            class="rounded-lg p-8"
+            class="rounded-lg p-8 text-left"
             style="border: 1px solid var(--vp-c-divider); background: var(--vp-c-bg-soft)"
           >
             <h3
@@ -190,7 +190,7 @@
           </div>
 
           <div
-            class="rounded-lg p-8"
+            class="rounded-lg p-8 text-left"
             style="border: 1px solid var(--vp-c-brand-1); background: var(--vp-c-bg-soft)"
           >
             <h3
