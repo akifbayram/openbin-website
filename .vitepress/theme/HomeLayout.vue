@@ -46,6 +46,9 @@ onMounted(() => {
         <a href="https://cloud.openbin.app/" class="btn-secondary">
           Try Cloud <span class="btn-arrow">&rarr;</span>
         </a>
+        <a href="https://demo.openbin.app/" class="btn-secondary">
+          Live Demo <span class="btn-arrow">&rarr;</span>
+        </a>
       </div>
       <!-- Live demo (desktop) / static screenshot (mobile) -->
       <div class="animate-in delay-3 mx-auto mt-12 max-w-5xl">
@@ -188,7 +191,7 @@ onMounted(() => {
             </h3>
             <p class="mt-2" style="color: var(--vp-c-text-2)">
               Share locations with your household or team. Role-based access
-              with admin, member, and viewer permissions.
+              permissions.
             </p>
           </div>
 
@@ -215,7 +218,7 @@ onMounted(() => {
               class="text-xl font-semibold"
               style="color: var(--vp-c-text-1)"
             >
-              Self-Hosted &amp; Open Source
+              Open Source
             </h3>
             <p class="mt-2" style="color: var(--vp-c-text-2)">
               Your data stays on your hardware. AGPL-3.0 licensed. REST API
