@@ -89,7 +89,7 @@ const plans = [
 
 <template>
   <div class="home-layout">
-    <section class="hero-bg px-6 pt-16 pb-6 text-center">
+    <section class="hero-bg px-6 pt-16 pb-10 text-center">
       <h1
         class="display-heading gradient-text animate-in mx-auto max-w-3xl text-4xl lg:text-5xl"
       >
@@ -107,7 +107,7 @@ const plans = [
       <div class="mx-auto max-w-5xl">
         <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
           <div
-            v-for="(plan, i) in plans"
+            v-for="plan in plans"
             :key="plan.name"
             class="scroll-reveal flex flex-col rounded-lg p-8"
             :style="{
@@ -147,7 +147,7 @@ const plans = [
                 {{ plan.cta }} <span class="btn-arrow">&rarr;</span>
               </a>
             </div>
-            <ul class="mt-8 flex-1 space-y-3" style="list-style: none; padding: 0">
+            <ul class="pricing-list mt-8 flex-1 space-y-3">
               <li
                 v-for="feature in plan.features"
                 :key="feature.name"
@@ -156,6 +156,7 @@ const plans = [
               >
                 <svg
                   v-if="feature.included"
+                  aria-hidden="true"
                   width="18"
                   height="18"
                   viewBox="0 0 24 24"
@@ -171,6 +172,7 @@ const plans = [
                 </svg>
                 <svg
                   v-else
+                  aria-hidden="true"
                   width="18"
                   height="18"
                   viewBox="0 0 24 24"
