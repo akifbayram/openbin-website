@@ -8,7 +8,7 @@ export default defineConfig({
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
-    ['link', { href: 'https://fonts.googleapis.com/css2?family=Syne:wght@700;800&display=swap', rel: 'stylesheet' }],
+    ['link', { href: 'https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&display=swap', rel: 'stylesheet' }],
     ['meta', { property: 'og:title', content: 'OpenBin — Organize Your Physical World' }],
     ['meta', { property: 'og:description', content: 'Self-hosted bin inventory with QR codes and AI' }],
     ['meta', { property: 'og:type', content: 'website' }],
