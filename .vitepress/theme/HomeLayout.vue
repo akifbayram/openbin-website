@@ -22,7 +22,7 @@
           Try Cloud <span class="btn-arrow">&rarr;</span>
         </a>
       </div>
-      <div class="animate-in delay-3 mx-auto mt-12 max-w-4xl overflow-hidden rounded-lg" style="border: 2px solid var(--vp-c-divider)">
+      <div class="animate-in delay-3 hero-parallax mx-auto mt-12 max-w-4xl overflow-hidden rounded-lg" style="border: 2px solid var(--vp-c-divider)">
         <img
           src="/screenshots/dashboard.png"
           alt="OpenBin Dashboard"
@@ -35,14 +35,14 @@
     <section class="px-6 py-16" style="background: var(--vp-c-bg-soft)">
       <div class="mx-auto max-w-6xl">
         <h2
-          class="display-heading animate-in mb-10 text-center text-3xl lg:text-4xl"
+          class="display-heading scroll-reveal mb-10 text-center text-3xl lg:text-4xl"
           style="color: var(--vp-c-text-1)"
         >
           What's in the box
         </h2>
         <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
           <div
-            class="feature-card animate-in delay-2 rounded-lg p-8"
+            class="feature-card scroll-reveal rounded-lg p-8"
             style="background: var(--vp-c-bg)"
           >
             <svg
@@ -76,7 +76,7 @@
           </div>
 
           <div
-            class="feature-card animate-in delay-3 rounded-lg p-8"
+            class="feature-card scroll-reveal rounded-lg p-8"
             style="background: var(--vp-c-bg)"
           >
             <svg
@@ -110,7 +110,7 @@
           </div>
 
           <div
-            class="feature-card animate-in delay-4 rounded-lg p-8"
+            class="feature-card scroll-reveal rounded-lg p-8"
             style="background: var(--vp-c-bg)"
           >
             <svg
@@ -143,7 +143,7 @@
           </div>
 
           <div
-            class="feature-card animate-in delay-5 rounded-lg p-8"
+            class="feature-card scroll-reveal rounded-lg p-8"
             style="background: var(--vp-c-bg)"
           >
             <svg
@@ -180,14 +180,14 @@
     <section class="px-6 py-16">
       <div class="mx-auto max-w-5xl">
         <h2
-          class="display-heading mb-10 text-center text-3xl lg:text-4xl"
+          class="display-heading scroll-reveal mb-10 text-center text-3xl lg:text-4xl"
           style="color: var(--vp-c-text-1)"
         >
           Choose how you run it
         </h2>
         <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
           <div
-            class="rounded-lg p-8 text-left"
+            class="scroll-slide-left rounded-lg p-8 text-left"
             style="border: 1px solid var(--vp-c-divider); background: var(--vp-c-bg-soft)"
           >
             <h3
@@ -217,7 +217,7 @@
           </div>
 
           <div
-            class="rounded-lg p-8 text-left"
+            class="scroll-slide-right rounded-lg p-8 text-left"
             style="border: 1px solid var(--vp-c-brand-1); background: var(--vp-c-bg-soft)"
           >
             <h3
@@ -252,7 +252,7 @@
       style="background: var(--vp-c-bg-soft)"
     >
       <h2
-        class="display-heading text-3xl lg:text-4xl"
+        class="display-heading scroll-reveal text-3xl lg:text-4xl"
         style="color: var(--vp-c-text-1)"
       >
         Stop searching. Start finding.
