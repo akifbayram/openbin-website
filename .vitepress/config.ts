@@ -18,7 +18,11 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  markdown: {
+    externalLinks: { target: '_self' },
+  },
   themeConfig: {
+    externalLinkIcon: false,
     logo: {
       light: '/logo-horizontal.svg',
       dark: '/logo-horizontal-dark.svg',
