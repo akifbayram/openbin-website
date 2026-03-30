@@ -11,6 +11,75 @@
   --vp-c-brand-soft: rgba(94, 47, 224, 0.14);
 }
 
+/* ── Display font + gradient text ── */
+
+.display-heading {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--vp-c-brand-1), var(--vp-c-brand-3), #60a5fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Entrance animations ── */
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-in {
+  animation: fade-in-up 0.6s ease-out backwards;
+}
+
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-in {
+    animation: none;
+  }
+}
+
+/* ── Hero decorative background ── */
+
+.hero-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 600px;
+  background: radial-gradient(ellipse at center, var(--vp-c-brand-soft) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-bg > * {
+  position: relative;
+  z-index: 1;
+}
+
 /* ── Remove page container constraints for full-width home ── */
 
 .VPPage {
@@ -22,11 +91,24 @@
   padding: 0;
 }
 
+/* ── Feature card hover ── */
+
+.feature-card {
+  border: 1px solid var(--vp-c-divider);
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.feature-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--vp-c-brand-1);
+}
+
 /* ── Button styles ── */
 
 .btn-primary {
   display: inline-flex;
   align-items: center;
+  gap: 0.5rem;
   padding: 0.75rem 1.75rem;
   font-size: 1rem;
   font-weight: 600;
@@ -35,17 +117,19 @@
   border: 1px solid var(--vp-c-brand-1);
   border-radius: 8px;
   text-decoration: none;
-  transition: background 0.2s, border-color 0.2s;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
 }
 
 .btn-primary:hover {
   background: var(--vp-c-brand-2);
   border-color: var(--vp-c-brand-2);
+  transform: translateY(-1px);
 }
 
 .btn-secondary {
   display: inline-flex;
   align-items: center;
+  gap: 0.5rem;
   padding: 0.75rem 1.75rem;
   font-size: 1rem;
   font-weight: 600;
@@ -54,11 +138,24 @@
   border: 1px solid var(--vp-c-brand-1);
   border-radius: 8px;
   text-decoration: none;
-  transition: background 0.2s;
+  transition: background 0.2s, transform 0.2s;
 }
 
 .btn-secondary:hover {
   background: var(--vp-c-brand-soft);
+  transform: translateY(-1px);
+}
+
+/* ── Button arrow ── */
+
+.btn-arrow {
+  display: inline-block;
+  transition: transform 0.2s;
+}
+
+.btn-primary:hover .btn-arrow,
+.btn-secondary:hover .btn-arrow {
+  transform: translateX(4px);
 }
 
 /* ── Responsive adjustments ── */

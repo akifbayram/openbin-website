@@ -6,6 +6,14 @@ export default defineConfig({
   description: 'Self-hosted bin inventory with QR codes and AI',
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
+    ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
+    ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
+    ['link', { href: 'https://fonts.googleapis.com/css2?family=Syne:wght@700;800&display=swap', rel: 'stylesheet' }],
+    ['meta', { property: 'og:title', content: 'OpenBin — Organize Your Physical World' }],
+    ['meta', { property: 'og:description', content: 'Self-hosted bin inventory with QR codes and AI' }],
+    ['meta', { property: 'og:type', content: 'website' }],
+    ['meta', { property: 'og:url', content: 'https://openbin.app' }],
+    ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
   ],
   vite: {
     plugins: [tailwindcss()],
@@ -20,7 +28,7 @@ export default defineConfig({
     nav: [
       { text: 'Documentation', link: 'https://docs.openbin.app/' },
       { text: 'Login', link: 'https://cloud.openbin.app/' },
-      { text: 'Billing', link: 'https://cloud.openbin.app/billing' },
+      { text: 'Billing', link: 'https://billing.openbin.app/' },
     ],
     sidebar: false,
     aside: false,
