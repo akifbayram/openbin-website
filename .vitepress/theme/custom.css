@@ -60,3 +60,29 @@
 .btn-secondary:hover {
   background: var(--vp-c-brand-soft);
 }
+
+/* ── Responsive adjustments ── */
+
+@media (max-width: 768px) {
+  .home-layout section {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ── Dark mode button adjustments ── */
+
+.dark .btn-secondary {
+  color: var(--vp-c-brand-3);
+  border-color: var(--vp-c-brand-3);
+}
+
+.dark .btn-secondary:hover {
+  background: rgba(155, 122, 247, 0.1);
+}
