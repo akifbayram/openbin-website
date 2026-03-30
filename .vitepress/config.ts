@@ -18,12 +18,8 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  markdown: {
-    externalLinks: { target: '_self' },
-  },
   appearance: false,
   themeConfig: {
-    externalLinkIcon: false,
     logo: {
       dark: '/logo-horizontal-dark.svg',
       alt: 'OpenBin',

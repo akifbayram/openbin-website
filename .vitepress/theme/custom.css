@@ -151,13 +151,6 @@
   z-index: 1;
 }
 
-/* ── Hide external link icons in nav ── */
-
-.VPNavBarMenuLink .vpi-external-link-icon,
-.VPNavScreenMenuLink .vpi-external-link-icon {
-  display: none;
-}
-
 /* ── Nav logo sizing ── */
 
 .VPNavBarTitle .logo {
