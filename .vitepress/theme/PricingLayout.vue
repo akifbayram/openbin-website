@@ -22,27 +22,6 @@ onMounted(() => {
 
 const plans = [
   {
-    name: 'Self-Hosted',
-    price: 'Free',
-    period: 'forever',
-    description: 'Run on your own hardware. All features, no limits.',
-    cta: 'Get Started',
-    ctaLink: 'https://docs.openbin.app/getting-started/',
-    ctaClass: 'btn-secondary',
-    highlight: false,
-    features: [
-      { name: 'Unlimited locations', included: true },
-      { name: 'Unlimited members', included: true },
-      { name: 'Unlimited photo storage', included: true },
-      { name: 'AI categorization', included: true },
-      { name: 'API keys & MCP server', included: true },
-      { name: 'Custom fields', included: true },
-      { name: 'Full export (ZIP/JSON)', included: true },
-      { name: 'AI reorganization', included: true },
-      { name: 'Bin sharing', included: true },
-    ],
-  },
-  {
     name: 'Lite',
     price: '$5',
     period: '/month',
@@ -55,12 +34,7 @@ const plans = [
       { name: '1 location', included: true },
       { name: '1 member', included: true },
       { name: '100 MB photo storage', included: true },
-      { name: 'AI categorization', included: false },
-      { name: 'API keys & MCP server', included: false },
-      { name: 'Custom fields', included: false },
-      { name: 'Full export (ZIP/JSON)', included: false },
-      { name: 'AI reorganization', included: false },
-      { name: 'Bin sharing', included: false },
+      { name: 'CSV export', included: true },
     ],
   },
   {
@@ -72,6 +46,7 @@ const plans = [
     ctaLink: 'https://cloud.openbin.app/',
     ctaClass: 'btn-primary',
     highlight: true,
+    preamble: 'All of Lite, plus:',
     features: [
       { name: 'Unlimited locations', included: true },
       { name: 'Unlimited members', included: true },
@@ -105,7 +80,7 @@ const plans = [
 
     <section class="px-6 pb-16">
       <div class="mx-auto max-w-5xl">
-        <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+        <div class="mx-auto grid max-w-3xl grid-cols-1 gap-6 md:grid-cols-2">
           <div
             v-for="plan in plans"
             :key="plan.name"
@@ -147,7 +122,14 @@ const plans = [
                 {{ plan.cta }} <span class="btn-arrow">&rarr;</span>
               </a>
             </div>
-            <ul class="pricing-list mt-8 flex-1 space-y-3">
+            <div
+              v-if="plan.preamble"
+              class="mt-8 mb-3 text-sm font-medium"
+              style="color: var(--vp-c-text-3)"
+            >
+              {{ plan.preamble }}
+            </div>
+            <ul :class="['pricing-list flex-1 space-y-3', plan.preamble ? '' : 'mt-8']">
               <li
                 v-for="feature in plan.features"
                 :key="feature.name"
