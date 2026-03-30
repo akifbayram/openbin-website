@@ -88,7 +88,7 @@ onMounted(() => {
           class="display-heading scroll-reveal mb-10 text-center text-3xl lg:text-4xl"
           style="color: var(--vp-c-text-1)"
         >
-          What's in the box
+          What's in the bin
         </h2>
         <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
           <div
