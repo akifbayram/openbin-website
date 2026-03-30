@@ -109,6 +109,24 @@ Three plan columns: Self-Hosted (free), Lite ($5/mo), Pro ($12/mo highlighted). 
 - Specific over vague: "One Docker container" not "easy deployment"
 - Short sentences. Let the product speak for itself.
 
+## SEO Keywords
+
+Target search terms to guide content and meta tag decisions:
+
+- "QR code inventory"
+- "self-hosted inventory app"
+- "bin organization system"
+- "QR label maker"
+- "home inventory open source"
+- "physical storage organizer"
+
+## Performance & Accessibility
+
+- **PageSpeed Insights**: Target 90+ on all four categories (Performance, Accessibility, Best Practices, SEO)
+- **Core Web Vitals**: Green scores for LCP, INP, CLS
+- **Accessibility**: WCAG 2.1 AA compliance — proper heading hierarchy, sufficient color contrast, keyboard navigable, screen reader friendly
+- **Images**: Use descriptive alt text, serve optimized formats (WebP where possible)
+
 ## Development
 
 ```sh
