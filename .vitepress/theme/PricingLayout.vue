@@ -31,7 +31,6 @@ const plans = [
     ctaClass: 'btn-secondary',
     highlight: false,
     features: [
-      { name: 'Unlimited bins', included: true },
       { name: 'Unlimited locations', included: true },
       { name: 'Unlimited members', included: true },
       { name: 'Unlimited photo storage', included: true },
@@ -53,7 +52,6 @@ const plans = [
     ctaClass: 'btn-secondary',
     highlight: false,
     features: [
-      { name: 'Unlimited bins', included: true },
       { name: '1 location', included: true },
       { name: '1 member', included: true },
       { name: '100 MB photo storage', included: true },
@@ -75,7 +73,6 @@ const plans = [
     ctaClass: 'btn-primary',
     highlight: true,
     features: [
-      { name: 'Unlimited bins', included: true },
       { name: 'Unlimited locations', included: true },
       { name: 'Unlimited members', included: true },
       { name: '5 GB photo storage', included: true },
@@ -92,7 +89,7 @@ const plans = [
 
 <template>
   <div class="home-layout">
-    <section class="hero-bg px-6 pt-16 pb-16 text-center">
+    <section class="hero-bg px-6 pt-16 pb-6 text-center">
       <h1
         class="display-heading gradient-text animate-in mx-auto max-w-3xl text-4xl lg:text-5xl"
       >
@@ -108,7 +105,7 @@ const plans = [
 
     <section class="px-6 pb-16">
       <div class="mx-auto max-w-5xl">
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
           <div
             v-for="(plan, i) in plans"
             :key="plan.name"
@@ -186,9 +183,7 @@ const plans = [
                 >
                   <line x1="5" y1="12" x2="19" y2="12" />
                 </svg>
-                <span :style="{ textDecoration: feature.included ? 'none' : 'line-through', opacity: feature.included ? 1 : 0.5 }">
-                  {{ feature.name }}
-                </span>
+                <span>{{ feature.name }}</span>
               </li>
             </ul>
           </div>
@@ -196,25 +191,5 @@ const plans = [
       </div>
     </section>
 
-    <section class="px-6 py-16 text-center" style="background: var(--vp-c-bg-soft)">
-      <h2
-        class="display-heading scroll-reveal text-2xl lg:text-3xl"
-        style="color: var(--vp-c-text-1)"
-      >
-        Rather own the server?
-      </h2>
-      <p
-        class="scroll-reveal mx-auto mt-3 max-w-lg"
-        style="color: var(--vp-c-text-2)"
-      >
-        Self-hosting is free and gives you every feature with no limits.
-        One Docker container, your hardware, your data.
-      </p>
-      <div class="scroll-reveal mt-6">
-        <a href="https://docs.openbin.app/getting-started/" class="btn-primary">
-          Self-Host Guide <span class="btn-arrow">&rarr;</span>
-        </a>
-      </div>
-    </section>
   </div>
 </template>
