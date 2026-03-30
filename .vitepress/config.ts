@@ -21,7 +21,7 @@ export default defineConfig({
   markdown: {
     externalLinks: { target: '_self' },
   },
-  appearance: 'dark',
+  appearance: false,
   themeConfig: {
     externalLinkIcon: false,
     logo: {

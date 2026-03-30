@@ -8,5 +8,8 @@ export default {
   enhanceApp({ app }) {
     app.component('HomeLayout', HomeLayout)
     app.component('PricingLayout', PricingLayout)
+    if (typeof document !== 'undefined') {
+      document.documentElement.classList.add('dark')
+    }
   },
 }
