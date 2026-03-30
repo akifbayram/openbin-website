@@ -49,7 +49,6 @@
               src="/screenshots/print-labels.png"
               alt="QR Labels"
               class="w-full"
-              style="border-bottom: 1px solid var(--vp-c-divider)"
             />
             <div class="p-6">
               <h3
@@ -73,7 +72,6 @@
               src="/screenshots/bin-detail.png"
               alt="AI-Powered"
               class="w-full"
-              style="border-bottom: 1px solid var(--vp-c-divider)"
             />
             <div class="p-6">
               <h3
@@ -97,7 +95,6 @@
               src="/screenshots/qr-scanner.png"
               alt="Multi-User"
               class="w-full"
-              style="border-bottom: 1px solid var(--vp-c-divider)"
             />
             <div class="p-6">
               <h3
