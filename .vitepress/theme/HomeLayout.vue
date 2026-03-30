@@ -36,7 +36,7 @@ onMounted(() => {
       <h1
         class="display-heading gradient-text animate-in mx-auto max-w-3xl text-4xl lg:text-6xl"
       >
-        Organize Your Physical World
+        Inventory with intelligence.
       </h1>
       <p
         class="animate-in delay-1 mx-auto mt-6 max-w-2xl text-lg lg:text-xl"
@@ -343,8 +343,8 @@ onMounted(() => {
               Share with your household
             </h3>
             <p class="mt-4 text-lg" style="color: var(--vp-c-text-2)">
-              Invite your family or team. Three roles — admin, member, viewer
-              — control who can edit and who can browse. Everyone sees the
+              Invite your family or team. Three roles (admin, member, viewer)
+              control who can edit and who can browse. Everyone sees the
               same inventory.
             </p>
           </div>
@@ -600,7 +600,7 @@ onMounted(() => {
             <div class="faq-answer" :class="{ 'faq-answer--open': openFaq === 0 }">
               <div class="overflow-hidden">
                 <p class="pb-4" style="color: var(--vp-c-text-2)">
-                  No. AI is optional — it speeds up cataloging but everything works
+                  No. AI is optional. It speeds up cataloging but everything works
                   without it. Bring your own API key from OpenAI, Anthropic, or
                   Gemini if you want it.
                 </p>
@@ -635,8 +635,7 @@ onMounted(() => {
                 <p class="pb-4" style="color: var(--vp-c-text-2)">
                   Yes. Self-host on your own hardware and your data never leaves your
                   network. The cloud version stores data on managed infrastructure.
-                  No telemetry, no analytics, no third-party sharing. AGPL-3.0
-                  licensed — read every line of code.
+                  No telemetry, no analytics, no third-party sharing.
                 </p>
               </div>
             </div>
@@ -700,8 +699,8 @@ onMounted(() => {
             <div class="faq-answer" :class="{ 'faq-answer--open': openFaq === 3 }">
               <div class="overflow-hidden">
                 <p class="pb-4" style="color: var(--vp-c-text-2)">
-                  Yes. Create a location, share an invite code. Three roles — admin,
-                  member, viewer — control who can edit and who can only browse.
+                  Yes. Create a location, share an invite code. Three roles (admin,
+                  member, viewer) control who can edit and who can only browse.
                 </p>
               </div>
             </div>
