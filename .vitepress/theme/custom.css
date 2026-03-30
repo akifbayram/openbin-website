@@ -151,6 +151,13 @@
   z-index: 1;
 }
 
+/* ── Nav logo sizing ── */
+
+.VPNavBarTitle .logo {
+  height: 32px;
+  width: auto;
+}
+
 /* ── Remove page container constraints for full-width home ── */
 
 .VPPage {

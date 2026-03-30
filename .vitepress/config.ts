@@ -21,10 +21,10 @@ export default defineConfig({
   markdown: {
     externalLinks: { target: '_self' },
   },
+  appearance: 'dark',
   themeConfig: {
     externalLinkIcon: false,
     logo: {
-      light: '/logo-horizontal.svg',
       dark: '/logo-horizontal-dark.svg',
       alt: 'OpenBin',
     },
