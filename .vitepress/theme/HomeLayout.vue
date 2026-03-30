@@ -1,3 +1,28 @@
+<script setup>
+import { onMounted } from 'vue'
+
+onMounted(() => {
+  const targets = document.querySelectorAll(
+    '.scroll-reveal, .scroll-slide-left, .scroll-slide-right'
+  )
+  if (!targets.length) return
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('scroll-visible')
+          observer.unobserve(entry.target)
+        }
+      })
+    },
+    { threshold: 0.15 }
+  )
+
+  targets.forEach((el) => observer.observe(el))
+})
+</script>
+
 <template>
   <div class="home-layout">
     <!-- Hero -->
@@ -22,7 +47,7 @@
           Try Cloud <span class="btn-arrow">&rarr;</span>
         </a>
       </div>
-      <div class="animate-in delay-3 hero-parallax mx-auto mt-12 max-w-4xl overflow-hidden rounded-lg" style="border: 2px solid var(--vp-c-divider)">
+      <div class="animate-in delay-3 mx-auto mt-12 max-w-4xl overflow-hidden rounded-lg" style="border: 2px solid var(--vp-c-divider)">
         <img
           src="/screenshots/dashboard.png"
           alt="OpenBin Dashboard"

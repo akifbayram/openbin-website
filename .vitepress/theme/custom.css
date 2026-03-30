@@ -56,56 +56,32 @@
   }
 }
 
-/* ── Scroll-driven animations ── */
+/* ── Scroll reveal (IntersectionObserver-driven) ── */
 
-@keyframes slide-in-left {
-  from { opacity: 0; transform: translateX(-40px); }
-  to { opacity: 1; transform: translateX(0); }
+.scroll-reveal,
+.scroll-slide-left,
+.scroll-slide-right {
+  opacity: 0;
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@keyframes slide-in-right {
-  from { opacity: 0; transform: translateX(40px); }
-  to { opacity: 1; transform: translateX(0); }
-}
+.scroll-reveal { transform: translateY(20px); }
+.scroll-slide-left { transform: translateX(-40px); }
+.scroll-slide-right { transform: translateX(40px); }
 
-@keyframes parallax-shift {
-  to { transform: translateY(60px); }
-}
-
-@supports (animation-timeline: view()) {
-  .scroll-reveal {
-    animation: fade-in-up 1s cubic-bezier(0.16, 1, 0.3, 1) both;
-    animation-timeline: view();
-    animation-range: entry 0% entry 35%;
-  }
-
-  .scroll-slide-left {
-    animation: slide-in-left 1s cubic-bezier(0.16, 1, 0.3, 1) both;
-    animation-timeline: view();
-    animation-range: entry 0% entry 35%;
-  }
-
-  .scroll-slide-right {
-    animation: slide-in-right 1s cubic-bezier(0.16, 1, 0.3, 1) both;
-    animation-timeline: view();
-    animation-range: entry 0% entry 35%;
-  }
-}
-
-@supports (animation-timeline: scroll()) {
-  .hero-parallax {
-    animation: parallax-shift linear both;
-    animation-timeline: scroll();
-    animation-range: 0% 40%;
-  }
+.scroll-visible {
+  opacity: 1 !important;
+  transform: none !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .scroll-reveal,
   .scroll-slide-left,
-  .scroll-slide-right,
-  .hero-parallax {
-    animation: none !important;
+  .scroll-slide-right {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
 
