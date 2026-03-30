@@ -1,7 +1,7 @@
 <template>
   <div class="home-layout">
     <!-- Hero -->
-    <section class="hero-bg px-6 pt-24 pb-16 text-center">
+    <section class="hero-bg px-6 pt-16 pb-12 text-center">
       <h1
         class="display-heading gradient-text animate-in mx-auto max-w-3xl text-4xl lg:text-6xl"
       >
@@ -14,7 +14,7 @@
         Self-hosted inventory system with QR codes, AI categorization, and
         multi-user collaboration. Know exactly what you have and where it is.
       </p>
-      <div class="animate-in delay-2 mt-10 flex flex-wrap justify-center gap-4">
+      <div class="animate-in delay-2 mt-8 flex flex-wrap justify-center gap-4">
         <a href="https://docs.openbin.app/getting-started/" class="btn-primary">
           Get Started <span class="btn-arrow">&rarr;</span>
         </a>
@@ -22,7 +22,7 @@
           Try Cloud <span class="btn-arrow">&rarr;</span>
         </a>
       </div>
-      <div class="animate-in delay-3 mx-auto mt-16 max-w-4xl overflow-hidden rounded-lg" style="border: 2px solid var(--vp-c-divider)">
+      <div class="animate-in delay-3 mx-auto mt-12 max-w-4xl overflow-hidden rounded-lg" style="border: 2px solid var(--vp-c-divider)">
         <img
           src="/screenshots/dashboard.png"
           alt="OpenBin Dashboard"
@@ -32,10 +32,10 @@
     </section>
 
     <!-- Features -->
-    <section class="px-6 py-24" style="background: var(--vp-c-bg-soft)">
+    <section class="px-6 py-16" style="background: var(--vp-c-bg-soft)">
       <div class="mx-auto max-w-6xl">
         <h2
-          class="display-heading animate-in mb-16 text-center text-3xl lg:text-4xl"
+          class="display-heading animate-in mb-10 text-center text-3xl lg:text-4xl"
           style="color: var(--vp-c-text-1)"
         >
           What's in the box
@@ -147,10 +147,10 @@
     </section>
 
     <!-- Self-Host vs Cloud -->
-    <section class="px-6 py-24">
+    <section class="px-6 py-16">
       <div class="mx-auto max-w-5xl">
         <h2
-          class="display-heading mb-16 text-center text-3xl lg:text-4xl"
+          class="display-heading mb-10 text-center text-3xl lg:text-4xl"
           style="color: var(--vp-c-text-1)"
         >
           Choose how you run it
@@ -218,7 +218,7 @@
 
     <!-- Bottom CTA -->
     <section
-      class="px-6 py-24 text-center"
+      class="px-6 py-16 text-center"
       style="background: var(--vp-c-bg-soft)"
     >
       <h2
@@ -230,7 +230,7 @@
       <p class="mx-auto mt-4 max-w-xl text-lg" style="color: var(--vp-c-text-2)">
         Free to self-host. Cloud if you'd rather not.
       </p>
-      <div class="mt-10 flex flex-wrap justify-center gap-4">
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
         <a href="https://docs.openbin.app/getting-started/" class="btn-primary">
           Get Started <span class="btn-arrow">&rarr;</span>
         </a>
