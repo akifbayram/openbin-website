@@ -36,8 +36,8 @@ onMounted(() => {
         class="animate-in delay-1 mx-auto mt-6 max-w-2xl text-lg lg:text-xl"
         style="color: var(--vp-c-text-2)"
       >
-        Self-hosted inventory system with QR codes, AI categorization, and
-        multi-user collaboration. Know exactly what you have and where it is.
+        Inventory with intelligence. QR codes, photo recognition, and
+        multi-user collaboration. Know what you have and where it is.
       </p>
       <div class="animate-in delay-2 mt-8 flex flex-wrap justify-center gap-4">
         <a href="https://docs.openbin.app/getting-started/" class="btn-primary">
@@ -91,7 +91,7 @@ onMounted(() => {
           class="display-heading scroll-reveal mb-10 text-center text-3xl lg:text-4xl"
           style="color: var(--vp-c-text-1)"
         >
-          What's in the bin
+          What's in OpenBin
         </h2>
         <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
           <div
@@ -154,11 +154,11 @@ onMounted(() => {
               class="text-xl font-semibold"
               style="color: var(--vp-c-text-1)"
             >
-              AI-Powered
+              Built-in Intelligence
             </h3>
             <p class="mt-2" style="color: var(--vp-c-text-2)">
-              Snap a photo or describe what's in a bin. AI names it, tags it,
-              and sorts it. Bring your own API key.
+              Snap a photo or describe what's in a bin. It gets named, tagged,
+              and sorted. Bring your own API key.
             </p>
           </div>
 
