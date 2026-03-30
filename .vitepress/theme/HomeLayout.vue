@@ -47,12 +47,25 @@ onMounted(() => {
           Try Cloud <span class="btn-arrow">&rarr;</span>
         </a>
       </div>
-      <div class="animate-in delay-3 mx-auto mt-12 max-w-4xl overflow-hidden rounded-lg" style="border: 2px solid var(--vp-c-divider)">
-        <img
-          src="/screenshots/dashboard.png"
-          alt="OpenBin Dashboard"
-          class="w-full"
-        />
+      <!-- Live demo (desktop) / static screenshot (mobile) -->
+      <div class="animate-in delay-3 mx-auto mt-12 max-w-5xl">
+        <div class="demo-frame hidden lg:block overflow-hidden rounded-lg" style="border: 2px solid var(--vp-c-divider)">
+          <iframe
+            src="https://demo.openbin.app"
+            title="OpenBin Demo"
+            loading="lazy"
+            allow="clipboard-write"
+            class="w-full"
+            style="height: 600px; border: none; background: var(--vp-c-bg)"
+          />
+        </div>
+        <div class="lg:hidden overflow-hidden rounded-lg" style="border: 2px solid var(--vp-c-divider)">
+          <img
+            src="/screenshots/dashboard.png"
+            alt="OpenBin Dashboard"
+            class="w-full"
+          />
+        </div>
       </div>
     </section>
 
