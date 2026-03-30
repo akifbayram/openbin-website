@@ -97,13 +97,6 @@ const plans = [
               background: 'var(--vp-c-bg-soft)',
             }"
           >
-            <div
-              v-if="plan.highlight"
-              class="mb-4 inline-flex self-start rounded-md px-3 py-1 text-xs font-semibold"
-              style="background: var(--vp-c-brand-soft); color: var(--vp-c-brand-1)"
-            >
-              Most Popular
-            </div>
             <h3
               class="text-2xl font-semibold"
               style="color: var(--vp-c-text-1)"
