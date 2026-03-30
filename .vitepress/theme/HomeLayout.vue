@@ -40,107 +40,137 @@
         >
           What's in the box
         </h2>
-        <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
           <div
-            class="feature-card animate-in delay-2 overflow-hidden rounded-lg text-left"
+            class="feature-card animate-in delay-2 rounded-lg p-8"
             style="background: var(--vp-c-bg)"
           >
-            <img
-              src="/screenshots/print-labels.png"
-              alt="QR Labels"
-              class="w-full"
-            />
-            <div class="p-6">
-              <h3
-                class="text-xl font-semibold"
-                style="color: var(--vp-c-text-1)"
-              >
-                QR Labels
-              </h3>
-              <p class="mt-2" style="color: var(--vp-c-text-2)">
-                Print and scan QR labels to find anything instantly. Customize
-                label formats, colors, and styles.
-              </p>
-            </div>
+            <svg
+              class="mb-4"
+              width="40"
+              height="40"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              style="color: var(--vp-c-brand-1)"
+            >
+              <path d="M3 7V5a2 2 0 0 1 2-2h2" />
+              <path d="M17 3h2a2 2 0 0 1 2 2v2" />
+              <path d="M21 17v2a2 2 0 0 1-2 2h-2" />
+              <path d="M7 21H5a2 2 0 0 1-2-2v-2" />
+              <line x1="7" x2="17" y1="12" y2="12" />
+            </svg>
+            <h3
+              class="text-xl font-semibold"
+              style="color: var(--vp-c-text-1)"
+            >
+              QR Labels
+            </h3>
+            <p class="mt-2" style="color: var(--vp-c-text-2)">
+              Print and scan QR labels to find anything instantly. Customize
+              label formats, colors, and styles.
+            </p>
           </div>
 
           <div
-            class="feature-card animate-in delay-3 overflow-hidden rounded-lg text-left"
+            class="feature-card animate-in delay-3 rounded-lg p-8"
             style="background: var(--vp-c-bg)"
           >
-            <img
-              src="/screenshots/bin-detail.png"
-              alt="AI-Powered"
-              class="w-full"
-            />
-            <div class="p-6">
-              <h3
-                class="text-xl font-semibold"
-                style="color: var(--vp-c-text-1)"
-              >
-                AI-Powered
-              </h3>
-              <p class="mt-2" style="color: var(--vp-c-text-2)">
-                Snap a photo or describe what's in a bin. AI names it, tags it,
-                and sorts it. Bring your own API key.
-              </p>
-            </div>
+            <svg
+              class="mb-4"
+              width="40"
+              height="40"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              style="color: var(--vp-c-brand-1)"
+            >
+              <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
+              <path d="M5 3v4" />
+              <path d="M19 17v4" />
+              <path d="M3 5h4" />
+              <path d="M17 19h4" />
+            </svg>
+            <h3
+              class="text-xl font-semibold"
+              style="color: var(--vp-c-text-1)"
+            >
+              AI-Powered
+            </h3>
+            <p class="mt-2" style="color: var(--vp-c-text-2)">
+              Snap a photo or describe what's in a bin. AI names it, tags it,
+              and sorts it. Bring your own API key.
+            </p>
           </div>
 
           <div
-            class="feature-card animate-in delay-4 overflow-hidden rounded-lg text-left"
+            class="feature-card animate-in delay-4 rounded-lg p-8"
             style="background: var(--vp-c-bg)"
           >
-            <img
-              src="/screenshots/qr-scanner.png"
-              alt="Multi-User"
-              class="w-full"
-            />
-            <div class="p-6">
-              <h3
-                class="text-xl font-semibold"
-                style="color: var(--vp-c-text-1)"
-              >
-                Multi-User
-              </h3>
-              <p class="mt-2" style="color: var(--vp-c-text-2)">
-                Share locations with your household or team. Role-based access
-                with admin, member, and viewer permissions.
-              </p>
-            </div>
+            <svg
+              class="mb-4"
+              width="40"
+              height="40"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              style="color: var(--vp-c-brand-1)"
+            >
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg>
+            <h3
+              class="text-xl font-semibold"
+              style="color: var(--vp-c-text-1)"
+            >
+              Multi-User
+            </h3>
+            <p class="mt-2" style="color: var(--vp-c-text-2)">
+              Share locations with your household or team. Role-based access
+              with admin, member, and viewer permissions.
+            </p>
           </div>
 
           <div
-            class="feature-card animate-in delay-5 overflow-hidden rounded-lg"
+            class="feature-card animate-in delay-5 rounded-lg p-8"
             style="background: var(--vp-c-bg)"
           >
-            <div class="flex h-full flex-col justify-center p-8 text-center">
-              <svg
-                class="mx-auto mb-4"
-                width="48"
-                height="48"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                style="color: var(--vp-c-brand-1)"
-              >
-                <polyline points="16 18 22 12 16 6" />
-                <polyline points="8 6 2 12 8 18" />
-              </svg>
-              <h3
-                class="text-xl font-semibold"
-                style="color: var(--vp-c-text-1)"
-              >
-                Self-Hosted &amp; Open Source
-              </h3>
-              <p class="mt-2" style="color: var(--vp-c-text-2)">
-                Your data stays on your hardware. AGPL-3.0 licensed. REST API
-                and MCP server included.
-              </p>
-            </div>
+            <svg
+              class="mb-4"
+              width="40"
+              height="40"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              style="color: var(--vp-c-brand-1)"
+            >
+              <polyline points="16 18 22 12 16 6" />
+              <polyline points="8 6 2 12 8 18" />
+            </svg>
+            <h3
+              class="text-xl font-semibold"
+              style="color: var(--vp-c-text-1)"
+            >
+              Self-Hosted &amp; Open Source
+            </h3>
+            <p class="mt-2" style="color: var(--vp-c-text-2)">
+              Your data stays on your hardware. AGPL-3.0 licensed. REST API
+              and MCP server included.
+            </p>
           </div>
         </div>
       </div>

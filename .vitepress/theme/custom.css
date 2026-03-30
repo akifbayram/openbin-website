@@ -104,10 +104,6 @@
   border-color: var(--vp-c-brand-1);
 }
 
-.feature-card img {
-  border-bottom: 1px solid var(--vp-c-divider);
-}
-
 /* ── Button styles ── */
 
 .btn-primary {
