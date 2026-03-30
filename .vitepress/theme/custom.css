@@ -308,3 +308,18 @@
   pointer-events: none;
   white-space: nowrap;
 }
+
+/* ── Step number circle ── */
+
+.step-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--vp-c-brand-1);
+  border-radius: 50%;
+}

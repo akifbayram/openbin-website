@@ -87,6 +87,116 @@ onMounted(() => {
       </div>
     </section>
 
+    <!-- How It Works -->
+    <section class="px-6 py-16" style="background: var(--vp-c-bg-soft)">
+      <div class="mx-auto max-w-5xl">
+        <h2
+          class="display-heading scroll-reveal mb-2 text-center text-3xl lg:text-4xl"
+          style="color: var(--vp-c-text-1)"
+        >
+          How It Works
+        </h2>
+        <p
+          class="scroll-reveal mb-12 text-center text-lg"
+          style="color: var(--vp-c-text-2)"
+        >
+          Three steps from chaos to catalog.
+        </p>
+        <div class="grid grid-cols-1 gap-10 lg:grid-cols-3">
+          <!-- Step 1 -->
+          <div class="scroll-reveal text-center">
+            <div class="step-number mx-auto mb-4">1</div>
+            <svg
+              class="mx-auto mb-4"
+              width="40"
+              height="40"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              style="color: var(--vp-c-brand-1)"
+            >
+              <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3Z" />
+              <circle cx="12" cy="13" r="3" />
+            </svg>
+            <h3
+              class="text-xl font-semibold"
+              style="color: var(--vp-c-text-1)"
+            >
+              Snap a photo
+            </h3>
+            <p class="mx-auto mt-2 max-w-xs" style="color: var(--vp-c-text-2)">
+              Take a picture of what's inside. AI names the bin, lists every
+              item, and suggests tags. Or type it yourself.
+            </p>
+          </div>
+          <!-- Step 2 -->
+          <div class="scroll-reveal text-center">
+            <div class="step-number mx-auto mb-4">2</div>
+            <svg
+              class="mx-auto mb-4"
+              width="40"
+              height="40"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              style="color: var(--vp-c-brand-1)"
+            >
+              <path d="M3 7V5a2 2 0 0 1 2-2h2" />
+              <path d="M17 3h2a2 2 0 0 1 2 2v2" />
+              <path d="M21 17v2a2 2 0 0 1-2 2h-2" />
+              <path d="M7 21H5a2 2 0 0 1-2-2v-2" />
+              <line x1="7" x2="17" y1="12" y2="12" />
+            </svg>
+            <h3
+              class="text-xl font-semibold"
+              style="color: var(--vp-c-text-1)"
+            >
+              Stick a QR label
+            </h3>
+            <p class="mx-auto mt-2 max-w-xs" style="color: var(--vp-c-text-2)">
+              Print a label and stick it on the box, shelf, or drawer.
+              Customize the format, colors, and style.
+            </p>
+          </div>
+          <!-- Step 3 -->
+          <div class="scroll-reveal text-center">
+            <div class="step-number mx-auto mb-4">3</div>
+            <svg
+              class="mx-auto mb-4"
+              width="40"
+              height="40"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              style="color: var(--vp-c-brand-1)"
+            >
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.3-4.3" />
+            </svg>
+            <h3
+              class="text-xl font-semibold"
+              style="color: var(--vp-c-text-1)"
+            >
+              Scan to find anything
+            </h3>
+            <p class="mx-auto mt-2 max-w-xs" style="color: var(--vp-c-text-2)">
+              Scan any label with your phone to see what's inside. Or search
+              by name, tag, or area.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Features -->
     <section class="px-6 py-16" style="background: var(--vp-c-bg-soft)">
       <div class="mx-auto max-w-6xl">
