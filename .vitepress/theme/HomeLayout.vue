@@ -463,8 +463,11 @@ onUnmounted(() => {
       <!-- Live demo (desktop) / static screenshot (mobile) -->
       <div class="animate-in delay-5 mx-auto mt-12 max-w-5xl">
         <div class="relative hidden lg:block">
-          <span class="try-me-badge pulse-dot">Live Demo</span>
           <div class="device-frame">
+            <div class="bezel-label">
+              <span class="bezel-status-dot"></span>
+              LIVE DEMO
+            </div>
             <div class="device-frame-screen">
               <iframe
                 src="https://demo.openbin.app"

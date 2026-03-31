@@ -257,52 +257,6 @@
   }
 }
 
-/* ── Pulse indicator (attention dot on badges, like leadverse.ai ping) ── */
-
-@keyframes pulse-ring {
-  0% {
-    transform: scale(1);
-    opacity: 0.5;
-  }
-  100% {
-    transform: scale(2.2);
-    opacity: 0;
-  }
-}
-
-.pulse-dot {
-  position: relative;
-}
-
-.pulse-dot::after {
-  content: '';
-  position: absolute;
-  top: -3px;
-  right: -3px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #22c55e;
-}
-
-.pulse-dot::before {
-  content: '';
-  position: absolute;
-  top: -3px;
-  right: -3px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #22c55e;
-  animation: pulse-ring 2s ease-out infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .pulse-dot::before {
-    animation: none;
-    opacity: 0;
-  }
-}
 
 /* ── Wire connector (How It Works steps, like leadverse.ai cs-wire-travel) ── */
 
@@ -591,21 +545,33 @@
   background: rgba(155, 122, 247, 0.1);
 }
 
-/* ── Try Me badge ── */
+/* ── Bezel-engraved label (live demo indicator) ── */
 
-.try-me-badge {
-  position: absolute;
-  top: -12px;
-  left: 24px;
-  z-index: 2;
-  padding: 4px 12px;
-  font-size: 0.75rem;
+.bezel-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: -4px;
+  padding-bottom: 6px;
+  font-size: 0.65rem;
   font-weight: 600;
-  color: #fff;
-  background: var(--vp-c-brand-1);
-  border-radius: 999px;
-  pointer-events: none;
-  white-space: nowrap;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.3);
+  font-family: ui-monospace, 'SF Mono', 'Cascadia Code', monospace;
+  user-select: none;
+}
+
+:root:not(.dark) .bezel-label {
+  color: rgba(0, 0, 0, 0.25);
+}
+
+.bezel-status-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--vp-c-brand-2);
+  opacity: 0.7;
 }
 
 /* ── Step number circle ── */
@@ -658,6 +624,20 @@
 
 .faq-answer--open {
   grid-template-rows: 1fr;
+}
+
+/* ── Screen reader only ── */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
 /* ── Photo to Bin Timeline ── */
