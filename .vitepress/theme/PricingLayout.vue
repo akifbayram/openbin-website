@@ -46,7 +46,7 @@ const plans = [
     name: 'Pro',
     price: '$12',
     period: '/month',
-    description: 'For teams and power users who want it all.',
+    description: 'For teams and households sharing one inventory.',
     cta: 'Start Free Trial',
     ctaLink: 'https://cloud.openbin.app/',
     ctaClass: 'btn-primary',
@@ -73,7 +73,7 @@ const plans = [
       <h1
         class="display-heading gradient-text animate-in mx-auto max-w-3xl text-4xl lg:text-5xl"
       >
-        Simple, transparent pricing
+        Two plans. Unlimited bins.
       </h1>
       <p
         class="animate-in delay-1 mx-auto mt-4 max-w-xl text-lg"

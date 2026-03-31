@@ -2,15 +2,15 @@ import tailwindcss from '@tailwindcss/vite'
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
-  title: 'OpenBin - Inventory with Intelligence',
-  description: 'Snap a photo, let AI catalog it. QR labels, search, and multi-user access.',
+  title: 'OpenBin | Inventory with Intelligence',
+  description: 'Snap a photo, let AI catalog it. QR labels and shared access for your whole household.',
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
     ['link', { href: 'https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&display=swap', rel: 'stylesheet' }],
     ['meta', { property: 'og:title', content: 'OpenBin - Inventory with Intelligence' }],
-    ['meta', { property: 'og:description', content: 'Snap a photo, let AI catalog it. QR labels, search, and multi-user access.' }],
+    ['meta', { property: 'og:description', content: 'Snap a photo, let AI catalog it. QR labels and shared access for your whole household.' }],
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:url', content: 'https://openbin.app' }],
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
@@ -39,7 +39,7 @@ export default defineConfig({
     ],
     footer: {
       message: 'Open source on GitHub',
-      copyright: '© 2025 OpenBin',
+      copyright: '© 2026 OpenBin',
     },
   },
 })
