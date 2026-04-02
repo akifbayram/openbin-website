@@ -449,10 +449,10 @@ onUnmounted(() => {
       </p>
 
       <div class="animate-in delay-3 mt-8 flex flex-wrap justify-center gap-4">
-        <a href="https://docs.openbin.app/getting-started/" class="btn-primary">
+        <a href="/docs/getting-started/" class="btn-primary">
           Get Started <span class="btn-arrow">&rarr;</span>
         </a>
-        <a href="https://demo.openbin.app" class="btn-secondary">
+        <a href="https://demo.openbin.app" target="_blank" rel="noopener" class="btn-secondary">
           Try Demo <span class="btn-arrow">&rarr;</span>
         </a>
         <a href="https://cloud.openbin.app/" class="btn-secondary">
@@ -978,7 +978,7 @@ onUnmounted(() => {
             </ul>
             <div class="mt-8">
               <a
-                href="https://docs.openbin.app/getting-started/"
+                href="/docs/getting-started/"
                 class="btn-secondary"
               >
                 Get Started <span class="btn-arrow">&rarr;</span>
@@ -1075,7 +1075,7 @@ onUnmounted(() => {
         Free to self-host. Cloud if you'd rather not.
       </p>
       <div class="scroll-reveal mt-8 flex flex-wrap justify-center gap-4">
-        <a href="https://docs.openbin.app/getting-started/" class="btn-primary">
+        <a href="/docs/getting-started/" class="btn-primary">
           Get Started <span class="btn-arrow">&rarr;</span>
         </a>
         <a href="https://cloud.openbin.app/" class="btn-secondary">

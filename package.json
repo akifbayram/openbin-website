@@ -12,5 +12,8 @@
     "@tailwindcss/vite": "^4.2.2",
     "tailwindcss": "^4.2.2",
     "vitepress": "^1.6.4"
+  },
+  "dependencies": {
+    "medium-zoom": "^1.1.0"
   }
 }
