@@ -452,6 +452,9 @@ onUnmounted(() => {
         <a href="https://docs.openbin.app/getting-started/" class="btn-primary">
           Get Started <span class="btn-arrow">&rarr;</span>
         </a>
+        <a href="https://demo.openbin.app" class="btn-secondary">
+          Try Demo <span class="btn-arrow">&rarr;</span>
+        </a>
         <a href="https://cloud.openbin.app/" class="btn-secondary">
           Try Cloud <span class="btn-arrow">&rarr;</span>
         </a>
