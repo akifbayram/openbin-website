@@ -164,15 +164,6 @@ onMounted(() => {
   <div class="home-layout">
     <!-- ════════ Hero ════════ -->
     <section class="hero-bg px-6 pt-16 pb-10 text-center">
-      <h1
-        class="display-heading gradient-text animate-in mx-auto max-w-3xl text-4xl lg:text-5xl"
-      >
-        Two plans. No surprises.
-      </h1>
-      <p class="animate-in delay-1 mx-auto mt-4 max-w-xl text-lg">
-        Self-host free or let us run it. Every plan includes unlimited bins.
-      </p>
-
       <!-- Billing toggle -->
       <div
         class="animate-in delay-2 billing-toggle mx-auto mt-8"
@@ -400,6 +391,7 @@ onMounted(() => {
             <button
               class="flex w-full items-center justify-between py-4 text-left"
               :aria-expanded="openFaq === i"
+              :aria-controls="'pricing-faq-' + i"
               @click="toggleFaq(i)"
             >
               <span class="pr-4 text-lg font-semibold">{{ faq.q }}</span>
@@ -418,7 +410,7 @@ onMounted(() => {
                 <path d="m6 9 6 6 6-6" />
               </svg>
             </button>
-            <div class="faq-answer" :class="{ 'faq-answer--open': openFaq === i }">
+            <div :id="'pricing-faq-' + i" role="region" class="faq-answer" :class="{ 'faq-answer--open': openFaq === i }">
               <div class="overflow-hidden">
                 <p class="pb-4">{{ faq.a }}</p>
               </div>
@@ -430,14 +422,16 @@ onMounted(() => {
 
     <!-- ════════ Bottom CTA ════════ -->
     <section class="cta-bg px-6 py-16 text-center">
-      <h2 class="display-heading scroll-reveal text-3xl lg:text-4xl">
-        Your stuff, finally findable.
+      <h2
+        class="display-heading scroll-reveal text-3xl lg:text-4xl"
+      >
+        Start organizing
       </h2>
       <p class="scroll-reveal mx-auto mt-4 max-w-xl text-lg">
-        Free to self-host. Cloud plans start at $5/month.
+        Self-host for free or try cloud for 7 days.
       </p>
       <div class="scroll-reveal mt-8 flex flex-wrap justify-center gap-4">
-        <a href="https://docs.openbin.app/getting-started/" class="btn-primary">
+        <a href="/docs/getting-started/" class="btn-primary">
           Get Started <span class="btn-arrow">&rarr;</span>
         </a>
         <a href="https://cloud.openbin.app/" class="btn-secondary">

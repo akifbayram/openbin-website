@@ -1,102 +1,42 @@
----
-layout: home
+# What is OpenBin?
 
-hero:
-  name: "OpenBin"
-  text: "Self-hosted bin inventory"
-  tagline: Organize physical storage bins with QR codes and AI. Print labels, scan to find, ask where things are.
-  actions:
-    - theme: brand
-      text: Get Started →
-      link: /docs/getting-started/
-    - theme: alt
-      text: View on GitHub
-      link: https://github.com/akifbayram/openbin
-    - theme: alt
-      text: Live Demo
-      link: https://demo.openbin.app
-    - theme: alt
-      text: Discord
-      link: https://discord.gg/W6JPZCqqx9
+OpenBin is an open source inventory system that turns physical storage into something searchable. Stick a QR label on a bin, snap a photo of the contents, and AI catalogs everything inside. When you need to find something later, search instead of digging through boxes.
 
-features:
-  - icon: 🤖
-    title: AI Photo Analysis
-    details: Capture a photo in-app or from your gallery and AI names the bin, lists every item with quantities, suggests tags, and adds notes.
-    link: /docs/guide/ai
-    linkText: Learn more
-  - icon: 📦
-    title: QR Scanning
-    details: Scan any bin's QR label with your phone camera to instantly see its contents.
-    link: /docs/guide/qr-scanning
-    linkText: Learn more
-  - icon: 🖨️
-    title: Print Labels
-    details: Generate and print QR label sheets or name cards with customizable formats, sizes, and styles.
-    link: /docs/guide/print-labels
-    linkText: Learn more
-  - icon: 👥
-    title: Multi-user
-    details: Share locations with invite codes. Role-based access with nested, hierarchical areas.
-    link: /docs/guide/locations
-    linkText: Learn more
-  - icon: 🔌
-    title: REST API
-    details: Long-lived API keys for headless access and automation. Full OpenAPI spec included.
-    link: /docs/api/
-    linkText: API docs
-  - icon: 🔗
-    title: MCP Server
-    details: Connect Claude and other AI assistants directly to your inventory via Model Context Protocol.
-    link: /docs/guide/mcp-server
-    linkText: Learn more
----
+## How it works
 
-## Features
+OpenBin organizes physical storage using a hierarchy:
 
-<div class="home-features">
+**Location** → **Area** → **Bin** → **Items**
 
-### Organize
+- A **Location** is a shared workspace (e.g. "Home", "Workshop"). All data lives inside a location.
+- An **Area** is an optional sub-zone within a location (e.g. "Garage", "Closet") for grouping bins.
+- A **Bin** is a physical container, like a box, drawer, or shelf. Each bin gets a unique QR code.
+- **Items** are the individual things stored inside a bin.
 
-- Create bins with names, items (with quantities), notes, and tags
-- Group bins into hierarchical areas and sub-areas within locations
-- Color-code bins with icons and card styles (gradient, stripe, border, photo cover)
-- Pin frequently used bins to your dashboard
-- Save search views and reuse them with one click
-- Bulk operations: tag, move, change appearance, or delete multiple bins at once
-- Soft-delete with trash and restore
+### Typical workflow
 
-### AI & Automation
+1. [Register and create or join a location](/docs/guide/locations)
+2. [Create bins](/docs/guide/bins) for your physical containers
+3. [Print QR labels](/docs/guide/print-labels) and attach them to your bins
+4. [Scan a label](/docs/guide/qr-scanning) to see what's inside
 
-- Photo analysis: snap a photo and AI names the bin, lists items with quantities, suggests tags and notes
-- Natural language commands: "Add batteries to the tools bin" or "Create a bin with screws, bolts, and washers"
-- AI reorganization: suggest how to restructure an entire location's bins, areas, and tags
-- Bring your own AI: supports OpenAI, Anthropic, Gemini, and any OpenAI-compatible endpoint
-- Per-user AI settings with encrypted API key storage
+## Who it's for
 
-### QR Labels & Scanning
+Households organizing garages, closets, and storage units. Small teams tracking tools or supplies across shared spaces. Anyone who wants to self-host their inventory data in a single Docker container.
 
-- Generate customizable QR label sheets with multiple formats and sizes
-- Style QR codes with custom dot/corner patterns and colors
-- Print name-card labels or item-list sheets
-- Scan any label with your phone camera to see what's inside
-- Works with both the built-in scanner and any standard QR reader
+## What you can do with it
 
-### Multi-user & Access Control
+Print QR label sheets and scan them with any phone camera to jump to a bin's contents. Take a photo of a bin and let AI describe what's inside instead of typing it out. Invite household members or teammates so everyone has access.
 
-- Share locations via invite codes
-- Three roles: admin, member (read-write), viewer (read-only)
-- Configurable default join role per location
-- Private bins visible only to their creator
-- Full activity log of every change
+Organize bins by location and area. Search across everything by name, tag, or custom field. Move, tag, or update bins in bulk. Import from spreadsheets, export as CSV or JSON. There's also a REST API and an MCP server if you want to hook OpenBin into other tools.
 
-### Data & Integration
+## Self-hosted, no cloud required
 
-- Full JSON/CSV/ZIP export with photos
-- Import from backup to restore or migrate
-- REST API with long-lived API keys for automation
-- MCP server: connect Claude and other AI assistants directly to your inventory
-- Single SQLite file — no external database, easy to back up
-- Scheduled automatic backups with webhook notifications
+OpenBin runs as a single Docker container with a SQLite database. No external services, no data leaving your network. Pull the image and you're running in under a minute.
 
-</div>
+If you'd rather not self-host, [OpenBin Cloud](https://cloud.openbin.app/) handles hosting for you.
+
+## Get started
+
+- [Installation](/docs/getting-started/) — set up OpenBin with Docker or from source
+- [API Reference](/docs/api/) — integrate OpenBin with your own tools

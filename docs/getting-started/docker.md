@@ -4,17 +4,23 @@
 
 - Docker installed
 
-## Quick Start
+## Quick start
+
+```bash
+docker run -d -p 1453:1453 -v openbin_data:/data ghcr.io/akifbayram/openbin:latest
+```
+
+Open `http://localhost:1453` in your browser, register an account, and start adding bins. The database and JWT secret are created automatically on first startup.
+
+### Using Docker Compose
+
+If you prefer Docker Compose, clone the repo and run:
 
 ```bash
 git clone https://github.com/akifbayram/openbin.git
 cd openbin
 docker compose up -d
 ```
-
-Then open `http://localhost:1453` in your browser. Register an account and start adding bins.
-
-The database and JWT secret are created automatically on first startup.
 
 ## Data Persistence
 
@@ -33,15 +39,23 @@ The volume is named `api_data` and is managed by Docker. Data persists across co
 To back up manually, copy the contents of the Docker volume or enable the built-in backup feature (see [Configuration](./configuration)). At minimum, preserve the `openbin.db` file — it contains everything except photos.
 :::
 
-## Changing the Port
+## Changing the port
 
-Set `HOST_PORT` in your `.env` file (e.g. `HOST_PORT=8080`) and restart the container. See [Configuration](./configuration) for all options.
+With `docker run`, swap the first port number: `-p 8080:1453`.
+
+With Docker Compose, set `HOST_PORT` in your `.env` file (e.g. `HOST_PORT=8080`) and restart the container. See [Configuration](./configuration) for all options.
 
 ## Updating
 
 Pull the latest image and restart:
 
 ```bash
+# docker run
+docker pull ghcr.io/akifbayram/openbin:latest
+docker stop openbin && docker rm openbin
+docker run -d -p 1453:1453 -v openbin_data:/data --name openbin ghcr.io/akifbayram/openbin:latest
+
+# Docker Compose
 docker compose pull
 docker compose up -d
 ```
@@ -183,4 +197,4 @@ If you place OpenBin behind Nginx, Caddy, or another reverse proxy, set `TRUST_P
 TRUST_PROXY=true
 ```
 
-See [Reverse Proxy](./reverse-proxy) for copy-paste configs for Nginx, Caddy, and Traefik.
+See your reverse proxy's documentation for configuration with OpenBin.

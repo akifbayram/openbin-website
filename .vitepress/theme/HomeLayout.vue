@@ -496,7 +496,7 @@ onUnmounted(() => {
     </section>
 
     <!-- ════════ Feature Marquee ════════ -->
-    <section class="py-8 overflow-hidden" style="background: var(--vp-c-bg-soft)">
+    <section class="py-8 overflow-hidden" style="background: var(--vp-c-bg-soft)" aria-hidden="true">
       <div class="marquee-track mb-3">
         <div class="marquee-content marquee-scroll-left">
           <template v-for="n in 2" :key="'a' + n">
@@ -697,10 +697,12 @@ onUnmounted(() => {
         </p>
 
         <!-- Scenario picker -->
-        <div class="scroll-reveal scenario-picker mb-6">
+        <div class="scroll-reveal scenario-picker mb-6" role="radiogroup" aria-label="Reorganization scenario">
           <button
             v-for="(s, i) in scenarios"
             :key="s.label"
+            role="radio"
+            :aria-checked="activeScenario === i"
             class="scenario-btn"
             :class="{ 'scenario-btn--active': activeScenario === i }"
             @click="activeScenario = i"
@@ -1036,6 +1038,7 @@ onUnmounted(() => {
             <button
               class="flex w-full items-center justify-between py-4 text-left"
               :aria-expanded="openFaq === i"
+              :aria-controls="'home-faq-' + i"
               @click="toggleFaq(i)"
             >
               <span class="pr-4 text-lg font-semibold">{{ faq.q }}</span>
@@ -1054,7 +1057,7 @@ onUnmounted(() => {
                 <path d="m6 9 6 6 6-6" />
               </svg>
             </button>
-            <div class="faq-answer" :class="{ 'faq-answer--open': openFaq === i }">
+            <div :id="'home-faq-' + i" role="region" :aria-labelledby="'home-faq-btn-' + i" class="faq-answer" :class="{ 'faq-answer--open': openFaq === i }">
               <div class="overflow-hidden">
                 <p class="pb-4">{{ faq.a }}</p>
               </div>
@@ -1107,6 +1110,7 @@ onUnmounted(() => {
   transition: color 0.2s, background 0.2s;
 }
 .scenario-btn:hover { color: var(--vp-c-text-1); }
+.scenario-btn:focus-visible { outline: 2px solid var(--vp-c-brand-3); outline-offset: 2px; }
 .scenario-btn--active { color: var(--vp-c-text-1); background: var(--vp-c-bg-soft); }
 
 .split-container {

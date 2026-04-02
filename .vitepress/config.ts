@@ -26,28 +26,27 @@ export default defineConfig({
     },
     siteTitle: false,
     nav: [
-      { text: 'Pricing', link: '/pricing' },
       { text: 'Documentation', link: '/docs/' },
-      { text: 'Login', link: 'https://cloud.openbin.app/' },
-      { text: 'Billing', link: 'https://billing.openbin.app/' },
+      { text: 'Cloud Portal', link: 'https://cloud.openbin.app/' },
+      { text: 'Billing Portal', link: 'https://billing.openbin.app/' },
     ],
     sidebar: {
-      '/docs/getting-started/': [
+      '/docs/': [
         {
           text: 'Getting Started',
           items: [
-            { text: 'Overview', link: '/docs/getting-started/' },
-            { text: 'Docker', link: '/docs/getting-started/docker' },
-            { text: 'Local Development', link: '/docs/getting-started/local-dev' },
-            { text: 'Reverse Proxy', link: '/docs/getting-started/reverse-proxy' },
-            { text: 'Configuration', link: '/docs/getting-started/configuration' },
+            { text: 'What is OpenBin?', link: '/docs/' },
+            {
+              text: 'Installation',
+              link: '/docs/getting-started/',
+              collapsed: true,
+              items: [
+                { text: 'Docker', link: '/docs/getting-started/docker' },
+                { text: 'Local Development', link: '/docs/getting-started/local-dev' },
+              ],
+            },
+{ text: 'Configuration', link: '/docs/getting-started/configuration' },
           ],
-        },
-      ],
-      '/docs/guide/': [
-        {
-          text: 'Overview',
-          link: '/docs/guide/',
         },
         {
           text: 'Core Features',
@@ -89,10 +88,9 @@ export default defineConfig({
             { text: 'Keyboard Shortcuts', link: '/docs/guide/shortcuts' },
           ],
         },
-      ],
-      '/docs/api/': [
         {
           text: 'API Reference',
+          collapsed: true,
           items: [
             { text: 'Overview', link: '/docs/api/' },
             { text: 'Auth', link: '/docs/api/auth' },
@@ -111,12 +109,6 @@ export default defineConfig({
             { text: 'Saved Views', link: '/docs/api/saved-views' },
             { text: 'Scan History', link: '/docs/api/scan-history' },
             { text: 'Batch Operations', link: '/docs/api/batch' },
-          ],
-        },
-        {
-          text: 'Reference',
-          items: [
-            { text: 'Configuration', link: '/docs/getting-started/configuration' },
           ],
         },
       ],

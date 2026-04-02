@@ -1,18 +1,21 @@
-# Getting Started
+# Installation
 
-OpenBin is a self-hosted inventory system for organizing physical storage bins with QR codes. Single Docker container, SQLite database, no external dependencies.
+## Docker (recommended)
 
-![Dark mode](../assets/dark-mode.png)
+```bash
+docker run -d -p 1453:1453 -v openbin_data:/data ghcr.io/akifbayram/openbin:latest
+```
 
-::: tip No configuration required
-The database is created automatically and JWT secrets are auto-generated on first run. No environment variables needed to get started.
-:::
+Open `http://localhost:1453`, register an account, and start adding bins. The database and JWT secret are created automatically on first startup.
 
-## Choose your setup
+To change the port, swap the first `1453` (e.g. `-p 8080:1453`).
 
-- **[Docker](./docker)** — One command to start. Recommended for production.
-- **[Local Development](./local-dev)** — For contributing or running frontend and server separately.
+See the [Docker page](./docker) for data persistence, backups, restore, updating, and reverse proxy setup.
 
-## Next steps
+## Local development
 
-Once running, register an account, create a location, add bins, and [print QR labels](/docs/guide/print-labels). See the [User Guide](/docs/guide/) for details on AI setup, bulk operations, export/import, and API keys.
+For contributing or running the frontend and server separately, see [Local Development](./local-dev).
+
+## Configuration
+
+All environment variables have safe defaults. See the [Configuration Reference](./configuration) for AI providers, S3 storage, backup schedules, QR code modes, and more.

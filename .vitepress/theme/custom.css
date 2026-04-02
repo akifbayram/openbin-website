@@ -13,6 +13,12 @@
   --vp-home-hero-name-background: linear-gradient(120deg, #5e2fe0, #7b52f5);
 }
 
+.dark {
+  --vp-c-brand-1: #a07ef2;
+  --vp-c-brand-2: #b49af5;
+  --vp-c-brand-3: #9b7af7;
+}
+
 /* ── Home layout base text colors ── */
 
 .home-layout h2,
@@ -610,8 +616,14 @@
   border-bottom: none;
 }
 
+.faq-item button:focus-visible {
+  outline: 2px solid var(--vp-c-brand-3);
+  outline-offset: -2px;
+  border-radius: 4px;
+}
+
 .faq-chevron {
-  transition: transform 0.3s;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .faq-chevron--open {
