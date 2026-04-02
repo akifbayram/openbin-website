@@ -14,6 +14,10 @@ export default defineConfig({
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:url', content: 'https://openbin.app' }],
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+    ['meta', { name: 'twitter:title', content: 'OpenBin - Inventory with Intelligence' }],
+    ['meta', { name: 'twitter:description', content: 'Snap a photo, let AI catalog it. QR labels and shared access for your whole household.' }],
+    ['meta', { property: 'og:image', content: 'https://openbin.app/og-image.png' }],
+    ['meta', { name: 'twitter:image', content: 'https://openbin.app/og-image.png' }],
   ],
   vite: {
     plugins: [tailwindcss()],
@@ -26,6 +30,7 @@ export default defineConfig({
     },
     siteTitle: false,
     nav: [
+      { text: 'Pricing', link: '/pricing' },
       { text: 'Documentation', link: '/docs/' },
       { text: 'Cloud Portal', link: 'https://cloud.openbin.app/' },
       { text: 'Billing Portal', link: 'https://billing.openbin.app/' },

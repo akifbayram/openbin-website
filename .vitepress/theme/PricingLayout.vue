@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 
 // ── Billing toggle ──
 const billing = ref('monthly')
@@ -139,8 +139,29 @@ const faqs = [
   },
 ]
 
+// ── FAQ structured data (JSON-LD) ──
+function injectFaqSchema() {
+  if (document.getElementById('pricing-faq-schema')) return
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(f => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  }
+  const script = document.createElement('script')
+  script.type = 'application/ld+json'
+  script.id = 'pricing-faq-schema'
+  script.textContent = JSON.stringify(schema)
+  document.head.appendChild(script)
+}
+
 // ── Scroll animation ──
 onMounted(() => {
+  injectFaqSchema()
+
   const targets = document.querySelectorAll('.scroll-reveal')
   if (!targets.length) return
 
@@ -157,6 +178,10 @@ onMounted(() => {
   )
 
   targets.forEach((el) => observer.observe(el))
+})
+
+onUnmounted(() => {
+  document.getElementById('pricing-faq-schema')?.remove()
 })
 </script>
 
@@ -372,7 +397,7 @@ onMounted(() => {
             </tbody>
           </table>
           <p class="comparison-footnote">
-            Prefer to run it yourself? <a href="https://docs.openbin.app/getting-started/" style="color: var(--vp-c-brand-1); text-decoration: underline;">Self-host for free</a> with all features included.
+            Prefer to run it yourself? <a href="/docs/getting-started/" style="color: var(--vp-c-brand-1); text-decoration: underline;">Self-host for free</a> with all features included.
           </p>
         </div>
       </div>
@@ -389,6 +414,7 @@ onMounted(() => {
         <div class="scroll-reveal">
           <div v-for="(faq, i) in faqs" :key="i" class="faq-item">
             <button
+              :id="'pricing-faq-btn-' + i"
               class="flex w-full items-center justify-between py-4 text-left"
               :aria-expanded="openFaq === i"
               :aria-controls="'pricing-faq-' + i"
@@ -396,6 +422,7 @@ onMounted(() => {
             >
               <span class="pr-4 text-lg font-semibold">{{ faq.q }}</span>
               <svg
+                aria-hidden="true"
                 class="faq-chevron shrink-0"
                 :class="{ 'faq-chevron--open': openFaq === i }"
                 width="20"
@@ -410,7 +437,7 @@ onMounted(() => {
                 <path d="m6 9 6 6 6-6" />
               </svg>
             </button>
-            <div :id="'pricing-faq-' + i" role="region" class="faq-answer" :class="{ 'faq-answer--open': openFaq === i }">
+            <div :id="'pricing-faq-' + i" role="region" :aria-labelledby="'pricing-faq-btn-' + i" class="faq-answer" :class="{ 'faq-answer--open': openFaq === i }">
               <div class="overflow-hidden">
                 <p class="pb-4">{{ faq.a }}</p>
               </div>
@@ -458,7 +485,7 @@ onMounted(() => {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  padding: 0.4rem 1.25rem;
+  padding: 0.6rem 1.25rem;
   font-size: 0.875rem;
   font-weight: 600;
   color: var(--vp-c-text-3);

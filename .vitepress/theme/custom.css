@@ -418,6 +418,35 @@
   }
 }
 
+/* ── Social proof ── */
+
+.social-proof-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  color: var(--vp-c-text-3);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.social-proof-link:hover {
+  color: var(--vp-c-text-1);
+}
+
+.social-proof-dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--vp-c-text-3);
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .social-proof-dot {
+    display: none;
+  }
+}
+
 /* ── Nav logo sizing ── */
 
 .VPNavBarTitle .logo {
@@ -640,6 +669,27 @@
   grid-template-rows: 1fr;
 }
 
+/* ── Skip to content link ── */
+
+.skip-link {
+  position: fixed;
+  top: -100%;
+  left: 16px;
+  z-index: 999;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--vp-c-brand-1);
+  border-radius: 0 0 8px 8px;
+  text-decoration: none;
+  transition: top 0.2s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
 /* ── Screen reader only ── */
 
 .sr-only {
@@ -825,7 +875,7 @@
 
 .ptb-mode-pill {
   font-size: 0.75rem;
-  padding: 0.3rem 0.75rem;
+  padding: 0.55rem 0.75rem;
   border-radius: 6px;
   border: 1px solid var(--vp-c-divider);
   color: var(--vp-c-text-3);

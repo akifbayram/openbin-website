@@ -19,6 +19,17 @@ export default {
     const route = useRoute()
     let zoom: ReturnType<typeof mediumZoom> | null = null
 
+    const ensureSkipLink = () => {
+      if (document.getElementById('skip-to-content')) return
+      const link = document.createElement('a')
+      link.id = 'skip-to-content'
+      link.href = '#VPContent'
+      link.className = 'skip-link'
+      link.textContent = 'Skip to content'
+      document.body.prepend(link)
+      document.getElementById('VPContent')?.setAttribute('tabindex', '-1')
+    }
+
     const refreshZoom = () => {
       if (!zoom) {
         zoom = mediumZoom({ background: 'var(--vp-c-bg)', margin: 48 })
@@ -28,7 +39,10 @@ export default {
       zoom.attach('.vp-doc img:not(.no-zoom)')
     }
 
-    onMounted(refreshZoom)
+    onMounted(() => {
+      ensureSkipLink()
+      refreshZoom()
+    })
     watch(() => route.path, () => nextTick(refreshZoom))
   },
 }
