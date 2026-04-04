@@ -8,7 +8,7 @@ title: API Keys
 For a user-facing walkthrough, see [API Keys](/docs/guide/api-keys).
 :::
 
-API key creation, listing, and revocation for headless access.
+API key creation, listing, and revocation for headless access. Keys are per-user (not per-location) — a single key authenticates as the owning user across all their locations.
 
 ---
 

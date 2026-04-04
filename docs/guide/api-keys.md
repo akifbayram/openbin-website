@@ -9,7 +9,7 @@ next:
 
 # API Keys
 
-Long-lived tokens for scripts, automation, and headless API access.
+Long-lived tokens for scripts, automation, and headless API access. API keys are tied to your user account, not to a specific location. A single key works across all locations you belong to.
 
 ## Creating a Key
 

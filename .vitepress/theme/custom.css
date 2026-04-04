@@ -333,8 +333,7 @@
   background: var(--vp-c-bg);
 }
 
-.device-frame-screen img,
-.device-frame-screen iframe {
+.device-frame-screen img {
   display: block;
   width: 100%;
 }
@@ -415,35 +414,6 @@
 @media (prefers-reduced-motion: reduce) {
   .cta-bg::before {
     animation: none;
-  }
-}
-
-/* ── Social proof ── */
-
-.social-proof-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.375rem;
-  color: var(--vp-c-text-3);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-
-.social-proof-link:hover {
-  color: var(--vp-c-text-1);
-}
-
-.social-proof-dot {
-  width: 3px;
-  height: 3px;
-  border-radius: 50%;
-  background: var(--vp-c-text-3);
-  flex-shrink: 0;
-}
-
-@media (max-width: 640px) {
-  .social-proof-dot {
-    display: none;
   }
 }
 
@@ -580,35 +550,6 @@
 
 .dark .btn-secondary:hover {
   background: rgba(155, 122, 247, 0.1);
-}
-
-/* ── Bezel-engraved label (live demo indicator) ── */
-
-.bezel-label {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  margin-top: -4px;
-  padding-bottom: 6px;
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  color: rgba(255, 255, 255, 0.3);
-  font-family: ui-monospace, 'SF Mono', 'Cascadia Code', monospace;
-  user-select: none;
-}
-
-:root:not(.dark) .bezel-label {
-  color: rgba(0, 0, 0, 0.25);
-}
-
-.bezel-status-dot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--vp-c-brand-2);
-  opacity: 0.7;
 }
 
 /* ── Step number circle ── */

@@ -75,7 +75,6 @@ All colors use VitePress CSS custom properties (`var(--vp-c-*)`):
 - `.btn-arrow` — sliding arrow span inside buttons (`→`)
 - `.feature-card` — bordered card with hover lift + brand border
 - `.device-frame` / `.device-frame-screen` — iPad-style bezel frame for screenshots/iframes (`.device-frame--sm` for smaller variant)
-- `.bezel-label` — engraved label inside device frame (e.g. "LIVE DEMO")
 - `.hero-bg` / `.cta-bg` — radial gradient decorative backgrounds with floating animation
 - `.display-heading` — DM Sans 700, tight tracking
 - `.gradient-text` — brand gradient with `background-clip: text`

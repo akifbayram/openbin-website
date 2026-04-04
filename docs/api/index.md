@@ -46,7 +46,7 @@ Long-lived API keys (format: `sk_openbin_<64 hex chars>`) can be created via `PO
 Authorization: Bearer sk_openbin_...
 ```
 
-API keys are intended for automation, scripts, and integrations such as smart home systems. They never expire unless explicitly revoked. See the [API Keys guide](/docs/guide/api-keys) for details on creating and managing keys.
+API keys are per-user, not per-location. A single key works across all locations the user belongs to. They are intended for automation, scripts, and integrations such as smart home systems. They never expire unless explicitly revoked. See the [API Keys guide](/docs/guide/api-keys) for details on creating and managing keys.
 
 ## Response Envelopes
 
