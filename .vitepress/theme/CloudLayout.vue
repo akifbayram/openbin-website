@@ -49,6 +49,7 @@ const plans = computed(() => [
       { name: 'Custom fields', included: true },
       { name: 'Full export (ZIP/JSON)', included: true },
       { name: '25 AI credits/mo (photo recognition, natural language)', included: true },
+      { name: 'AI reorganization', included: true },
     ],
   },
   {
@@ -68,7 +69,6 @@ const plans = computed(() => [
       { name: 'Up to 25 members/location', included: true },
       { name: '1 GB photo storage', included: true },
       { name: '500 AI credits/mo', included: true },
-      { name: 'AI reorganization', included: true },
       { name: 'API keys & MCP server', included: true },
       { name: 'Bin sharing', included: true },
     ],
@@ -101,7 +101,7 @@ const comparison = [
     category: 'AI',
     rows: [
       { feature: 'AI credits', free: false, plus: '25/mo (shared)', pro: '500/mo' },
-      { feature: 'AI reorganization', free: false, plus: false, pro: true },
+      { feature: 'AI reorganization', free: false, plus: true, pro: true },
     ],
   },
   {
@@ -135,7 +135,7 @@ const benefits = [
   { icon: 'zap', title: 'No setup', desc: 'Sign up and start organizing. No Docker, no server, no config files.' },
   { icon: 'refresh', title: 'Always up to date', desc: 'New features and security patches ship automatically.' },
   { icon: 'shield', title: 'Managed backups', desc: 'Your data is backed up daily. Restore anytime from your dashboard.' },
-  { icon: 'cpu', title: 'AI included', desc: 'Photo recognition and natural language on Plus, 500 AI credits/mo and reorganization on Pro — no API keys needed.' },
+  { icon: 'cpu', title: 'AI included', desc: 'Photo recognition, natural language, and reorganization on Plus. 500 AI credits/mo on Pro — no API keys needed.' },
 ]
 
 // ── FAQ ──
