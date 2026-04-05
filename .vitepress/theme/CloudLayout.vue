@@ -35,7 +35,7 @@ const plans = computed(() => [
   {
     name: 'Plus',
     badge: null,
-    price: billing.value === 'monthly' ? '$5' : '$4',
+    price: billing.value === 'monthly' ? '$3' : '$2.50',
     priceDetail: billing.value === 'monthly' ? '/month' : '/mo, billed annually',
     description: 'One person, one location.',
     cta: 'Start Free Trial',
@@ -55,7 +55,7 @@ const plans = computed(() => [
     name: 'Pro',
     badge: 'Best Value',
     badgeClass: 'plan-badge--popular',
-    price: billing.value === 'monthly' ? '$12' : '$9',
+    price: billing.value === 'monthly' ? '$6' : '$5',
     priceDetail: billing.value === 'monthly' ? '/month' : '/mo, billed annually',
     description: 'Share it with your team.',
     cta: 'Get Pro',
@@ -215,7 +215,7 @@ onUnmounted(() => {
 <template>
   <div class="home-layout">
     <!-- ════════ Hero ════════ -->
-    <section class="hero-bg px-6 pt-16 pb-10 text-center">
+    <section class="hero-bg px-6 pt-24 pb-16 text-center">
       <h1 class="display-heading animate-in gradient-text mx-auto max-w-3xl text-4xl lg:text-5xl">
         OpenBin Cloud
       </h1>
@@ -260,46 +260,43 @@ onUnmounted(() => {
     </section>
 
     <!-- ════════ Pricing ════════ -->
-    <section class="px-6 pt-16 pb-4 text-center">
-      <h2 class="display-heading scroll-reveal text-3xl lg:text-4xl">
-        Pricing
-      </h2>
-      <p class="scroll-reveal mx-auto mt-4 max-w-xl" style="color: var(--vp-c-text-2)">
-        Start free, upgrade anytime. 7-day Plus trial included — no credit card required.
-      </p>
+    <section class="px-6 py-16">
+      <div class="mx-auto max-w-5xl text-center">
+        <h2 class="display-heading scroll-reveal text-3xl lg:text-4xl">
+          Pricing
+        </h2>
+        <p class="scroll-reveal mx-auto mt-4 max-w-xl" style="color: var(--vp-c-text-2)">
+          Start free, upgrade anytime. 7-day Plus trial included — no credit card required.
+        </p>
 
-      <!-- Billing toggle -->
-      <div
-        class="scroll-reveal billing-toggle mx-auto mt-8"
-        role="radiogroup"
-        aria-label="Billing period"
-      >
-        <button
-          role="radio"
-          :aria-checked="billing === 'monthly'"
-          class="billing-pill"
-          :class="{ 'billing-pill--active': billing === 'monthly' }"
-          @click="billing = 'monthly'"
+        <!-- Billing toggle -->
+        <div
+          class="scroll-reveal billing-toggle mx-auto mt-8"
+          role="radiogroup"
+          aria-label="Billing period"
         >
-          Monthly
-        </button>
-        <button
-          role="radio"
-          :aria-checked="billing === 'annual'"
-          class="billing-pill"
-          :class="{ 'billing-pill--active': billing === 'annual' }"
-          @click="billing = 'annual'"
-        >
-          Annual
-          <span class="billing-save">Save 20%</span>
-        </button>
-      </div>
-    </section>
+          <button
+            role="radio"
+            :aria-checked="billing === 'monthly'"
+            class="billing-pill"
+            :class="{ 'billing-pill--active': billing === 'monthly' }"
+            @click="billing = 'monthly'"
+          >
+            Monthly
+          </button>
+          <button
+            role="radio"
+            :aria-checked="billing === 'annual'"
+            class="billing-pill"
+            :class="{ 'billing-pill--active': billing === 'annual' }"
+            @click="billing = 'annual'"
+          >
+            Annual
+            <span class="billing-save">Save 17%</span>
+          </button>
+        </div>
 
-    <!-- ════════ Pricing Cards ════════ -->
-    <section class="px-6 pb-16">
-      <div class="mx-auto max-w-5xl">
-        <div class="mx-auto grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-3">
+        <div class="mx-auto mt-10 grid max-w-5xl grid-cols-1 gap-6 text-left sm:grid-cols-2 lg:grid-cols-3">
           <div
             v-for="plan in plans"
             :key="plan.name"
@@ -632,7 +629,7 @@ onUnmounted(() => {
   width: 100%;
   border-collapse: collapse;
   font-size: 0.85rem;
-  min-width: 520px;
+  min-width: 560px;
 }
 
 .comparison-table thead th {

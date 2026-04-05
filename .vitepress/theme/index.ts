@@ -2,15 +2,17 @@ import DefaultTheme from 'vitepress/theme'
 import mediumZoom from 'medium-zoom'
 import { onMounted, watch, nextTick } from 'vue'
 import { useRoute } from 'vitepress'
+import Layout from './Layout.vue'
 import HomeLayout from './HomeLayout.vue'
-import PricingLayout from './PricingLayout.vue'
+import CloudLayout from './CloudLayout.vue'
 import './custom.css'
 
 export default {
   extends: DefaultTheme,
+  Layout,
   enhanceApp({ app }) {
     app.component('HomeLayout', HomeLayout)
-    app.component('PricingLayout', PricingLayout)
+    app.component('CloudLayout', CloudLayout)
     if (typeof document !== 'undefined') {
       document.documentElement.classList.add('dark')
     }

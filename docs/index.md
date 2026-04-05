@@ -24,19 +24,29 @@ OpenBin organizes physical storage using a hierarchy:
 
 Households organizing garages, closets, and storage units. Small teams tracking tools or supplies across shared spaces. Anyone who wants to self-host their inventory data in a single Docker container.
 
-## What you can do with it
+## Key features
 
-Print QR label sheets and scan them with any phone camera to jump to a bin's contents. Take a photo of a bin and let AI describe what's inside instead of typing it out. Invite household members or teammates so everyone has access.
+- **QR labels** — print sheets, scan with any phone camera to jump straight to a bin's contents
+- **AI photo analysis** — snap a photo and let AI catalog what's inside instead of typing it out
+- **Multi-user** — invite household members or teammates so everyone has access
+- **Search & filter** — find anything by name, tag, or custom field across all your bins
+- **Bulk operations** — move, tag, or update bins in batch
+- **Import & export** — CSV, JSON, and spreadsheet support
+- **REST API & MCP server** — integrate OpenBin with other tools and AI assistants
+- **Self-hosted** — single Docker container with SQLite, no external services required
 
-Organize bins by location and area. Search across everything by name, tag, or custom field. Move, tag, or update bins in bulk. Import from spreadsheets, export as CSV or JSON. There's also a REST API and an MCP server if you want to hook OpenBin into other tools.
+## Quick start
 
-## Self-hosted, no cloud required
+```sh
+docker run -d -p 1453:1453 -v openbin_data:/data ghcr.io/akifbayram/openbin:latest
+```
 
-OpenBin runs as a single Docker container with a SQLite database. No external services, no data leaving your network. Pull the image and you're running in under a minute.
+Open `http://localhost:1453` and create your first location. If you'd rather not self-host, [OpenBin Cloud](https://cloud.openbin.app/) handles hosting for you.
 
-If you'd rather not self-host, [OpenBin Cloud](https://cloud.openbin.app/) handles hosting for you.
+## Next steps
 
-## Get started
-
-- [Installation](/docs/getting-started/) — set up OpenBin with Docker or from source
-- [API Reference](/docs/api/) — integrate OpenBin with your own tools
+- [Install with Docker](/docs/getting-started/docker) — running in under a minute
+- [Create your first bins](/docs/guide/bins) — set up your inventory
+- [Print QR labels](/docs/guide/print-labels) — label your physical containers
+- [Set up AI](/docs/guide/ai) — optional photo analysis and smart features
+- [API Reference](/docs/api/) — build integrations

@@ -424,6 +424,43 @@
   width: auto;
 }
 
+/* ── Hide search on marketing pages ── */
+
+.hide-search .VPNavBarSearch {
+  display: none !important;
+}
+
+/* ── Nav login button ── */
+
+.nav-login-btn {
+  display: inline-flex;
+  align-items: center;
+  background: var(--vp-c-brand-1);
+  color: #fff !important;
+  padding: 6px 18px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s;
+  margin-left: 12px;
+}
+
+.nav-login-btn:hover {
+  background: var(--vp-c-brand-2);
+}
+
+.nav-login-btn:focus-visible {
+  outline: 2px solid var(--vp-c-brand-3);
+  outline-offset: 2px;
+}
+
+@media (max-width: 768px) {
+  .nav-login-btn {
+    display: none;
+  }
+}
+
 /* ── Remove page container constraints for full-width home ── */
 
 .VPPage {
@@ -439,6 +476,12 @@
 
 .feature-card {
   border: 1px solid var(--vp-c-divider);
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.feature-card:hover {
+  border-color: var(--vp-c-brand-1);
+  transform: translateY(-2px);
 }
 
 /* ── Button styles ── */

@@ -30,67 +30,60 @@ export default defineConfig({
     },
     siteTitle: false,
     nav: [
-      { text: 'Pricing', link: '/pricing' },
+      { text: 'Home', link: '/' },
       { text: 'Documentation', link: '/docs/' },
-      { text: 'Cloud Portal', link: 'https://cloud.openbin.app/' },
-      { text: 'Billing Portal', link: 'https://billing.openbin.app/' },
+      { text: 'OpenBin Cloud', link: '/cloud' },
     ],
     sidebar: {
       '/docs/': [
         {
-          text: 'Getting Started',
+          text: 'Introduction',
           items: [
             { text: 'What is OpenBin?', link: '/docs/' },
-            {
-              text: 'Installation',
-              link: '/docs/getting-started/',
-              collapsed: true,
-              items: [
-                { text: 'Docker', link: '/docs/getting-started/docker' },
-                { text: 'Local Development', link: '/docs/getting-started/local-dev' },
-              ],
-            },
-{ text: 'Configuration', link: '/docs/getting-started/configuration' },
           ],
         },
         {
-          text: 'Core Features',
+          text: 'Getting Started',
+          collapsed: false,
+          items: [
+            { text: 'Docker', link: '/docs/getting-started/docker' },
+            { text: 'Local Development', link: '/docs/getting-started/local-dev' },
+            { text: 'Configuration', link: '/docs/getting-started/configuration' },
+          ],
+        },
+        {
+          text: 'Guide',
           collapsed: false,
           items: [
             { text: 'Bins', link: '/docs/guide/bins' },
             { text: 'QR Scanning', link: '/docs/guide/qr-scanning' },
             { text: 'Search & Filter', link: '/docs/guide/search-filter' },
             { text: 'Dashboard', link: '/docs/guide/dashboard' },
-          ],
-        },
-        {
-          text: 'Organize & Customize',
-          collapsed: false,
-          items: [
             { text: 'Locations & Areas', link: '/docs/guide/locations' },
             { text: 'Photos', link: '/docs/guide/photos' },
             { text: 'Print Labels', link: '/docs/guide/print-labels' },
+            { text: 'Items & Tags', link: '/docs/guide/items-tags' },
             { text: 'Bulk Operations', link: '/docs/guide/bulk-operations' },
+            { text: 'Bulk Add', link: '/docs/guide/bulk-add' },
+            { text: 'Account & Profile', link: '/docs/guide/profile' },
+            { text: 'Keyboard Shortcuts', link: '/docs/guide/shortcuts' },
           ],
         },
         {
-          text: 'AI & Automation',
+          text: 'AI & Integrations',
           collapsed: false,
           items: [
             { text: 'AI Features', link: '/docs/guide/ai' },
-            { text: 'Bulk Add', link: '/docs/guide/bulk-add' },
-            { text: 'API Keys', link: '/docs/guide/api-keys' },
             { text: 'MCP Server', link: '/docs/guide/mcp-server' },
+            { text: 'API Keys', link: '/docs/guide/api-keys' },
+            { text: 'Import & Export', link: '/docs/guide/import-export' },
           ],
         },
         {
-          text: 'Data Management',
+          text: 'Troubleshooting',
           collapsed: false,
           items: [
-            { text: 'Import & Export', link: '/docs/guide/import-export' },
-            { text: 'Items & Tags', link: '/docs/guide/items-tags' },
-            { text: 'Account & Profile', link: '/docs/guide/profile' },
-            { text: 'Keyboard Shortcuts', link: '/docs/guide/shortcuts' },
+            { text: 'FAQ', link: '/docs/guide/faq' },
           ],
         },
         {

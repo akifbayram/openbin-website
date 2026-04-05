@@ -31,8 +31,9 @@ openbin-website/
 │   ├── config.ts              # VitePress config: nav, sidebar, social links, Tailwind plugin, OG meta
 │   └── theme/
 │       ├── index.ts           # Extends DefaultTheme, registers layout components, medium-zoom
+│       ├── Layout.vue         # Wraps DefaultTheme layout, adds nav login button, hides search on marketing pages
 │       ├── HomeLayout.vue     # Home page: hero, demos, features, comparison, FAQ, CTA
-│       ├── PricingLayout.vue  # Pricing page: 2-plan cards, comparison table, FAQ
+│       ├── CloudLayout.vue    # Cloud page: benefits, pricing plans, comparison table, FAQ
 │       └── custom.css         # All custom styles: tokens, animations, buttons, components
 ├── docs/                      # Documentation (served at /docs/, sidebar defined in config.ts)
 │   ├── index.md               # "What is OpenBin?"
@@ -40,7 +41,7 @@ openbin-website/
 │   ├── guide/                 # Feature docs (bins, QR, AI, etc.)
 │   └── api/                   # REST API reference
 ├── index.md                   # Home page (layout: page, renders <HomeLayout />)
-├── pricing.md                 # Pricing page (layout: page, renders <PricingLayout />)
+├── cloud.md                   # Cloud page (layout: page, renders <CloudLayout />)
 └── public/
     ├── CNAME                  # openbin.app
     ├── favicon.svg
@@ -88,7 +89,7 @@ All colors use VitePress CSS custom properties (`var(--vp-c-*)`):
 
 Hero elements use CSS `animate-in` (plays on page load). Everything below the fold uses `scroll-reveal` (triggered by IntersectionObserver when 15% visible). Both respect `prefers-reduced-motion`. Easing throughout uses `cubic-bezier(0.16, 1, 0.3, 1)` (exponential ease-out).
 
-Each layout component (`HomeLayout.vue`, `PricingLayout.vue`) includes its own `<script setup>` with the IntersectionObserver setup — it's duplicated intentionally to keep components self-contained.
+Each layout component (`HomeLayout.vue`, `CloudLayout.vue`) includes its own `<script setup>` with the IntersectionObserver setup — it's duplicated intentionally to keep components self-contained.
 
 HomeLayout also has three self-running demos that start via IntersectionObserver: the Photo-to-Bin timeline, the AI terminal simulation, and the split-comparison auto-sweep.
 
@@ -107,13 +108,14 @@ HomeLayout also has three self-running demos that start via IntersectionObserver
 9. **FAQ**: Accordion with 6 questions
 10. **Bottom CTA**: "Stop searching. Start finding."
 
-### Pricing (`pricing.md` → `PricingLayout.vue`)
+### Cloud (`cloud.md` → `CloudLayout.vue`)
 
-1. **Billing Toggle**: Monthly/annual radio group with "Save 20%" badge
-2. **Plan Cards**: Two columns — Lite ($5/mo) and Pro ($12/mo, highlighted). Pro shows "All of Lite, plus:" preamble. Prices update with billing toggle — edit the `plans` computed in `PricingLayout.vue`.
-3. **Feature Comparison Table**: Grouped by category, sticky first column on mobile, Pro column highlighted
-4. **FAQ**: 5-question accordion
-5. **Bottom CTA**: "Start organizing"
+1. **Hero**: "OpenBin Cloud" gradient heading, CTAs (Start Free Trial / Self-Host Instead)
+2. **Benefits**: 4-card grid (No setup, Always up to date, Managed backups, AI included)
+3. **Pricing**: Billing toggle, three plan cards (Free, Plus $3/mo, Pro $6/mo). Prices update with toggle — edit `plans` computed in `CloudLayout.vue`.
+4. **Feature Comparison Table**: Grouped by category, sticky first column on mobile, Pro column highlighted
+5. **FAQ**: 6-question accordion
+6. **Bottom CTA**: "Start organizing"
 
 ## Adding New Pages
 

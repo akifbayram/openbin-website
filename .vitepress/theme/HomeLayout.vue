@@ -1039,7 +1039,7 @@ onUnmounted(() => {
             style="border: 1px solid var(--vp-c-brand-1); background: var(--vp-c-bg-soft)"
           >
             <h3 class="text-2xl font-semibold">Cloud</h3>
-            <p class="mt-2 text-sm font-medium" style="color: var(--vp-c-brand-3)">Free forever · Plus from $4/mo</p>
+            <p class="mt-2 text-sm font-medium" style="color: var(--vp-c-brand-3)">Free forever · Plus from $2.50/mo</p>
             <p class="mt-3 text-lg">
               We run it, you use it. No server, no Docker, no maintenance.
               Just sign up.
