@@ -144,7 +144,7 @@ const benefits = [
 const faqs = [
   {
     q: "What's included in the free trial?",
-    a: 'Full Pro access for 7 days. AI features share a pool of 25 credits total across all actions (categorization, reorganization, and commands). No credit card required. After the trial you land on the Free plan — your data stays, you just can\'t grow past the Free limits until you upgrade.',
+    a: 'Full Plus access for 7 days — unlimited bins, photo uploads, custom fields, and export. No credit card required. After the trial you land on the Free plan — your data stays, you just can\'t grow past the Free limits until you upgrade.',
   },
   {
     q: 'Can I switch plans later?',
