@@ -44,7 +44,7 @@ const plans = computed(() => [
     highlight: false,
     preamble: 'All of Free, plus:',
     features: [
-      { name: 'Unlimited bins', included: true },
+      { name: 'Up to 500 bins', included: true },
       { name: '100 MB photo storage', included: true },
       { name: 'Custom fields', included: true },
       { name: 'Full export (ZIP/JSON)', included: true },
@@ -53,21 +53,21 @@ const plans = computed(() => [
   },
   {
     name: 'Pro',
-    badge: 'Most Popular',
+    badge: 'Best Value',
     badgeClass: 'plan-badge--popular',
     price: billing.value === 'monthly' ? '$12' : '$9',
     priceDetail: billing.value === 'monthly' ? '/month' : '/mo, billed annually',
-    description: 'Share it with your household or team.',
+    description: 'Share it with your team.',
     cta: 'Get Pro',
     ctaLink: 'https://cloud.openbin.app/',
     ctaClass: 'btn-primary',
     highlight: true,
     preamble: 'All of Plus, plus:',
     features: [
-      { name: 'Unlimited locations', included: true },
-      { name: 'Unlimited members', included: true },
+      { name: 'Up to 10 locations', included: true },
+      { name: 'Up to 25 members/location', included: true },
       { name: '1 GB photo storage', included: true },
-      { name: 'Unlimited AI credits', included: true },
+      { name: '500 AI credits/mo', included: true },
       { name: 'AI reorganization', included: true },
       { name: 'API keys & MCP server', included: true },
       { name: 'Bin sharing', included: true },
@@ -81,9 +81,9 @@ const comparison = [
   {
     category: 'Basics',
     rows: [
-      { feature: 'Bins', free: '50', plus: 'Unlimited', pro: 'Unlimited' },
-      { feature: 'Locations', free: '1', plus: '1', pro: 'Unlimited' },
-      { feature: 'Members', free: '1', plus: '1', pro: 'Unlimited' },
+      { feature: 'Bins', free: '50', plus: '500', pro: '5,000' },
+      { feature: 'Locations', free: '1', plus: '1', pro: '10' },
+      { feature: 'Members', free: '1', plus: '1', pro: '25' },
       { feature: 'Photo storage', free: false, plus: '100 MB', pro: '1 GB' },
       { feature: 'Activity history', free: '7 days', plus: '30 days', pro: '90 days' },
     ],
@@ -100,7 +100,7 @@ const comparison = [
   {
     category: 'AI',
     rows: [
-      { feature: 'AI credits', free: false, plus: '25/mo (shared)', pro: 'Unlimited' },
+      { feature: 'AI credits', free: false, plus: '25/mo (shared)', pro: '500/mo' },
       { feature: 'AI reorganization', free: false, plus: false, pro: true },
     ],
   },
@@ -135,14 +135,14 @@ const benefits = [
   { icon: 'zap', title: 'No setup', desc: 'Sign up and start organizing. No Docker, no server, no config files.' },
   { icon: 'refresh', title: 'Always up to date', desc: 'New features and security patches ship automatically.' },
   { icon: 'shield', title: 'Managed backups', desc: 'Your data is backed up daily. Restore anytime from your dashboard.' },
-  { icon: 'cpu', title: 'AI included', desc: 'Photo recognition and natural language on Plus, unlimited AI and reorganization on Pro — no API keys needed.' },
+  { icon: 'cpu', title: 'AI included', desc: 'Photo recognition and natural language on Plus, 500 AI credits/mo and reorganization on Pro — no API keys needed.' },
 ]
 
 // ── FAQ ──
 const faqs = [
   {
     q: "What's included in the free trial?",
-    a: 'Full Plus access for 7 days — unlimited bins, photo uploads, custom fields, and export. No credit card required. After the trial you land on the Free plan — your data stays, you just can\'t grow past the Free limits until you upgrade.',
+    a: 'Full Plus access for 7 days — up to 500 bins, photo uploads, custom fields, and export. No credit card required. After the trial you land on the Free plan — your data stays, you just can\'t grow past the Free limits until you upgrade.',
   },
   {
     q: 'Can I switch plans later?',
