@@ -30,8 +30,6 @@ const plans = computed(() => [
       { name: 'Areas & tags', included: true },
       { name: 'Search & saved views', included: true },
       { name: 'Bulk operations', included: true },
-      { name: 'Photo uploads', included: false },
-      { name: 'Custom fields', included: false },
     ],
   },
   {
@@ -44,16 +42,14 @@ const plans = computed(() => [
     ctaLink: 'https://cloud.openbin.app/',
     ctaClass: 'btn-secondary',
     highlight: false,
+    preamble: 'All of Free, plus:',
     features: [
       { name: 'Unlimited bins', included: true },
-      { name: '1 location', included: true },
-      { name: '1 member', included: true },
       { name: '100 MB photo storage', included: true },
       { name: 'Custom fields', included: true },
       { name: 'Full export (ZIP/JSON)', included: true },
-      { name: 'CSV export', included: true },
-      { name: 'AI features', included: false },
-      { name: 'API access', included: false },
+      { name: 'AI photo recognition (25/mo)', included: true },
+      { name: 'AI natural language (25/mo)', included: true },
     ],
   },
   {
@@ -63,7 +59,7 @@ const plans = computed(() => [
     price: billing.value === 'monthly' ? '$12' : '$9',
     priceDetail: billing.value === 'monthly' ? '/month' : '/mo, billed annually',
     description: 'Share it with your household or team.',
-    cta: 'Start Free Trial',
+    cta: 'Get Pro',
     ctaLink: 'https://cloud.openbin.app/',
     ctaClass: 'btn-primary',
     highlight: true,
@@ -72,9 +68,8 @@ const plans = computed(() => [
       { name: 'Unlimited locations', included: true },
       { name: 'Unlimited members', included: true },
       { name: '1 GB photo storage', included: true },
-      { name: 'AI categorization', included: true },
+      { name: 'Unlimited AI credits', included: true },
       { name: 'AI reorganization', included: true },
-      { name: 'Natural language commands', included: true },
       { name: 'API keys & MCP server', included: true },
       { name: 'Bin sharing', included: true },
     ],
@@ -106,9 +101,9 @@ const comparison = [
   {
     category: 'AI',
     rows: [
-      { feature: 'Photo recognition', free: false, plus: false, pro: true },
+      { feature: 'Photo recognition', free: false, plus: '25/mo', pro: 'Unlimited' },
+      { feature: 'Natural language', free: false, plus: '25/mo', pro: 'Unlimited' },
       { feature: 'AI reorganization', free: false, plus: false, pro: true },
-      { feature: 'Natural language', free: false, plus: false, pro: true },
     ],
   },
   {
@@ -142,14 +137,14 @@ const benefits = [
   { icon: 'zap', title: 'No setup', desc: 'Sign up and start organizing. No Docker, no server, no config files.' },
   { icon: 'refresh', title: 'Always up to date', desc: 'New features and security patches ship automatically.' },
   { icon: 'shield', title: 'Managed backups', desc: 'Your data is backed up daily. Restore anytime from your dashboard.' },
-  { icon: 'cpu', title: 'AI included', desc: 'Photo recognition, reorganization, and natural language — no API keys needed.' },
+  { icon: 'cpu', title: 'AI included', desc: 'Photo recognition and natural language on Plus, unlimited AI and reorganization on Pro — no API keys needed.' },
 ]
 
 // ── FAQ ──
 const faqs = [
   {
     q: "What's included in the free trial?",
-    a: 'Full Pro access for 7 days, including 25 AI credits. No credit card required. After the trial you land on the Free plan — your data stays, you just can\'t grow past the Free limits until you upgrade.',
+    a: 'Full Pro access for 7 days. AI features share a pool of 25 credits total across all actions (categorization, reorganization, and commands). No credit card required. After the trial you land on the Free plan — your data stays, you just can\'t grow past the Free limits until you upgrade.',
   },
   {
     q: 'Can I switch plans later?',
@@ -272,7 +267,7 @@ onUnmounted(() => {
         Pricing
       </h2>
       <p class="scroll-reveal mx-auto mt-4 max-w-xl" style="color: var(--vp-c-text-2)">
-        Start free, upgrade anytime. 7-day Pro trial included — no credit card required.
+        Start free, upgrade anytime. 7-day Plus trial included — no credit card required.
       </p>
 
       <!-- Billing toggle -->
@@ -414,7 +409,7 @@ onUnmounted(() => {
           class="mt-6 text-center text-sm"
           style="color: var(--vp-c-text-3)"
         >
-          Free plan forever &middot; 7-day Pro trial &middot; No credit card required
+          Free plan forever &middot; 7-day Plus trial &middot; No credit card required
         </p>
       </div>
     </section>
