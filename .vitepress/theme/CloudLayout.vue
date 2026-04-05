@@ -48,8 +48,7 @@ const plans = computed(() => [
       { name: '100 MB photo storage', included: true },
       { name: 'Custom fields', included: true },
       { name: 'Full export (ZIP/JSON)', included: true },
-      { name: 'AI photo recognition (25/mo)', included: true },
-      { name: 'AI natural language (25/mo)', included: true },
+      { name: '25 AI credits/mo (photo recognition, natural language)', included: true },
     ],
   },
   {
@@ -101,8 +100,7 @@ const comparison = [
   {
     category: 'AI',
     rows: [
-      { feature: 'Photo recognition', free: false, plus: '25/mo', pro: 'Unlimited' },
-      { feature: 'Natural language', free: false, plus: '25/mo', pro: 'Unlimited' },
+      { feature: 'AI credits', free: false, plus: '25/mo (shared)', pro: 'Unlimited' },
       { feature: 'AI reorganization', free: false, plus: false, pro: true },
     ],
   },
