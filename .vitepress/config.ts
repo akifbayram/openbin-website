@@ -18,6 +18,7 @@ export default defineConfig({
     ['meta', { name: 'twitter:description', content: 'Snap a photo, let AI catalog it. QR labels and shared access for your whole household.' }],
     ['meta', { property: 'og:image', content: 'https://openbin.app/og-image.png' }],
     ['meta', { name: 'twitter:image', content: 'https://openbin.app/og-image.png' }],
+    ['script', { defer: '', src: 'https://analytics.openbin.app/script.js', 'data-website-id': '3fd9d230-bac4-4550-9261-30641eb0e45a' }],
   ],
   vite: {
     plugins: [tailwindcss()],
