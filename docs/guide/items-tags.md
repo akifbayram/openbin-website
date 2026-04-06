@@ -47,3 +47,26 @@ Tag colors are set **per location**, so different locations can use different co
 ### Setting a Tag Color
 
 Tap the color indicator next to any tag on the Tags page to assign a color. Colors are visible to all location members. Clear the assignment to revert to the default appearance.
+
+## Tag Hierarchy
+
+Tags support a single-level parent/child structure.
+
+### How it works
+
+- A tag can have one **parent**, and a parent can have many **children**. There are no grandchildren — the hierarchy is exactly one level deep.
+- Parent tags group their children in the tag tree view and in the tag input dropdown, making it easier to find related tags.
+- A tag that already has children cannot itself become a child of another tag.
+
+### Setting a parent
+
+Assign a parent from the Tags page using the **Set Parent** dialog on an existing tag, or choose a parent when creating a new tag via the **Create Tag** dialog.
+
+### Editing and deleting
+
+- **Renaming** a parent tag automatically updates the parent reference on all of its children.
+- **Deleting** a parent tag orphans its children — they become top-level tags again. No child data is lost.
+
+### Filtering
+
+Filtering by a parent tag includes bins tagged with any of that parent's children. This lets you use broad categories (e.g. "Tools") alongside specific tags (e.g. "Hand Tools", "Power Tools") and filter at either level.

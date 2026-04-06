@@ -26,6 +26,19 @@ Uncomment only the lines you need to change. The file is loaded automatically by
 
 ---
 
+### Database
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `DATABASE_PATH` | `./data/openbin.db` | Path to the SQLite database file. In Docker, set to `/data/openbin.db`. Also determines the directory for `.jwt_secret` and backup files. |
+| `DATABASE_URL` | _(unset)_ | PostgreSQL connection string (e.g. `postgres://user:password@localhost:5432/openbin`). When set, OpenBin uses PostgreSQL instead of SQLite. The engine choice is permanent and cannot be changed after initial setup. |
+
+::: warning
+Set `DATABASE_URL` for PostgreSQL **or** use `DATABASE_PATH` for SQLite — not both. The database engine is locked after first initialization and cannot be switched later.
+:::
+
+---
+
 ### Authentication
 
 | Variable | Default | Description |
@@ -72,6 +85,31 @@ When set, all users get AI features without needing to configure their own API k
 
 ::: info Supported providers
 OpenBin supports OpenAI, Anthropic (Claude), Google Gemini, and any OpenAI-compatible API such as Ollama or LM Studio. Each user can also configure their own key independently via their profile settings.
+:::
+
+---
+
+### AI Task Routing
+
+Override the provider, API key, model, and endpoint URL for specific task groups. Any field left unset inherits from the default `AI_*` values above. When any variable is set for a group, that group becomes **env-locked** — users cannot change it in the UI.
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `AI_VISION_PROVIDER` | _(inherit)_ | Override provider for photo analysis. |
+| `AI_VISION_API_KEY` | _(inherit)_ | Override API key for photo analysis. |
+| `AI_VISION_MODEL` | _(inherit)_ | Override model for photo analysis. |
+| `AI_VISION_ENDPOINT_URL` | _(inherit)_ | Override endpoint URL for photo analysis. |
+| `AI_QUICK_TEXT_PROVIDER` | _(inherit)_ | Override provider for commands, execute, and text extraction. |
+| `AI_QUICK_TEXT_API_KEY` | _(inherit)_ | Override API key for commands, execute, and text extraction. |
+| `AI_QUICK_TEXT_MODEL` | _(inherit)_ | Override model for commands, execute, and text extraction. |
+| `AI_QUICK_TEXT_ENDPOINT_URL` | _(inherit)_ | Override endpoint URL for commands, execute, and text extraction. |
+| `AI_DEEP_TEXT_PROVIDER` | _(inherit)_ | Override provider for queries and reorganization. |
+| `AI_DEEP_TEXT_API_KEY` | _(inherit)_ | Override API key for queries and reorganization. |
+| `AI_DEEP_TEXT_MODEL` | _(inherit)_ | Override model for queries and reorganization. |
+| `AI_DEEP_TEXT_ENDPOINT_URL` | _(inherit)_ | Override endpoint URL for queries and reorganization. |
+
+::: tip
+Set only the fields you want to override. For example, to use a different model for photo analysis while keeping the same provider and API key, set only `AI_VISION_MODEL`.
 :::
 
 ---
@@ -140,6 +178,7 @@ Use `app` (default) if you don't have a stable domain or want QR labels to survi
 
 | Variable | Default | Description |
 |----------|---------|-------------|
+| `LOG_LEVEL` | `info` | Server log verbosity. Accepted values: `debug`, `info`, `warn`, `error`. |
 | `CORS_ORIGIN` | `http://localhost:5173` | Allowed CORS origin for API requests. Only relevant for non-Docker local development where the frontend and API run on different origins. |
 | `TRUST_PROXY` | `false` | Set to `true` when running behind a reverse proxy such as Nginx or Caddy. Required for correct IP detection in rate limiting and for the `Secure` cookie flag to work over HTTPS. |
 

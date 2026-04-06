@@ -13,6 +13,16 @@ The Dashboard is the home screen after login. It shows your location's stats, pi
 
 ![Dashboard](../assets/dashboard.png)
 
+## Get Started Checklist
+
+New users see a **Get Started** checklist at the top of the dashboard with three steps:
+
+1. **Create your first bin**
+2. **Add items to a bin**
+3. **Print your first QR label**
+
+Steps complete automatically as you work through them. The checklist can be dismissed at any time and will not reappear once closed.
+
 ## Stats Bar
 
 The top of the dashboard shows three summary counts for the active location:

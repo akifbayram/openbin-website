@@ -90,8 +90,11 @@ Each automatic backup is a ZIP file named `backup-YYYY-MM-DDTHHMMSS.zip` contain
 
 | Path in ZIP | Description |
 |-------------|-------------|
-| `openbin.db` | Full SQLite database snapshot (users, bins, locations, tags, etc.) |
+| `openbin.db` | Full SQLite database snapshot (SQLite installs only) |
+| `openbin.sql` | PostgreSQL dump produced by `pg_dump` (PostgreSQL installs only) |
 | `photos/` | All uploaded photos and generated thumbnails, organized by bin ID |
+
+The archive contains either `openbin.db` or `openbin.sql` depending on the database engine in use. Cross-engine restore is not supported — a SQLite backup cannot be restored into a PostgreSQL instance and vice versa.
 
 ::: info JWT secret not included
 The JWT signing secret (`.jwt_secret`) is **not** included in backup archives. See [Restoring the JWT secret](#restoring-the-jwt-secret) below.

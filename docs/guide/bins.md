@@ -27,6 +27,10 @@ Tap **+ New Bin** and enter a name. Everything else is optional. The short code 
 
 ![Bin detail](../assets/bin-detail.png)
 
+## Editing a bin
+
+Bin fields auto-save as you type. Each field saves independently after a short pause, and a brief indicator appears next to it to confirm.
+
 ## Items
 
 Items are a discrete, ordered list of things inside the bin. Each item has a name and an optional **quantity** for tracking counts. Items can be added, removed, renamed, and reordered from the bin detail page.

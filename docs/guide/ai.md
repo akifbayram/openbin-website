@@ -96,55 +96,69 @@ The Reorganize page lets AI suggest how to restructure an entire location's bins
 
 A custom reorganization prompt can be set in **Settings → AI → Advanced** to guide the AI's restructuring logic (e.g. "group by room" or "consolidate similar items").
 
-## Task-Specific Models
+## Task Routing
 
-Not every AI task needs the same model. Photo analysis benefits from a strong multimodal model, while text extraction and simple commands can run on a smaller, faster model at a fraction of the cost.
+Different AI tasks have different requirements. Photo analysis needs a multimodal model, while text extraction and simple commands work fine with a smaller, cheaper one. Task Routing lets you set the provider, model, and endpoint URL per task group.
 
-OpenBin lets you assign a different model to each task type, all using the same provider and API key:
+OpenBin groups AI tasks into three categories:
 
-| Task | What It Does | Suggested Approach |
+| Task Group | Tasks Included | Typical Model Choice |
 |---|---|---|
-| **Photo Analysis** | Identifies items, names, and tags from photos | Use your most capable multimodal model |
-| **Commands** | Executes natural language instructions ("Add batteries to tools bin") | A fast, inexpensive model works well |
-| **Queries** | Answers questions about your inventory ("Where are the holiday lights?") | A fast, inexpensive model works well |
-| **Extraction** | Structures pasted text or voice input into discrete items | A fast, inexpensive model works well |
-| **Reorganization** | Suggests how to restructure bins, areas, and tags across a location | Use a capable reasoning model |
+| **Vision** | Photo analysis | A multimodal model (e.g. `gpt-5-mini`, `gemini-3-flash-preview`) |
+| **Quick Text** | Commands, execute, text extraction/structuring | A fast, cheap model (e.g. `gpt-4.1-mini`, `claude-haiku-4-5`) |
+| **Deep Text** | Inventory queries, reorganization | A capable reasoning model |
+
+Each group can override any combination of provider, model, and endpoint URL. Unset fields inherit from your default AI configuration.
 
 ### Example configurations
 
 **OpenAI**
-| Task | Model |
+| Group | Model |
 |---|---|
-| Photo Analysis | `gpt-5-mini` |
-| Commands / Queries / Extraction | `gpt-4.1-mini` |
-| Reorganization | `gpt-5-mini` |
+| Vision | `gpt-5-mini` |
+| Quick Text | `gpt-4.1-mini` |
+| Deep Text | `gpt-5-mini` |
 
 **Anthropic**
-| Task | Model |
+| Group | Model |
 |---|---|
-| Photo Analysis | `claude-sonnet-4-6` |
-| Commands / Queries / Extraction | `claude-haiku-4-5` |
-| Reorganization | `claude-sonnet-4-6` |
+| Vision | `claude-sonnet-4-6` |
+| Quick Text | `claude-haiku-4-5` |
+| Deep Text | `claude-sonnet-4-6` |
 
 **Google Gemini**
-| Task | Model |
+| Group | Model |
 |---|---|
-| Photo Analysis | `gemini-3-flash-preview` |
-| Commands / Queries / Extraction | `gemini-2.5-flash` |
-| Reorganization | `gemini-3-flash-preview` |
+| Vision | `gemini-3-flash-preview` |
+| Quick Text | `gemini-2.5-flash` |
+| Deep Text | `gemini-3-flash-preview` |
+
+### Mixed-provider example
+
+You can route different task groups to entirely different providers. For example, use Gemini for photo analysis and Anthropic for everything else:
+
+| Group | Provider | Model |
+|---|---|---|
+| Vision | Google Gemini | `gemini-3-flash-preview` |
+| Quick Text | Anthropic | `claude-haiku-4-5` |
+| Deep Text | Anthropic | `claude-sonnet-4-6` |
 
 ### How to configure
 
-1. Go to **Settings → AI → Custom Prompts**.
-2. Select a task tab (Photos, Commands, Queries, Extraction, or Reorganize).
-3. Enter a model name in the **Model override** field below the prompt editor.
+1. Go to **Settings → AI → Task Routing**.
+2. Select a task group (Vision, Quick Text, or Deep Text).
+3. Optionally override the provider, model, and endpoint URL for that group.
 4. Save.
 
-Leave the override field empty to use your default model for that task. You can start with a single model for everything and add overrides later as you optimize for cost or quality.
+Leave all fields blank for a group to use your default AI configuration.
 
 ::: tip
-Start with one model for all tasks. Once you're comfortable with the results, try a smaller model for commands, queries, and extraction to reduce cost without sacrificing quality where it matters most (photo analysis and reorganization).
+One model for all tasks is a fine starting point. You can always add per-group overrides later — e.g. a cheaper model for Quick Text.
 :::
+
+### Server-wide task routing
+
+Admins can lock task routing for specific groups via environment variables. When a group is configured by the server, it appears as read-only in the UI and cannot be changed by individual users. See the [Configuration Reference](/docs/getting-started/configuration#ai-task-routing) for the full list of per-group variables.
 
 ## Custom Prompts
 

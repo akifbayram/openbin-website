@@ -29,10 +29,24 @@ Returns the authenticated user's configured AI provider. The API key is masked i
   "commandPrompt": null,
   "queryPrompt": null,
   "structurePrompt": null,
+  "reorganizationPrompt": null,
+  "temperature": null,
+  "maxTokens": null,
+  "topP": null,
+  "requestTimeout": null,
+  "taskOverrides": {
+    "vision": { "provider": "gemini", "model": "gemini-3-flash-preview", "endpointUrl": null, "source": "user" }
+  },
+  "taskOverridesEnvLocked": [],
   "source": "user",
   "providerConfigs": { /* per-provider cached credentials */ }
 }
 ```
+
+| Field | Type | Description |
+|---|---|---|
+| `taskOverrides` | object | Per-group overrides. Keys are `vision`, `quickText`, `deepText`. Each value has `provider`, `model`, `endpointUrl`, and `source` (`"user"` or `"env"`). Only groups with an active override are present. |
+| `taskOverridesEnvLocked` | string[] | Task groups locked by server environment variables. These groups appear read-only in the UI. |
 
 ---
 
@@ -52,6 +66,11 @@ Saves AI provider configuration. The API key is encrypted at rest when the `AI_E
 | `commandPrompt` | string or null | No | Custom system prompt for natural language commands. Max 10,000 characters. |
 | `queryPrompt` | string or null | No | Custom system prompt for inventory queries. Max 10,000 characters. |
 | `structurePrompt` | string or null | No | Custom system prompt for item extraction from text/voice. Max 10,000 characters. |
+| `reorganizationPrompt` | string or null | No | Custom system prompt for reorganization. Max 10,000 characters. |
+| `temperature` | number or null | No | Sampling temperature (0.0–2.0). |
+| `maxTokens` | number or null | No | Maximum response tokens (100–16,000). |
+| `topP` | number or null | No | Nucleus sampling probability (0.0–1.0). |
+| `requestTimeout` | number or null | No | Request timeout in seconds (10–300). |
 
 **Response (200)**: Saved `AiSettings` object.
 
@@ -62,6 +81,65 @@ Saves AI provider configuration. The API key is encrypted at rest when the `AI_E
 Removes the authenticated user's AI provider configuration.
 
 **Response (200)**: `{ "message": "AI settings deleted" }`
+
+---
+
+### PUT /api/ai/task-overrides/:taskGroup
+
+Sets or updates the AI provider override for a specific task group. Each group can override the provider, model, and endpoint URL independently. Fields left empty inherit from the user's default AI configuration.
+
+**Path parameters**
+
+| Parameter | Description |
+|---|---|
+| `taskGroup` | One of `vision`, `quickText`, `deepText` |
+
+**Request body**
+
+| Field | Type | Required | Description |
+|---|---|---|---|
+| `provider` | `"openai"`, `"anthropic"`, `"gemini"`, `"openai-compatible"` | No | Override provider for this group |
+| `model` | string | No | Override model for this group |
+| `endpointUrl` | string | No | Override endpoint URL for this group |
+
+**Response (200)**
+
+```json
+{
+  "taskGroup": "vision",
+  "provider": "gemini",
+  "model": "gemini-3-flash-preview",
+  "endpointUrl": null
+}
+```
+
+**Errors**
+
+| Status | Error | Cause |
+|---|---|---|
+| 422 | `VALIDATION_ERROR` | Invalid task group or provider |
+| 409 | `ENV_LOCKED` | Task group is configured by server environment variables and cannot be changed |
+
+---
+
+### DELETE /api/ai/task-overrides/:taskGroup
+
+Removes the user's override for a specific task group. The group will revert to the user's default AI configuration.
+
+**Path parameters**
+
+| Parameter | Description |
+|---|---|
+| `taskGroup` | One of `vision`, `quickText`, `deepText` |
+
+**Response (200)**: `{ "deleted": true }`
+
+**Errors**
+
+| Status | Error | Cause |
+|---|---|---|
+| 422 | `VALIDATION_ERROR` | Invalid task group |
+| 409 | `ENV_LOCKED` | Task group is configured by server environment variables and cannot be changed |
 
 ---
 
