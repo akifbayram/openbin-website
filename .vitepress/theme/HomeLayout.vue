@@ -19,7 +19,7 @@ const faqs = [
   { q: 'What if OpenBin shuts down?', a: "It's open source. Your self-hosted instance keeps running. Cloud users can export everything (bins, items, photos, tags) in one click." },
   { q: 'Can I use it with my team?', a: 'Yes. Create a location, share an invite code. Three roles (admin, member, viewer) control who can edit and who can only browse.' },
   { q: 'What do I need to self-host?', a: 'One Docker container and a few hundred megabytes of disk space. Works on a Raspberry Pi.' },
-  { q: 'Can I connect AI tools like Claude or ChatGPT?', a: 'Yes. OpenBin includes an MCP server that lets AI assistants read and manage your inventory directly. Generate an API key and point your AI tool at it.' },
+  { q: 'Can I connect AI tools like Claude or ChatGPT?', a: 'Yes. Self-hosted OpenBin includes an MCP server that lets AI assistants read and manage your inventory directly. Generate an API key and point your AI tool at it.' },
 ]
 
 // ── Demo iframe scaling ──
@@ -569,7 +569,6 @@ onUnmounted(() => {
             <span class="marquee-badge"><span class="marquee-dot"></span>Areas &amp; Hierarchy</span>
             <span class="marquee-badge"><span class="marquee-dot"></span>Trash Recovery</span>
             <span class="marquee-badge"><span class="marquee-dot"></span>API Access</span>
-            <span class="marquee-badge"><span class="marquee-dot"></span>MCP Server</span>
           </template>
         </div>
       </div>
@@ -869,10 +868,10 @@ onUnmounted(() => {
     <section class="px-6 py-16" style="background: var(--vp-c-bg-soft)">
       <div class="mx-auto max-w-3xl text-center">
         <h2 class="display-heading scroll-reveal mb-4 text-3xl lg:text-4xl">
-          Natural language commands
+          Skip the menus
         </h2>
         <p class="scroll-reveal mb-10 text-lg" style="color: var(--vp-c-text-2)">
-          Tell it what to do in plain English.
+          Describe what you need. OpenBin handles the rest.
         </p>
 
         <div ref="termEl" class="term">

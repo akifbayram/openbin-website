@@ -45,19 +45,29 @@ The `REGISTRATION_MODE` environment variable controls who can create an account 
 
 ## Areas
 
-Areas are sub-zones within a location. Examples: "Garage", "Attic", "Basement", "Shelf A". Bins can be assigned to an area for organization and filtering.
+Areas are sub-zones within a location. Examples: "Garage", "Attic", "Basement", "Shelf A". Each bin can belong to at most one area. Bins without an area appear under "Unassigned" in filters.
 
-Areas can be nested to form a hierarchy. For example, you could have "Garage" as a top-level area with "Workbench" and "Tool Cabinet" as sub-areas inside it. The areas page displays this structure as a collapsible tree, so you can expand or collapse parent areas to navigate the hierarchy.
+### Hierarchy
 
-Each parent area shows a descendant bin count that includes bins in all of its sub-areas, giving you a quick sense of how many bins live under that branch of the tree.
+Areas can be nested to form a tree. For example, "Garage" can contain "Workbench" and "Tool Cabinet" as sub-areas, and "Workbench" can contain "Top Drawer" under it. There is no depth limit.
+
+The areas page shows this as a collapsible tree. Each parent area includes a count of bins in all of its sub-areas.
+
+When you filter by a parent area, bins in all of its sub-areas are included in the results.
+
+::: info
+A parent is set at creation and cannot be changed afterward. To reparent an area, delete it and recreate it under the new parent.
+:::
 
 ### Creating and Renaming Areas
 
 Only admins can create, rename, or delete areas.
 
-- **Create**: Location settings → Areas → Add Area. When creating an area, you can optionally select a parent area to nest it under an existing one.
+- **Create**: Location settings → Areas → Add Area. Select a parent to nest it under an existing area, or leave blank for top-level.
 - **Rename**: Location settings → Areas → edit the area name.
 - **Delete**: Deleting an area also deletes all of its sub-areas. Bins in the deleted area and its sub-areas become unassigned.
+
+Areas are scoped to a single location. Moving a bin to another location clears its area assignment.
 
 ## Customizable Terminology
 

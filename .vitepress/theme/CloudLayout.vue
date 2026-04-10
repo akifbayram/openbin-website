@@ -69,7 +69,7 @@ const plans = computed(() => [
       { name: 'Up to 25 members/location', included: true },
       { name: '1 GB photo storage', included: true },
       { name: '500 AI credits/mo', included: true },
-      { name: 'API keys & MCP server', included: true },
+      { name: 'API keys', included: true },
       { name: 'Bin sharing', included: true },
     ],
   },
@@ -117,7 +117,6 @@ const comparison = [
       { feature: 'CSV export', free: false, plus: true, pro: true },
       { feature: 'Full export (ZIP/JSON)', free: false, plus: true, pro: true },
       { feature: 'API access', free: false, plus: false, pro: true },
-      { feature: 'MCP server', free: false, plus: false, pro: true },
     ],
   },
   {

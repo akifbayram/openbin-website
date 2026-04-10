@@ -23,6 +23,10 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  srcExclude: ['**/CLAUDE.md'],
+  sitemap: {
+    hostname: 'https://openbin.app',
+  },
   appearance: false,
   themeConfig: {
     logo: {
