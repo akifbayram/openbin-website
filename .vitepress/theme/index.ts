@@ -5,6 +5,7 @@ import { useRoute } from 'vitepress'
 import Layout from './Layout.vue'
 import HomeLayout from './HomeLayout.vue'
 import CloudLayout from './CloudLayout.vue'
+import AiLayout from './AiLayout.vue'
 import './custom.css'
 
 export default {
@@ -13,6 +14,7 @@ export default {
   enhanceApp({ app }) {
     app.component('HomeLayout', HomeLayout)
     app.component('CloudLayout', CloudLayout)
+    app.component('AiLayout', AiLayout)
     if (typeof document !== 'undefined') {
       document.documentElement.classList.add('dark')
     }

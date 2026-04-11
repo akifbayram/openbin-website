@@ -161,6 +161,7 @@ export default defineConfig({
     siteTitle: false,
     nav: [
       { text: 'Home', link: '/' },
+      { text: 'AI', link: '/ai' },
       { text: 'Documentation', link: '/docs/' },
       { text: 'OpenBin Cloud', link: '/cloud' },
     ],
@@ -170,6 +171,7 @@ export default defineConfig({
           text: 'Introduction',
           items: [
             { text: 'What is OpenBin?', link: '/docs/' },
+            { text: 'Screenshots', link: '/docs/screenshots' },
           ],
         },
         {
@@ -185,16 +187,16 @@ export default defineConfig({
           text: 'Guide',
           collapsed: false,
           items: [
+            { text: 'Locations & Areas', link: '/docs/guide/locations' },
             { text: 'Bins', link: '/docs/guide/bins' },
+            { text: 'Items & Tags', link: '/docs/guide/items-tags' },
+            { text: 'Photos', link: '/docs/guide/photos' },
             { text: 'QR Scanning', link: '/docs/guide/qr-scanning' },
+            { text: 'Print Labels', link: '/docs/guide/print-labels' },
             { text: 'Search & Filter', link: '/docs/guide/search-filter' },
             { text: 'Dashboard', link: '/docs/guide/dashboard' },
-            { text: 'Locations & Areas', link: '/docs/guide/locations' },
-            { text: 'Photos', link: '/docs/guide/photos' },
-            { text: 'Print Labels', link: '/docs/guide/print-labels' },
-            { text: 'Items & Tags', link: '/docs/guide/items-tags' },
-            { text: 'Bulk Operations', link: '/docs/guide/bulk-operations' },
             { text: 'Bulk Add', link: '/docs/guide/bulk-add' },
+            { text: 'Bulk Operations', link: '/docs/guide/bulk-operations' },
             { text: 'Account & Profile', link: '/docs/guide/profile' },
             { text: 'Keyboard Shortcuts', link: '/docs/guide/shortcuts' },
           ],
@@ -204,8 +206,8 @@ export default defineConfig({
           collapsed: false,
           items: [
             { text: 'AI Features', link: '/docs/guide/ai' },
-            { text: 'MCP Server', link: '/docs/guide/mcp-server' },
             { text: 'API Keys', link: '/docs/guide/api-keys' },
+            { text: 'MCP Server', link: '/docs/guide/mcp-server' },
             { text: 'Import & Export', link: '/docs/guide/import-export' },
           ],
         },
@@ -253,7 +255,7 @@ export default defineConfig({
       text: 'Edit this page on GitHub',
     },
     footer: {
-      message: 'Open source on GitHub · Built by <a href="https://github.com/akifbayram" target="_blank" rel="noopener">Akif Bayram</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>',
+      message: '<a href="/docs/">Docs</a> · <a href="/cloud">Cloud</a> · <a href="https://github.com/akifbayram/openbin" target="_blank" rel="noopener">GitHub</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>',
       copyright: '© 2026 OpenBin',
     },
   },
