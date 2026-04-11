@@ -1,12 +1,3 @@
----
-prev:
-  text: 'Bins'
-  link: '/docs/guide/bins'
-next:
-  text: 'Print Labels'
-  link: '/docs/guide/print-labels'
----
-
 # QR Scanning
 
 Each bin's QR label encodes its 6-character short code. The format depends on the server's `QR_PAYLOAD_MODE` setting:

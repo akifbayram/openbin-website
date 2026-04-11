@@ -18,19 +18,26 @@ const plans = computed(() => [
     badge: null,
     price: '$0',
     priceDetail: '/month',
-    description: 'Try OpenBin — no card required.',
+    description: 'No card required.',
     cta: 'Sign Up Free',
     ctaLink: 'https://cloud.openbin.app/',
     ctaClass: 'btn-secondary',
     highlight: false,
+    limits: [
+      { label: 'Bins', value: '10' },
+      { label: 'Locations', value: '1' },
+      { label: 'Members', value: '1' },
+      { label: 'Photo storage', value: '—' },
+      { label: 'AI actions', value: '10/mo' },
+    ],
     features: [
-      { name: 'Up to 50 bins', included: true },
-      { name: '1 location', included: true },
-      { name: '1 member', included: true },
       { name: 'Custom labels', included: true, link: '/docs/guide/print-labels/' },
       { name: 'Areas & tags', included: true, link: '/docs/guide/items-tags/' },
       { name: 'Saved views', included: true, link: '/docs/guide/search-filter/' },
       { name: 'Bulk operations', included: true, link: '/docs/guide/bulk-operations/' },
+      { name: 'AI assistant', included: true, link: '/docs/guide/ai.html#ai-assistant' },
+      { name: 'Community support', included: true},
+
     ],
   },
   {
@@ -43,14 +50,23 @@ const plans = computed(() => [
     ctaLink: 'https://cloud.openbin.app/',
     ctaClass: 'btn-secondary',
     highlight: false,
-    preamble: 'All of Free, plus:',
+    limits: [
+      { label: 'Bins', value: '100' },
+      { label: 'Locations', value: '1' },
+      { label: 'Members', value: '1' },
+      { label: 'Photo storage', value: '100 MB' },
+      { label: 'AI actions', value: '25/mo' },
+    ],
     features: [
-      { name: 'Up to 500 bins', included: true },
-      { name: 'Photo storage (100 MB)', included: true },
-      { name: 'AI reorganization', included: true, link: '/docs/guide/ai/' },
-      { name: 'AI object recognition', included: true, link: '/docs/guide/ai/' },
-      { name: 'AI commands', included: true, link: '/docs/guide/ai/' },
-      { name: '25 AI credits/mo', included: true },
+      { name: 'Custom labels', included: true, link: '/docs/guide/print-labels/' },
+      { name: 'Areas & tags', included: true, link: '/docs/guide/items-tags/' },
+      { name: 'Saved views', included: true, link: '/docs/guide/search-filter/' },
+      { name: 'Bulk operations', included: true, link: '/docs/guide/bulk-operations/' },
+      { name: 'Photo upload', included: true, link: '/docs/guide/photos/' },
+      { name: 'AI assistant', included: true, link: '/docs/guide/ai.html#ai-assistant' },
+      { name: 'AI reorganization', included: true, link: '/docs/guide/ai.html#ai-reorganization' },
+      { name: 'AI object recognition', included: true, link: '/docs/guide/ai.html#ai-object-recognition' },
+      { name: 'Priority support', included: true},
     ],
   },
   {
@@ -64,12 +80,23 @@ const plans = computed(() => [
     ctaLink: 'https://cloud.openbin.app/',
     ctaClass: 'btn-primary',
     highlight: true,
-    preamble: 'All of Plus, plus:',
+    limits: [
+      { label: 'Bins', value: '1000' },
+      { label: 'Locations', value: '10' },
+      { label: 'Members', value: '10/loc' },
+      { label: 'Photo storage', value: '1 GB' },
+      { label: 'AI actions', value: '250/mo' },
+    ],
     features: [
-      { name: 'Up to 10 locations', included: true },
-      { name: 'Up to 10 members/location', included: true },
-      { name: '1 GB photo storage', included: true },
-      { name: '250 AI credits/mo', included: true },
+      { name: 'Custom labels', included: true, link: '/docs/guide/print-labels/' },
+      { name: 'Areas & tags', included: true, link: '/docs/guide/items-tags/' },
+      { name: 'Saved views', included: true, link: '/docs/guide/search-filter/' },
+      { name: 'Bulk operations', included: true, link: '/docs/guide/bulk-operations/' },
+      { name: 'Photo upload', included: true, link: '/docs/guide/photos/' },
+      { name: 'AI assistant', included: true, link: '/docs/guide/ai.html#ai-assistant' },
+      { name: 'AI reorganization', included: true, link: '/docs/guide/ai.html#ai-reorganization' },
+      { name: 'AI object recognition', included: true, link: '/docs/guide/ai.html#ai-object-recognition' },
+      { name: 'Priority support', included: true},
       { name: 'Custom fields', included: true },
       { name: 'API keys', included: true, link: '/docs/guide/api-keys/' },
       { name: 'Bin sharing', included: true },
@@ -83,7 +110,7 @@ const comparison = [
   {
     category: 'Basics',
     rows: [
-      { feature: 'Bins', free: '50', plus: '500', pro: '500' },
+      { feature: 'Bins', free: '10', plus: '100', pro: '1,000' },
       { feature: 'Locations', free: '1', plus: '1', pro: '10', link: '/docs/guide/locations/' },
       { feature: 'Members', free: '1', plus: '1', pro: '10' },
       { feature: 'Photo storage', free: false, plus: '100 MB', pro: '1 GB', link: '/docs/guide/photos/' },
@@ -102,8 +129,10 @@ const comparison = [
   {
     category: 'AI',
     rows: [
-      { feature: 'AI credits', free: false, plus: '25/mo (shared)', pro: '250/mo', link: '/docs/guide/ai/' },
+      { feature: 'AI actions', free: '10/mo', plus: '25/mo', pro: '250/mo', link: '/docs/guide/ai/' },
+      { feature: 'AI assistant', free: true, plus: true, pro: true, link: '/docs/guide/ai/' },
       { feature: 'AI reorganization', free: false, plus: true, pro: true, link: '/docs/guide/ai/' },
+      { feature: 'AI object recognition', free: false, plus: true, pro: true, link: '/docs/guide/ai/' },
     ],
   },
   {
@@ -116,7 +145,7 @@ const comparison = [
   {
     category: 'Data & Integration',
     rows: [
-      { feature: 'CSV export', free: false, plus: true, pro: true, link: '/docs/guide/import-export/' },
+      { feature: 'CSV export', free: true, plus: true, pro: true, link: '/docs/guide/import-export/' },
       { feature: 'Full export (ZIP/JSON)', free: false, plus: true, pro: true, link: '/docs/guide/import-export/' },
       { feature: 'API access', free: false, plus: false, pro: true, link: '/docs/guide/api-keys/' },
     ],
@@ -126,7 +155,7 @@ const comparison = [
     rows: [
       { feature: 'Updates', free: 'Automatic', plus: 'Automatic', pro: 'Automatic' },
       { feature: 'Backups', free: 'Managed', plus: 'Managed', pro: 'Managed' },
-      { feature: 'Support', free: 'Community', plus: 'Email', pro: 'Priority' },
+      { feature: 'Support', free: 'Community', plus: 'Priority', pro: 'Priority' },
     ],
   },
 ]
@@ -163,50 +192,12 @@ onMounted(() => {
 
 <template>
   <div class="home-layout">
-    <!-- ════════ Hero ════════ -->
-    <section class="hero-bg px-6 pt-24 pb-16 text-center">
-      <h1 class="display-heading animate-in gradient-text mx-auto max-w-3xl text-4xl lg:text-5xl">
-        OpenBin Cloud
-      </h1>
-      <p class="animate-in delay-1 mx-auto mt-6 max-w-xl text-lg" style="color: var(--vp-c-text-2)">
-        Skip the setup. We handle hosting, updates, backups, and AI so you can focus on organizing.
-      </p>
-      <div class="animate-in delay-2 mt-8 flex flex-wrap justify-center gap-4">
-        <a href="https://cloud.openbin.app/" class="btn-primary">
-          Start Free Trial <span class="btn-arrow">&rarr;</span>
-        </a>
-        <a href="#pricing" class="btn-secondary">
-          See Pricing <span class="btn-arrow">&rarr;</span>
-        </a>
-      </div>
-    </section>
-
-    <!-- ════════ Why Cloud ════════ -->
-    <section class="px-6 py-16">
-      <div class="mx-auto max-w-5xl">
-        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          <div
-            v-for="(b, i) in benefits"
-            :key="b.title"
-            class="scroll-reveal feature-card rounded-lg p-6"
-            :class="'stagger-' + (i + 1)"
-          >
-            <div class="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-lg" style="background: var(--vp-c-brand-soft)">
-              <!-- Zap -->
-              <svg v-if="b.icon === 'zap'" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--vp-c-brand-1)"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" /></svg>
-              <!-- Refresh -->
-              <svg v-else-if="b.icon === 'refresh'" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--vp-c-brand-1)"><polyline points="23 4 23 10 17 10" /><polyline points="1 20 1 14 7 14" /><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15" /></svg>
-              <!-- Shield -->
-              <svg v-else-if="b.icon === 'shield'" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--vp-c-brand-1)"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
-              <!-- CPU -->
-              <svg v-else-if="b.icon === 'cpu'" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--vp-c-brand-1)"><rect x="4" y="4" width="16" height="16" rx="2" ry="2" /><rect x="9" y="9" width="6" height="6" /><line x1="9" y1="1" x2="9" y2="4" /><line x1="15" y1="1" x2="15" y2="4" /><line x1="9" y1="20" x2="9" y2="23" /><line x1="15" y1="20" x2="15" y2="23" /><line x1="20" y1="9" x2="23" y2="9" /><line x1="20" y1="14" x2="23" y2="14" /><line x1="1" y1="9" x2="4" y2="9" /><line x1="1" y1="14" x2="4" y2="14" /></svg>
-            </div>
-            <h3 class="text-lg font-semibold" style="color: var(--vp-c-text-1)">{{ b.title }}</h3>
-            <p class="mt-2 text-sm" style="color: var(--vp-c-text-2)">{{ b.desc }}</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- Animated background -->
+    <div class="animated-bg" aria-hidden="true">
+      <div class="animated-bg__orb animated-bg__orb--1"></div>
+      <div class="animated-bg__orb animated-bg__orb--2"></div>
+      <div class="animated-bg__orb animated-bg__orb--3"></div>
+    </div>
 
     <!-- ════════ Pricing ════════ -->
     <section id="pricing" class="px-6 py-16 scroll-mt-16">
@@ -296,15 +287,31 @@ onMounted(() => {
               </a>
             </div>
 
+            <div v-if="plan.limits" class="plan-limits mt-6">
+              <div
+                v-for="limit in plan.limits"
+                :key="limit.label"
+                class="plan-limit"
+              >
+                <span class="plan-limit-label">{{ limit.label }}</span>
+                <span
+                  class="plan-limit-value"
+                  :style="{ color: limit.value === '—' ? 'var(--vp-c-text-3)' : 'var(--vp-c-text-1)' }"
+                >
+                  {{ limit.value }}
+                </span>
+              </div>
+            </div>
+
             <div
               v-if="plan.preamble"
-              class="mt-8 mb-3 text-sm font-medium"
+              class="mt-6 mb-3 text-sm font-medium"
               style="color: var(--vp-c-text-3)"
             >
               {{ plan.preamble }}
             </div>
 
-            <ul :class="['pricing-list flex-1 space-y-3', plan.preamble ? '' : 'mt-8']">
+            <ul :class="['pricing-list flex-1 space-y-3', plan.preamble ? '' : 'mt-6']">
               <li
                 v-for="feature in plan.features"
                 :key="feature.name"
@@ -356,8 +363,47 @@ onMounted(() => {
         >
           Free plan &middot; 7-day Plus subscription trial &middot; No credit card required
         </p>
+
+        <!-- AI actions explainer -->
+        <div class="scroll-reveal ai-actions-explainer mx-auto mt-10 max-w-3xl text-left">
+          <h3 class="text-xl font-semibold" style="color: var(--vp-c-text-1)">What counts as an AI action?</h3>
+          <p class="mt-4" style="color: var(--vp-c-text-2)">
+            An AI action is one request to the AI: scanning a photo, chatting with the AI assistant, searching your inventory, or generating a reorganization suggestion. Each request uses one action from your monthly allowance.
+          </p>
+          <p class="mt-4" style="color: var(--vp-c-text-2)">
+            The <a href="/docs/guide/ai.html#ai-assistant" class="pricing-feature-link">AI assistant</a> and <a href="/docs/guide/ai.html#inventory-search" class="pricing-feature-link">inventory search</a> are included with every plan. <a href="/docs/guide/ai.html#photo-analysis" class="pricing-feature-link">Photo analysis</a>, <a href="/docs/guide/ai.html#ai-reorganization" class="pricing-feature-link">AI reorganization</a>, and <a href="/docs/guide/ai.html#ai-object-recognition" class="pricing-feature-link">object recognition</a> are available on Plus and Pro.
+          </p>
+        </div>
       </div>
     </section>
+
+    <!-- ════════ Why Cloud ════════ -->
+    <section class="px-6 py-6">
+      <div class="mx-auto max-w-5xl">
+        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div
+            v-for="(b, i) in benefits"
+            :key="b.title"
+            class="scroll-reveal feature-card rounded-lg p-6"
+            :class="'stagger-' + (i + 1)"
+          >
+            <div class="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-lg" style="background: var(--vp-c-brand-soft)">
+              <!-- Zap -->
+              <svg v-if="b.icon === 'zap'" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--vp-c-brand-1)"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" /></svg>
+              <!-- Refresh -->
+              <svg v-else-if="b.icon === 'refresh'" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--vp-c-brand-1)"><polyline points="23 4 23 10 17 10" /><polyline points="1 20 1 14 7 14" /><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15" /></svg>
+              <!-- Shield -->
+              <svg v-else-if="b.icon === 'shield'" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--vp-c-brand-1)"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
+              <!-- CPU -->
+              <svg v-else-if="b.icon === 'cpu'" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--vp-c-brand-1)"><rect x="4" y="4" width="16" height="16" rx="2" ry="2" /><rect x="9" y="9" width="6" height="6" /><line x1="9" y1="1" x2="9" y2="4" /><line x1="15" y1="1" x2="15" y2="4" /><line x1="9" y1="20" x2="9" y2="23" /><line x1="15" y1="20" x2="15" y2="23" /><line x1="20" y1="9" x2="23" y2="9" /><line x1="20" y1="14" x2="23" y2="14" /><line x1="1" y1="9" x2="4" y2="9" /><line x1="1" y1="14" x2="4" y2="14" /></svg>
+            </div>
+            <h3 class="text-lg font-semibold" style="color: var(--vp-c-text-1)">{{ b.title }}</h3>
+            <p class="mt-2 text-sm" style="color: var(--vp-c-text-2)">{{ b.desc }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
 
     <!-- ════════ What to Expect ════════ -->
     <section class="px-6 py-16">
@@ -378,8 +424,8 @@ onMounted(() => {
           </p>
 
           <p>
-            <strong style="color: var(--vp-c-text-1)">AI credits, explained.</strong>
-            Plus and Pro plans include monthly AI credits. One credit covers one action: scanning a photo, running a natural language command, or getting a reorganization suggestion. Plus includes 25 per month, Pro includes 250. Unused credits don't roll over.
+            <strong style="color: var(--vp-c-text-1)">AI actions, explained.</strong>
+            Every plan includes monthly AI actions. One action covers one task: scanning a photo, running an AI assistant instruction, or getting a reorganization suggestion. Free includes 10, Plus includes 25, and Pro includes 250 per month. Unused actions don't roll over.
           </p>
         </div>
       </div>
@@ -526,6 +572,15 @@ onMounted(() => {
 </template>
 
 <style>
+/* ── AI actions explainer ── */
+
+.ai-actions-explainer {
+  padding: 2rem;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  background: var(--vp-c-bg-soft);
+}
+
 /* ── Billing toggle ── */
 
 .billing-toggle {
@@ -594,6 +649,30 @@ onMounted(() => {
 .plan-badge--popular {
   color: #fff;
   background: var(--vp-c-brand-1);
+}
+
+/* ── Plan limits ── */
+
+.plan-limits {
+  border-top: 1px solid var(--vp-c-divider);
+  padding-top: 0.75rem;
+}
+
+.plan-limit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.3rem 0;
+  font-size: 0.85rem;
+}
+
+.plan-limit-label {
+  color: var(--vp-c-text-2);
+}
+
+.plan-limit-value {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
 }
 
 /* ── Comparison table ── */

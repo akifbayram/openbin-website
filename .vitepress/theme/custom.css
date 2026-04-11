@@ -417,6 +417,87 @@
   }
 }
 
+/* ── Animated page background ── */
+
+.animated-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.animated-bg__orb {
+  position: absolute;
+  border-radius: 50%;
+  will-change: transform;
+}
+
+.animated-bg__orb--1 {
+  width: 50vmax;
+  height: 50vmax;
+  top: -10%;
+  left: -5%;
+  background: radial-gradient(circle, rgba(94, 47, 224, 0.12) 0%, transparent 70%);
+  animation: orb-1 19s ease-in-out infinite;
+}
+
+.animated-bg__orb--2 {
+  width: 40vmax;
+  height: 40vmax;
+  bottom: 0;
+  right: -5%;
+  background: radial-gradient(circle, rgba(96, 165, 250, 0.08) 0%, transparent 70%);
+  animation: orb-2 23s ease-in-out infinite;
+}
+
+.animated-bg__orb--3 {
+  width: 35vmax;
+  height: 35vmax;
+  top: 40%;
+  left: 30%;
+  background: radial-gradient(circle, rgba(155, 122, 247, 0.08) 0%, transparent 70%);
+  animation: orb-3 29s ease-in-out infinite;
+}
+
+@keyframes orb-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(8vw, 6vh) scale(1.1); }
+  50% { transform: translate(3vw, 12vh) scale(0.95); }
+  75% { transform: translate(-4vw, 5vh) scale(1.05); }
+}
+
+@keyframes orb-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(-10vw, -8vh) scale(1.12); }
+  66% { transform: translate(-5vw, -3vh) scale(0.92); }
+}
+
+@keyframes orb-3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  20% { transform: translate(-6vw, 5vh) scale(1.08); }
+  40% { transform: translate(4vw, -4vh) scale(1.12); }
+  60% { transform: translate(7vw, 3vh) scale(0.93); }
+  80% { transform: translate(-3vw, -6vh) scale(1.06); }
+}
+
+.home-layout > section {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .animated-bg__orb--3 {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animated-bg__orb {
+    animation: none;
+  }
+}
+
 /* ── Nav logo sizing ── */
 
 .VPNavBarTitle .logo {
@@ -1314,6 +1395,7 @@
   text-align: left;
 }
 
+
 .ai-demo-header {
   display: flex;
   align-items: center;
@@ -1600,6 +1682,42 @@
 
 /* ── AI Page: Step circles ── */
 
+/* Wire connector for AI page steps (56px circles, wire at center) */
+
+.ai-steps-wire {
+  position: relative;
+}
+
+.ai-steps-wire::after {
+  content: '';
+  position: absolute;
+  top: 28px;
+  left: calc(16.67% + 28px);
+  right: calc(16.67% + 28px);
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    var(--vp-c-brand-1),
+    var(--vp-c-brand-3),
+    var(--vp-c-brand-1)
+  );
+  background-size: 200% 100%;
+  animation: wire-travel 3s ease-in-out infinite;
+  z-index: 0;
+}
+
+@media (max-width: 1023px) {
+  .ai-steps-wire::after {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ai-steps-wire::after {
+    animation: none;
+  }
+}
+
 .ai-step-circle {
   display: flex;
   align-items: center;
@@ -1607,9 +1725,12 @@
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: rgba(94, 47, 224, 0.15);
+  background: var(--vp-c-bg-soft);
+  box-shadow: inset 0 0 0 100px rgba(94, 47, 224, 0.15);
   border: 2px solid rgba(94, 47, 224, 0.3);
   color: var(--vp-c-brand-3);
+  position: relative;
+  z-index: 1;
 }
 
 /* ── AI Page: Feature deep dives ── */
@@ -1739,72 +1860,3 @@
   border-top-color: var(--vp-c-brand-1);
 }
 
-/* ── AI Page: Provider cards ── */
-
-.ai-provider-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 1rem;
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 12px;
-  background: var(--vp-c-bg);
-  transition: border-color 0.2s;
-  min-width: 100px;
-}
-
-.ai-provider-card:hover {
-  border-color: var(--vp-c-brand-1);
-}
-
-.ai-provider-logo {
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--vp-c-text-1);
-}
-
-.ai-provider-name {
-  font-size: 0.8rem;
-  color: var(--vp-c-text-2);
-  font-weight: 500;
-}
-
-/* Task routing */
-
-.ai-routing-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.ai-routing-row {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  font-size: 0.85rem;
-}
-
-.ai-routing-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
-.ai-routing-group {
-  color: var(--vp-c-text-1);
-  font-weight: 600;
-  min-width: 80px;
-}
-
-.ai-routing-arrow {
-  color: var(--vp-c-text-3);
-}
-
-.ai-routing-model {
-  color: var(--vp-c-text-2);
-}

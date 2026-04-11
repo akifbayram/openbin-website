@@ -8,7 +8,7 @@ title: AI
 For a user-facing walkthrough, see [AI Features](/docs/guide/ai).
 :::
 
-AI provider configuration, photo analysis, text structuring, natural language commands, inventory queries, and server-side command execution.
+AI provider configuration, photo analysis, text structuring, AI assistant, inventory queries, and server-side command execution.
 
 ---
 
@@ -63,7 +63,7 @@ Saves AI provider configuration. The API key is encrypted at rest when the `AI_E
 | `model` | string | Yes | Model identifier (e.g. `gpt-5-mini`) |
 | `endpointUrl` | string | No | Required when `provider` is `"openai-compatible"` |
 | `customPrompt` | string or null | No | Custom system prompt for image analysis. Max 10,000 characters. Use `{available_tags}` placeholder to inject existing tags. |
-| `commandPrompt` | string or null | No | Custom system prompt for natural language commands. Max 10,000 characters. |
+| `commandPrompt` | string or null | No | Custom system prompt for the AI assistant. Max 10,000 characters. |
 | `queryPrompt` | string or null | No | Custom system prompt for inventory queries. Max 10,000 characters. |
 | `structurePrompt` | string or null | No | Custom system prompt for item extraction from text/voice. Max 10,000 characters. |
 | `reorganizationPrompt` | string or null | No | Custom system prompt for reorganization. Max 10,000 characters. |
@@ -271,13 +271,13 @@ Items include `quantity` when the AI can extract a count from the dictated text 
 
 ### POST /api/ai/command
 
-Parses a natural language command into structured inventory actions for client-side preview and execution. The client is responsible for displaying the parsed actions to the user before executing them via existing mutation endpoints. Rate limited to 30 per hour.
+Parses an AI assistant instruction into structured inventory actions for client-side preview and execution. The client is responsible for displaying the parsed actions to the user before executing them via existing mutation endpoints. Rate limited to 30 per hour.
 
 **Request body**
 
 | Field | Type | Required | Description |
 |---|---|---|---|
-| `text` | string | Yes | Natural language command. Max 5,000 characters. |
+| `text` | string | Yes | AI assistant instruction. Max 5,000 characters. |
 | `locationId` | string | Yes | Location ID to scope the command context |
 
 **Response (200)**
@@ -333,7 +333,7 @@ Rate limits: 30/hour for JWT auth; 1,000/hour for API keys.
 
 ### POST /api/ai/execute
 
-Headless fire-and-forget endpoint. Parses a natural language command and executes all resulting actions server-side in a single transaction. Unlike `/ai/command` (which returns actions for client-side preview), this endpoint performs the mutations directly. Ideal for smart home integrations and automation pipelines.
+Headless fire-and-forget endpoint. Parses an AI assistant instruction and executes all resulting actions server-side in a single transaction. Unlike `/ai/command` (which returns actions for client-side preview), this endpoint performs the mutations directly. Ideal for smart home integrations and automation pipelines.
 
 Rate limits: 30/hour for JWT auth; 1,000/hour for API keys.
 
@@ -341,7 +341,7 @@ Rate limits: 30/hour for JWT auth; 1,000/hour for API keys.
 
 | Field | Type | Required | Description |
 |---|---|---|---|
-| `text` | string | Yes | Natural language command. Max 5,000 characters. |
+| `text` | string | Yes | AI assistant instruction. Max 5,000 characters. |
 | `locationId` | UUID | Yes | Location to execute the command in |
 
 **Response (200)**

@@ -81,7 +81,7 @@ If you delete your account, we will delete your data from our servers. Backups m
 
 ## AI features and third-party services
 
-OpenBin's AI features (photo analysis, smart suggestions, natural language commands, reorganization) use third-party AI providers including OpenAI, Anthropic, and Google Gemini.
+OpenBin's AI features (photo analysis, smart suggestions, AI assistant, reorganization) use third-party AI providers including OpenAI, Anthropic, and Google Gemini.
 
 When you use AI features, relevant data (such as photos you upload for analysis) is sent to these providers for processing. Each provider has its own terms of service and privacy policy. We select providers that do not train on customer data, but we encourage you to review their policies independently.
 

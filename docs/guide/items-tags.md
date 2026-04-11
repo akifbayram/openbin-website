@@ -1,12 +1,3 @@
----
-prev:
-  text: 'Import & Export'
-  link: '/docs/guide/import-export'
-next:
-  text: 'Account & Profile'
-  link: '/docs/guide/profile'
----
-
 # Items & Tags
 
 ![Items list](../assets/items-list.png)

@@ -1,12 +1,3 @@
----
-prev:
-  text: 'Items & Tags'
-  link: '/docs/guide/items-tags'
-next:
-  text: 'Keyboard Shortcuts'
-  link: '/docs/guide/shortcuts'
----
-
 # Account & Profile
 
 ![Profile settings](../assets/profile-settings.png)

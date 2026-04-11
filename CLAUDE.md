@@ -29,11 +29,13 @@
 openbin-website/
 ├── .vitepress/
 │   ├── config.ts              # VitePress config: nav, sidebar, social links, Tailwind plugin, OG meta
+│   ├── data/
+│   │   └── faqs.ts            # FAQ data for Home and Cloud pages
 │   └── theme/
 │       ├── index.ts           # Extends DefaultTheme, registers layout components, medium-zoom
 │       ├── Layout.vue         # Wraps DefaultTheme layout, adds nav login button, hides search on marketing pages
 │       ├── HomeLayout.vue     # Home page: hero, demos, features, comparison, FAQ, CTA
-│       ├── CloudLayout.vue    # Cloud page: benefits, pricing plans, comparison table, FAQ
+│       ├── CloudLayout.vue    # Cloud page: pricing, benefits, comparison table, FAQ
 │       └── custom.css         # All custom styles: tokens, animations, buttons, components
 ├── docs/                      # Documentation (served at /docs/, sidebar defined in config.ts)
 │   ├── index.md               # "What is OpenBin?"
@@ -42,11 +44,16 @@ openbin-website/
 │   └── api/                   # REST API reference
 ├── index.md                   # Home page (layout: page, renders <HomeLayout />)
 ├── cloud.md                   # Cloud page (layout: page, renders <CloudLayout />)
+├── privacy.md                 # Privacy policy
+├── terms.md                   # Terms of service
 └── public/
     ├── CNAME                  # openbin.app
     ├── favicon.svg
+    ├── og-image.png
     ├── logo-horizontal.svg
     ├── logo-horizontal-dark.svg
+    ├── llms.txt
+    ├── robots.txt
     └── screenshots/
 ```
 
@@ -102,7 +109,7 @@ HomeLayout also has three self-running demos that start via IntersectionObserver
 3. **How It Works**: 3-step grid with wire connector (Snap → Stick → Scan)
 4. **Photo to Bin**: Animated timeline demo — upload, analyze (multi-bin carousel), create
 5. **AI Reorganization**: Before/after split comparison with spring-animated divider (desktop), stacked cards (mobile). Three switchable scenarios.
-6. **Natural Language Commands**: Terminal simulation cycling through 5 command examples with typing + streaming animation
+6. **AI Assistant**: Terminal simulation cycling through 5 command examples with typing + streaming animation
 7. **Use Cases**: 4 tilted cards (Moving, Workshop, Shared spaces, Collections)
 8. **Self-Host vs Cloud**: Two-column comparison cards, cloud card highlighted with brand border
 9. **FAQ**: Accordion with 6 questions
@@ -110,9 +117,9 @@ HomeLayout also has three self-running demos that start via IntersectionObserver
 
 ### Cloud (`cloud.md` → `CloudLayout.vue`)
 
-1. **Hero**: "OpenBin Cloud" gradient heading, CTAs (Start Free Trial / Self-Host Instead)
-2. **Benefits**: 4-card grid (No setup, Always up to date, Managed backups, AI included)
-3. **Pricing**: Billing toggle, three plan cards (Free, Plus $3/mo, Pro $6/mo). Prices update with toggle — edit `plans` computed in `CloudLayout.vue`.
+1. **Pricing**: Billing toggle, three plan cards (Free, Plus $3/mo, Pro $6/mo) with key limits section + feature checklist. Prices update with toggle — edit `plans` computed in `CloudLayout.vue`.
+2. **Why Cloud**: 4-card grid (No setup, Always up to date, Managed backups, AI included)
+3. **What to Expect**: Prose section covering maintenance, data portability, AI actions
 4. **Feature Comparison Table**: Grouped by category, sticky first column on mobile, Pro column highlighted
 5. **FAQ**: 6-question accordion
 6. **Bottom CTA**: "Start organizing"

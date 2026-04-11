@@ -1,12 +1,3 @@
----
-prev:
-  text: 'Account & Profile'
-  link: '/docs/guide/profile'
-next:
-  text: 'API Keys'
-  link: '/docs/guide/api-keys'
----
-
 # Keyboard Shortcuts
 
 OpenBin supports keyboard shortcuts for fast navigation and common actions. Shortcuts are available on desktop and are disabled while typing in input fields or text areas to avoid conflicts.

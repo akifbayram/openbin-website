@@ -440,6 +440,13 @@ onUnmounted(() => {
 
 <template>
   <div class="home-layout">
+    <!-- Animated background -->
+    <div class="animated-bg" aria-hidden="true">
+      <div class="animated-bg__orb animated-bg__orb--1"></div>
+      <div class="animated-bg__orb animated-bg__orb--2"></div>
+      <div class="animated-bg__orb animated-bg__orb--3"></div>
+    </div>
+
     <!-- ════════ Hero ════════ -->
     <section class="hero-bg px-6 pt-16 pb-12 text-center">
       <h1
@@ -520,7 +527,7 @@ onUnmounted(() => {
           <template v-for="n in 2" :key="'a' + n">
             <span class="marquee-badge"><span class="marquee-dot"></span>AI Photo Recognition</span>
             <span class="marquee-badge"><span class="marquee-dot"></span>100+ Label Formats</span>
-            <span class="marquee-badge"><span class="marquee-dot"></span>Natural Language Commands</span>
+            <span class="marquee-badge"><span class="marquee-dot"></span>AI Assistant</span>
             <span class="marquee-badge"><span class="marquee-dot"></span>Bulk Operations</span>
             <span class="marquee-badge"><span class="marquee-dot"></span>Custom QR Styles</span>
             <span class="marquee-badge"><span class="marquee-dot"></span>Activity Logging</span>

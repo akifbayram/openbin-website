@@ -1,12 +1,3 @@
----
-prev:
-  text: 'Bulk Add'
-  link: '/docs/guide/bulk-add'
-next:
-  text: 'Import & Export'
-  link: '/docs/guide/import-export'
----
-
 # Bulk Operations
 
 ![Bulk operations](../assets/bulk-operations.png)

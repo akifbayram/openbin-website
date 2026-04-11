@@ -1,12 +1,3 @@
----
-prev:
-  text: 'Photos'
-  link: '/docs/guide/photos'
-next:
-  text: 'Bulk Add'
-  link: '/docs/guide/bulk-add'
----
-
 # AI Features
 
 AI is optional. Connect your own API key or have an admin set a server-wide key. Everything else works without it.
@@ -54,35 +45,23 @@ Set `AI_ENCRYPTION_KEY` to an AES-256-GCM key to encrypt stored API keys at rest
 
 ![AI photo analysis](../assets/ai-photos.png)
 
-After uploading a photo to a bin, tap **Analyze with AI** to get suggestions for bin name, items (with quantities), tags, and notes. Each field can be accepted or dismissed independently.
+After uploading a photo to a bin, tap **Analyze with AI** to get suggestions for bin name, items, tags, and notes. Quantities are estimated when items are clearly countable, but may not be accurate for crowded or overlapping items — review before accepting. Each field can be accepted or dismissed independently.
 
 If the first pass missed items or suggested incorrect names, you can re-analyze to get improved results. Tap the sparkle icon on the photo preview and click **Reanalyze** (or type a specific correction). The reanalysis sends both the photos and the previous suggestions back to the AI, so it can refine its output based on what it already identified. Changed fields are highlighted so you can see exactly what was updated.
 
-## Natural Language Commands
+## AI Assistant
 
-The AI command bar (accessible from the bin list) accepts natural language instructions:
+The AI assistant (accessible from the bin list) accepts natural language instructions:
 
 ```
 Add screwdriver to the tools bin
 Move batteries to the garage area
 Create a bin called Holiday Decorations with items: lights, ornaments, wrapping paper
 Remove the extension cord from the electrical bin
-```
-
-OpenBin shows a preview of the action and asks for confirmation before making changes.
-
-## Inventory Search
-
-Ask natural language questions to search across all bins:
-
-```
 Where did I put the holiday lights?
-Which bins have batteries?
-What's in the attic?
-Do I have any sandpaper?
 ```
 
-Returns matching bins with an explanation of why each matched.
+OpenBin shows a preview of the action and asks for confirmation before making changes. Search queries return matching bins with an explanation of why each matched.
 
 ## AI Reorganization
 

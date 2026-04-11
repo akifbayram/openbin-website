@@ -1,9 +1,3 @@
----
-prev:
-  text: 'API Keys'
-  link: '/docs/guide/api-keys'
----
-
 # MCP Server
 
 OpenBin includes a standalone MCP (Model Context Protocol) server that connects AI assistants like Claude directly to your inventory. It runs as a separate Node.js process, bridging Claude and the OpenBin REST API so you can manage bins, items, tags, areas, and locations through natural conversation instead of navigating the UI.

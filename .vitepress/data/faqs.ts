@@ -8,7 +8,7 @@ export const homeFaqs = [
 ]
 
 export const cloudFaqs = [
-  { q: "What's included in the free trial?", a: "Full Plus access for 7 days — up to 500 bins, photo uploads, and export. No credit card required. After the trial you land on the Free plan — your data stays, you just can't grow past the Free limits until you upgrade." },
+  { q: "What's included in the free trial?", a: "Full Plus access for 7 days — up to 100 bins, photo uploads, and export. No credit card required. After the trial you land on the Free plan — your data stays, you just can't grow past the Free limits until you upgrade." },
   { q: 'Can I switch plans later?', a: 'Yes. Upgrade or downgrade anytime from your account settings. Changes take effect immediately and billing is prorated.' },
   { q: 'How does self-hosted differ from cloud?', a: 'Same software, same features. Self-hosted runs on your hardware with your own AI API keys. Cloud runs on ours with managed AI, backups, and updates included.' },
   { q: 'What counts toward photo storage?', a: "Every photo you upload to a bin. Thumbnails are generated automatically and don't count against your limit. Self-hosted storage is limited by your disk space." },

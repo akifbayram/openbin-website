@@ -19,9 +19,9 @@ OpenBin organizes physical storage using a hierarchy:
 2. [Set up areas](/docs/guide/locations) to organize your space (optional)
 3. Add your bins and items:
     - [Create bins](/docs/guide/bins) manually and add items yourself, or
-    - [Upload photos](/docs/guide/ai) and let AI detect the objects for you    
+    - [Upload photos](/docs/guide/ai) and let AI detect the objects for you
 4. [Print QR labels](/docs/guide/print-labels) and attach them to your bins
-4. [Scan a label](/docs/guide/qr-scanning) to see what's inside
+5. [Scan a label](/docs/guide/qr-scanning) to see what's inside
 
 ## Who it's for
 

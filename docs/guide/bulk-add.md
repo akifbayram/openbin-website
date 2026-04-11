@@ -1,12 +1,3 @@
----
-prev:
-  text: 'AI Features'
-  link: '/docs/guide/ai'
-next:
-  text: 'Bulk Operations'
-  link: '/docs/guide/bulk-operations'
----
-
 # Bulk Add
 
 Create multiple bins at once from photos. Upload photos, let AI suggest names and contents, then create them in a batch.
@@ -20,7 +11,7 @@ Select up to 20 photos. Each photo becomes a candidate bin.
 AI analyzes each uploaded photo and suggests:
 
 - **Bin name** — a descriptive name based on what it sees in the photo
-- **Items** — a list of individual items visible in the photo, with quantities when countable
+- **Items** — a list of individual items visible in the photo, with estimated quantities when clearly countable
 - **Tags** — relevant category tags
 - **Notes** — any additional context the AI picks up
 

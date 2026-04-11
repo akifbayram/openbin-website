@@ -1,12 +1,3 @@
----
-prev:
-  text: 'Bulk Operations'
-  link: '/docs/guide/bulk-operations'
-next:
-  text: 'Items & Tags'
-  link: '/docs/guide/items-tags'
----
-
 # Import & Export
 
 ## Export

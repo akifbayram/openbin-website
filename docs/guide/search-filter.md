@@ -1,12 +1,3 @@
----
-prev:
-  text: 'Print Labels'
-  link: '/docs/guide/print-labels'
-next:
-  text: 'Dashboard'
-  link: '/docs/guide/dashboard'
----
-
 # Search & Filter
 
 ![Search and filter](../assets/search-filter.png)

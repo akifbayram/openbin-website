@@ -1,12 +1,3 @@
----
-prev:
-  text: 'Locations & Areas'
-  link: '/docs/guide/locations'
-next:
-  text: 'QR Scanning'
-  link: '/docs/guide/qr-scanning'
----
-
 # Bins
 
 Each bin represents a physical container — a box, drawer, or shelf — with items, tags, notes, and visual settings.

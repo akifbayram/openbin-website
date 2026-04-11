@@ -1,12 +1,3 @@
----
-prev:
-  text: 'QR Scanning'
-  link: '/docs/guide/qr-scanning'
-next:
-  text: 'Search & Filter'
-  link: '/docs/guide/search-filter'
----
-
 # Print Labels
 
 ![Print labels](../assets/print-labels.png)

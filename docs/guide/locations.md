@@ -1,12 +1,3 @@
----
-prev:
-  text: 'User Guide'
-  link: '/docs/guide/'
-next:
-  text: 'Bins'
-  link: '/docs/guide/bins'
----
-
 # Locations & Areas
 
 ![Locations and areas](../assets/areas-tree.png)

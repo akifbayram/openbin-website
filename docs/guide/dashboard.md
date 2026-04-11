@@ -1,12 +1,3 @@
----
-prev:
-  text: 'Search & Filter'
-  link: '/docs/guide/search-filter'
-next:
-  text: 'Photos'
-  link: '/docs/guide/photos'
----
-
 # Dashboard
 
 The Dashboard is the home screen after login. It shows your location's stats, pinned bins, recent scans, and saved views.

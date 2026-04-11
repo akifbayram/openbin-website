@@ -1,12 +1,3 @@
----
-prev:
-  text: 'Keyboard Shortcuts'
-  link: '/docs/guide/shortcuts'
-next:
-  text: 'MCP Server'
-  link: '/docs/guide/mcp-server'
----
-
 # API Keys
 
 Long-lived tokens for scripts, automation, and headless API access. API keys are tied to your user account, not to a specific location. A single key works across all locations you belong to.

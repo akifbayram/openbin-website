@@ -1,12 +1,3 @@
----
-prev:
-  text: 'Dashboard'
-  link: '/docs/guide/dashboard'
-next:
-  text: 'AI Features'
-  link: '/docs/guide/ai'
----
-
 # Photos
 
 Bins can have up to 5 photos. Photos are served through the API with authentication — not publicly accessible without a session.

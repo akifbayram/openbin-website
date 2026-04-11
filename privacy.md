@@ -39,17 +39,17 @@ The OpenBin application itself (whether self-hosted or cloud) does not include a
 
 ## AI features
 
-OpenBin offers optional AI features such as photo recognition, natural language commands, and AI-powered reorganization suggestions. When you use these features, data is sent to the AI provider you have configured:
+OpenBin offers optional AI features such as photo recognition, AI assistant, and AI-powered reorganization suggestions. When you use these features, data is sent to the AI provider you have configured:
 
 - **OpenAI** — [Privacy policy](https://openai.com/privacy)
 - **Anthropic** — [Privacy policy](https://www.anthropic.com/privacy)
 - **Google Gemini** — [Privacy policy](https://policies.google.com/privacy)
 
-What gets sent depends on the feature: photo recognition sends your photos, and natural language commands send your text input along with relevant inventory context.
+What gets sent depends on the feature: photo recognition sends your photos, and the AI assistant sends your text input along with relevant inventory context.
 
 On self-hosted instances, AI features are off by default. You choose whether to enable them and which provider to use. No data is sent to any AI provider unless you explicitly configure an API key and trigger an AI action.
 
-On OpenBin Cloud, AI features are available on paid plans. The same principle applies: data is only sent to the AI provider when you actively use an AI feature.
+On OpenBin Cloud, AI features are included on all plans (Free gets 10 actions per month, paid plans get more). The same principle applies: data is only sent to the AI provider when you actively use an AI feature.
 
 OpenBin does not use your data to train AI models. Refer to each provider's privacy policy for their data handling practices.
 

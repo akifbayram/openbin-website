@@ -112,7 +112,7 @@ Set the `DISABLE_RATE_LIMIT=true` environment variable to disable all rate limit
 | **[Tag Colors](/docs/api/tag-colors)** | Per-location color assignments for tags |
 | **[Print Settings](/docs/api/print-settings)** | Per-user label format and custom print dimension settings |
 | **[Export](/docs/api/export)** | Export location data as JSON, ZIP, or CSV; import V1/V2 format data |
-| **[AI](/docs/api/ai)** | AI provider configuration, photo analysis, natural language commands, and inventory queries |
+| **[AI](/docs/api/ai)** | AI provider configuration, photo analysis, AI assistant, and inventory queries |
 | **[Activity](/docs/api/activity)** | Paginated location activity log |
 | **[API Keys](/docs/api/api-keys)** | API key creation, listing, and revocation for headless access |
 | **[User Preferences](/docs/api/preferences)** | Arbitrary per-user application preference storage |
