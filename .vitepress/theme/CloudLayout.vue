@@ -136,7 +136,7 @@ const benefits = [
   { icon: 'zap', title: 'No setup', desc: 'Sign up and start organizing. No Docker, no server, no config files.' },
   { icon: 'refresh', title: 'Always up to date', desc: 'New features and security patches ship automatically.' },
   { icon: 'shield', title: 'Managed backups', desc: 'Your data is backed up daily. Restore anytime from your dashboard.' },
-  { icon: 'cpu', title: 'AI included', desc: 'Photo recognition, natural language, and reorganization on Plus. 500 AI credits/mo on Pro — no API keys needed.' },
+  { icon: 'cpu', title: 'AI included', desc: 'Photo recognition, natural language, and reorganization on Plus..' },
 ]
 
 // ── Scroll animation ──
@@ -175,8 +175,8 @@ onMounted(() => {
         <a href="https://cloud.openbin.app/" class="btn-primary">
           Start Free Trial <span class="btn-arrow">&rarr;</span>
         </a>
-        <a href="/docs/getting-started/" class="btn-secondary">
-          Self-Host Instead <span class="btn-arrow">&rarr;</span>
+        <a href="#pricing" class="btn-secondary">
+          See Pricing <span class="btn-arrow">&rarr;</span>
         </a>
       </div>
     </section>
@@ -242,7 +242,7 @@ onMounted(() => {
     <div class="section-divider"></div>
 
     <!-- ════════ Pricing ════════ -->
-    <section class="px-6 py-16">
+    <section id="pricing" class="px-6 py-16 scroll-mt-16">
       <div class="mx-auto max-w-5xl text-center">
         <h2 class="display-heading scroll-reveal text-3xl lg:text-4xl">
           Pricing

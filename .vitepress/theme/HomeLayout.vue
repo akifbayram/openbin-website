@@ -462,14 +462,14 @@ onUnmounted(() => {
       </p>
 
       <div class="animate-in delay-3 mt-8 flex flex-wrap justify-center gap-4">
-        <a href="/docs/" class="btn-primary">
-          Get Started <span class="btn-arrow">&rarr;</span>
+        <a href="/cloud" class="btn-primary">
+          Start Free <span class="btn-arrow">&rarr;</span>
         </a>
         <a href="https://demo.openbin.app" target="_blank" rel="noopener" class="btn-secondary">
           Try Demo <span class="btn-arrow">&rarr;</span>
         </a>
-        <a href="https://cloud.openbin.app/" class="btn-secondary">
-          Try Cloud <span class="btn-arrow">&rarr;</span>
+        <a href="/docs/" class="btn-secondary">
+          Self-Host <span class="btn-arrow">&rarr;</span>
         </a>
       </div>
       <p class="animate-in delay-4 mt-4 text-center text-sm">
@@ -1000,7 +1000,7 @@ onUnmounted(() => {
                 href="/docs/getting-started/"
                 class="btn-secondary"
               >
-                Get Started <span class="btn-arrow">&rarr;</span>
+                Self-Host <span class="btn-arrow">&rarr;</span>
               </a>
             </div>
           </div>
@@ -1034,7 +1034,7 @@ onUnmounted(() => {
               </li>
             </ul>
             <div class="mt-8 flex flex-wrap items-center gap-4">
-              <a href="https://cloud.openbin.app/" class="btn-primary">
+              <a href="/cloud" class="btn-primary">
                 Try Cloud <span class="btn-arrow">&rarr;</span>
               </a>
               <a href="/cloud" class="text-sm font-medium" style="color: var(--vp-c-brand-3); text-decoration: underline; text-underline-offset: 2px">
@@ -1101,11 +1101,11 @@ onUnmounted(() => {
         Free to self-host. Cloud if you'd rather not.
       </p>
       <div class="scroll-reveal mt-8 flex flex-wrap justify-center gap-4">
-        <a href="/docs/getting-started/" class="btn-primary">
-          Get Started <span class="btn-arrow">&rarr;</span>
+        <a href="/cloud" class="btn-primary">
+          Start Free <span class="btn-arrow">&rarr;</span>
         </a>
-        <a href="https://cloud.openbin.app/" class="btn-secondary">
-          Try Cloud <span class="btn-arrow">&rarr;</span>
+        <a href="/docs/getting-started/" class="btn-secondary">
+          Self-Host <span class="btn-arrow">&rarr;</span>
         </a>
       </div>
     </section>
