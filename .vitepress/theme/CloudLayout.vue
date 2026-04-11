@@ -1,5 +1,6 @@
 <script setup>
-import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onMounted } from 'vue'
+import { cloudFaqs as faqs } from '../data/faqs'
 
 // ── Billing toggle ──
 const billing = ref('monthly')
@@ -26,10 +27,10 @@ const plans = computed(() => [
       { name: 'Up to 50 bins', included: true },
       { name: '1 location', included: true },
       { name: '1 member', included: true },
-      { name: 'QR labels & scanning', included: true },
-      { name: 'Areas & tags', included: true },
-      { name: 'Search & saved views', included: true },
-      { name: 'Bulk operations', included: true },
+      { name: 'Custom labels', included: true, link: '/docs/guide/print-labels/' },
+      { name: 'Areas & tags', included: true, link: '/docs/guide/items-tags/' },
+      { name: 'Saved views', included: true, link: '/docs/guide/search-filter/' },
+      { name: 'Bulk operations', included: true, link: '/docs/guide/bulk-operations/' },
     ],
   },
   {
@@ -45,11 +46,11 @@ const plans = computed(() => [
     preamble: 'All of Free, plus:',
     features: [
       { name: 'Up to 500 bins', included: true },
-      { name: '100 MB photo storage', included: true },
-      { name: 'Custom fields', included: true },
-      { name: 'Full export (ZIP/JSON)', included: true },
-      { name: '25 AI credits/mo (photo recognition, natural language)', included: true },
-      { name: 'AI reorganization', included: true },
+      { name: 'Photo storage (100 MB)', included: true },
+      { name: 'AI reorganization', included: true, link: '/docs/guide/ai/' },
+      { name: 'AI object recognition', included: true, link: '/docs/guide/ai/' },
+      { name: 'AI commands', included: true, link: '/docs/guide/ai/' },
+      { name: '25 AI credits/mo', included: true },
     ],
   },
   {
@@ -66,10 +67,11 @@ const plans = computed(() => [
     preamble: 'All of Plus, plus:',
     features: [
       { name: 'Up to 10 locations', included: true },
-      { name: 'Up to 25 members/location', included: true },
+      { name: 'Up to 10 members/location', included: true },
       { name: '1 GB photo storage', included: true },
-      { name: '500 AI credits/mo', included: true },
-      { name: 'API keys', included: true },
+      { name: '250 AI credits/mo', included: true },
+      { name: 'Custom fields', included: true },
+      { name: 'API keys', included: true, link: '/docs/guide/api-keys/' },
       { name: 'Bin sharing', included: true },
     ],
   },
@@ -82,41 +84,41 @@ const comparison = [
     category: 'Basics',
     rows: [
       { feature: 'Bins', free: '50', plus: '500', pro: '5,000' },
-      { feature: 'Locations', free: '1', plus: '1', pro: '10' },
-      { feature: 'Members', free: '1', plus: '1', pro: '25' },
-      { feature: 'Photo storage', free: false, plus: '100 MB', pro: '1 GB' },
+      { feature: 'Locations', free: '1', plus: '1', pro: '10', link: '/docs/guide/locations/' },
+      { feature: 'Members', free: '1', plus: '1', pro: '10' },
+      { feature: 'Photo storage', free: false, plus: '100 MB', pro: '1 GB', link: '/docs/guide/photos/' },
       { feature: 'Activity history', free: '7 days', plus: '30 days', pro: '90 days' },
     ],
   },
   {
     category: 'Organization',
     rows: [
-      { feature: 'Areas & tags', free: true, plus: true, pro: true },
-      { feature: 'Custom fields', free: false, plus: true, pro: true },
-      { feature: 'Saved views', free: true, plus: true, pro: true },
-      { feature: 'Bulk operations', free: true, plus: true, pro: true },
+      { feature: 'Areas & tags', free: true, plus: true, pro: true, link: '/docs/guide/items-tags/' },
+      { feature: 'Custom fields', free: false, plus: false, pro: true },
+      { feature: 'Saved views', free: true, plus: true, pro: true, link: '/docs/guide/search-filter/' },
+      { feature: 'Bulk operations', free: true, plus: true, pro: true, link: '/docs/guide/bulk-operations/' },
     ],
   },
   {
     category: 'AI',
     rows: [
-      { feature: 'AI credits', free: false, plus: '25/mo (shared)', pro: '500/mo' },
-      { feature: 'AI reorganization', free: false, plus: true, pro: true },
+      { feature: 'AI credits', free: false, plus: '25/mo (shared)', pro: '250/mo', link: '/docs/guide/ai/' },
+      { feature: 'AI reorganization', free: false, plus: true, pro: true, link: '/docs/guide/ai/' },
     ],
   },
   {
     category: 'Labels & Sharing',
     rows: [
-      { feature: 'QR labels & scanning', free: true, plus: true, pro: true },
+      { feature: 'Custom labels', free: true, plus: true, pro: true, link: '/docs/guide/print-labels/' },
       { feature: 'Bin sharing links', free: false, plus: false, pro: true },
     ],
   },
   {
     category: 'Data & Integration',
     rows: [
-      { feature: 'CSV export', free: false, plus: true, pro: true },
-      { feature: 'Full export (ZIP/JSON)', free: false, plus: true, pro: true },
-      { feature: 'API access', free: false, plus: false, pro: true },
+      { feature: 'CSV export', free: false, plus: true, pro: true, link: '/docs/guide/import-export/' },
+      { feature: 'Full export (ZIP/JSON)', free: false, plus: true, pro: true, link: '/docs/guide/import-export/' },
+      { feature: 'API access', free: false, plus: false, pro: true, link: '/docs/guide/api-keys/' },
     ],
   },
   {
@@ -137,57 +139,8 @@ const benefits = [
   { icon: 'cpu', title: 'AI included', desc: 'Photo recognition, natural language, and reorganization on Plus. 500 AI credits/mo on Pro — no API keys needed.' },
 ]
 
-// ── FAQ ──
-const faqs = [
-  {
-    q: "What's included in the free trial?",
-    a: 'Full Plus access for 7 days — up to 500 bins, photo uploads, custom fields, and export. No credit card required. After the trial you land on the Free plan — your data stays, you just can\'t grow past the Free limits until you upgrade.',
-  },
-  {
-    q: 'Can I switch plans later?',
-    a: 'Yes. Upgrade or downgrade anytime from your account settings. Changes take effect immediately and billing is prorated.',
-  },
-  {
-    q: 'How does self-hosted differ from cloud?',
-    a: "Same software, same features. Self-hosted runs on your hardware with your own AI API keys. Cloud runs on ours with managed AI, backups, and updates included.",
-  },
-  {
-    q: 'What counts toward photo storage?',
-    a: "Every photo you upload to a bin. Thumbnails are generated automatically and don't count against your limit. Self-hosted storage is limited by your disk space.",
-  },
-  {
-    q: 'Can I cancel anytime?',
-    a: 'Yes. No contracts, no cancellation fees. If you cancel a paid plan you drop to the Free tier — your data stays and you can keep using OpenBin within Free limits.',
-  },
-  {
-    q: 'Can I migrate from self-hosted to cloud?',
-    a: 'Yes. Export your data from your self-hosted instance and import it into your cloud account. The process takes a few minutes.',
-  },
-]
-
-// ── FAQ structured data (JSON-LD) ──
-function injectFaqSchema() {
-  if (document.getElementById('cloud-faq-schema')) return
-  const schema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: faqs.map(f => ({
-      '@type': 'Question',
-      name: f.q,
-      acceptedAnswer: { '@type': 'Answer', text: f.a },
-    })),
-  }
-  const script = document.createElement('script')
-  script.type = 'application/ld+json'
-  script.id = 'cloud-faq-schema'
-  script.textContent = JSON.stringify(schema)
-  document.head.appendChild(script)
-}
-
 // ── Scroll animation ──
 onMounted(() => {
-  injectFaqSchema()
-
   const targets = document.querySelectorAll('.scroll-reveal')
   if (!targets.length) return
 
@@ -206,9 +159,6 @@ onMounted(() => {
   targets.forEach((el) => observer.observe(el))
 })
 
-onUnmounted(() => {
-  document.getElementById('cloud-faq-schema')?.remove()
-})
 </script>
 
 <template>
@@ -257,6 +207,39 @@ onUnmounted(() => {
         </div>
       </div>
     </section>
+
+    <!-- ════════ What You Get ════════ -->
+    <section class="px-6 py-16" style="background: var(--vp-c-bg-soft)">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="display-heading scroll-reveal mb-10 text-center text-3xl lg:text-4xl">
+          What you get
+        </h2>
+
+        <div class="scroll-reveal" style="color: var(--vp-c-text-2)">
+          <p class="mb-6">
+            <strong style="color: var(--vp-c-text-1)">Hosting and infrastructure.</strong>
+            Your OpenBin instance runs on dedicated containers in US-East and EU-West data centers. Average API response time is under 120ms. Each account gets its own isolated SQLite database — your data is never co-mingled with other users.
+          </p>
+
+          <p class="mb-6">
+            <strong style="color: var(--vp-c-text-1)">Data handling and backups.</strong>
+            Databases are backed up every 24 hours with 30-day retention. All traffic is encrypted in transit via TLS 1.3, and backups are encrypted at rest. You can download a full export of your data at any time from your account settings.
+          </p>
+
+          <p class="mb-6">
+            <strong style="color: var(--vp-c-text-1)">Automatic updates.</strong>
+            When we ship a new version, your cloud instance updates within minutes — no downtime, no manual steps. You always run the latest release with the newest features and security patches. Self-hosters pull updates on their own schedule; cloud users get them automatically.
+          </p>
+
+          <p>
+            <strong style="color: var(--vp-c-text-1)">What "shared AI credits" means.</strong>
+            On the Plus plan, your 25 monthly AI credits cover photo recognition, natural language commands, and AI reorganization. Each credit equals one AI operation — uploading a photo and getting bin suggestions costs one credit, running a natural language command costs one. Pro plans get 500 dedicated credits per month. Unused credits do not roll over.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
 
     <!-- ════════ Pricing ════════ -->
     <section class="px-6 py-16">
@@ -392,7 +375,8 @@ onUnmounted(() => {
                 >
                   <line x1="5" y1="12" x2="19" y2="12" />
                 </svg>
-                <span>{{ feature.name }}</span>
+                <a v-if="feature.link" :href="feature.link" class="pricing-feature-link">{{ feature.name }}</a>
+                <span v-else>{{ feature.name }}</span>
               </li>
             </ul>
           </div>
@@ -403,7 +387,7 @@ onUnmounted(() => {
           class="mt-6 text-center text-sm"
           style="color: var(--vp-c-text-3)"
         >
-          Free plan forever &middot; 7-day Plus trial &middot; No credit card required
+          Free plan &middot; 7-day Plus subscription trial &middot; No credit card required
         </p>
       </div>
     </section>
@@ -433,7 +417,10 @@ onUnmounted(() => {
                 <td colspan="4">{{ group.category }}</td>
               </tr>
               <tr v-for="row in group.rows" :key="row.feature">
-                <td class="comparison-feature-col">{{ row.feature }}</td>
+                <td class="comparison-feature-col">
+                  <a v-if="row.link" :href="row.link" class="pricing-feature-link">{{ row.feature }}</a>
+                  <template v-else>{{ row.feature }}</template>
+                </td>
                 <td v-for="key in tierKeys" :key="key" :class="{ 'comparison-highlight-col': key === 'pro' }">
                   <svg
                     v-if="row[key] === true"
@@ -529,7 +516,7 @@ onUnmounted(() => {
         Start organizing
       </h2>
       <p class="scroll-reveal mx-auto mt-4 max-w-xl text-lg">
-        Try cloud free for 7 days, or self-host forever.
+        Use OpenBin Cloud for free, or self-host.
       </p>
       <div class="scroll-reveal mt-8 flex flex-wrap justify-center gap-4">
         <a href="https://cloud.openbin.app/" class="btn-primary">
@@ -688,6 +675,25 @@ onUnmounted(() => {
   font-size: 0.75rem;
   color: var(--vp-c-text-3);
   border-top: 1px solid var(--vp-c-divider);
+}
+
+/* ── Pricing feature links ── */
+
+.pricing-feature-link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, currentColor 30%, transparent);
+  text-underline-offset: 2px;
+  transition: text-decoration-color 0.2s;
+}
+
+.pricing-feature-link:hover {
+  text-decoration-color: var(--vp-c-brand-1);
+}
+
+.pricing-feature-link:focus-visible {
+  outline: 2px solid var(--vp-c-brand-3);
+  outline-offset: 2px;
 }
 
 /* Sticky first column on mobile scroll */

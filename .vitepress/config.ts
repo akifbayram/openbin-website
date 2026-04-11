@@ -1,33 +1,158 @@
 import tailwindcss from '@tailwindcss/vite'
 import { defineConfig } from 'vitepress'
+import { homeFaqs, cloudFaqs } from './data/faqs'
+
+const SITE_URL = 'https://openbin.app'
+const SITE_TITLE = 'OpenBin — Inventory with Intelligence'
+const SITE_DESCRIPTION = 'Open source inventory management that makes physical storage searchable. Create bins for your stuff, let AI identify contents from a photo, and print QR labels to find anything with a scan.'
+const SOCIAL_LINKS = {
+  github: 'https://github.com/akifbayram/openbin',
+  discord: 'https://discord.gg/W6JPZCqqx9',
+}
+const sameAs = Object.values(SOCIAL_LINKS)
+
+function faqSchema(faqs: { q: string; a: string }[]) {
+  return JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map(f => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  })
+}
 
 export default defineConfig({
   title: 'OpenBin | Inventory with Intelligence',
-  description: 'Snap a photo, let AI catalog it. QR labels and shared access for your whole household.',
+  description: SITE_DESCRIPTION,
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
     ['link', { href: 'https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&display=swap', rel: 'stylesheet' }],
-    ['meta', { property: 'og:title', content: 'OpenBin - Inventory with Intelligence' }],
-    ['meta', { property: 'og:description', content: 'Snap a photo, let AI catalog it. QR labels and shared access for your whole household.' }],
+    ['meta', { property: 'og:title', content: SITE_TITLE }],
+    ['meta', { property: 'og:description', content: SITE_DESCRIPTION }],
     ['meta', { property: 'og:type', content: 'website' }],
-    ['meta', { property: 'og:url', content: 'https://openbin.app' }],
+    ['meta', { property: 'og:url', content: SITE_URL }],
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
-    ['meta', { name: 'twitter:title', content: 'OpenBin - Inventory with Intelligence' }],
-    ['meta', { name: 'twitter:description', content: 'Snap a photo, let AI catalog it. QR labels and shared access for your whole household.' }],
-    ['meta', { property: 'og:image', content: 'https://openbin.app/og-image.png' }],
-    ['meta', { name: 'twitter:image', content: 'https://openbin.app/og-image.png' }],
+    ['meta', { name: 'twitter:title', content: SITE_TITLE }],
+    ['meta', { name: 'twitter:description', content: SITE_DESCRIPTION }],
+    ['meta', { property: 'og:image', content: `${SITE_URL}/og-image.png` }],
+    ['meta', { name: 'twitter:image', content: `${SITE_URL}/og-image.png` }],
     ['script', { defer: '', src: 'https://analytics.openbin.app/script.js', 'data-website-id': '3fd9d230-bac4-4550-9261-30641eb0e45a' }],
+    ['script', { type: 'application/ld+json' }, JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'SoftwareApplication',
+      name: 'OpenBin',
+      url: SITE_URL,
+      description: 'Open source inventory management that makes physical storage searchable. Create bins for your stuff, let AI identify contents from a photo, and print QR labels to find anything with a scan.',
+      applicationCategory: 'BusinessApplication',
+      operatingSystem: 'Web, Docker (Linux, macOS, Windows)',
+      offers: [
+        { '@type': 'Offer', name: 'Free', price: '0', priceCurrency: 'USD' },
+        { '@type': 'Offer', name: 'Plus', price: '3.00', priceCurrency: 'USD', description: 'Per month' },
+        { '@type': 'Offer', name: 'Pro', price: '6.00', priceCurrency: 'USD', description: 'Per month' },
+      ],
+      featureList: [
+        'QR label generation and scanning',
+        'AI photo recognition for inventory cataloging',
+        'Multi-user collaboration with role-based access',
+        'Natural language inventory commands',
+        'Bulk operations',
+        'REST API and MCP server',
+        'CSV and JSON export',
+        'Self-hosted Docker deployment',
+      ],
+      downloadUrl: SOCIAL_LINKS.github,
+      screenshot: `${SITE_URL}/screenshots/dashboard.webp`,
+      image: `${SITE_URL}/og-image.png`,
+      sameAs,
+    })],
+    ['script', { type: 'application/ld+json' }, JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      name: 'OpenBin',
+      url: SITE_URL,
+      logo: `${SITE_URL}/logo-horizontal.svg`,
+      description: 'Open source inventory management that makes physical storage searchable. Create bins for your stuff, let AI identify contents from a photo, and print QR labels to find anything with a scan.',
+      sameAs,
+    })],
+    ['script', { type: 'application/ld+json' }, JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: 'OpenBin',
+      url: SITE_URL,
+      description: 'Open source inventory management that makes physical storage searchable. Create bins for your stuff, let AI identify contents from a photo, and print QR labels to find anything with a scan.',
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: {
+          '@type': 'EntryPoint',
+          urlTemplate: `${SITE_URL}/docs/?search={search_term_string}`,
+        },
+        'query-input': 'required name=search_term_string',
+      },
+    })],
   ],
   vite: {
     plugins: [tailwindcss()],
   },
   srcExclude: ['**/CLAUDE.md'],
   sitemap: {
-    hostname: 'https://openbin.app',
+    hostname: SITE_URL,
   },
+  lastUpdated: true,
   appearance: false,
+  transformPageData(pageData) {
+    const canonicalUrl = `${SITE_URL}/${pageData.relativePath}`
+      .replace(/index\.md$/, '')
+      .replace(/\.md$/, '')
+    pageData.frontmatter.head ??= []
+    pageData.frontmatter.head.push(['link', { rel: 'canonical', href: canonicalUrl }])
+
+    if (pageData.relativePath === 'index.md') {
+      pageData.frontmatter.head.push(['script', { type: 'application/ld+json' }, faqSchema(homeFaqs)])
+    }
+
+    if (pageData.relativePath === 'cloud.md') {
+      pageData.frontmatter.head.push(['script', { type: 'application/ld+json' }, faqSchema(cloudFaqs)])
+    }
+
+    if (pageData.relativePath.startsWith('docs/')) {
+      const parts = pageData.relativePath.replace(/\.md$/, '').split('/')
+      const breadcrumbs = [
+        { name: 'OpenBin', item: SITE_URL },
+        { name: 'Documentation', item: `${SITE_URL}/docs/` },
+      ]
+      if (parts.length > 2) {
+        const section = parts[1]
+        const sectionNames: Record<string, string> = {
+          'getting-started': 'Getting Started',
+          'guide': 'Guide',
+          'api': 'API Reference',
+        }
+        if (sectionNames[section]) {
+          breadcrumbs.push({
+            name: sectionNames[section],
+            item: `${SITE_URL}/docs/${section}/`,
+          })
+        }
+      }
+      if (pageData.title && parts[parts.length - 1] !== 'index') {
+        breadcrumbs.push({ name: pageData.title, item: canonicalUrl })
+      }
+      pageData.frontmatter.head.push(['script', { type: 'application/ld+json' }, JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: breadcrumbs.map((b, i) => ({
+          '@type': 'ListItem',
+          position: i + 1,
+          name: b.name,
+          item: b.item,
+        })),
+      })])
+    }
+  },
   themeConfig: {
     logo: {
       dark: '/logo-horizontal-dark.svg',
@@ -128,7 +253,7 @@ export default defineConfig({
       text: 'Edit this page on GitHub',
     },
     footer: {
-      message: 'Open source on GitHub',
+      message: 'Open source on GitHub · Built by <a href="https://github.com/akifbayram" target="_blank" rel="noopener">Akif Bayram</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>',
       copyright: '© 2026 OpenBin',
     },
   },

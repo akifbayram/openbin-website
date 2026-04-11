@@ -1,0 +1,35 @@
+# OpenBin
+
+> OpenBin is an open source inventory management system that makes physical storage searchable. Create bins for your stuff, let AI identify contents from a photo, and print QR labels to find anything with a scan.
+
+## Key Facts
+
+- License: AGPL-3.0 (open source)
+- Self-hosted: One Docker container, runs on a Raspberry Pi
+- Cloud: Free tier available, Plus at $3/mo, Pro at $6/mo
+- AI providers: OpenAI, Anthropic, Google Gemini (bring your own key for self-hosted)
+- Multi-user: Invite codes, three roles (admin, member, viewer)
+- Data export: CSV and JSON, one-click export
+- API: Full REST API + MCP server for AI assistant integration
+
+## Core Features
+
+- QR label generation and scanning
+- AI photo recognition for inventory cataloging
+- Natural language inventory commands ("move all batteries to the garage")
+- AI-powered reorganization suggestions
+- Bulk operations and bulk add
+- Search and filter across all bins, items, and tags
+- Dashboard with activity feed and quick actions
+- Custom fields and saved views
+
+## Pages
+
+- Homepage: https://openbin.app
+- Documentation: https://openbin.app/docs/
+- Cloud Pricing: https://openbin.app/cloud
+- Docker Quick Start: https://openbin.app/docs/getting-started/docker
+- AI Features: https://openbin.app/docs/guide/ai
+- API Reference: https://openbin.app/docs/api/
+- FAQ: https://openbin.app/docs/guide/faq
+- GitHub: https://github.com/akifbayram/openbin

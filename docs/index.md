@@ -1,6 +1,6 @@
 # What is OpenBin?
 
-OpenBin is an open source inventory system that turns physical storage into something searchable. Stick a QR label on a bin, snap a photo of the contents, and AI catalogs everything inside. When you need to find something later, search instead of digging through boxes.
+OpenBin is an open source inventory management system that makes physical storage searchable. Create bins for your stuff, let AI identify contents from a photo, and print QR labels to find anything with a scan.
 
 ## How it works
 
@@ -8,21 +8,24 @@ OpenBin organizes physical storage using a hierarchy:
 
 **Location** → **Area** → **Bin** → **Items**
 
-- A **Location** is a shared workspace (e.g. "Home", "Workshop"). All data lives inside a location.
-- An **Area** is an optional sub-zone within a location (e.g. "Garage", "Closet") for grouping bins.
-- A **Bin** is a physical container, like a box, drawer, or shelf. Each bin gets a unique QR code.
-- **Items** are the individual things stored inside a bin.
+- A **Location** is a shared workspace (e.g. "Home", "Garage", "Self-Storage"). All data lives inside a location.
+- An **Area** is an optional sub-zone within a location (e.g. "Basement", "Bedroom") for grouping bins.
+- A **Bin** is a physical container, like a tote, bin, box, drawer, or shelf. Each bin gets a unique QR code and shortcode (e.g. "BIN001").
+- **Items** are the individual things stored inside a bin. 
 
 ### Typical workflow
 
 1. [Register and create or join a location](/docs/guide/locations)
-2. [Create bins](/docs/guide/bins) for your physical containers
-3. [Print QR labels](/docs/guide/print-labels) and attach them to your bins
+2. [Set up areas](/docs/guide/areas) to organize your space (optional)
+3. Add your bins and items:
+    - [Create bins](/docs/guide/bins) manually and add items yourself, or
+    - [Upload photos](/docs/guide/ai) and let AI detect the objects for you    
+4. [Print QR labels](/docs/guide/print-labels) and attach them to your bins
 4. [Scan a label](/docs/guide/qr-scanning) to see what's inside
 
 ## Who it's for
 
-Households organizing garages, closets, and storage units. Small teams tracking tools or supplies across shared spaces. Anyone who wants to self-host their inventory data in a single Docker container.
+Households organizing garages, closets, and storage units. Small teams tracking supplies across shared spaces. Anyone who wants to self-host their inventory data in a single Docker container.
 
 ## Key features
 
@@ -34,6 +37,18 @@ Households organizing garages, closets, and storage units. Small teams tracking 
 - **Import & export** — CSV, JSON, and spreadsheet support
 - **REST API & MCP server** — integrate OpenBin with other tools and AI assistants
 - **Self-hosted** — single Docker container with SQLite, no external services required
+
+## Choose your setup
+
+OpenBin runs two ways: self-hosted or cloud.
+
+**Self-host** if you want full control. A single Docker container with SQLite — no external database, no extra services. Runs on a Raspberry Pi, a NAS, or any machine with Docker installed. Requires roughly 200 MB of disk space plus whatever your photos use. You own the data, you pick the backup schedule, you decide when to update.
+
+**Cloud** if you want to skip the setup. Sign up at [cloud.openbin.app](https://cloud.openbin.app/), create a location, and start organizing. A free tier is available with no credit card required. Backups, updates, and AI features are handled for you.
+
+### Your data stays portable
+
+Export your entire inventory as CSV or JSON at any time from the settings page. No lock-in. If you move between self-hosted and cloud, your data comes with you.
 
 ## Quick start
 

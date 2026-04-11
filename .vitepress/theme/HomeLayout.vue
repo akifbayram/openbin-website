@@ -1,5 +1,6 @@
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { homeFaqs as faqs } from '../data/faqs'
 
 // ── Rotating text ticker ──
 const rotatingWords = ['garage', 'workshop', 'closet', 'storage', 'pantry']
@@ -13,21 +14,13 @@ function toggleFaq(i) {
   openFaq.value = openFaq.value === i ? null : i
 }
 
-const faqs = [
-  { q: 'Do I need AI to use OpenBin?', a: 'No. AI is optional. It speeds up cataloging but everything works without it. Bring your own API key from OpenAI, Anthropic, or Gemini if you want it.' },
-  { q: 'Is my data private?', a: 'Yes. Self-host on your own hardware and your data never leaves your network. The cloud version stores data on managed infrastructure. No telemetry, no analytics, no third-party sharing.' },
-  { q: 'What if OpenBin shuts down?', a: "It's open source. Your self-hosted instance keeps running. Cloud users can export everything (bins, items, photos, tags) in one click." },
-  { q: 'Can I use it with my team?', a: 'Yes. Create a location, share an invite code. Three roles (admin, member, viewer) control who can edit and who can only browse.' },
-  { q: 'What do I need to self-host?', a: 'One Docker container and a few hundred megabytes of disk space. Works on a Raspberry Pi.' },
-  { q: 'Can I connect AI tools like Claude or ChatGPT?', a: 'Yes. Self-hosted OpenBin includes an MCP server that lets AI assistants read and manage your inventory directly. Generate an API key and point your AI tool at it.' },
-]
-
 // ── Demo iframe scaling ──
 const DEMO_W = 1280
 const DEMO_H = 800
 const demoWrapper = ref(null)
 const demoScale = ref(1)
 let demoResizeObs = null
+let splitObs = null
 
 // ── AI Reorganization (Before/After Split) ──
 const containerEl = ref(null)
@@ -356,32 +349,11 @@ function startPhotoToBin() {
   }, 2200))
 }
 
-// ── FAQ structured data (JSON-LD) ──
-function injectFaqSchema() {
-  if (document.getElementById('home-faq-schema')) return
-  const schema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: faqs.map(f => ({
-      '@type': 'Question',
-      name: f.q,
-      acceptedAnswer: { '@type': 'Answer', text: f.a },
-    })),
-  }
-  const script = document.createElement('script')
-  script.type = 'application/ld+json'
-  script.id = 'home-faq-schema'
-  script.textContent = JSON.stringify(schema)
-  document.head.appendChild(script)
-}
-
 // ── Lifecycle ──
 onMounted(() => {
   tickerTimer = setInterval(() => {
     wordIndex.value = (wordIndex.value + 1) % rotatingWords.length
   }, 3000)
-
-  injectFaqSchema()
 
   const revealTargets = document.querySelectorAll(
     '.scroll-reveal, .scroll-slide-left, .scroll-slide-right, .scroll-scale-in, .tilt-reveal'
@@ -416,7 +388,7 @@ onMounted(() => {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     applySplit(55)
   } else if (containerEl.value) {
-    const splitObs = new IntersectionObserver(([entry]) => {
+    splitObs = new IntersectionObserver(([entry]) => {
       splitVisible = entry.isIntersecting
       if (splitVisible && !animId) {
         lastFrame = performance.now()
@@ -462,7 +434,7 @@ onUnmounted(() => {
   ptbTimers.forEach(clearTimeout)
   if (ptbAnimId) cancelAnimationFrame(ptbAnimId)
   if (demoResizeObs) demoResizeObs.disconnect()
-  document.getElementById('home-faq-schema')?.remove()
+  if (splitObs) splitObs.disconnect()
 })
 </script>
 
@@ -486,11 +458,11 @@ onUnmounted(() => {
       </p>
 
       <p class="animate-in delay-2 mx-auto mt-2 max-w-2xl text-base lg:text-lg">
-        QR labels and AI-powered photo recognition.
+        Point your camera at a bin. AI does the rest.
       </p>
 
       <div class="animate-in delay-3 mt-8 flex flex-wrap justify-center gap-4">
-        <a href="/docs/getting-started/" class="btn-primary">
+        <a href="/docs/" class="btn-primary">
           Get Started <span class="btn-arrow">&rarr;</span>
         </a>
         <a href="https://demo.openbin.app" target="_blank" rel="noopener" class="btn-secondary">
@@ -530,7 +502,7 @@ onUnmounted(() => {
         <div class="device-frame lg:hidden">
           <div class="device-frame-screen">
             <img
-              src="/screenshots/dashboard.png"
+              src="/screenshots/dashboard.webp"
               alt="OpenBin dashboard showing bins, items, and search"
               width="1280"
               height="900"
@@ -588,18 +560,18 @@ onUnmounted(() => {
         <div class="steps-wire grid grid-cols-1 gap-10 lg:grid-cols-3">
           <div class="scroll-reveal stagger-1 text-center relative z-10">
             <div class="step-number mx-auto mb-4">1</div>
-            <h3 class="text-xl font-semibold">Snap a photo</h3>
+            <h3 class="text-xl font-semibold">Create a bin</h3>
             <p class="mx-auto mt-2 max-w-xs">
-              Take a picture of what's inside. AI names the bin, lists every
-              item, and suggests tags. Or type it yourself.
+              Add items yourself, or upload a photo and let AI identify
+              everything inside.
             </p>
           </div>
           <div class="scroll-reveal stagger-2 text-center relative z-10">
             <div class="step-number mx-auto mb-4">2</div>
-            <h3 class="text-xl font-semibold">Stick a QR label</h3>
+            <h3 class="text-xl font-semibold">Print a QR label</h3>
             <p class="mx-auto mt-2 max-w-xs">
-              Print a label and stick it on the box, shelf, or drawer.
-              Customize the format, colors, and style.
+              Stick it on the box, shelf, or drawer. Customize the format,
+              colors, and style.
             </p>
           </div>
           <div class="scroll-reveal stagger-3 text-center relative z-10">
@@ -1002,7 +974,7 @@ onUnmounted(() => {
           >
             <h3 class="text-2xl font-semibold">Self-Host</h3>
             <p class="mt-4 text-lg">
-              Free forever. One Docker container, your hardware. You own the
+              Free. One Docker container, your hardware. You own the
               data and the backups.
             </p>
             <ul class="pricing-list mt-6 space-y-3">
@@ -1038,7 +1010,7 @@ onUnmounted(() => {
             style="border: 1px solid var(--vp-c-brand-1); background: var(--vp-c-bg-soft)"
           >
             <h3 class="text-2xl font-semibold">Cloud</h3>
-            <p class="mt-2 text-sm font-medium" style="color: var(--vp-c-brand-3)">Free forever · Plus from $2.50/mo</p>
+            <p class="mt-2 text-sm font-medium" style="color: var(--vp-c-brand-3)">Free · Plus from $2.50/mo</p>
             <p class="mt-3 text-lg">
               We run it, you use it. No server, no Docker, no maintenance.
               Just sign up.
