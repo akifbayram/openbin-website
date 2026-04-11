@@ -83,7 +83,7 @@ const comparison = [
   {
     category: 'Basics',
     rows: [
-      { feature: 'Bins', free: '50', plus: '500', pro: '5,000' },
+      { feature: 'Bins', free: '50', plus: '500', pro: '500' },
       { feature: 'Locations', free: '1', plus: '1', pro: '10', link: '/docs/guide/locations/' },
       { feature: 'Members', free: '1', plus: '1', pro: '10' },
       { feature: 'Photo storage', free: false, plus: '100 MB', pro: '1 GB', link: '/docs/guide/photos/' },
@@ -136,7 +136,7 @@ const benefits = [
   { icon: 'zap', title: 'No setup', desc: 'Sign up and start organizing. No Docker, no server, no config files.' },
   { icon: 'refresh', title: 'Always up to date', desc: 'New features and security patches ship automatically.' },
   { icon: 'shield', title: 'Managed backups', desc: 'Your data is backed up daily. Restore anytime from your dashboard.' },
-  { icon: 'cpu', title: 'AI included', desc: 'Photo recognition, natural language, and reorganization on Plus..' },
+  { icon: 'cpu', title: 'AI included', desc: 'Photo recognition, natural language, and reorganization on Plus.' },
 ]
 
 // ── Scroll animation ──
@@ -207,39 +207,6 @@ onMounted(() => {
         </div>
       </div>
     </section>
-
-    <!-- ════════ What You Get ════════ -->
-    <section class="px-6 py-16" style="background: var(--vp-c-bg-soft)">
-      <div class="mx-auto max-w-3xl">
-        <h2 class="display-heading scroll-reveal mb-10 text-center text-3xl lg:text-4xl">
-          What you get
-        </h2>
-
-        <div class="scroll-reveal" style="color: var(--vp-c-text-2)">
-          <p class="mb-6">
-            <strong style="color: var(--vp-c-text-1)">Hosting and infrastructure.</strong>
-            Your OpenBin instance runs on dedicated containers in US-East and EU-West data centers. Average API response time is under 120ms. Each account gets its own isolated SQLite database — your data is never co-mingled with other users.
-          </p>
-
-          <p class="mb-6">
-            <strong style="color: var(--vp-c-text-1)">Data handling and backups.</strong>
-            Databases are backed up every 24 hours with 30-day retention. All traffic is encrypted in transit via TLS 1.3, and backups are encrypted at rest. You can download a full export of your data at any time from your account settings.
-          </p>
-
-          <p class="mb-6">
-            <strong style="color: var(--vp-c-text-1)">Automatic updates.</strong>
-            When we ship a new version, your cloud instance updates within minutes — no downtime, no manual steps. You always run the latest release with the newest features and security patches. Self-hosters pull updates on their own schedule; cloud users get them automatically.
-          </p>
-
-          <p>
-            <strong style="color: var(--vp-c-text-1)">What "shared AI credits" means.</strong>
-            On the Plus plan, your 25 monthly AI credits cover photo recognition, natural language commands, and AI reorganization. Each credit equals one AI operation — uploading a photo and getting bin suggestions costs one credit, running a natural language command costs one. Pro plans get 500 dedicated credits per month. Unused credits do not roll over.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <div class="section-divider"></div>
 
     <!-- ════════ Pricing ════════ -->
     <section id="pricing" class="px-6 py-16 scroll-mt-16">
@@ -391,6 +358,34 @@ onMounted(() => {
         </p>
       </div>
     </section>
+
+    <!-- ════════ What to Expect ════════ -->
+    <section class="px-6 py-16">
+      <div class="mx-auto max-w-3xl">
+        <h2 class="display-heading scroll-reveal mb-10 text-center text-3xl lg:text-4xl">
+          What to expect
+        </h2>
+
+        <div class="scroll-reveal" style="color: var(--vp-c-text-2)">
+          <p class="mb-6">
+            <strong style="color: var(--vp-c-text-1)">Nothing to maintain.</strong>
+            Updates and security patches apply automatically. There's no server to monitor, no Docker to configure, no database to manage. You sign up, and it works.
+          </p>
+
+          <p class="mb-6">
+            <strong style="color: var(--vp-c-text-1)">Your data stays yours.</strong>
+            We back up daily, and you can download a full export — bins, items, photos, tags — from your account settings at any time. If you ever want to switch to self-hosting, your data comes with you.
+          </p>
+
+          <p>
+            <strong style="color: var(--vp-c-text-1)">AI credits, explained.</strong>
+            Plus and Pro plans include monthly AI credits. One credit covers one action: scanning a photo, running a natural language command, or getting a reorganization suggestion. Plus includes 25 per month, Pro includes 250. Unused credits don't roll over.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
 
     <!-- ════════ Feature Comparison ════════ -->
     <section class="px-6 py-16" style="background: var(--vp-c-bg-soft)">
