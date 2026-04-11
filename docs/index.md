@@ -16,7 +16,7 @@ OpenBin organizes physical storage using a hierarchy:
 ### Typical workflow
 
 1. [Register and create or join a location](/docs/guide/locations)
-2. [Set up areas](/docs/guide/areas) to organize your space (optional)
+2. [Set up areas](/docs/guide/locations) to organize your space (optional)
 3. Add your bins and items:
     - [Create bins](/docs/guide/bins) manually and add items yourself, or
     - [Upload photos](/docs/guide/ai) and let AI detect the objects for you    
