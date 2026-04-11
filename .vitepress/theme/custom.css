@@ -1611,3 +1611,130 @@
   border: 2px solid rgba(94, 47, 224, 0.3);
   color: var(--vp-c-brand-3);
 }
+
+/* ── AI Page: Feature deep dives ── */
+
+.ai-feature-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+@media (max-width: 767px) {
+  .ai-feature-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ai-feature-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.ai-feature-text h3 {
+  color: var(--vp-c-text-1);
+}
+
+.ai-pills {
+  display: flex;
+  gap: 0.375rem;
+  flex-wrap: wrap;
+}
+
+.ai-pill {
+  font-size: 0.7rem;
+  padding: 0.25rem 0.625rem;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.ai-demo-item-changed {
+  background: rgba(94, 47, 224, 0.08);
+  border-radius: 4px;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+
+.ai-demo-reanalyze-hint {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  margin-top: 0.75rem;
+  font-size: 0.8rem;
+  color: var(--vp-c-brand-3);
+  animation: ai-pulse 2s ease-in-out infinite;
+}
+
+@keyframes ai-pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ai-demo-reanalyze-hint {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+/* ── AI Page: Voice waveform ── */
+
+.ai-wave {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  height: 32px;
+  margin-bottom: 0.75rem;
+}
+
+.ai-wave-bar {
+  width: 3px;
+  height: 8px;
+  background: var(--vp-c-divider);
+  border-radius: 2px;
+  transition: background 0.3s;
+}
+
+.ai-wave-active .ai-wave-bar {
+  background: #fbbf24;
+  animation: ai-wave-bounce 0.6s ease-in-out infinite alternate;
+}
+
+@keyframes ai-wave-bounce {
+  from { height: 6px; }
+  to { height: 24px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ai-wave-active .ai-wave-bar {
+    animation: none;
+    height: 16px;
+  }
+}
+
+.ai-voice-raw {
+  font-size: 0.85rem;
+  color: var(--vp-c-text-3);
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.ai-voice-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--vp-c-divider);
+}
+
+.ai-voice-divider-done {
+  border-top-color: var(--vp-c-brand-1);
+}
