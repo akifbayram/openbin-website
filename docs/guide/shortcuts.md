@@ -1,5 +1,7 @@
 # Keyboard Shortcuts
 
+![Keyboard shortcuts](/screenshots/keyboard-shortcuts.webp)
+
 OpenBin supports keyboard shortcuts for fast navigation and common actions. Shortcuts are available on desktop and are disabled while typing in input fields or text areas to avoid conflicts.
 
 ## Command Palette

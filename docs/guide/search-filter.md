@@ -1,6 +1,6 @@
 # Search & Filter
 
-![Search and filter](../assets/search-filter.png)
+![Search and filter](/screenshots/search-filter.webp)
 
 ## Search bar
 

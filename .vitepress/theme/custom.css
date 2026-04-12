@@ -439,7 +439,7 @@
   top: -10%;
   left: -5%;
   background: radial-gradient(circle, rgba(94, 47, 224, 0.12) 0%, transparent 70%);
-  animation: orb-1 19s ease-in-out infinite;
+  animation: orb-1 5s ease-in-out infinite;
 }
 
 .animated-bg__orb--2 {
@@ -448,7 +448,7 @@
   bottom: 0;
   right: -5%;
   background: radial-gradient(circle, rgba(96, 165, 250, 0.08) 0%, transparent 70%);
-  animation: orb-2 23s ease-in-out infinite;
+  animation: orb-2 6s ease-in-out infinite;
 }
 
 .animated-bg__orb--3 {
@@ -457,28 +457,28 @@
   top: 40%;
   left: 30%;
   background: radial-gradient(circle, rgba(155, 122, 247, 0.08) 0%, transparent 70%);
-  animation: orb-3 29s ease-in-out infinite;
+  animation: orb-3 7s ease-in-out infinite;
 }
 
 @keyframes orb-1 {
   0%, 100% { transform: translate(0, 0) scale(1); }
-  25% { transform: translate(8vw, 6vh) scale(1.1); }
-  50% { transform: translate(3vw, 12vh) scale(0.95); }
-  75% { transform: translate(-4vw, 5vh) scale(1.05); }
+  25% { transform: translate(18vw, 14vh) scale(1.1); }
+  50% { transform: translate(6vw, 25vh) scale(0.95); }
+  75% { transform: translate(-12vw, 10vh) scale(1.05); }
 }
 
 @keyframes orb-2 {
   0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(-10vw, -8vh) scale(1.12); }
-  66% { transform: translate(-5vw, -3vh) scale(0.92); }
+  33% { transform: translate(-20vw, -18vh) scale(1.12); }
+  66% { transform: translate(-10vw, -6vh) scale(0.92); }
 }
 
 @keyframes orb-3 {
   0%, 100% { transform: translate(0, 0) scale(1); }
-  20% { transform: translate(-6vw, 5vh) scale(1.08); }
-  40% { transform: translate(4vw, -4vh) scale(1.12); }
-  60% { transform: translate(7vw, 3vh) scale(0.93); }
-  80% { transform: translate(-3vw, -6vh) scale(1.06); }
+  20% { transform: translate(-14vw, 12vh) scale(1.08); }
+  40% { transform: translate(10vw, -10vh) scale(1.12); }
+  60% { transform: translate(16vw, 8vh) scale(0.93); }
+  80% { transform: translate(-8vw, -14vh) scale(1.06); }
 }
 
 .home-layout > section {
@@ -1393,8 +1393,8 @@
   padding: 1.25rem;
   background: var(--vp-c-bg);
   text-align: left;
+  min-height: 275px;
 }
-
 
 .ai-demo-header {
   display: flex;

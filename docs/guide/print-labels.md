@@ -1,16 +1,12 @@
 # Print Labels
 
-![Print labels](../assets/print-labels.png)
+![Print labels](/screenshots/print-labels.webp)
 
 ## Print Modes
 
 OpenBin supports three print modes: **Labels**, **Names**, and **Item List**.
 
-<div class="image-row">
-  <img alt="Labels mode" src="../assets/print-labels.png" />
-  <img alt="Names mode" src="../assets/print-names.png" />
-  <img alt="Item List mode" src="../assets/print-item-list.png" />
-</div>
+![Print labels preview](/screenshots/print-labels-preview.webp)
 
 ## Selecting Bins
 

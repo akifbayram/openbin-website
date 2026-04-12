@@ -1,6 +1,6 @@
 # Bulk Operations
 
-![Bulk operations](../assets/bulk-operations.png)
+![Bulk operations](/screenshots/bulk-operations.webp)
 
 Multi-select bins from the bin list or [dashboard](/docs/guide/dashboard) to perform batch actions.
 

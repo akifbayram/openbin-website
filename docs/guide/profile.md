@@ -1,6 +1,6 @@
 # Account & Profile
 
-![Profile settings](../assets/profile-settings.png)
+![Profile settings](/screenshots/profile-settings.webp)
 
 Open profile settings from the user menu in the navigation bar.
 

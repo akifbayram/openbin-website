@@ -218,7 +218,7 @@ const splitContainerEl = ref(null)
 const splitBeforeEl = ref(null)
 const splitAfterEl = ref(null)
 const splitDividerEl = ref(null)
-const splitX = ref(55)
+const splitX = ref(45)
 const splitScenario = ref(0)
 
 const splitScenarios = [
@@ -230,7 +230,6 @@ const splitScenarios = [
       { name: 'Random drawer', items: 'scissors, screwdriver, string, super glue', tilt: 'rotate(-1.5deg) translate(-4px, 2px)' },
       { name: 'Under the sink', items: 'sponges, trash bags, detergent, rags', tilt: 'rotate(1.5deg) translate(4px, -1px)' },
       { name: 'Box #7', items: 'cables, adapters, zip ties, velcro', tilt: 'rotate(-2deg) translate(-2px, 1px)' },
-      { name: 'Hallway closet', items: 'lightbulbs, gloves, flashlight, tape', tilt: 'rotate(2deg) translate(5px, 3px)' },
     ],
     after: [
       { name: 'Power Tools', area: 'Garage', items: 'drill, screwdriver, clamps', bg: 'linear-gradient(135deg, color-mix(in oklch, #3b82f6 50%, #1a1a2e), color-mix(in oklch, #2563eb 30%, #1a1a2e))', tag: 'workshop', tagBg: 'rgba(59,130,246,0.3)', tagColor: '#93c5fd', icon: 'M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76Z' },
@@ -247,7 +246,6 @@ const splitScenarios = [
       { name: 'Junk Drawer', items: 'batteries, tape, scissors, pens', tilt: 'rotate(2deg) translate(3px, -2px)' },
       { name: 'Bathroom Box', items: 'towels, first aid kit, medicine', tilt: 'rotate(-2.5deg) translate(-5px, 0)' },
       { name: 'Kitchen Box 1', items: 'spatula, whisk, measuring cups, timer', tilt: 'rotate(1deg) translate(2px, 3px)' },
-      { name: 'Garage misc', items: 'flashlight, duct tape, bungee cords', tilt: 'rotate(-3deg) translate(-4px, -1px)' },
     ],
     after: [
       { name: 'Books & Media', area: 'Living Room', items: 'books, novels, remote, coasters', bg: 'linear-gradient(135deg, color-mix(in oklch, #6366f1 50%, #1a1a2e), color-mix(in oklch, #4f46e5 30%, #1a1a2e))', tag: 'media', tagBg: 'rgba(99,102,241,0.3)', tagColor: '#a5b4fc', icon: 'M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20' },
@@ -264,7 +262,6 @@ const splitScenarios = [
       { name: 'Old toolbox', items: 'pliers, wrench set, hex keys', tilt: 'rotate(-1deg) translate(-3px, 3px)' },
       { name: 'Shelf stuff', items: 'safety glasses, ear plugs, dust masks', tilt: 'rotate(1.5deg) translate(4px, 0)' },
       { name: 'Peg board overflow', items: 'clamps, tape measure, level', tilt: 'rotate(2.5deg) translate(3px, 1px)' },
-      { name: 'Tin can of bits', items: 'drill bits, router bits, jigsaw blades', tilt: 'rotate(-1.5deg) translate(-5px, 2px)' },
     ],
     after: [
       { name: 'Fasteners', area: 'Workshop', items: 'screws, nails, wall anchors', bg: 'linear-gradient(135deg, color-mix(in oklch, #f59e0b 45%, #1a1a2e), color-mix(in oklch, #d97706 28%, #1a1a2e))', tag: 'hardware', tagBg: 'rgba(245,158,11,0.3)', tagColor: '#fcd34d', icon: 'M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z' },
@@ -279,7 +276,7 @@ const splitScenarios = [
 const currentSplit = computed(() => splitScenarios[splitScenario.value])
 
 const SPRING = 6
-let splitTargetX = 55, splitCurrentX = 55, splitLastFrame = 0, splitAnimId = null, splitUserHovering = false, splitSweepPhase = 0, splitVisible = false
+let splitTargetX = 45, splitCurrentX = 45, splitLastFrame = 0, splitAnimId = null, splitUserHovering = false, splitSweepPhase = 0, splitVisible = false
 
 function applySplitPos(pos) {
   const x = Math.max(0, Math.min(100, pos))
@@ -296,7 +293,7 @@ function splitTick(now) {
   if (!splitVisible) { splitAnimId = null; return }
   const dt = Math.min(0.05, (now - splitLastFrame) / 1000)
   splitLastFrame = now
-  if (!splitUserHovering) { splitSweepPhase += dt * 0.35; splitTargetX = 52 + 26 * Math.sin(splitSweepPhase) }
+  if (!splitUserHovering) { splitSweepPhase += dt * 0.35; splitTargetX = 45 + 20 * Math.sin(splitSweepPhase) }
   splitCurrentX += (splitTargetX - splitCurrentX) * (1 - Math.exp(-SPRING * dt))
   applySplitPos(splitCurrentX)
   splitAnimId = requestAnimationFrame(splitTick)
@@ -489,6 +486,13 @@ onUnmounted(() => {
 
 <template>
   <div class="home-layout">
+    <!-- Animated background -->
+    <div class="animated-bg" aria-hidden="true">
+      <div class="animated-bg__orb animated-bg__orb--1"></div>
+      <div class="animated-bg__orb animated-bg__orb--2"></div>
+      <div class="animated-bg__orb animated-bg__orb--3"></div>
+    </div>
+
     <!-- ════════ Hero ════════ -->
     <section class="hero-bg px-6 pt-16 pb-12 text-center">
 
@@ -692,7 +696,7 @@ onUnmounted(() => {
             </div>
             <h3 class="display-heading mt-2 text-2xl">Just tell it what to do.</h3>
             <p class="mt-3 text-base" style="color: var(--vp-c-text-2)">
-              Add items, move them between bins, search your inventory, or create new bins — all in plain English. Preview every action before confirming.
+              Add items, move them between bins, search your inventory, or create new bins. Preview every action before confirming.
             </p>
             <div class="ai-pills mt-4">
               <span class="ai-pill" style="background: rgba(59, 130, 246, 0.1); color: #60a5fa">Search</span>
@@ -749,7 +753,6 @@ onUnmounted(() => {
             >
               <div ref="splitBeforeEl" class="split-panel split-panel--before">
                 <div class="split-half split-half--left">
-                  <div class="split-badge split-badge--before">Before</div>
                   <div class="messy-stack">
                     <div v-for="bin in currentSplit.before" :key="bin.name" class="messy-card" :style="{ transform: bin.tilt }">
                       <div class="messy-card-name">{{ bin.name }}</div>
@@ -760,7 +763,6 @@ onUnmounted(() => {
               </div>
               <div ref="splitAfterEl" class="split-panel split-panel--after">
                 <div class="split-half split-half--right">
-                  <div class="split-badge split-badge--after">After</div>
                   <div class="clean-grid">
                     <div v-for="bin in currentSplit.after" :key="bin.name" class="bin-card" :style="{ background: bin.bg }">
                       <svg class="bin-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path :d="bin.icon"/></svg>
@@ -772,9 +774,13 @@ onUnmounted(() => {
                   </div>
                 </div>
               </div>
-              <svg class="split-divider-svg" width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
-                <line ref="splitDividerEl" x1="55" y1="0" x2="55" y2="100" stroke="var(--vp-c-brand-1)" stroke-width="2" vector-effect="non-scaling-stroke"/>
-              </svg>
+              <div class="split-divider-wrap">
+                <svg class="split-divider-svg" width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
+                  <line ref="splitDividerEl" x1="45" y1="0" x2="45" y2="100" stroke="var(--vp-c-brand-1)" stroke-width="2" vector-effect="non-scaling-stroke"/>
+                </svg>
+                <div class="split-label split-label--before" :style="{ left: (splitX - 0.5) + '%' }">Before</div>
+                <div class="split-label split-label--after" :style="{ left: (splitX + 0.5) + '%' }">After</div>
+              </div>
             </div>
             <!-- Mobile stacked -->
             <div class="grid gap-4 md:hidden">
@@ -804,7 +810,7 @@ onUnmounted(() => {
         <!-- Voice & Text Input -->
         <div id="voice-text" class="scroll-reveal ai-feature-row">
           <div ref="voiceEl" class="ai-feature-demo">
-            <div class="ai-demo-card">
+            <div class="ai-demo-card" style="min-height: 300px">
               <!-- Waveform bars -->
               <div class="ai-wave" :class="{ 'ai-wave-active': voicePhase === 1 }">
                 <span class="ai-wave-bar" style="animation-delay: 0s"></span>

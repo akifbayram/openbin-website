@@ -1189,7 +1189,7 @@ onUnmounted(() => {
   align-self: flex-start;
 }
 
-.messy-stack { display: grid; grid-template-columns: 1fr 1fr; gap: 0.25rem; width: 100%; }
+.messy-stack { display: grid; grid-template-columns: 1fr; gap: 0.25rem; width: 100%; }
 .messy-card {
   border: 1px solid var(--vp-c-divider);
   border-radius: 8px;
@@ -1200,7 +1200,7 @@ onUnmounted(() => {
 .messy-card-name { font-weight: 600; font-size: 0.75rem; color: var(--vp-c-text-1); }
 .messy-card-items { font-size: 0.625rem; color: var(--vp-c-text-3); line-height: 1.35; margin-top: 1px; }
 
-.clean-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.375rem; width: 100%; }
+.clean-grid { display: grid; grid-template-columns: 1fr; gap: 0.375rem; width: 100%; }
 .bin-card { border-radius: 10px; padding: 0.6rem 0.75rem; text-align: left; position: relative; min-width: 0; }
 .bin-card-icon { position: absolute; top: 0.6rem; right: 0.65rem; width: 20px; height: 20px; color: rgba(255,255,255,0.25); }
 .bin-card-name { font-weight: 700; font-size: 0.8rem; color: #f0f0f5; line-height: 1.2; padding-right: 1.25rem; }
@@ -1221,6 +1221,34 @@ onUnmounted(() => {
 .callout-detail { font-size: 0.75rem; color: var(--vp-c-text-3); margin-top: 0.25rem; }
 
 .split-divider-svg { position: absolute; inset: 0; z-index: 5; pointer-events: none; }
+.split-divider-wrap { position: absolute; inset: 0; z-index: 5; pointer-events: none; }
+.split-label {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 6px;
+  white-space: nowrap;
+  z-index: 6;
+}
+.split-label--before {
+  transform: translate(-100%, -50%);
+  margin-left: -8px;
+  color: var(--vp-c-text-3);
+  background: var(--vp-c-bg);
+  border: 1px solid var(--vp-c-divider);
+}
+.split-label--after {
+  transform: translate(0, -50%);
+  margin-left: 8px;
+  color: var(--vp-c-brand-1);
+  background: var(--vp-c-bg);
+  border: 1px solid var(--vp-c-brand-1);
+}
 
 .mobile-section {
   border: 1px solid var(--vp-c-divider);
@@ -1245,7 +1273,7 @@ onUnmounted(() => {
   border: 1px solid var(--vp-c-divider);
   border-radius: 12px;
   background: var(--vp-c-bg);
-  min-height: 220px;
+  min-height: 275px;
 }
 .term-content { transition: opacity 0.4s ease; }
 .term-content--fade { opacity: 0; }

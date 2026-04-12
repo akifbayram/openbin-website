@@ -1,6 +1,6 @@
 # Items & Tags
 
-![Items list](../assets/items-list.png)
+![Items list](/screenshots/items-list.webp)
 
 ## Items page
 
@@ -19,7 +19,7 @@ The Items page is the fastest way to answer "which bin has the Phillips screwdri
 
 ## Tags page
 
-![Tags list](../assets/tags-list.png)
+![Tags list](/screenshots/tags-list.webp)
 
 Lists every tag used in the active location.
 

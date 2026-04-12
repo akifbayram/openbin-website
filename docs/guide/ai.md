@@ -43,7 +43,7 @@ Set `AI_ENCRYPTION_KEY` to an AES-256-GCM key to encrypt stored API keys at rest
 
 ## Photo Analysis
 
-![AI photo analysis](../assets/ai-photos.png)
+![AI assistant](/screenshots/ai-assistant.webp)
 
 After uploading a photo to a bin, tap **Analyze with AI** to get suggestions for bin name, items, tags, and notes. Quantities are estimated when items are clearly countable, but may not be accurate for crowded or overlapping items — review before accepting. Each field can be accepted or dismissed independently.
 

@@ -1,5 +1,7 @@
 # Import & Export
 
+![Import and export](/screenshots/import-export.webp)
+
 ## Export
 
 Go to **Settings → Data** to access export options. Exports always include all bins in the currently active location.

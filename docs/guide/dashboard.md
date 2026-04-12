@@ -2,7 +2,7 @@
 
 The Dashboard is the home screen after login. It shows your location's stats, pinned bins, recent scans, and saved views.
 
-![Dashboard](../assets/dashboard.png)
+![Dashboard](/screenshots/dashboard.webp)
 
 ## Get Started Checklist
 

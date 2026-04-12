@@ -7,16 +7,16 @@ Each bin represents a physical container — a box, drawer, or shelf — with it
 The bin list has three view modes, toggled from the toolbar:
 
 <div class="image-row">
-  <img alt="Grid view" src="../assets/view-grid.png" />
-  <img alt="Compact view" src="../assets/view-compact.png" />
-  <img alt="Table view" src="../assets/view-table.png" />
+  <img alt="Grid view" src="/screenshots/bins-grid.webp" />
+  <img alt="Compact view" src="/screenshots/bins-compact.webp" />
+  <img alt="Table view" src="/screenshots/bins-table.webp" />
 </div>
 
 ## Creating a bin
 
 Tap **+ New Bin** and enter a name. Everything else is optional. The short code is auto-generated from the bin name.
 
-![Bin detail](../assets/bin-detail.png)
+![Bin detail](/screenshots/bin-detail.webp)
 
 ## Editing a bin
 
