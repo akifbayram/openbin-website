@@ -8,6 +8,7 @@ import Layout from './Layout.vue'
 import HomeLayout from './HomeLayout.vue'
 import CloudLayout from './CloudLayout.vue'
 import AiLayout from './AiLayout.vue'
+import BlogListLayout from './BlogListLayout.vue'
 import './custom.css'
 
 export default withBlogTheme({
@@ -17,6 +18,7 @@ export default withBlogTheme({
     app.component('HomeLayout', HomeLayout)
     app.component('CloudLayout', CloudLayout)
     app.component('AiLayout', AiLayout)
+    app.component('BlogListLayout', BlogListLayout)
     if (typeof document !== 'undefined') {
       document.documentElement.classList.add('dark')
     }
