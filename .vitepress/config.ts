@@ -1,4 +1,5 @@
 import tailwindcss from '@tailwindcss/vite'
+import { blogPlugin } from 'vitepress-plugin-blog/plugin'
 import { defineConfig } from 'vitepress'
 import { homeFaqs, cloudFaqs } from './data/faqs'
 
@@ -95,7 +96,7 @@ export default defineConfig({
     })],
   ],
   vite: {
-    plugins: [tailwindcss()],
+    plugins: [tailwindcss(), blogPlugin()],
   },
   srcExclude: ['**/CLAUDE.md'],
   sitemap: {

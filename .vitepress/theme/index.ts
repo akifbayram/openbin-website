@@ -1,4 +1,6 @@
 import DefaultTheme from 'vitepress/theme'
+import { withBlogTheme } from 'vitepress-plugin-blog'
+import 'vitepress-plugin-blog/style.css'
 import mediumZoom from 'medium-zoom'
 import { onMounted, watch, nextTick } from 'vue'
 import { useRoute } from 'vitepress'
@@ -8,7 +10,7 @@ import CloudLayout from './CloudLayout.vue'
 import AiLayout from './AiLayout.vue'
 import './custom.css'
 
-export default {
+export default withBlogTheme({
   extends: DefaultTheme,
   Layout,
   enhanceApp({ app }) {
@@ -49,4 +51,4 @@ export default {
     })
     watch(() => route.path, () => nextTick(refreshZoom))
   },
-}
+})
