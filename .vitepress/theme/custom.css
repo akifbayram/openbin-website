@@ -1879,10 +1879,23 @@
 
 /* ── Blog list layout ─────────────────────────────────────────────── */
 
-.blog-list-wrap {
-  max-width: 42rem;
+.blog-list-page {
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 64rem;
   margin: 0 auto;
   padding: 4rem 1.5rem 6rem;
+  gap: 3rem;
+}
+
+@media (min-width: 960px) {
+  .blog-list-page {
+    grid-template-columns: 14rem 1fr;
+  }
+}
+
+.blog-list-wrap {
+  min-width: 0;
 }
 
 .blog-list-header {
@@ -2021,5 +2034,63 @@
 .blog-list-empty {
   color: var(--vp-c-text-2);
   font-size: 0.9375rem;
+}
+
+/* ── Blog sidebar ─────────────────────────────────────────────────── */
+
+.blog-list-sidebar {
+  display: none;
+}
+
+@media (min-width: 960px) {
+  .blog-list-sidebar {
+    display: block;
+    position: sticky;
+    top: calc(var(--vp-nav-height) + 2rem);
+    align-self: start;
+  }
+}
+
+.blog-sidebar-heading {
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--vp-c-text-1);
+  margin: 0 0 1rem;
+}
+
+.blog-sidebar-year {
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 0.8125rem;
+  color: var(--vp-c-text-2);
+  margin: 1.25rem 0 0.5rem;
+}
+
+.blog-sidebar-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.blog-sidebar-list li {
+  margin: 0;
+  padding: 0;
+}
+
+.blog-sidebar-list a {
+  display: block;
+  padding: 0.25rem 0;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  color: var(--vp-c-text-2);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.blog-sidebar-list a:hover {
+  color: var(--vp-c-brand-1);
 }
 
