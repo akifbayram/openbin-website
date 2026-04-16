@@ -27,9 +27,22 @@
 
 - Homepage: https://openbin.app
 - Documentation: https://openbin.app/docs/
+- Blog: https://openbin.app/blog/
 - Cloud Pricing: https://openbin.app/cloud
 - Docker Quick Start: https://openbin.app/docs/getting-started/docker
 - AI Features: https://openbin.app/docs/guide/ai
 - API Reference: https://openbin.app/docs/api/
 - FAQ: https://openbin.app/docs/guide/faq
 - GitHub: https://github.com/akifbayram/openbin
+
+## Blog
+
+Posts from the OpenBin blog, most recent first:
+
+- The dot system, automated: QR scans as an activity heatmap (2026-04-14): https://openbin.app/blog/posts/dot-system-activity-graph
+- Printing QR labels, name cards, and item lists for bins (2026-03-27): https://openbin.app/blog/posts/printing-bin-labels
+- How to organize craft supplies when you have way too many (2026-03-03): https://openbin.app/blog/posts/craft-supply-organization
+- 7 apps for tracking what's in your storage bins, compared (2026-02-19): https://openbin.app/blog/posts/best-storage-bin-tracking-apps
+- How to organize a board game collection past the shelf (2026-01-31): https://openbin.app/blog/posts/board-game-collection-storage
+- How to organize Christmas decorations for next December (2025-12-09): https://openbin.app/blog/posts/christmas-decoration-storage
+- How to keep track of what's in every storage bin (2025-11-22): https://openbin.app/blog/posts/storage-bin-tracking

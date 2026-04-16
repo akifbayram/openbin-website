@@ -1,3 +1,5 @@
+import fs from 'node:fs'
+import path from 'node:path'
 import tailwindcss from '@tailwindcss/vite'
 import { blogPlugin } from 'vitepress-plugin-blog/plugin'
 import { defineConfig } from 'vitepress'
@@ -24,6 +26,31 @@ function faqSchema(faqs: { q: string; a: string }[]) {
   })
 }
 
+// Parse FAQ Q&A pairs from a blog post's markdown content.
+// Expects a "## Frequently asked questions" section with "### Question" H3s
+// followed by one or more paragraphs of answer text.
+function parseFaqs(markdown: string): { q: string; a: string }[] {
+  const faqSectionMatch = markdown.match(
+    /##\s+Frequently asked questions\s*\n([\s\S]*?)(?=\n##\s+|\n---\s*\n|$)/i
+  )
+  if (!faqSectionMatch) return []
+  const section = faqSectionMatch[1]
+  const qaPattern = /###\s+(.+?)\n+([\s\S]*?)(?=\n###\s+|$)/g
+  const faqs: { q: string; a: string }[] = []
+  const matches = [...section.matchAll(qaPattern)]
+  for (const m of matches) {
+    const q = m[1].trim()
+    const a = m[2]
+      .trim()
+      .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+      .replace(/\*\*([^*]+)\*\*/g, '$1')
+      .replace(/\*([^*]+)\*/g, '$1')
+      .replace(/\s+/g, ' ')
+    if (q && a) faqs.push({ q, a })
+  }
+  return faqs
+}
+
 export default defineConfig({
   title: 'OpenBin | Inventory with Intelligence',
   description: SITE_DESCRIPTION,
@@ -32,15 +59,7 @@ export default defineConfig({
     ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
     ['link', { href: 'https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&display=swap', rel: 'stylesheet' }],
-    ['meta', { property: 'og:title', content: SITE_TITLE }],
-    ['meta', { property: 'og:description', content: SITE_DESCRIPTION }],
-    ['meta', { property: 'og:type', content: 'website' }],
-    ['meta', { property: 'og:url', content: SITE_URL }],
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
-    ['meta', { name: 'twitter:title', content: SITE_TITLE }],
-    ['meta', { name: 'twitter:description', content: SITE_DESCRIPTION }],
-    ['meta', { property: 'og:image', content: `${SITE_URL}/og-image.png` }],
-    ['meta', { name: 'twitter:image', content: `${SITE_URL}/og-image.png` }],
     ['script', { defer: '', src: 'https://analytics.openbin.app/script.js', 'data-website-id': '3fd9d230-bac4-4550-9261-30641eb0e45a' }],
     ['script', { type: 'application/ld+json' }, JSON.stringify({
       '@context': 'https://schema.org',
@@ -111,10 +130,90 @@ export default defineConfig({
     pageData.frontmatter.head ??= []
     pageData.frontmatter.head.push(['link', { rel: 'canonical', href: canonicalUrl }])
 
-    if (pageData.frontmatter.blogPost === true) {
-      pageData.frontmatter.aside ??= false
-      pageData.frontmatter.editLink ??= false
-      pageData.frontmatter.lastUpdated ??= false
+    const fm = pageData.frontmatter
+    const isBlogPost = fm.blogPost === true
+    const pageTitle = fm.title || SITE_TITLE
+    const pageDescription = fm.description || SITE_DESCRIPTION
+    const coverUrl = fm.cover
+      ? (fm.cover.startsWith('http') ? fm.cover : `${SITE_URL}${fm.cover}`)
+      : `${SITE_URL}/og-image.png`
+
+    pageData.frontmatter.head.push(
+      ['meta', { property: 'og:title', content: pageTitle }],
+      ['meta', { property: 'og:description', content: pageDescription }],
+      ['meta', { property: 'og:url', content: canonicalUrl }],
+      ['meta', { property: 'og:type', content: isBlogPost ? 'article' : 'website' }],
+      ['meta', { property: 'og:image', content: coverUrl }],
+      ['meta', { property: 'og:site_name', content: 'OpenBin' }],
+      ['meta', { name: 'twitter:title', content: pageTitle }],
+      ['meta', { name: 'twitter:description', content: pageDescription }],
+      ['meta', { name: 'twitter:image', content: coverUrl }],
+    )
+
+    if (isBlogPost) {
+      fm.aside ??= false
+      fm.editLink ??= false
+      fm.lastUpdated ??= false
+
+      const datePublished = fm.date || new Date().toISOString().slice(0, 10)
+      const dateModified = fm.lastUpdated || fm.updated || datePublished
+      const authorName = fm.author || 'OpenBin'
+
+      pageData.frontmatter.head.push(
+        ['meta', { property: 'article:published_time', content: datePublished }],
+        ['meta', { property: 'article:modified_time', content: dateModified }],
+      )
+
+      pageData.frontmatter.head.push(['script', { type: 'application/ld+json' }, JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        headline: fm.title,
+        description: fm.description,
+        datePublished,
+        dateModified,
+        author: { '@type': 'Person', name: authorName, url: SITE_URL },
+        publisher: {
+          '@type': 'Organization',
+          name: 'OpenBin',
+          logo: { '@type': 'ImageObject', url: `${SITE_URL}/logo-horizontal.svg` },
+        },
+        image: coverUrl,
+        url: canonicalUrl,
+        mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
+        keywords: Array.isArray(fm.tags) ? fm.tags.join(', ') : undefined,
+      })])
+
+      // Parse FAQ section from markdown for FAQPage schema
+      try {
+        const filePath = path.resolve(process.cwd(), pageData.relativePath)
+        if (fs.existsSync(filePath)) {
+          const raw = fs.readFileSync(filePath, 'utf-8')
+          const body = raw.replace(/^---[\s\S]*?---\n/, '')
+          const faqs = parseFaqs(body)
+          if (faqs.length > 0) {
+            pageData.frontmatter.head.push([
+              'script',
+              { type: 'application/ld+json' },
+              faqSchema(faqs),
+            ])
+          }
+        }
+      } catch {
+        // Fail silently — schema injection is non-critical
+      }
+
+      // BreadcrumbList for blog posts
+      if (pageData.relativePath.startsWith('blog/posts/')) {
+        pageData.frontmatter.head.push(['script', { type: 'application/ld+json' }, JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'OpenBin', item: SITE_URL },
+            { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE_URL}/blog/` },
+            { '@type': 'ListItem', position: 3, name: fm.title, item: canonicalUrl },
+          ],
+        })])
+      }
     }
 
     if (pageData.relativePath === 'index.md') {
@@ -168,8 +267,8 @@ export default defineConfig({
     siteTitle: false,
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'AI', link: '/ai' },
       { text: 'Documentation', link: '/docs/' },
+      { text: 'Blog', link: '/blog/' },
       { text: 'OpenBin Cloud', link: '/cloud' },
     ],
     sidebar: {
@@ -267,7 +366,7 @@ export default defineConfig({
       text: 'Edit this page on GitHub',
     },
     footer: {
-      message: '<a href="/docs/">Docs</a> · <a href="/ai">AI</a> · <a href="/cloud">Cloud</a> · <a href="https://github.com/akifbayram/openbin" target="_blank" rel="noopener">GitHub</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>',
+      message: '<a href="/docs/">Docs</a> · <a href="/blog/">Blog</a> · <a href="/cloud">Cloud</a> · <a href="https://github.com/akifbayram/openbin" target="_blank" rel="noopener">GitHub</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>',
       copyright: '© 2026 OpenBin',
     },
   },

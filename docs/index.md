@@ -1,6 +1,6 @@
 # What is OpenBin?
 
-OpenBin is an open source inventory management system that makes physical storage searchable. Create bins for your stuff, let AI identify contents from a photo, and print QR labels to find anything with a scan.
+OpenBin is an open source inventory system where AI handles the cataloging. Photograph your bins and it identifies what's inside, even across multiple containers at once. When your hands are full, dictate items by voice instead. It can also suggest how to reorganize your storage for a better layout. An activity graph shows how often you actually access each item, so you can decide what's worth keeping. Print QR labels to scan any bin from your phone.
 
 ## How it works
 
@@ -34,6 +34,11 @@ Households organizing garages, closets, and storage units. Small teams tracking 
 - **Multi-user** — invite household members or teammates so everyone has access
 - **Search & filter** — find anything by name, tag, or custom field across all your bins
 - **Bulk operations** — move, tag, or update bins in batch
+- **Item checkouts** — check items out of bins and return them later, with a log of who took what
+- **File attachments** — upload PDFs, spreadsheets, and documents alongside bin photos
+- **Bin sharing** — generate a link to share a bin's contents with anyone, no login required
+- **Usage tracking** — heatmap of how often each bin is accessed, so you know what's gathering dust
+- **Activity log** — admin audit trail of every change and member action across the location
 - **Import & export** — CSV, JSON, and spreadsheet support
 - **REST API & MCP server** — integrate OpenBin with other tools and AI assistants
 - **Self-hosted** — single Docker container with SQLite, no external services required
