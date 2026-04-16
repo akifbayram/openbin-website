@@ -113,6 +113,8 @@ export default defineConfig({
 
     if (pageData.frontmatter.blogPost === true) {
       pageData.frontmatter.aside ??= false
+      pageData.frontmatter.editLink ??= false
+      pageData.frontmatter.lastUpdated ??= false
     }
 
     if (pageData.relativePath === 'index.md') {
@@ -196,10 +198,15 @@ export default defineConfig({
             { text: 'Bins', link: '/docs/guide/bins' },
             { text: 'Items & Tags', link: '/docs/guide/items-tags' },
             { text: 'Photos', link: '/docs/guide/photos' },
+            { text: 'Attachments', link: '/docs/guide/attachments' },
+            { text: 'Checkouts', link: '/docs/guide/checkouts' },
+            { text: 'Bin Sharing', link: '/docs/guide/sharing' },
             { text: 'QR Scanning', link: '/docs/guide/qr-scanning' },
             { text: 'Print Labels', link: '/docs/guide/print-labels' },
             { text: 'Search & Filter', link: '/docs/guide/search-filter' },
             { text: 'Dashboard', link: '/docs/guide/dashboard' },
+            { text: 'Usage Tracking', link: '/docs/guide/usage' },
+            { text: 'Activity Log', link: '/docs/guide/activity' },
             { text: 'Bulk Add', link: '/docs/guide/bulk-add' },
             { text: 'Bulk Operations', link: '/docs/guide/bulk-operations' },
             { text: 'Account & Profile', link: '/docs/guide/profile' },

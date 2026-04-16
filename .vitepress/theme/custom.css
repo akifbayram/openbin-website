@@ -1862,10 +1862,51 @@
 
 /* ── Blog plugin overrides (post layout) ──────────────────────────── */
 
+.blog-post__meta {
+  margin-bottom: 2.5rem;
+  padding-bottom: 2rem;
+}
+
+.blog-post__breadcrumbs {
+  margin: 0 0 0.75rem;
+  font-size: 0.8125rem;
+}
+
+.blog-post__breadcrumbs a {
+  color: var(--vp-c-brand-2);
+}
+
+.blog-post__breadcrumbs span:last-child {
+  color: var(--vp-c-text-1);
+}
+
 .blog-post__title {
   font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
   font-weight: 700;
+  font-size: 2rem;
+  line-height: 1.2;
   letter-spacing: -0.02em;
+}
+
+@media (min-width: 768px) {
+  .blog-post__title {
+    font-size: 2.5rem;
+  }
+}
+
+.blog-post__description {
+  margin: 0.75rem 0 0;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  color: var(--vp-c-text-2);
+}
+
+.blog-post__details {
+  margin-top: 1rem;
+}
+
+.blog-post__tags {
+  margin-top: 0.75rem;
 }
 
 .blog-post__tags li {
@@ -1873,8 +1914,64 @@
   color: var(--vp-c-brand-1);
 }
 
-.blog-post__breadcrumbs a {
-  color: var(--vp-c-brand-2);
+.blog-post__cover {
+  margin: 1.5rem 0 0;
+  border-radius: 8px;
+  border: 1px solid var(--vp-c-divider);
+  max-height: 24rem;
+  overflow: hidden;
+}
+
+.blog-post__cover img {
+  object-fit: cover;
+  object-position: top left;
+}
+
+/* Blog post body typography */
+.blog-post-page .vp-doc {
+  line-height: 1.8;
+}
+
+.blog-post-page .vp-doc h2 {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--vp-c-divider);
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.blog-post-page .vp-doc h2:first-child {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+.blog-post-page .vp-doc h3 {
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 700;
+}
+
+/* Post pagination */
+.blog-post__pagination {
+  margin-top: 3rem;
+}
+
+.blog-post__pagination-link {
+  border-color: var(--vp-c-divider);
+  transition: border-color 0.15s;
+}
+
+.blog-post__pagination-link:hover {
+  border-color: var(--vp-c-brand-1);
+}
+
+.pagination-title {
+  color: var(--vp-c-brand-1);
+}
+
+.pagination-label {
+  color: var(--vp-c-text-3);
 }
 
 /* ── Blog list layout ─────────────────────────────────────────────── */
