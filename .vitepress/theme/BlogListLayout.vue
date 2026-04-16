@@ -1,6 +1,6 @@
 <script setup>
 import { computed } from 'vue'
-import { useBlogPosts, formatDate, isGitHubUsername, getGitHubAvatarUrl } from 'vitepress-plugin-blog'
+import { useBlogPosts, formatDate } from 'vitepress-plugin-blog'
 import { withBase } from 'vitepress'
 
 const { posts } = useBlogPosts()
@@ -14,9 +14,6 @@ const grouped = computed(() => {
   }
   return Object.entries(groups).sort(([a], [b]) => Number(b) - Number(a))
 })
-
-const hasAvatar = (author) => isGitHubUsername(author)
-const avatarUrl = (author) => getGitHubAvatarUrl(author)
 </script>
 
 <template>
@@ -47,41 +44,30 @@ const avatarUrl = (author) => getGitHubAvatarUrl(author)
         <template v-for="([year, yearPosts]) in grouped" :key="year">
           <h2 class="blog-list-year">{{ year }}</h2>
 
-          <article v-for="post in yearPosts" :key="post.url" class="blog-list-entry">
-            <a :href="withBase(post.url)" class="blog-list-entry-link">
+          <a
+            v-for="post in yearPosts"
+            :key="post.url"
+            :href="withBase(post.url)"
+            class="blog-list-entry"
+          >
+            <article>
               <h3 class="blog-list-entry-title">{{ post.title }}</h3>
-            </a>
 
-            <div class="blog-list-entry-meta">
-              <time :datetime="post.date">{{ formatDate(post.date) }}</time>
-              <span v-if="post.readingTime" class="blog-list-dot">&middot;</span>
-              <span v-if="post.readingTime">{{ post.readingTime }} min read</span>
-            </div>
+              <div class="blog-list-entry-meta">
+                <time :datetime="post.date">{{ formatDate(post.date) }}</time>
+                <span v-if="post.readingTime" class="blog-list-dot">&middot;</span>
+                <span v-if="post.readingTime">{{ post.readingTime }} min read</span>
+                <template v-if="post.tags?.length">
+                  <span class="blog-list-dot">&middot;</span>
+                  <span v-for="tag in post.tags" :key="tag" class="blog-list-inline-tag">{{ tag }}</span>
+                </template>
+              </div>
 
-            <div v-if="post.author" class="blog-list-entry-author">
-              <img
-                v-if="hasAvatar(post.author)"
-                :src="avatarUrl(post.author)"
-                :alt="post.author"
-                class="blog-list-avatar"
-                loading="lazy"
-              />
-              <span>{{ post.author }}</span>
-            </div>
-
-            <p v-if="post.description" class="blog-list-entry-desc">
-              {{ post.description }}
-            </p>
-
-            <div class="blog-list-entry-footer">
-              <ul v-if="post.tags?.length" class="blog-list-tags" aria-label="Tags">
-                <li v-for="tag in post.tags" :key="tag">{{ tag }}</li>
-              </ul>
-              <a :href="withBase(post.url)" class="blog-list-read-more">
-                Read more <span aria-hidden="true">&rarr;</span>
-              </a>
-            </div>
-          </article>
+              <p v-if="post.description" class="blog-list-entry-desc">
+                {{ post.description }}
+              </p>
+            </article>
+          </a>
         </template>
       </div>
 
