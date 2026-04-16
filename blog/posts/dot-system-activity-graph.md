@@ -5,7 +5,7 @@ description: Scott Lawson tracked four years of box-opens with stickers to find 
 date: "2026-04-14"
 author: akifbayram
 tags: [Organization, Activity Tracking, QR Codes, Storage]
-cover: /blog/covers/openbin-dashboard-bin-inventory.webp
+cover: /blog/covers/dot-system-activity-graph.webp
 ---
 
 If you saw [the HN thread](https://news.ycombinator.com/item?id=47593556) on Scott Lawson's [dot system](https://scottlawsonbc.com/post/dot-system) and the comments arguing about whether the dots are the point or the discipline is the point — this is for you.
