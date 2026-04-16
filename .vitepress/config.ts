@@ -111,6 +111,10 @@ export default defineConfig({
     pageData.frontmatter.head ??= []
     pageData.frontmatter.head.push(['link', { rel: 'canonical', href: canonicalUrl }])
 
+    if (pageData.frontmatter.blogPost === true) {
+      pageData.frontmatter.aside ??= false
+    }
+
     if (pageData.relativePath === 'index.md') {
       pageData.frontmatter.head.push(['script', { type: 'application/ld+json' }, faqSchema(homeFaqs)])
     }
