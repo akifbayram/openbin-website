@@ -28,41 +28,49 @@ Storage bins share one property: the labels on them outlive whatever you first w
 
 A QR code label fixes that. The sticker is permanent, the contents update in the app, and scanning the code shows whatever's actually inside right now. Every scan also registers as a usage event, so the same label doubles as a tracker for which bins you actually open — see [how QR scans become an activity heatmap](/blog/posts/dot-system-activity-graph). But a QR sticker isn't always the right call. Sometimes you want a big visible name. Sometimes you want a paper list you can check off with a pen.
 
-The thermal printing market is $45.49 billion in 2026 and growing at a 4.32% CAGR ([Mordor Intelligence](https://www.mordorintelligence.com/industry-reports/thermal-printing-market), 2025), and mini label printers are showing up in homes alongside warehouses. Avery still dominates sheet-label paper with more than 3,000 material, shape and size combinations. The printing hardware is there. The question is what to print.
+The [thermal printing market is $45.49 billion in 2026 and growing at a 4.32% CAGR](https://www.mordorintelligence.com/industry-reports/thermal-printing-market), and mini label printers are showing up in homes alongside warehouses. [Avery still dominates sheet-label paper with more than 3,000 material, shape and size combinations](https://www.avery.com/category/usage/any-size-labels/). The printing hardware is there. The question is what to print.
 
 <figure style="margin: 2rem 0; text-align: center;">
-  <svg viewBox="0 0 560 380" style="max-width: 100%; height: auto; font-family: 'Inter', system-ui, sans-serif" role="img" aria-label="Thermal printing market growing from $45.49 billion in 2026 to $56.20 billion projected by 2031">
+  <svg viewBox="0 0 560 360" style="max-width: 100%; height: auto; font-family: 'Inter', system-ui, sans-serif" role="img" aria-label="Line graph of thermal printing market revenue growing from $45.49 billion in 2026 to a projected $56.20 billion by 2031">
     <title>Thermal printing market growth, 2026 to 2031</title>
-    <desc>Area chart showing the thermal printing market growing from $45.49 billion in 2026 to a projected $56.20 billion by 2031, at a 4.32% compound annual growth rate. Source: Mordor Intelligence, 2025.</desc>
-    <text x="70" y="28" font-size="14" font-weight="700" fill="currentColor">Thermal printing market ($ billions)</text>
-    <text x="70" y="44" font-size="11" fill="currentColor" opacity="0.45">Projection, 2026–2031 (4.32% CAGR)</text>
-    <line x1="70" y1="290" x2="510" y2="290" stroke="currentColor" opacity="0.3" />
-    <line x1="70" y1="230" x2="510" y2="230" stroke="currentColor" opacity="0.08" />
-    <line x1="70" y1="170" x2="510" y2="170" stroke="currentColor" opacity="0.08" />
-    <line x1="70" y1="110" x2="510" y2="110" stroke="currentColor" opacity="0.08" />
-    <line x1="70" y1="50" x2="510" y2="50" stroke="currentColor" opacity="0.08" />
-    <text x="62" y="294" text-anchor="end" font-size="10" fill="currentColor" opacity="0.8">$44</text>
-    <text x="62" y="234" text-anchor="end" font-size="10" fill="currentColor" opacity="0.8">$48</text>
-    <text x="62" y="174" text-anchor="end" font-size="10" fill="currentColor" opacity="0.8">$52</text>
-    <text x="62" y="114" text-anchor="end" font-size="10" fill="currentColor" opacity="0.8">$56</text>
-    <text x="62" y="54" text-anchor="end" font-size="10" fill="currentColor" opacity="0.8">$60</text>
-    <path d="M70,267.5 L158,238 L246,207.5 L334,175 L422,142 L510,107 L510,290 L70,290 Z" fill="#f97316" opacity="0.15" />
-    <polyline points="70,267.5 158,238 246,207.5 334,175 422,142 510,107" fill="none" stroke="#f97316" stroke-width="2" />
-    <circle cx="70" cy="267.5" r="4" fill="#f97316" />
-    <circle cx="158" cy="238" r="4" fill="#f97316" />
-    <circle cx="246" cy="207.5" r="4" fill="#f97316" />
-    <circle cx="334" cy="175" r="4" fill="#f97316" />
-    <circle cx="422" cy="142" r="4" fill="#f97316" />
-    <circle cx="510" cy="107" r="4" fill="#f97316" />
-    <text x="70" y="253" text-anchor="middle" font-size="10" font-weight="700" fill="currentColor">$45.5B</text>
-    <text x="510" y="93" text-anchor="middle" font-size="10" font-weight="700" fill="currentColor">$56.2B</text>
-    <text x="70" y="310" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.8">2026</text>
-    <text x="158" y="310" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.8">2027</text>
-    <text x="246" y="310" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.8">2028</text>
-    <text x="334" y="310" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.8">2029</text>
-    <text x="422" y="310" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.8">2030</text>
-    <text x="510" y="310" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.8">2031</text>
-    <text x="280" y="372" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.35">Source: Mordor Intelligence (2025)</text>
+    <desc>Line graph showing the thermal printing market growing from $45.49 billion in 2026 to a projected $56.20 billion by 2031, at a 4.32% compound annual growth rate. Annual values in USD billions: 2026 $45.49, 2027 $47.45, 2028 $49.50, 2029 $51.64, 2030 $53.87, 2031 $56.20. Source: Mordor Intelligence, 2025.</desc>
+    <text x="70" y="30" font-size="14" font-weight="700" fill="currentColor">Thermal printing market size</text>
+    <text x="70" y="48" font-size="11" fill="currentColor" opacity="0.6">Global revenue, USD billions</text>
+    <text x="490" y="30" text-anchor="end" font-size="11" font-weight="700" fill="#5e2fe0">CAGR 4.32%</text>
+    <text x="490" y="48" text-anchor="end" font-size="10" fill="currentColor" opacity="0.5">2026–2031 projection</text>
+    <g font-size="10" fill="currentColor" opacity="0.55">
+      <line x1="70" y1="270" x2="510" y2="270" stroke="currentColor" opacity="0.35" stroke-width="1" />
+      <line x1="70" y1="220" x2="510" y2="220" stroke="currentColor" opacity="0.18" stroke-dasharray="2 4" />
+      <line x1="70" y1="170" x2="510" y2="170" stroke="currentColor" opacity="0.18" stroke-dasharray="2 4" />
+      <line x1="70" y1="120" x2="510" y2="120" stroke="currentColor" opacity="0.18" stroke-dasharray="2 4" />
+      <text x="62" y="274" text-anchor="end">$44B</text>
+      <text x="62" y="224" text-anchor="end">$48B</text>
+      <text x="62" y="174" text-anchor="end">$52B</text>
+      <text x="62" y="124" text-anchor="end">$56B</text>
+    </g>
+    <path d="M 114 251.4 L 193.2 226.9 L 272.4 201.3 L 351.6 174.5 L 430.8 146.6 L 510 117.5 L 510 270 L 114 270 Z" fill="#5e2fe0" fill-opacity="0.18" />
+    <path d="M 114 251.4 L 193.2 226.9 L 272.4 201.3 L 351.6 174.5 L 430.8 146.6 L 510 117.5" fill="none" stroke="#5e2fe0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+    <g fill="#5e2fe0">
+      <circle cx="193.2" cy="226.9" r="4" />
+      <circle cx="272.4" cy="201.3" r="4" />
+      <circle cx="351.6" cy="174.5" r="4" />
+      <circle cx="430.8" cy="146.6" r="4" />
+    </g>
+    <g font-size="10" fill="currentColor" opacity="0.7">
+      <text x="114" y="290" text-anchor="middle">2026</text>
+      <text x="193.2" y="290" text-anchor="middle">2027</text>
+      <text x="272.4" y="290" text-anchor="middle">2028</text>
+      <text x="351.6" y="290" text-anchor="middle">2029</text>
+      <text x="430.8" y="290" text-anchor="middle">2030</text>
+      <text x="510" y="290" text-anchor="middle" font-weight="700" fill="currentColor" opacity="1">2031</text>
+    </g>
+    <circle cx="114" cy="251.4" r="5" fill="#5e2fe0" stroke="var(--vp-c-bg, #1a1a1a)" stroke-width="2" />
+    <rect x="82" y="218" width="64" height="18" rx="4" fill="#5e2fe0" fill-opacity="0.18" />
+    <text x="114" y="231" text-anchor="middle" font-size="11" font-weight="700" fill="currentColor">$45.49B</text>
+    <circle cx="510" cy="117.5" r="6" fill="#5e2fe0" stroke="var(--vp-c-bg, #1a1a1a)" stroke-width="2" />
+    <rect x="466" y="86" width="64" height="20" rx="4" fill="#5e2fe0" />
+    <text x="498" y="100" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">$56.20B</text>
+    <text x="280" y="345" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.45">Source: Mordor Intelligence (2025)</text>
   </svg>
 </figure>
 
@@ -127,23 +135,29 @@ Item list mode is the only one that generates something other than stickers. It 
 
 **Packing and moving.** Print the item list for each bin before you move. When everything gets shuffled into a truck, you've got a paper trail of what's in each container.
 
-**Insurance records.** Fewer than half of homeowners keep a home inventory for insurance ([Insurance Information Institute](https://www.iii.org/fact-statistic/facts-statistics-homeowners-and-renters-insurance), 2023). A printed list of each bin's contents is a decent supplement to the digital version. Keep a copy somewhere other than your house.
+**Insurance records.** [Fewer than half of homeowners keep a home inventory for insurance](https://www.iii.org/fact-statistic/facts-statistics-homeowners-and-renters-insurance). A printed list of each bin's contents is a decent supplement to the digital version. Keep a copy somewhere other than your house.
 
 <figure style="margin: 2rem 0; text-align: center;">
   <svg viewBox="0 0 560 380" style="max-width: 100%; height: auto; font-family: 'Inter', system-ui, sans-serif" role="img" aria-label="Donut chart showing 48% of U.S. homeowners have a home inventory while 52% do not">
     <title>Home inventory ownership among U.S. homeowners</title>
     <desc>Donut chart showing that roughly 48% of U.S. homeowners maintain a home inventory for insurance purposes, while 52% do not. Source: Insurance Information Institute, 2023.</desc>
-    <text x="280" y="28" text-anchor="middle" font-size="14" font-weight="700" fill="currentColor">Home inventory ownership</text>
-    <text x="280" y="44" text-anchor="middle" font-size="11" fill="currentColor" opacity="0.45">U.S. homeowners</text>
-    <path d="M 280 40 A 140 140 0 0 1 297.55 318.9 L 290.03 259.37 A 80 80 0 0 0 280 100 Z" fill="#f97316" />
-    <path d="M 297.55 318.9 A 140 140 0 1 1 280 40 L 280 100 A 80 80 0 1 0 290.03 259.37 Z" fill="#38bdf8" />
-    <text x="280" y="190" text-anchor="middle" font-size="32" font-weight="800" fill="currentColor">48%</text>
-    <text x="280" y="212" text-anchor="middle" font-size="11" fill="currentColor" opacity="0.6">have an inventory</text>
-    <rect x="170" y="340" width="12" height="12" fill="#f97316" />
-    <text x="188" y="350" font-size="11" fill="currentColor" opacity="0.8">Have an inventory (48%)</text>
-    <rect x="340" y="340" width="12" height="12" fill="#38bdf8" />
-    <text x="358" y="350" font-size="11" fill="currentColor" opacity="0.8">No inventory (52%)</text>
-    <text x="280" y="372" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.35">Source: Insurance Information Institute (2023)</text>
+    <text x="280" y="30" text-anchor="middle" font-size="14" font-weight="700" fill="currentColor">Home inventory ownership</text>
+    <text x="280" y="48" text-anchor="middle" font-size="11" fill="currentColor" opacity="0.6">U.S. homeowners keeping a written inventory</text>
+    <g transform="translate(280 200) rotate(-90)">
+      <circle r="70" fill="none" stroke="currentColor" stroke-opacity="0.25" stroke-width="28" />
+      <circle r="70" fill="none" stroke="#5e2fe0" stroke-width="28" stroke-dasharray="211.115 439.823" stroke-linecap="butt" />
+    </g>
+    <text x="280" y="205" text-anchor="middle" font-size="44" font-weight="700" fill="#5e2fe0">48%</text>
+    <text x="280" y="228" text-anchor="middle" font-size="11" fill="currentColor" opacity="0.7">have an inventory</text>
+    <g transform="translate(140 308)">
+      <rect x="0" y="0" width="12" height="12" rx="2" fill="#5e2fe0" />
+      <text x="20" y="10" font-size="11" fill="currentColor" opacity="0.85">Has home inventory (48%)</text>
+    </g>
+    <g transform="translate(330 308)">
+      <rect x="0" y="0" width="12" height="12" rx="2" fill="currentColor" fill-opacity="0.25" />
+      <text x="20" y="10" font-size="11" fill="currentColor" opacity="0.85">Does not (52%)</text>
+    </g>
+    <text x="280" y="360" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.45">Source: Insurance Information Institute (2023)</text>
   </svg>
 </figure>
 
@@ -169,7 +183,7 @@ Not every printer runs Avery sheets. Thermal rolls, continuous label stock, and 
 
 The QR Style card separately controls the visual appearance of QR codes. Dot style ranges from plain squares through rounded, dots, classy, classy-rounded, and extra-rounded. Corner style can be square, extra-rounded, or dot. Foreground and background colors are both fully customizable, including transparent backgrounds for printing on pre-colored label stock.
 
-One caveat. 59% of consumers scan QR codes daily now ([Uniqode](https://www.uniqode.com/blog/qr-code-insights/qr-code-report), 2025), and the scanning hardware is more forgiving than it used to be. But reliability still depends on contrast. A very stylized QR with low-contrast colors can fail in dim light or at an angle. OpenBin shows a warning on the QR Style card for this reason. If you're going fancy, test-scan one label before you print the whole sheet.
+One caveat. [59% of consumers scan QR codes daily now](https://www.uniqode.com/blog/qr-code-insights/qr-code-report), and the scanning hardware is more forgiving than it used to be. But reliability still depends on contrast. A very stylized QR with low-contrast colors can fail in dim light or at an angle. OpenBin shows a warning on the QR Style card for this reason. If you're going fancy, test-scan one label before you print the whole sheet.
 
 Finally, presets. Once you've dialed in a format you like (label size, style, QR color, font scale), save it with a name. The preset appears in the format selector for instant reuse. Presets live in your browser's local storage, so they stay with that machine and that user.
 
@@ -226,7 +240,3 @@ The same bins work across all three. Set them up once, print whatever format eac
 If you haven't set up bins yet, start with [how to keep track of what's in every storage bin](/blog/posts/storage-bin-tracking). That walkthrough covers the 30-minute setup. Then come back here and print some labels.
 
 [Sign up free at openbin.app](https://openbin.app), or [self-host with Docker](/docs/getting-started/docker).
-
----
-
-**Sources:** [Mordor Intelligence Thermal Printing Market, 2025](https://www.mordorintelligence.com/industry-reports/thermal-printing-market) · [Uniqode State of QR Codes Report, 2025](https://www.uniqode.com/blog/qr-code-insights/qr-code-report) · [Insurance Information Institute — Facts and Statistics on Homeowners Insurance, 2023](https://www.iii.org/fact-statistic/facts-statistics-homeowners-and-renters-insurance) · [Avery — Standard Label Sizes](https://www.avery.com/category/usage/any-size-labels/)

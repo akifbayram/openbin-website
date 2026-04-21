@@ -23,35 +23,43 @@ If you've ever bought duplicate supplies because you couldn't find what you alre
 
 Craft supplies accumulate in a way that most household items don't. Yarn comes home from every shop visit. Fabric gets bought for projects that change scope. Beads, buttons, zippers, and notions multiply quietly in drawers.
 
-According to Mintel, 71% of US consumers identify as crafters. The North American craft market is worth $17.8 billion. That's a lot of material going into storage.
+According to Mintel, [71% of US consumers identify as crafters](https://www.uschamber.com/co/good-company/launch-pad/stress-fuels-crafts-market). The North American craft market is worth $17.8 billion. That's a lot of material going into storage.
 
-A Craft Industry Alliance survey found that yarn crafters start an average of 19 projects per year and complete 16. The remaining three become UFOs — unfinished objects — with their associated yarn stashed somewhere until you get back to them. Multiply that by a few years and you've got a closet full of bins where you vaguely know the contents but can't find anything specific.
+A [Craft Industry Alliance survey found that yarn crafters start an average of 19 projects per year and complete 16](https://craftindustryalliance.org/the-size-of-the-yarn-market-yarn-consumer-survey-results-2025/). The remaining three become UFOs — unfinished objects — with their associated yarn stashed somewhere until you get back to them. Multiply that by a few years and you've got a closet full of bins where you vaguely know the contents but can't find anything specific.
 
 <figure style="margin: 2rem 0; text-align: center;">
-  <svg viewBox="0 0 560 380" style="max-width: 100%; height: auto; font-family: 'Inter', system-ui, sans-serif" role="img" aria-label="Horizontal bar chart showing yarn crafters start 19 projects per year, complete 16, and leave 3 as unfinished objects">
+  <svg viewBox="0 0 560 340" style="max-width: 100%; height: auto; font-family: 'Inter', system-ui, sans-serif" role="img" aria-label="Horizontal bar chart showing yarn crafters start 19 projects per year, complete 16, and leave 3 as unfinished objects">
     <title>The UFO problem: yarn projects started vs completed</title>
     <desc>Horizontal bar chart showing the annual project outcomes for the average yarn crafter. 19 projects are started per year, 16 are completed, and 3 are left unfinished as UFOs (unfinished objects). Source: Craft Industry Alliance Yarn Consumer Survey 2025.</desc>
     <text x="20" y="28" font-size="14" font-weight="700" fill="currentColor">The UFO problem: yarn projects started vs completed</text>
-    <text x="20" y="44" font-size="11" fill="currentColor" opacity="0.45">Per yarn crafter, per year (U.S. average)</text>
-    <line x1="180" y1="70" x2="180" y2="290" stroke="currentColor" opacity="0.3" />
-    <line x1="260" y1="70" x2="260" y2="290" stroke="currentColor" opacity="0.08" />
-    <line x1="340" y1="70" x2="340" y2="290" stroke="currentColor" opacity="0.08" />
-    <line x1="420" y1="70" x2="420" y2="290" stroke="currentColor" opacity="0.08" />
-    <line x1="500" y1="70" x2="500" y2="290" stroke="currentColor" opacity="0.08" />
-    <text x="260" y="310" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.5">5</text>
-    <text x="340" y="310" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.5">10</text>
-    <text x="420" y="310" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.5">15</text>
-    <text x="500" y="310" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.5">20</text>
-    <text x="172" y="119" text-anchor="end" font-size="12" fill="currentColor" opacity="0.8">Started</text>
-    <rect x="180" y="95" width="304" height="40" fill="#38bdf8" />
-    <text x="495" y="119" font-size="12" font-weight="700" fill="currentColor">19</text>
-    <text x="172" y="189" text-anchor="end" font-size="12" fill="currentColor" opacity="0.8">Completed</text>
-    <rect x="180" y="165" width="256" height="40" fill="#22c55e" />
-    <text x="447" y="189" font-size="12" font-weight="700" fill="currentColor">16</text>
-    <text x="172" y="259" text-anchor="end" font-size="12" fill="currentColor" opacity="0.8">UFOs (unfinished)</text>
-    <rect x="180" y="235" width="48" height="40" fill="#f97316" />
-    <text x="239" y="259" font-size="12" font-weight="700" fill="currentColor">3</text>
-    <text x="280" y="372" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.35">Source: Craft Industry Alliance Yarn Consumer Survey (2025)</text>
+    <text x="20" y="46" font-size="11" fill="currentColor" opacity="0.55">Per yarn crafter, per year (U.S. average)</text>
+    <line x1="200" y1="78" x2="200" y2="258" stroke="currentColor" opacity="0.5" />
+    <line x1="200" y1="258" x2="520" y2="258" stroke="currentColor" opacity="0.5" />
+    <line x1="280" y1="78" x2="280" y2="258" stroke="currentColor" opacity="0.1" />
+    <line x1="360" y1="78" x2="360" y2="258" stroke="currentColor" opacity="0.1" />
+    <line x1="440" y1="78" x2="440" y2="258" stroke="currentColor" opacity="0.1" />
+    <line x1="520" y1="78" x2="520" y2="258" stroke="currentColor" opacity="0.1" />
+    <line x1="200" y1="258" x2="200" y2="264" stroke="currentColor" opacity="0.5" />
+    <line x1="280" y1="258" x2="280" y2="264" stroke="currentColor" opacity="0.5" />
+    <line x1="360" y1="258" x2="360" y2="264" stroke="currentColor" opacity="0.5" />
+    <line x1="440" y1="258" x2="440" y2="264" stroke="currentColor" opacity="0.5" />
+    <line x1="520" y1="258" x2="520" y2="264" stroke="currentColor" opacity="0.5" />
+    <text x="200" y="278" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.6">0</text>
+    <text x="280" y="278" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.6">5</text>
+    <text x="360" y="278" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.6">10</text>
+    <text x="440" y="278" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.6">15</text>
+    <text x="520" y="278" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.6">20</text>
+    <text x="360" y="298" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.55">Projects per year</text>
+    <text x="192" y="110" text-anchor="end" font-size="12" fill="currentColor" opacity="0.8">Started</text>
+    <rect x="200" y="90" width="304" height="32" rx="3" fill="#5e2fe0" fill-opacity="0.8" />
+    <text x="512" y="110" font-size="12" font-weight="700" fill="currentColor">19</text>
+    <text x="192" y="168" text-anchor="end" font-size="12" fill="currentColor" opacity="0.8">Completed</text>
+    <rect x="200" y="148" width="256" height="32" rx="3" fill="#5e2fe0" fill-opacity="0.8" />
+    <text x="464" y="168" font-size="12" font-weight="700" fill="currentColor">16</text>
+    <text x="192" y="226" text-anchor="end" font-size="12" fill="currentColor" opacity="0.8">UFOs (unfinished)</text>
+    <rect x="200" y="206" width="48" height="32" rx="3" fill="#5e2fe0" fill-opacity="0.8" />
+    <text x="256" y="226" font-size="12" font-weight="700" fill="currentColor">3</text>
+    <text x="280" y="326" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.45">Source: Craft Industry Alliance Yarn Consumer Survey (2025)</text>
   </svg>
 </figure>
 
@@ -104,7 +112,7 @@ Here's something that changes how you shop for supplies. When you can search you
 
 Crafters call this stash-busting — using what you have instead of buying more. An inventory makes it practical. You know exactly what you own, what colors you have, and how much of each. You stop buying duplicates and start finishing projects with supplies you forgot about.
 
-After JOANN closed all 800 of its stores in early 2025, more crafters shifted to online buying, which means less impulse browsing and more "I need to order the right thing." Having an inventory of what you already own makes that easier.
+After [JOANN closed all 800 of its stores in early 2025](https://www.nbcnews.com/business/business-news/joann-shutter-800-fabric-stores-find-buyer-locations-rcna193536), more crafters shifted to online buying, which means less impulse browsing and more "I need to order the right thing." Having an inventory of what you already own makes that easier.
 
 If your stash skews seasonal — handmade ornaments, Halloween costume fabric, holiday wreath supplies — the [Christmas decoration storage guide](/blog/posts/christmas-decoration-storage) covers the once-a-year-storage problem that seasonal crafts share with holiday decor.
 
@@ -131,7 +139,3 @@ Yes. [Free cloud tier](/cloud) or self-host with Docker. Open source (AGPL-3.0) 
 Having too many supplies isn't the issue. Not knowing what you have is. A searchable, photo-backed inventory turns a chaotic stash into a resource you actually use.
 
 [Sign up free at openbin.app](https://openbin.app). Takes about 30 seconds.
-
----
-
-**Sources:** [Mintel/US Chamber of Commerce Crafts Market Report, 2025](https://www.uschamber.com/co/good-company/launch-pad/stress-fuels-crafts-market) · [Craft Industry Alliance Yarn Consumer Survey, 2025](https://craftindustryalliance.org/the-size-of-the-yarn-market-yarn-consumer-survey-results-2025/) · [NPR — JOANN Closing All Stores, 2025](https://www.npr.org/2025/02/25/nx-s1-5307907/joann-closing-stores-bankruptcy) · [NBC News — JOANN to Shutter 800 Fabric Stores, 2025](https://www.nbcnews.com/business/business-news/joann-shutter-800-fabric-stores-find-buyer-locations-rcna193536)

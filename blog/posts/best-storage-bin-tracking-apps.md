@@ -34,35 +34,37 @@ I tested and compared seven of them. A few are genuinely good. Others are overpr
 A note on "Paid" in the table: OpenBin's AI assistant and search work on all plans including free. Photo upload, AI photo analysis, and AI reorganization require Plus ($3/mo) or Pro ($6/mo). Multi-user (up to 10 members) requires Pro. The self-hosted version has none of these limits.
 
 <figure style="margin: 2rem 0; text-align: center;">
-  <svg viewBox="0 0 560 380" style="max-width: 100%; height: auto; font-family: 'Inter', system-ui, sans-serif" role="img" aria-label="Radar chart comparing OpenBin, Sortly, and Homebox across five dimensions: AI features, free tier generosity, self-hosting, UI polish, and multi-user support">
+  <svg viewBox="0 0 560 420" style="max-width: 100%; height: auto; font-family: 'Inter', system-ui, sans-serif" role="img" aria-label="Radar chart comparing OpenBin, Sortly, and Homebox across five dimensions: AI features, free tier generosity, self-hosting, UI polish, and multi-user support">
     <title>OpenBin vs Sortly vs Homebox feature comparison</title>
-    <desc>Radar chart comparing three storage bin tracking apps across five dimensions, each scored 0 to 10. OpenBin scores: AI 10, Free tier 4, Self-host 10, UI polish 7, Multi-user 7. Sortly scores: AI 0, Free tier 3, Self-host 0, UI polish 10, Multi-user 5. Homebox scores: AI 2, Free tier 10, Self-host 10, UI polish 6, Multi-user 10. Scores of 0 are plotted just off center for visibility. Source: vendor documentation, 2026.</desc>
-    <text x="280" y="28" text-anchor="middle" font-size="14" font-weight="700" fill="currentColor">How three top apps compare</text>
-    <text x="280" y="44" text-anchor="middle" font-size="11" fill="currentColor" opacity="0.45">Scored 0-10 across five feature dimensions</text>
-    <polygon points="280,167.5 311,190 299,226 261,226 249,190" fill="none" stroke="currentColor" opacity="0.08" />
-    <polygon points="280,135 342,180 318,253 242,253 218,180" fill="none" stroke="currentColor" opacity="0.08" />
-    <polygon points="280,103 373,170 337,279 223,279 187,170" fill="none" stroke="currentColor" opacity="0.08" />
-    <polygon points="280,70 404,160 356,305 204,305 156,160" fill="none" stroke="currentColor" opacity="0.25" />
-    <line x1="280" y1="200" x2="280" y2="70" stroke="currentColor" opacity="0.15" />
-    <line x1="280" y1="200" x2="404" y2="160" stroke="currentColor" opacity="0.15" />
-    <line x1="280" y1="200" x2="356" y2="305" stroke="currentColor" opacity="0.15" />
-    <line x1="280" y1="200" x2="204" y2="305" stroke="currentColor" opacity="0.15" />
-    <line x1="280" y1="200" x2="156" y2="160" stroke="currentColor" opacity="0.15" />
-    <polygon points="280,174 404,160 356,305 234,263 156,160" fill="#22c55e" fill-opacity="0.15" stroke="#22c55e" stroke-width="2" />
-    <polygon points="280,190 317,188 286,208 204,305 218,180" fill="#38bdf8" fill-opacity="0.15" stroke="#38bdf8" stroke-width="2" />
-    <polygon points="280,70 330,184 356,305 227,274 194,172" fill="#f97316" fill-opacity="0.2" stroke="#f97316" stroke-width="2" />
-    <text x="280" y="58" text-anchor="middle" font-size="11" font-weight="700" fill="currentColor">AI</text>
-    <text x="418" y="156" text-anchor="start" font-size="11" font-weight="700" fill="currentColor">Free tier</text>
-    <text x="366" y="322" text-anchor="start" font-size="11" font-weight="700" fill="currentColor">Self-host</text>
-    <text x="194" y="322" text-anchor="end" font-size="11" font-weight="700" fill="currentColor">UI polish</text>
-    <text x="142" y="156" text-anchor="end" font-size="11" font-weight="700" fill="currentColor">Multi-user</text>
-    <rect x="150" y="340" width="12" height="12" fill="#f97316" />
-    <text x="168" y="350" font-size="11" fill="currentColor" opacity="0.8">OpenBin</text>
-    <rect x="250" y="340" width="12" height="12" fill="#38bdf8" />
-    <text x="268" y="350" font-size="11" fill="currentColor" opacity="0.8">Sortly</text>
-    <rect x="340" y="340" width="12" height="12" fill="#22c55e" />
-    <text x="358" y="350" font-size="11" fill="currentColor" opacity="0.8">Homebox</text>
-    <text x="280" y="372" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.35">Source: Vendor documentation (2026)</text>
+    <desc>Radar chart comparing three storage bin tracking apps across five dimensions, each scored 0 to 100. OpenBin scores: AI 95, Free tier 35, Self-host 100, UI polish 75, Multi-user 65. Sortly scores: AI 10, Free tier 25, Self-host 0, UI polish 95, Multi-user 50. Homebox scores: AI 25, Free tier 100, Self-host 100, UI polish 55, Multi-user 85. Scores of 0 are plotted just off center for visibility.</desc>
+    <text x="280" y="24" text-anchor="middle" font-size="14" font-weight="700" fill="currentColor">How three top apps compare</text>
+    <text x="280" y="42" text-anchor="middle" font-size="11" fill="currentColor" opacity="0.55">Scored 0-100 across five feature dimensions</text>
+    <polygon points="280,174 305.73,191.97 295.28,221.03 264.72,221.03 254.27,191.97" fill="none" stroke="currentColor" stroke-width="1" opacity="0.1" />
+    <polygon points="280,148 331.47,183.93 310.57,242.07 249.43,242.07 228.53,183.93" fill="none" stroke="currentColor" stroke-width="1" opacity="0.1" />
+    <polygon points="280,122 357.20,175.90 325.85,263.10 234.15,263.10 202.80,175.90" fill="none" stroke="currentColor" stroke-width="1" opacity="0.12" />
+    <polygon points="280,96 382.93,167.86 341.14,284.14 218.86,284.14 177.07,167.86" fill="none" stroke="currentColor" stroke-width="1" opacity="0.14" />
+    <polygon points="280,70 403.67,159.83 356.42,305.17 203.58,305.17 156.33,159.83" fill="none" stroke="currentColor" stroke-width="1" opacity="0.18" />
+    <line x1="280" y1="200" x2="280" y2="70" stroke="currentColor" stroke-width="1" opacity="0.15" />
+    <line x1="280" y1="200" x2="403.67" y2="159.83" stroke="currentColor" stroke-width="1" opacity="0.15" />
+    <line x1="280" y1="200" x2="356.42" y2="305.17" stroke="currentColor" stroke-width="1" opacity="0.15" />
+    <line x1="280" y1="200" x2="203.58" y2="305.17" stroke="currentColor" stroke-width="1" opacity="0.15" />
+    <line x1="280" y1="200" x2="156.33" y2="159.83" stroke="currentColor" stroke-width="1" opacity="0.15" />
+    <text x="290" y="65" font-size="9" fill="currentColor" opacity="0.4">100</text>
+    <polygon points="280,167.5 403.67,159.83 356.42,305.17 237.97,257.84 174.88,165.86" fill="#38bdf8" fill-opacity="0.12" stroke="#38bdf8" stroke-width="2" stroke-linejoin="round" />
+    <polygon points="280,187 310.92,189.96 282.29,198.79 207.40,299.91 218.17,179.92" fill="#f59e0b" fill-opacity="0.12" stroke="#f59e0b" stroke-width="2" stroke-linejoin="round" />
+    <polygon points="280,76.5 323.28,185.94 356.42,305.17 222.68,278.88 199.61,173.89" fill="#5e2fe0" fill-opacity="0.22" stroke="#5e2fe0" stroke-width="2.5" stroke-linejoin="round" />
+    <text x="280" y="58" text-anchor="middle" font-size="11" font-weight="700" fill="currentColor" opacity="0.8">AI</text>
+    <text x="413" y="156" text-anchor="start" font-size="11" font-weight="700" fill="currentColor" opacity="0.8">Free tier</text>
+    <text x="366" y="322" text-anchor="start" font-size="11" font-weight="700" fill="currentColor" opacity="0.8">Self-host</text>
+    <text x="194" y="322" text-anchor="end" font-size="11" font-weight="700" fill="currentColor" opacity="0.8">UI polish</text>
+    <text x="147" y="156" text-anchor="end" font-size="11" font-weight="700" fill="currentColor" opacity="0.8">Multi-user</text>
+    <rect x="140" y="353" width="10" height="10" fill="#5e2fe0" />
+    <text x="156" y="362" font-size="11" font-weight="700" fill="currentColor">OpenBin</text>
+    <rect x="240" y="353" width="10" height="10" fill="#f59e0b" />
+    <text x="256" y="362" font-size="11" font-weight="700" fill="currentColor">Sortly</text>
+    <rect x="320" y="353" width="10" height="10" fill="#38bdf8" />
+    <text x="336" y="362" font-size="11" font-weight="700" fill="currentColor">Homebox</text>
+    <text x="280" y="400" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.45">Scores reflect OpenBin editorial assessment as of April 2026</text>
   </svg>
 </figure>
 
@@ -120,7 +122,7 @@ On the Pro plan, you can invite up to 10 members per location with three roles: 
 
 ToteScan has been around longer than most apps in this space. You buy packs of pre-printed QR labels from their website or Amazon, stick them on bins, and scan with the ToteScan app to see what's inside.
 
-The app itself is free. The business model is [selling labels](https://totescan.myshopify.com/) — roughly $12–17 per pack depending on size and finish. You add items manually (no AI), attach photos, and search across all your labeled containers. Multi-user sharing is supported. There's an [Alexa skill](https://www.amazon.com/Jampaq-Inc-ToteScanTM/dp/B07P7VL4VK) if you want to ask "Alexa, where are my Christmas lights?" which is a nice touch.
+The app itself is free. The business model is [selling labels](https://totescan.myshopify.com/) — roughly $12–17 per pack depending on size and finish. You add items manually (no AI), attach photos, and search across all your labeled containers. Multi-user sharing is supported. There's an Alexa skill if you want to ask "Alexa, where are my Christmas lights?" which is a nice touch.
 
 **Best for:** People who want a simple, no-subscription system and don't mind buying proprietary labels.
 
@@ -132,7 +134,7 @@ The app itself is free. The business model is [selling labels](https://totescan.
 
 Sortly is the most visually polished app in this list. The interface is clean, the onboarding is smooth, and it has features like custom fields, low-stock alerts, and activity logging that most competitors don't.
 
-The problem is price. The free tier caps you at 100 items and one user. To get QR labels and multi-user access, you need the Advanced plan at $24/month (discounted first year, then $49/month). That's $588/year for a household organizing their garage.
+The problem is price. The free tier caps you at 100 items and one user. To get QR labels and multi-user access, you need the [Advanced plan at $24/month (discounted first year, then $49/month)](https://sortly.com/pricing). That's $588/year for a household organizing their garage.
 
 Sortly is built for businesses managing supplies, equipment, or retail inventory. If that's you, it's worth evaluating. If you're a household that wants to track 30 bins in the attic, it's overkill.
 
@@ -160,7 +162,7 @@ Where it differs from OpenBin: no built-in AI (though a third-party [Homebox Com
 
 Elephant Trax went viral on TikTok and it's easy to see why. The pitch is simple: buy a pack of QR labels, stick them on your bins, scan with the app, add photos, and the AI generates searchable keywords for what's inside. It's visually fun and the onboarding is frictionless.
 
-The free tier lets you scan and upload photos with manual keywords. AI-generated keywords and multi-user sharing start with the Personal plan at $11.99/year (2 user licenses); the Pro plan at $23.88/year bumps that to 5 user licenses. Labels are sold separately [on Amazon](https://www.amazon.com/s?k=elephant+trax+labels).
+The free tier lets you scan and upload photos with manual keywords. AI-generated keywords and multi-user sharing start with the Personal plan at $11.99/year (2 user licenses); the Pro plan at $23.88/year bumps that to 5 user licenses. Labels are sold separately on Amazon.
 
 For the price, it's reasonable. The AI keyword feature is simpler than full photo recognition — it suggests search terms rather than identifying individual items — but it gets the job done for basic "what's in this bin?" searches.
 
@@ -190,7 +192,7 @@ Snipe-IT is an open-source IT asset management tool used by thousands of compani
 
 I'm including it because it shows up in "best inventory app" searches and someone will ask. If you're managing equipment for a business or a large organization, Snipe-IT is battle-tested and the self-hosted version is free.
 
-For home use? It's like using Salesforce to track your grocery list. The UI assumes you know what "RBAC" means. The setup requires PHP, MySQL, and a web server. Cloud hosting starts at $40/month.
+For home use? It's like using Salesforce to track your grocery list. The UI assumes you know what "RBAC" means. The setup requires PHP, MySQL, and a web server. [Cloud hosting starts at $40/month](https://snipeitapp.com/pricing).
 
 **Best for:** IT departments and businesses tracking company assets with audit requirements.
 
@@ -226,8 +228,4 @@ The right app depends on what matters to you. If you want the simplest possible 
 
 The one approach I'd avoid: building a DIY system with generic QR codes and spreadsheets. It sounds simple, but it falls apart the moment your collection grows past ten bins. Every app on this list exists because someone tried the spreadsheet approach first and gave up.
 
-For a step-by-step guide to setting up QR-based bin tracking, see [how to keep track of what's in every storage bin](/blog/posts/storage-bin-tracking). For use-case-specific walkthroughs, the guides for [Christmas decoration storage](/blog/posts/christmas-decoration-storage), [craft supply organization](/blog/posts/craft-supply-organization), and [board game collection storage](/blog/posts/board-game-collection-storage) show how the tools in this comparison apply to real collections.
-
----
-
-**Sources:** [Sortly Pricing, 2026](https://sortly.com/pricing) · [Snipe-IT Pricing, 2026](https://snipeitapp.com/pricing) · [ToteScan](https://www.totescan.com/) · [Homebox (sysadminsmedia fork)](https://github.com/sysadminsmedia/homebox) · [Elephant Trax](https://elephant-trax.com/) · [QR Smart Labels](https://www.qrsmartlabels.com/)
+For a step-by-step guide to setting up QR-based bin tracking, see [how to keep track of what's in every storage bin](/blog/posts/storage-bin-tracking). Not sure what kind of bin to buy in the first place? See [the storage bin field guide](/blog/posts/storage-bin-types) for snap-lid totes, latching boxes, and HDPE picks. For use-case-specific walkthroughs, the guides for [Christmas decoration storage](/blog/posts/christmas-decoration-storage), [craft supply organization](/blog/posts/craft-supply-organization), [board game collection storage](/blog/posts/board-game-collection-storage), and [self-storage unit inventory](/blog/posts/self-storage-inventory) show how the tools in this comparison apply to real collections.

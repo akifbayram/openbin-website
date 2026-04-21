@@ -11,16 +11,16 @@ OpenBin records when you interact with bins and displays the data as a heatmap �
 
 ## What gets tracked
 
-By default, nothing is tracked. You choose which actions count from **Settings → Preferences → Usage Tracking**:
+You choose which actions count from **Settings → Preferences → Usage Tracking**:
 
-| Toggle | What it records |
-|---|---|
-| Scan QR code | Opening a bin by scanning its QR label |
-| Manual code lookup | Looking up a bin by typing its short code |
-| View bin | Opening a bin's detail page |
-| Modify bin | Editing a bin's contents or metadata |
+| Toggle | Default | What it records |
+|---|---|---|
+| Scan QR code | On | Opening a bin by scanning its QR label |
+| Manual code lookup | On | Looking up a bin by typing its short code |
+| View bin | Off | Opening a bin's detail page |
+| Modify bin | On | Editing a bin's contents or metadata |
 
-Each toggle is independent. Turn on the ones relevant to how you use OpenBin.
+Each toggle is independent. The defaults cover events that imply you're physically at the bin or changing its contents; passive page views are off so that browsing the app doesn't inflate usage counts.
 
 ::: tip
 Usage tracking is per-user. Your settings do not affect what other members see or record.

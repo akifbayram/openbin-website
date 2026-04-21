@@ -366,7 +366,7 @@ export default defineConfig({
       text: 'Edit this page on GitHub',
     },
     footer: {
-      message: '<a href="/docs/">Docs</a> · <a href="/blog/">Blog</a> · <a href="/cloud">Cloud</a> · <a href="https://github.com/akifbayram/openbin" target="_blank" rel="noopener">GitHub</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a>',
+      message: '<a href="/docs/">Docs</a> · <a href="/blog/">Blog</a> · <a href="/cloud">Cloud</a> · <a href="https://github.com/akifbayram/openbin" target="_blank" rel="noopener">GitHub</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a><br><span style="opacity:0.6;font-size:0.85em">As an Amazon Associate we earn from qualifying purchases.</span>',
       copyright: '© 2026 OpenBin',
     },
   },

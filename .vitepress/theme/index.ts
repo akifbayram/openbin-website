@@ -9,6 +9,7 @@ import HomeLayout from './HomeLayout.vue'
 import CloudLayout from './CloudLayout.vue'
 import AiLayout from './AiLayout.vue'
 import BlogListLayout from './BlogListLayout.vue'
+import AffiliateLink from './AffiliateLink.vue'
 import './custom.css'
 
 export default withBlogTheme({
@@ -19,6 +20,7 @@ export default withBlogTheme({
     app.component('CloudLayout', CloudLayout)
     app.component('AiLayout', AiLayout)
     app.component('BlogListLayout', BlogListLayout)
+    app.component('AffiliateLink', AffiliateLink)
     if (typeof document !== 'undefined') {
       document.documentElement.classList.add('dark')
     }

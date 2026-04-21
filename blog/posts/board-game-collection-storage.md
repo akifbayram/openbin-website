@@ -8,41 +8,45 @@ tags: [Organization, QR Codes, Board Games]
 cover: /blog/covers/board-game-collection-storage.webp
 ---
 
-There's a specific moment in every board game collection where shelving stops working. The Kallax is full. The expansion boxes are stacked on top, leaning against the wall. There are games in the closet, games in the garage, and a Kickstarter delivery on the way that needs to go somewhere.
+There's a specific moment in every board game collection where shelving stops working. The [Kallax](https://www.ikea.com/us/en/cat/kallax-series-27534/) is full. The expansion boxes are stacked on top, leaning against the wall. There are games in the closet, games in the garage, and a Kickstarter delivery on the way that needs to go somewhere.
 
-Over 5,000 tabletop games were funded on Kickstarter in 2024 alone, raising $220 million. The global board game market is worth nearly $16 billion and growing more than 10% per year. Collections are getting bigger, and the storage problem is getting worse.
+[Over 5,000 tabletop games were funded on Kickstarter in 2024 alone, raising $220 million](https://updates.kickstarter.com/kickstarter-biggest-platform-for-games/). The [global board game market is worth nearly $16 billion and growing more than 10% per year](https://www.fortunebusinessinsights.com/board-games-market-104972). Collections are getting bigger, and the storage problem is getting worse.
 
 <figure style="margin: 2rem 0; text-align: center;">
   <svg viewBox="0 0 560 380" style="max-width: 100%; height: auto; font-family: 'Inter', system-ui, sans-serif" role="img" aria-label="Line chart showing the global board game market growing from 16 billion dollars in 2024 to a projected 25.8 billion by 2029 at 10 percent compound annual growth">
     <title>Global board game market growth, 2024 to 2029</title>
     <desc>Line chart with area fill showing the global board game market projection at approximately 10 percent compound annual growth rate: 16.0 billion in 2024, 17.6 billion in 2025, 19.4 billion in 2026, 21.3 billion in 2027, 23.4 billion in 2028, and 25.8 billion by 2029. Source: Fortune Business Insights, 2025.</desc>
     <text x="70" y="28" font-size="14" font-weight="700" fill="currentColor">Global board game market growth, 2024-2029</text>
-    <text x="70" y="44" font-size="11" fill="currentColor" opacity="0.45">Projected at 10% compound annual growth rate ($ billions)</text>
-    <line x1="70" y1="290" x2="510" y2="290" stroke="currentColor" opacity="0.3" />
-    <line x1="70" y1="224" x2="510" y2="224" stroke="currentColor" opacity="0.08" />
-    <line x1="70" y1="159" x2="510" y2="159" stroke="currentColor" opacity="0.08" />
-    <line x1="70" y1="93" x2="510" y2="93" stroke="currentColor" opacity="0.08" />
-    <text x="62" y="294" text-anchor="end" font-size="10" fill="currentColor" opacity="0.8">$14B</text>
-    <text x="62" y="228" text-anchor="end" font-size="10" fill="currentColor" opacity="0.8">$18B</text>
-    <text x="62" y="163" text-anchor="end" font-size="10" fill="currentColor" opacity="0.8">$22B</text>
-    <text x="62" y="97" text-anchor="end" font-size="10" fill="currentColor" opacity="0.8">$26B</text>
-    <path d="M70,255 L158,226 L246,195 L334,161 L422,124 L510,81 L510,290 L70,290 Z" fill="#38bdf8" opacity="0.15" />
-    <polyline points="70,255 158,226 246,195 334,161 422,124 510,81" fill="none" stroke="#38bdf8" stroke-width="2" />
-    <circle cx="70" cy="255" r="4" fill="#38bdf8" />
-    <circle cx="158" cy="226" r="4" fill="#38bdf8" />
-    <circle cx="246" cy="195" r="4" fill="#38bdf8" />
-    <circle cx="334" cy="161" r="4" fill="#38bdf8" />
-    <circle cx="422" cy="124" r="4" fill="#38bdf8" />
-    <circle cx="510" cy="81" r="4" fill="#38bdf8" />
-    <text x="70" y="246" text-anchor="middle" font-size="10" font-weight="700" fill="currentColor">$16.0B</text>
-    <text x="510" y="72" text-anchor="middle" font-size="10" font-weight="700" fill="currentColor">$25.8B</text>
-    <text x="70" y="310" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.8">2024</text>
-    <text x="158" y="310" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.8">2025</text>
-    <text x="246" y="310" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.8">2026</text>
-    <text x="334" y="310" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.8">2027</text>
-    <text x="422" y="310" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.8">2028</text>
-    <text x="510" y="310" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.8">2029</text>
-    <text x="280" y="372" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.35">Source: Fortune Business Insights (2025)</text>
+    <text x="70" y="44" font-size="11" fill="currentColor" opacity="0.55">Projected at 10% compound annual growth rate ($ billions)</text>
+    <line x1="70" y1="290" x2="510" y2="290" stroke="currentColor" opacity="0.45" />
+    <line x1="70" y1="224" x2="510" y2="224" stroke="currentColor" opacity="0.1" />
+    <line x1="70" y1="159" x2="510" y2="159" stroke="currentColor" opacity="0.1" />
+    <line x1="70" y1="93" x2="510" y2="93" stroke="currentColor" opacity="0.1" />
+    <line x1="66" y1="290" x2="70" y2="290" stroke="currentColor" opacity="0.45" />
+    <line x1="66" y1="224" x2="70" y2="224" stroke="currentColor" opacity="0.45" />
+    <line x1="66" y1="159" x2="70" y2="159" stroke="currentColor" opacity="0.45" />
+    <line x1="66" y1="93" x2="70" y2="93" stroke="currentColor" opacity="0.45" />
+    <text x="62" y="294" text-anchor="end" font-size="10" fill="currentColor" opacity="0.6">$14B</text>
+    <text x="62" y="228" text-anchor="end" font-size="10" fill="currentColor" opacity="0.6">$18B</text>
+    <text x="62" y="163" text-anchor="end" font-size="10" fill="currentColor" opacity="0.6">$22B</text>
+    <text x="62" y="97" text-anchor="end" font-size="10" fill="currentColor" opacity="0.6">$26B</text>
+    <path d="M70,257 L158,231 L246,201 L334,170 L422,135 L510,95 L510,290 L70,290 Z" fill="#5e2fe0" opacity="0.18" />
+    <polyline points="70,257 158,231 246,201 334,170 422,135 510,95" fill="none" stroke="#5e2fe0" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.95" />
+    <circle cx="70" cy="257" r="4" fill="#5e2fe0" />
+    <circle cx="158" cy="231" r="4" fill="#5e2fe0" />
+    <circle cx="246" cy="201" r="4" fill="#5e2fe0" />
+    <circle cx="334" cy="170" r="4" fill="#5e2fe0" />
+    <circle cx="422" cy="135" r="4" fill="#5e2fe0" />
+    <circle cx="510" cy="95" r="4" fill="#5e2fe0" />
+    <text x="82" y="252" text-anchor="start" font-size="10" font-weight="700" fill="currentColor">$16.0B</text>
+    <text x="498" y="87" text-anchor="end" font-size="10" font-weight="700" fill="currentColor">$25.8B</text>
+    <text x="70" y="310" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.6">2024</text>
+    <text x="158" y="310" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.6">2025</text>
+    <text x="246" y="310" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.6">2026</text>
+    <text x="334" y="310" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.6">2027</text>
+    <text x="422" y="310" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.6">2028</text>
+    <text x="510" y="310" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.6">2029</text>
+    <text x="280" y="360" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.45">Source: Fortune Business Insights (2025), 10% CAGR projection</text>
   </svg>
 </figure>
 
@@ -132,7 +136,3 @@ Yes. [Free cloud tier](/cloud) or self-host with Docker — a single container t
 You know that. I know that. Another Kickstarter campaign will launch next week and it'll look incredible. The question isn't whether you'll buy more games — it's whether you'll be able to find them when you want to play.
 
 [Sign up free at openbin.app](https://openbin.app).
-
----
-
-**Sources:** [Kickstarter — 2024 Was a Big Year for Games, 2025](https://updates.kickstarter.com/kickstarter-biggest-platform-for-games/) · [Fortune Business Insights — Board Games Market, 2025](https://www.fortunebusinessinsights.com/board-games-market-104972) · [Icon Era — Board Game Sales Statistics, 2026](https://icon-era.com/statistics/board-game-sales-statistics/) · [Wikipedia — BoardGameGeek](https://en.wikipedia.org/wiki/BoardGameGeek)

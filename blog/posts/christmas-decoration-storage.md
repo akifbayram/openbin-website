@@ -10,7 +10,7 @@ cover: /blog/covers/christmas-decoration-storage.webp
 
 Every January the routine is the same. Take down the tree, wrap the ornaments, coil the lights, stack everything into bins, and shove them into the attic. By next December, you're standing up there holding your phone flashlight, opening every lid because you can't remember which red tote has the tree lights and which one has the wrapping paper.
 
-According to a Rainbow Restores survey, 35% of Americans buy new decorations every year. Some of that is by choice. But plenty of it is because people replace things they already own and can't find.
+According to a [Rainbow Restores survey, 35% of Americans buy new decorations every year](https://rainbowrestores.com/blog/holiday-spending-data). Some of that is by choice. But plenty of it is because people replace things they already own and can't find.
 
 This post covers a system for holiday decoration storage that survives 12 months in the attic. It takes about 30 minutes to set up and costs nothing.
 
@@ -25,7 +25,7 @@ This post covers a system for holiday decoration storage that survives 12 months
 
 Holiday decorations are uniquely hard to keep track of. You use them for four weeks, then store them for eleven months. That's the longest gap between "organized this" and "need to find this" of anything in your house.
 
-Nearly [9 in 10 Americans decorate for Christmas](https://lombardohomes.com/decorating-for-the-holidays/). The average household spends [$148 per year on holiday decor](https://lombardohomes.com/decorating-for-the-holidays/) — a [$5.3 billion global market](https://www.globenewswire.com/news-release/2024/10/23/2967965/28124/en/Christmas-Decorations-Industry-Report-2025-2030-How-to-Navigate-Operational-Logistical-and-Non-Sustainable-Challenges-to-Unlock-the-7-32-Billion-Market.html)'s worth of stuff going into bins once a year.
+Nearly [9 in 10 Americans decorate for Christmas](https://lombardohomes.com/decorating-for-the-holidays/). The average household spends [$148 per year on holiday decor](https://lombardohomes.com/decorating-for-the-holidays/) — part of a [$5.33 billion global market in 2024, projected to reach $7.32 billion by 2030](https://www.globenewswire.com/news-release/2024/10/23/2967965/28124/en/Christmas-Decorations-Industry-Report-2025-2030-How-to-Navigate-Operational-Logistical-and-Non-Sustainable-Challenges-to-Unlock-the-7-32-Billion-Market.html). All of that goes into bins once a year.
 
 And the labeling problem is worse here than anywhere else. You label a bin "Christmas — ornaments" in January. By December, you've forgotten whether the vintage glass ornaments are in that bin or the other one that says "Christmas — tree stuff." Maybe you moved the outdoor lights into a different tote in March when you needed space for camping gear. The label didn't change.
 
@@ -56,7 +56,7 @@ For a deeper walkthrough of how QR bin tracking works, see [how to keep track of
 - Wrapping and gift supplies (paper, ribbon, bags, tags)
 - Miscellaneous (stockings, table runners, candles)
 
-Each bin in the app maps to a physical container. Six bins, six entries.
+Each bin in the app maps to a physical container. Six bins, six entries. For what kind of plastic bin to buy (snap-lid vs. latching vs. gasket-sealed), see [the storage bin field guide](/blog/posts/storage-bin-types).
 
 **Photograph everything before you close the lid.** This is where the AI helps. Open a bin, snap a photo, and OpenBin's [photo recognition](/docs/guide/ai) lists what it sees. It'll identify "string lights," "ornament storage box," "extension cord" without you typing a word. Review the list, adjust anything it missed, and save.
 
@@ -84,47 +84,53 @@ Quick math. If you buy two duplicate items per year because you forgot you alrea
   <svg viewBox="0 0 560 380" style="max-width: 100%; height: auto; font-family: 'Inter', system-ui, sans-serif" role="img" aria-label="Line chart showing cumulative cost of duplicate holiday decoration purchases rising from 27 dollars in year 1 to 270 dollars by year 10">
     <title>Cost of duplicate decorations over 10 years</title>
     <desc>Line chart with area fill showing cumulative cost of buying duplicate holiday decorations at 27 dollars per year: 27 in year 1, 54 in year 2, 81 in year 3, 108 in year 4, 135 in year 5, 162 in year 6, 189 in year 7, 216 in year 8, 243 in year 9, and 270 dollars by year 10. Based on estimated duplicate purchase rates from Rainbow Restores holiday spending survey 2024.</desc>
-    <text x="70" y="28" font-size="14" font-weight="700" fill="currentColor">Cost of duplicate decorations over 10 years</text>
-    <text x="70" y="44" font-size="11" fill="currentColor" opacity="0.45">$27 per year in forgotten purchases adds up</text>
-    <line x1="70" y1="290" x2="510" y2="290" stroke="currentColor" opacity="0.3" />
-    <line x1="70" y1="252" x2="510" y2="252" stroke="currentColor" opacity="0.08" />
-    <line x1="70" y1="213" x2="510" y2="213" stroke="currentColor" opacity="0.08" />
-    <line x1="70" y1="175" x2="510" y2="175" stroke="currentColor" opacity="0.08" />
-    <line x1="70" y1="137" x2="510" y2="137" stroke="currentColor" opacity="0.08" />
-    <line x1="70" y1="98" x2="510" y2="98" stroke="currentColor" opacity="0.08" />
-    <line x1="70" y1="60" x2="510" y2="60" stroke="currentColor" opacity="0.08" />
-    <text x="62" y="294" text-anchor="end" font-size="10" fill="currentColor" opacity="0.8">$0</text>
-    <text x="62" y="256" text-anchor="end" font-size="10" fill="currentColor" opacity="0.8">$50</text>
-    <text x="62" y="217" text-anchor="end" font-size="10" fill="currentColor" opacity="0.8">$100</text>
-    <text x="62" y="179" text-anchor="end" font-size="10" fill="currentColor" opacity="0.8">$150</text>
-    <text x="62" y="141" text-anchor="end" font-size="10" fill="currentColor" opacity="0.8">$200</text>
-    <text x="62" y="102" text-anchor="end" font-size="10" fill="currentColor" opacity="0.8">$250</text>
-    <text x="62" y="64" text-anchor="end" font-size="10" fill="currentColor" opacity="0.8">$300</text>
-    <path d="M70,269 L118,249 L166,228 L214,207 L262,187 L310,166 L358,145 L406,124 L454,104 L502,83 L502,290 L70,290 Z" fill="#f97316" opacity="0.15" />
-    <polyline points="70,269 118,249 166,228 214,207 262,187 310,166 358,145 406,124 454,104 502,83" fill="none" stroke="#f97316" stroke-width="2" />
-    <circle cx="70" cy="269" r="4" fill="#f97316" />
-    <circle cx="118" cy="249" r="4" fill="#f97316" />
-    <circle cx="166" cy="228" r="4" fill="#f97316" />
-    <circle cx="214" cy="207" r="4" fill="#f97316" />
-    <circle cx="262" cy="187" r="4" fill="#f97316" />
-    <circle cx="310" cy="166" r="4" fill="#f97316" />
-    <circle cx="358" cy="145" r="4" fill="#f97316" />
-    <circle cx="406" cy="124" r="4" fill="#f97316" />
-    <circle cx="454" cy="104" r="4" fill="#f97316" />
-    <circle cx="502" cy="83" r="4" fill="#f97316" />
+    <text x="70" y="30" font-size="14" font-weight="700" fill="currentColor">Cost of duplicate decorations over 10 years</text>
+    <text x="70" y="48" font-size="11" fill="currentColor" opacity="0.55">$27/year in forgotten purchases, cumulative</text>
+    <line x1="70" y1="60" x2="70" y2="290" stroke="currentColor" opacity="0.35" />
+    <line x1="70" y1="290" x2="510" y2="290" stroke="currentColor" opacity="0.35" />
+    <line x1="70" y1="252" x2="510" y2="252" stroke="currentColor" opacity="0.1" stroke-dasharray="2 3" />
+    <line x1="70" y1="213" x2="510" y2="213" stroke="currentColor" opacity="0.1" stroke-dasharray="2 3" />
+    <line x1="70" y1="175" x2="510" y2="175" stroke="currentColor" opacity="0.1" stroke-dasharray="2 3" />
+    <line x1="70" y1="137" x2="510" y2="137" stroke="currentColor" opacity="0.1" stroke-dasharray="2 3" />
+    <line x1="70" y1="98" x2="510" y2="98" stroke="currentColor" opacity="0.1" stroke-dasharray="2 3" />
+    <line x1="70" y1="60" x2="510" y2="60" stroke="currentColor" opacity="0.1" stroke-dasharray="2 3" />
+    <line x1="66" y1="290" x2="70" y2="290" stroke="currentColor" opacity="0.5" />
+    <line x1="66" y1="213" x2="70" y2="213" stroke="currentColor" opacity="0.5" />
+    <line x1="66" y1="137" x2="70" y2="137" stroke="currentColor" opacity="0.5" />
+    <line x1="66" y1="60" x2="70" y2="60" stroke="currentColor" opacity="0.5" />
+    <text x="60" y="294" text-anchor="end" font-size="10" fill="currentColor" opacity="0.6">$0</text>
+    <text x="60" y="256" text-anchor="end" font-size="10" fill="currentColor" opacity="0.6">$50</text>
+    <text x="60" y="217" text-anchor="end" font-size="10" fill="currentColor" opacity="0.6">$100</text>
+    <text x="60" y="179" text-anchor="end" font-size="10" fill="currentColor" opacity="0.6">$150</text>
+    <text x="60" y="141" text-anchor="end" font-size="10" fill="currentColor" opacity="0.6">$200</text>
+    <text x="60" y="102" text-anchor="end" font-size="10" fill="currentColor" opacity="0.6">$250</text>
+    <text x="60" y="64" text-anchor="end" font-size="10" fill="currentColor" opacity="0.6">$300</text>
+    <path d="M70,269 L118,248 L166,228 L214,207 L262,187 L310,166 L358,145 L406,125 L454,104 L502,83 L502,290 L70,290 Z" fill="#5e2fe0" opacity="0.18" />
+    <polyline points="70,269 118,248 166,228 214,207 262,187 310,166 358,145 406,125 454,104 502,83" fill="none" stroke="#5e2fe0" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" />
+    <circle cx="70" cy="269" r="3.5" fill="#5e2fe0" opacity="0.8" />
+    <circle cx="118" cy="248" r="3.5" fill="#5e2fe0" opacity="0.8" />
+    <circle cx="166" cy="228" r="3.5" fill="#5e2fe0" opacity="0.8" />
+    <circle cx="214" cy="207" r="3.5" fill="#5e2fe0" opacity="0.8" />
+    <circle cx="262" cy="187" r="3.5" fill="#5e2fe0" opacity="0.8" />
+    <circle cx="310" cy="166" r="3.5" fill="#5e2fe0" opacity="0.8" />
+    <circle cx="358" cy="145" r="3.5" fill="#5e2fe0" opacity="0.8" />
+    <circle cx="406" cy="125" r="3.5" fill="#5e2fe0" opacity="0.8" />
+    <circle cx="454" cy="104" r="3.5" fill="#5e2fe0" opacity="0.8" />
+    <circle cx="502" cy="83" r="4.5" fill="#5e2fe0" />
     <text x="70" y="260" text-anchor="middle" font-size="10" font-weight="700" fill="currentColor">$27</text>
-    <text x="502" y="74" text-anchor="middle" font-size="10" font-weight="700" fill="currentColor">$270</text>
-    <text x="70" y="310" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.8">Y1</text>
-    <text x="118" y="310" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.8">Y2</text>
-    <text x="166" y="310" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.8">Y3</text>
-    <text x="214" y="310" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.8">Y4</text>
-    <text x="262" y="310" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.8">Y5</text>
-    <text x="310" y="310" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.8">Y6</text>
-    <text x="358" y="310" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.8">Y7</text>
-    <text x="406" y="310" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.8">Y8</text>
-    <text x="454" y="310" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.8">Y9</text>
-    <text x="502" y="310" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.8">Y10</text>
-    <text x="280" y="372" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.35">Source: Estimated duplicate spend projection; Rainbow Restores (2024)</text>
+    <text x="502" y="74" text-anchor="middle" font-size="11" font-weight="700" fill="currentColor">$270</text>
+    <text x="70" y="308" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.6">Y1</text>
+    <text x="118" y="308" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.6">Y2</text>
+    <text x="166" y="308" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.6">Y3</text>
+    <text x="214" y="308" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.6">Y4</text>
+    <text x="262" y="308" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.6">Y5</text>
+    <text x="310" y="308" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.6">Y6</text>
+    <text x="358" y="308" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.6">Y7</text>
+    <text x="406" y="308" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.6">Y8</text>
+    <text x="454" y="308" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.6">Y9</text>
+    <text x="502" y="308" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.6">Y10</text>
+    <text x="290" y="335" text-anchor="middle" font-size="10" fill="currentColor" opacity="0.55">Year</text>
+    <text x="70" y="372" text-anchor="start" font-size="10" fill="currentColor" opacity="0.45">Source: Estimated duplicate spend projection; Rainbow Restores holiday survey (2024)</text>
   </svg>
 </figure>
 
@@ -159,7 +165,3 @@ Yes. [Free cloud tier](/cloud) or self-host with Docker. The code is open source
 That's eight months for labels to fade, bins to get shuffled, and memories to blur. Spend 30 minutes now — while you still remember what went where — and next year's setup will take half the time.
 
 [Sign up free at openbin.app](https://openbin.app).
-
----
-
-**Sources:** [Rainbow Restores Holiday Spending Survey, 2024](https://rainbowrestores.com/blog/holiday-spending-data) · [Lombardo Homes Holiday Decorating Survey, 2025](https://lombardohomes.com/decorating-for-the-holidays/) · [Research and Markets Christmas Decorations Report, 2024](https://www.globenewswire.com/news-release/2024/10/23/2967965/28124/en/Christmas-Decorations-Industry-Report-2025-2030-How-to-Navigate-Operational-Logistical-and-Non-Sustainable-Challenges-to-Unlock-the-7-32-Billion-Market.html)
