@@ -28,7 +28,7 @@ const plans = computed(() => [
       { label: 'Locations', value: '1' },
       { label: 'Members', value: '1' },
       { label: 'Photo storage', value: '—' },
-      { label: 'AI actions', value: '10/mo' },
+      { label: 'AI actions', value: '5/mo' },
     ],
     features: [
       { name: 'Custom labels', included: true, link: '/docs/guide/print-labels/' },
@@ -55,7 +55,7 @@ const plans = computed(() => [
       { label: 'Locations', value: '1' },
       { label: 'Members', value: '1' },
       { label: 'Photo storage', value: '100 MB' },
-      { label: 'AI actions', value: '25/mo' },
+      { label: 'AI actions', value: '20/mo' },
     ],
     features: [
       { name: 'Custom labels', included: true, link: '/docs/guide/print-labels/' },
@@ -64,7 +64,7 @@ const plans = computed(() => [
       { name: 'Bulk operations', included: true, link: '/docs/guide/bulk-operations/' },
       { name: 'Photo upload', included: true, link: '/docs/guide/photos/' },
       { name: 'AI assistant', included: true, link: '/docs/guide/ai.html#ai-assistant' },
-      { name: 'AI reorganization', included: true, link: '/docs/guide/ai.html#ai-reorganization' },
+      { name: 'AI reorganization (10 bins at a time)', included: true, link: '/docs/guide/ai.html#ai-reorganization' },
       { name: 'AI object recognition', included: true, link: '/docs/guide/ai.html#ai-object-recognition' },
       { name: 'Priority support', included: true},
     ],
@@ -85,7 +85,7 @@ const plans = computed(() => [
       { label: 'Locations', value: '10' },
       { label: 'Members', value: '10/loc' },
       { label: 'Photo storage', value: '1 GB' },
-      { label: 'AI actions', value: '250/mo' },
+      { label: 'AI actions', value: '100/mo' },
     ],
     features: [
       { name: 'Custom labels', included: true, link: '/docs/guide/print-labels/' },
@@ -94,7 +94,7 @@ const plans = computed(() => [
       { name: 'Bulk operations', included: true, link: '/docs/guide/bulk-operations/' },
       { name: 'Photo upload', included: true, link: '/docs/guide/photos/' },
       { name: 'AI assistant', included: true, link: '/docs/guide/ai.html#ai-assistant' },
-      { name: 'AI reorganization', included: true, link: '/docs/guide/ai.html#ai-reorganization' },
+      { name: 'AI reorganization (40 bins at a time)', included: true, link: '/docs/guide/ai.html#ai-reorganization' },
       { name: 'AI object recognition', included: true, link: '/docs/guide/ai.html#ai-object-recognition' },
       { name: 'Priority support', included: true},
       { name: 'Custom fields', included: true },
@@ -129,9 +129,9 @@ const comparison = [
   {
     category: 'AI',
     rows: [
-      { feature: 'AI actions', free: '10/mo', plus: '25/mo', pro: '250/mo', link: '/docs/guide/ai/' },
+      { feature: 'AI actions', free: '5/mo', plus: '20/mo', pro: '100/mo', link: '/docs/guide/ai/' },
       { feature: 'AI assistant', free: true, plus: true, pro: true, link: '/docs/guide/ai/' },
-      { feature: 'AI reorganization', free: false, plus: true, pro: true, link: '/docs/guide/ai/' },
+      { feature: 'AI reorganization', free: false, plus: '10 bins/run', pro: '40 bins/run', link: '/docs/guide/ai/' },
       { feature: 'AI object recognition', free: false, plus: true, pro: true, link: '/docs/guide/ai/' },
     ],
   },
@@ -425,7 +425,7 @@ onMounted(() => {
 
           <p>
             <strong style="color: var(--vp-c-text-1)">AI actions, explained.</strong>
-            Every plan includes monthly AI actions. One action covers one task: scanning a photo, running an AI assistant instruction, or getting a reorganization suggestion. Free includes 10, Plus includes 25, and Pro includes 250 per month. Unused actions don't roll over.
+            Every plan includes monthly AI actions. One action covers one task: scanning a photo, running an AI assistant instruction, or getting a reorganization suggestion. Free includes 5, Plus includes 20, and Pro includes 100 per month. Unused actions don't roll over.
           </p>
         </div>
       </div>
