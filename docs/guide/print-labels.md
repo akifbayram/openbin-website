@@ -4,9 +4,25 @@
 
 ## Print Modes
 
-OpenBin supports three print modes: **Labels**, **Names**, and **Item List**.
+OpenBin supports three print modes: **Labels**, **Names**, and **Item List** — toggle between them at the top of the print page.
 
-![Print labels preview](/screenshots/print-labels-preview.webp)
+### Labels
+
+QR-coded sheets sized to standard label paper (Avery 5160 and friends). The default for scanning bins back to their detail page.
+
+![Labels mode preview](/screenshots/print-labels-preview.webp)
+
+### Names
+
+Color-coded name cards with icons. Useful for shelf labels, drawer fronts, or anywhere you want a visible tag rather than a scannable code.
+
+![Names mode](/screenshots/print-names.webp)
+
+### Item List
+
+Text-based inventory checklists with quantities, optional QR header, and write-in notes columns. Built for audits, packing lists, and offline inventory checks.
+
+![Item List mode](/screenshots/print-item-list.webp)
 
 ## Selecting Bins
 
