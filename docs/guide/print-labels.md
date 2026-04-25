@@ -14,7 +14,7 @@ The left panel shows bins grouped by area with checkboxes. Select individual bin
 
 ## Label Modes
 
-A label's rendered mode is chosen automatically from the **Label Options** toggles (QR Code, Bin Name, Bin Icon, Bin Code, Color Background). The three resulting modes are:
+A label's rendered mode is chosen automatically from the Label Options toggles (QR Code, Bin Name, Bin Icon, Bin Code, Color Background). The three resulting modes are:
 
 | Mode | When | Description |
 |---|---|---|
@@ -105,7 +105,7 @@ Once you have a format you're happy with, save it as a named preset:
 1. In the Format card, enter a preset name.
 2. Click **Save Preset**.
 
-Saved presets appear in the format selector for quick reuse across sessions. Print settings — including saved presets, the active format, label options, QR style, and selected print mode — are persisted **server-side per user** and sync across devices and browsers.
+Saved presets appear in the format selector for quick reuse across sessions. Print settings (saved presets, the active format, label options, QR style, and selected print mode) are persisted server-side per user and sync across devices and browsers.
 
 ::: tip
 For best results with browser print, set margins to "None" in the print dialog and match the paper size to your selected format.

@@ -23,7 +23,7 @@ You can also remove the avatar to fall back to the default initials.
 Change your password from **Settings → Account**. Requirements are enforced in the UI.
 
 ::: info OAuth-only accounts
-If you signed in with Google or Apple and never set a password, the password change form is hidden. You can sign in by re-using the OAuth provider, or set a password by going through the password-reset flow with your email.
+If you signed in with Google or Apple and never set a password, the password change form is hidden. Keep using the OAuth provider, or set a password by running through the password-reset flow with your email.
 :::
 
 ## Connected Accounts

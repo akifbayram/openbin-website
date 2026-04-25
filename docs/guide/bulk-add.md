@@ -16,23 +16,23 @@ When the grouping looks right, advance to the next step.
 
 ## Step 2 — AI
 
-If an AI provider is configured, OpenBin analyzes each group's photos together and proposes a bin name, an item list (with quantities when clearly countable), and any matching custom-field values. Tags and notes are not AI-generated — you fill those in during Review.
+If an AI provider is configured, OpenBin analyzes each group's photos together and proposes a bin name, an item list (with quantities when clearly countable), and any matching custom-field values. Tags and notes are not AI-generated; you fill those in during Review.
 
-If AI is not configured (or temporarily unavailable), you skip straight to Review with empty suggestions and fill everything in by hand.
+If AI isn't configured (or is temporarily unavailable), you skip straight to Review with empty suggestions and fill everything in by hand.
 
 ::: tip
-Bulk Add works without AI, but the value is in batch photo recognition. With a provider configured, you can label a closet of bins in a few minutes. See [AI Features](/docs/guide/ai) for setup.
+Bulk Add works without AI, but it's most useful when the AI is doing the recognition work. With a provider configured, you can label a closet of bins in a few minutes. See [AI Features](/docs/guide/ai) for setup.
 :::
 
 ## Step 3 — Review
 
 Step through each group one at a time. For the current group you can:
 
-- **Edit** the proposed name and items (add, remove, rename, adjust quantity).
-- **Add tags and notes** — these are user input, not AI suggestions.
-- **Adjust the area** for this specific group.
-- **Skip** the group — it won't be created but the photos stay in the staging area.
-- **Re-run AI** on this group if the first suggestion was off.
+- Edit the proposed name and items (add, remove, rename, adjust quantity).
+- Add tags and notes (user input, not AI suggestions).
+- Adjust the area for this specific group.
+- Skip the group; it won't be created, but the photos stay in the staging area.
+- Re-run AI if the first suggestion was off.
 
 Use the previous/next controls to move between groups.
 
@@ -42,6 +42,6 @@ Confirm the summary and tap **Create**. Each group becomes a bin with the review
 
 ## Requirements
 
-- **Member or admin role** — viewers cannot use Bulk Add.
-- AI provider configured for the auto-analysis step (otherwise you fill in everything manually). See [AI Features](/docs/guide/ai).
+- Member or admin role; viewers cannot use Bulk Add.
+- An AI provider for the auto-analysis step (otherwise you fill in everything manually). See [AI Features](/docs/guide/ai).
 - Photos follow the same format and size limits as regular bin photos. See [Photos](/docs/guide/photos).

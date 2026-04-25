@@ -7,7 +7,7 @@ Bins can have multiple photos. Photos are served through the API with authentica
 Open a bin → expand **Photos** → **Upload**. Accepts JPEG, PNG, WebP. Max size configurable via `MAX_PHOTO_SIZE_MB` (default 5 MB).
 
 ::: tip Default photo limit
-`MAX_PHOTOS_PER_BIN` defaults to **1**. To allow multiple photos per bin on a self-hosted instance, raise it (e.g. `MAX_PHOTOS_PER_BIN=5`) and restart the server. Accepted range: 1–100.
+`MAX_PHOTOS_PER_BIN` defaults to 1. To allow multiple photos per bin on a self-hosted instance, raise it (e.g. `MAX_PHOTOS_PER_BIN=5`) and restart the server. Accepted range: 1–100.
 :::
 
 ## In-app camera

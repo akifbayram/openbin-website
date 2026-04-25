@@ -93,7 +93,7 @@ If configured correctly, Claude will call the `list_locations` tool and return y
 The MCP server exposes 47 tools organized into 10 categories.
 
 ::: tip Authentication and scope
-The MCP server authenticates with the API key — every tool call runs as the key's owner, scoped to the locations they belong to and their role in each one. Admin-only tools (`delete_location`, `update_member_role`, `create_area`, `delete_bin`, etc.) require the key owner to be an admin in the target location.
+The MCP server authenticates with the API key. Every tool call runs as the key's owner, scoped to their locations and their role in each one. Admin-only tools (`delete_location`, `update_member_role`, `create_area`, `delete_bin`, etc.) require the key owner to be an admin in the target location.
 :::
 
 ### Locations (9 tools)
