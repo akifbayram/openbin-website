@@ -10,6 +10,10 @@ For a user-facing walkthrough, see [API Keys](/docs/guide/api-keys).
 
 API key creation, listing, and revocation for headless access. Keys are per-user (not per-location) — a single key authenticates as the owning user across all their locations.
 
+::: info Plan requirement
+On the cloud product, all `/api/api-keys` endpoints require a **Pro plan** (`requirePro` middleware). Self-hosted instances have no plan gate. Calls without the required plan return `402 PLAN_REQUIRED`.
+:::
+
 ---
 
 ### GET /api/api-keys

@@ -14,7 +14,19 @@ Export location data as JSON, ZIP, or CSV; import V1/V2 format data.
 
 ### GET /api/locations/`{id}`/export
 
-Exports all location bins as a V2 JSON document. Photos are base64-encoded and embedded within each bin's `photos` array.
+Exports the entire location as a V2 JSON document, **streamed** to the response (the server uses `res.write()` to avoid buffering very large exports in memory). Photos are base64-encoded and embedded within each bin's `photos` array.
+
+**Filename**: `openbin-export-<locationId>.json`
+
+**Limits** (enforced server-side):
+
+| Limit | Value |
+|---|---|
+| Max bins per export (active + trashed) | 5,000 |
+| Max total photos per export | 1,000 |
+| Max photos per bin | 50 |
+
+Beyond the bin/photo cap the request returns `422 VALIDATION_ERROR`. Use search filters or split the export into multiple location-scoped runs.
 
 **Path parameters**: `id` (location UUID)
 
@@ -25,9 +37,19 @@ Exports all location bins as a V2 JSON document. Photos are base64-encoded and e
   "version": 2,
   "exportedAt": "2024-01-01T00:00:00Z",
   "locationName": "My Workshop",
+  "locationSettings": {
+    "activityRetentionDays": 90,
+    "trashRetentionDays": 30,
+    "appName": "OpenBin",
+    "termBin": "",
+    "termLocation": "",
+    "termArea": "",
+    "defaultJoinRole": "member"
+  },
   "bins": [
     {
-      "id": "ABC123",
+      "id": "uuid",
+      "shortCode": "BINXHM",
       "name": "Screws",
       "items": [
         { "name": "M3x8", "quantity": 50 },
@@ -37,7 +59,6 @@ Exports all location bins as a V2 JSON document. Photos are base64-encoded and e
       "tags": ["hardware"],
       "icon": "Wrench",
       "color": "blue-500",
-      "shortCode": "ABC123",
       "createdAt": "...",
       "updatedAt": "...",
       "photos": [
@@ -49,7 +70,14 @@ Exports all location bins as a V2 JSON document. Photos are base64-encoded and e
         }
       ]
     }
-  ]
+  ],
+  "trashedBins": [ /* same shape as bins, only present when location has trash */ ],
+  "areas": [{ "path": "Garage / Workbench" }],
+  "tagColors": [{ "tag": "hardware", "color": "blue-500" }],
+  "customFieldDefinitions": [{ "name": "Purchase Date", "position": 0 }],
+  "pinnedBins": [{ "userId": "uuid", "binId": "uuid", "position": 0 }],
+  "savedViews": [{ "userId": "uuid", "name": "Garage hardware", "searchQuery": "screws", "sort": "name", "filters": "{}" }],
+  "members": [{ "userId": "uuid", "email": "alice@…", "role": "admin", "joinedAt": "…" }]
 }
 ```
 
@@ -57,27 +85,46 @@ Exports all location bins as a V2 JSON document. Photos are base64-encoded and e
 
 ### GET /api/locations/`{id}`/export/zip
 
-Exports the location as a ZIP file containing a JSON manifest (`export.json`) and a `photos/` directory with image files.
+Exports the location as a ZIP file. The archive contains:
+
+| Entry | Contents |
+|---|---|
+| `manifest.json` | `{ format: "openbin-zip", exportedAt, locationName, locationSettings, areas, customFieldDefinitions, tagColors, pinnedBins, savedViews, members, binCount, trashedBinCount }` |
+| `bins.json` | Array of all active bins (without photo blobs) |
+| `trashed-bins.json` | Soft-deleted bins (only present when there are any) |
+| `photos/` | Original photo files in their native format, organized by bin ID |
+
+**Filename**: `openbin-export-YYYY-MM-DD.zip`
 
 **Path parameters**: `id` (location UUID)
 
-**Response (200)**: Binary ZIP file (`application/zip`) as a download.
+**Response (200)**: Binary ZIP file (`application/zip`) as a download. Same export caps as the JSON endpoint.
 
 ---
 
 ### GET /api/locations/`{id}`/export/csv
 
-Exports the location as a CSV spreadsheet. Columns: `name`, `area`, `items` (semicolon-separated; items with quantities appear as `"Item Name (×3)"`), `tags` (semicolon-separated), `notes`, `icon`, `color`, `id`.
+Exports the location as a CSV spreadsheet with **one row per item**. Columns:
+
+| Column | Description |
+|---|---|
+| `Bin Name` | The bin's name |
+| `Area` | Full hierarchical area path (e.g. `Garage / Workbench`) |
+| `Item` | Item name. Empty when the bin has no items (one row per bin still emitted). |
+| `Quantity` | Item quantity. Empty when no quantity is tracked. |
+| `Tags` | Semicolon-separated list of tags |
+
+**Filename**: `openbin-inventory-YYYY-MM-DD.csv`
 
 **Path parameters**: `id` (location UUID)
 
-**Response (200)**: CSV text (`text/csv`) as a download.
+**Response (200)**: CSV text (`text/csv; charset=utf-8`) as a download.
 
 ---
 
 ### POST /api/locations/`{id}`/import
 
-Imports bins and photos from a V1 or V2 export document. Supports `merge` (add to existing) and `replace` (clear all bins first) modes. Creates areas from location strings in V1 format. 50MB body size limit.
+Imports bins and photos from a V1 or V2 export document. Supports `merge` (add to existing) and `replace` (clear all bins first) modes. Creates areas from path strings on import. **JSON body limit: 50 MB.** For larger archives, use the ZIP endpoint.
 
 **Path parameters**: `id` (location UUID)
 
@@ -106,7 +153,7 @@ Imports bins and photos from a V1 or V2 export document. Supports `merge` (add t
 
 ### POST /api/locations/`{id}`/import/csv
 
-Imports bins from a CSV file upload. Uses `multipart/form-data` with a `file` field. The CSV must have columns: `name`, `area`, `item`, `quantity`, `tags`. Multiple rows with the same bin name and area are grouped into a single bin.
+Imports bins from a CSV file upload. Uses `multipart/form-data` with a `file` field. The CSV must have columns matching the export format (`Bin Name`, `Area`, `Item`, `Quantity`, `Tags`). Multiple rows with the same bin name and area are grouped into a single bin. **File size limit: 10 MB.**
 
 **Path parameters**: `id` (location UUID)
 
@@ -124,7 +171,7 @@ Imports bins from a CSV file upload. Uses `multipart/form-data` with a `file` fi
 
 ### POST /api/locations/`{id}`/import/zip
 
-Imports bins and photos from a ZIP backup file. The ZIP must contain a `manifest.json` with `"format": "openbin-zip"`, a `bins/` directory with per-bin JSON files, and an optional `photos/` directory. Uses `multipart/form-data` with a `file` field.
+Imports bins and photos from a ZIP backup file. The ZIP must contain `manifest.json` (with `"format": "openbin-zip"`), a `bins.json` file, an optional `trashed-bins.json`, and an optional `photos/` directory. Uses `multipart/form-data` with a `file` field. **File size limit: 25 MB.**
 
 **Path parameters**: `id` (location UUID)
 
@@ -135,16 +182,6 @@ Imports bins and photos from a ZIP backup file. The ZIP must contain a `manifest
 | `file` | file | Yes | ZIP file |
 | `mode` | `"merge"` or `"replace"` | No | Default: `"merge"` |
 | `dryRun` | `"true"` or `true` | No | When set, returns a preview without importing. See [Dry-Run Preview](#dry-run-preview). |
-
-**Response (200)**: `{ "imported": number, "photos": number }`
-
----
-
-### POST /api/import/legacy
-
-Imports data from the old V1 export format (freeform `contents` string instead of discrete items). Maps the V1 `homeName` field to the location name context. 50MB body size limit. The target location is the authenticated user's active location.
-
-**Request body**: Same `ImportRequest` schema as above.
 
 **Response (200)**: `{ "imported": number, "photos": number }`
 

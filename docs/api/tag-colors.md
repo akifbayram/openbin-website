@@ -24,17 +24,15 @@ Lists all tag color assignments for a location.
 
 **Response (200)**
 
+The list response is a trimmed projection — only the fields needed by the UI to render tags. The full row (with `id`, `location_id`, timestamps) is returned by the `PUT` upsert endpoint.
+
 ```json
 {
   "results": [
     {
-      "id": "uuid",
-      "location_id": "uuid",
       "tag": "fragile",
       "color": "red-500",
-      "parent_tag": null,
-      "created_at": "...",
-      "updated_at": "..."
+      "parent_tag": null
     }
   ],
   "count": 5
@@ -64,7 +62,11 @@ The following constraints are enforced and return a `422` error if violated:
 - A tag that is already a child of another tag cannot be set as a parent (single-level hierarchy only).
 - A tag that already has children cannot be assigned a parent.
 
-**Response (200)**: The saved `TagColor` object (includes `parent_tag`).
+**Response (200)**: The saved `TagColor` object (full row with `id`, `location_id`, `tag`, `color`, `parent_tag`, `created_at`, `updated_at`).
+
+::: info Empty color = delete
+If `color` is empty (or omitted) and `parentTag` is also unset/null, the entry is **deleted** instead of upserted. The response in that case is `{ "deleted": true }`.
+:::
 
 ---
 
@@ -80,4 +82,4 @@ Removes the color assignment for a tag.
 |---|---|---|---|
 | `location_id` | UUID | Yes | |
 
-**Response (200)**: `{ "message": "Tag color removed" }`
+**Response (200)**: `{ "deleted": true }`

@@ -14,7 +14,9 @@ Bin CRUD, soft delete, restore, permanent deletion, QR lookup, items, tags, pinn
 
 ### POST /api/bins
 
-Creates a new bin. The bin ID is an auto-generated 6-character alphanumeric short code (charset excludes ambiguous characters: `0`, `O`, `1`, `l`, `I`).
+Creates a new bin. The bin's primary key (`id`) is a UUID; a separate **6-character short code** (uppercase letters only — `ABCDEFGHJKMNPQRTUVWXY`) is auto-generated from the name and exposed as `short_code`.
+
+**Auth**: requires location membership (any role except viewer).
 
 **Request body**
 
@@ -30,6 +32,7 @@ Creates a new bin. The bin ID is an auto-generated 6-character alphanumeric shor
 | `color` | string | No | Color preset key |
 | `cardStyle` | string | No | JSON-encoded card style configuration |
 | `visibility` | `"location"` or `"private"` | No | Defaults to `"location"` |
+| `customFields` | object | No | Map of custom field ID → string value. Only IDs defined for the location are accepted. |
 
 **Response (201)**: The created `Bin` object.
 
@@ -54,9 +57,10 @@ Lists non-deleted bins for a location. Supports search, filtering, sorting, and 
 | `has_items` | `"true"` | No | Only return bins that have at least one item |
 | `has_notes` | `"true"` | No | Only return bins with non-empty notes |
 | `needs_organizing` | `"true"` | No | Return bins that are missing tags, area assignment, and items |
-| `sort` | `"name"`, `"created_at"`, `"updated_at"`, `"area"` | No | Default: `"updated_at"` |
+| `unused_since` | string (`YYYY-MM-DD`) | No | Return bins not used since this date (no scans, edits, or other activity since the date). |
+| `sort` | `"name"`, `"created_at"`, `"updated_at"`, `"area"`, `"last_used"` | No | Default: `"updated_at"` |
 | `sort_dir` | `"asc"` or `"desc"` | No | Default: `"desc"` |
-| `limit` | integer (1–100) | No | Page size. When provided, `count` returns total matching rows. |
+| `limit` | integer (1–200) | No | Page size. When provided, `count` returns total matching rows. Default: 200 |
 | `offset` | integer | No | Rows to skip (used with `limit`). Default: `0` |
 
 **Response (200)**
@@ -86,9 +90,9 @@ Returns soft-deleted bins (those with a non-null `deleted_at`). Bins are auto-pu
 
 ### GET /api/bins/lookup/`{shortCode}`
 
-Looks up a bin by its 6-character short code ID. This is a legacy alias for `GET /api/bins/{id}` — since bin IDs are now short codes, the two endpoints are equivalent.
+Looks up a bin by its 6-character `short_code` (separate from the UUID `id`). Used by the QR scanner and manual short-code entry. Soft-deleted bins are filtered out (returns 404 instead of 410). Enforces location membership and respects bin visibility.
 
-**Path parameters**: `shortCode` (6 characters)
+**Path parameters**: `shortCode` (6 letters)
 
 **Response (200)**: `Bin` object.
 
@@ -142,7 +146,7 @@ Fetches a single bin by ID.
 
 ### PUT /api/bins/`{id}`
 
-Updates a bin. All fields are optional; only provided fields are changed.
+Updates a bin. All fields are optional; only provided fields are changed. Members can update bins they created; admins can update any bin in the location.
 
 **Path parameters**: `id` (bin ID)
 
@@ -159,6 +163,7 @@ Updates a bin. All fields are optional; only provided fields are changed.
 | `color` | string | Color preset key |
 | `cardStyle` | string | JSON-encoded card style configuration (max 500 characters) |
 | `visibility` | `"location"` or `"private"` | |
+| `customFields` | object | Map of custom field ID → string value. Replaces existing custom-field values. |
 
 **Response (200)**: Updated `Bin` object.
 
@@ -166,11 +171,13 @@ Updates a bin. All fields are optional; only provided fields are changed.
 
 ### DELETE /api/bins/`{id}`
 
-Soft-deletes a bin by setting `deleted_at`. The bin moves to trash and can be restored.
+Soft-deletes a bin by setting `deleted_at`. The bin moves to trash and can be restored. **Admin-only.**
 
 **Path parameters**: `id` (bin ID)
 
-**Response (200)**: `{ "message": "Bin deleted" }`
+**Response (200)**: The soft-deleted `Bin` object (with `deleted_at` set).
+
+**Errors**: `403 FORBIDDEN` if the caller is not an admin in the bin's location.
 
 ---
 
@@ -196,11 +203,29 @@ Unpins a bin for the authenticated user.
 
 ### POST /api/bins/`{id}`/restore
 
-Restores a soft-deleted bin from trash.
+Restores a soft-deleted bin from trash. **Admin-only.**
 
 **Path parameters**: `id` (bin ID)
 
 **Response (200)**: The restored `Bin` object.
+
+---
+
+### POST /api/bins/`{id}`/duplicate
+
+Duplicates a bin, creating a new bin in the same location with the same items, tags, notes, area, and appearance. Photos are not copied. The new bin gets a fresh `id` and `short_code`.
+
+**Auth**: members and above.
+
+**Path parameters**: `id` (source bin ID)
+
+**Request body**
+
+| Field | Type | Required | Description |
+|---|---|---|---|
+| `name` | string | No | Override the new bin's name. Defaults to `"<source name> (copy)"`. |
+
+**Response (201)**: The newly created `Bin` object.
 
 ---
 
@@ -222,25 +247,25 @@ Moves a bin to a different location. The user must be a member of both locations
 
 ### POST /api/bins/`{id}`/change-code
 
-Changes a bin's shortcode (primary key). If the new code belongs to another bin, that bin is permanently deleted. Requires admin role in the bin's location (and the target bin's location, if cross-location).
+Changes a bin's `short_code`. **Admin-only.** If the new code is already in use by another bin in the same location, the request is rejected — the existing bin is **not** deleted. Rate-limited by the `sensitiveAuthLimiter` (10 per 15 minutes per IP).
 
-**Path parameters**: `id` (bin ID of the survivor)
+**Path parameters**: `id` (bin UUID)
 
 **Request body**
 
 | Field | Type | Required | Description |
 |---|---|---|---|
-| `code` | string | Yes | New code to adopt. Must be 4-8 uppercase alphanumeric characters (`^[A-Z0-9]{4,8}$`). |
+| `code` | string | Yes | New 6-character short code. Letters only (charset `ABCDEFGHJKMNPQRTUVWXY`). |
 
-**Response (200)**: Updated `Bin` object with the new code as its `id`.
+**Response (200)**: Updated `Bin` object with the new `short_code`.
 
-**Errors**: `403` if not admin, `404` if bin not found, `409` if concurrent modification, `422` if invalid code format or same as current code.
+**Errors**: `403 FORBIDDEN` if not admin, `404 NOT_FOUND` if the bin doesn't exist, `422 VALIDATION_ERROR` if the new code is already in use in the same location or has an invalid format.
 
 ---
 
 ### DELETE /api/bins/`{id}`/permanent
 
-Permanently deletes a bin and removes its photos from storage. Only works on bins that are already soft-deleted (in trash).
+Permanently deletes a bin and removes its photos from storage. Only works on bins that are already soft-deleted (in trash). **Admin-only.**
 
 **Path parameters**: `id` (bin ID)
 
@@ -250,11 +275,11 @@ Permanently deletes a bin and removes its photos from storage. Only works on bin
 
 ### POST /api/bins/`{id}`/photos
 
-Uploads a photo to a bin. Accepts JPEG, PNG, or WebP up to 5MB. Uses `multipart/form-data` with a `photo` file field.
+Uploads a photo to a bin. Accepts JPEG, PNG, or WebP. Default size limit is 5 MB per file (configurable via `MAX_PHOTO_SIZE_MB`). Uses `multipart/form-data` with a `photo` file field.
 
 **Path parameters**: `id` (bin ID)
 
-**Response (201)**: The created `Photo` object.
+**Response (201)**: `{ "id": "uuid" }` — only the new photo's ID is returned. Fetch the full `Photo` object via `GET /api/photos/{id}` (or `GET /api/bins/{id}` to refresh the bin and its photo list) if needed.
 
 ---
 
@@ -270,7 +295,7 @@ Adds tags to a bin. Merges new tags with existing ones — does not replace.
 |---|---|---|---|
 | `tags` | string[] | Yes | Up to 50 tags to add |
 
-**Response (200)**: Updated `Bin` object.
+**Response (200)**: `{ "id": "uuid", "tags": ["…"] }` — only the bin ID and the merged tag list are returned (slim response, not the full `Bin` object).
 
 ---
 
@@ -350,7 +375,7 @@ Removes a single item from a bin.
 
 **Path parameters**: `id` (bin ID), `itemId` (item UUID)
 
-**Response (200)**: Empty body.
+**Response (200)**: `{ "success": true }`
 
 ---
 
