@@ -50,7 +50,7 @@ Set `DATABASE_URL` for PostgreSQL **or** use `DATABASE_PATH` for SQLite — not 
 
 ### Initial Admin
 
-On first startup, OpenBin can seed an initial admin account. If `ADMIN_PASSWORD` (or `ADMIN_PASSWORD_FILE`) is unset, a random password is generated and printed to the server logs **once** — capture it before restarting.
+On first startup, OpenBin seeds an initial admin account. If you don't set `ADMIN_PASSWORD` (or `ADMIN_PASSWORD_FILE`), a random password is generated and printed to the server logs once. Capture it before the next restart.
 
 | Variable | Default | Description |
 |----------|---------|-------------|
@@ -86,7 +86,7 @@ If you lose the admin password, set `ADMIN_PASSWORD=<new-password>` and `ADMIN_P
 | Variable | Default | Description |
 |----------|---------|-------------|
 | `MAX_PHOTO_SIZE_MB` | `5` | Maximum size per photo upload in megabytes. Accepted range: 1–50. |
-| `MAX_PHOTOS_PER_BIN` | `1` | Maximum photos per bin. Accepted range: 1–100. The default is 1 — raise this to allow multiple photos per bin. |
+| `MAX_PHOTOS_PER_BIN` | `1` | Maximum photos per bin. The default is 1; raise it to allow multiple photos. Accepted range: 1–100. |
 | `ATTACHMENTS_ENABLED` | `true` | Enables non-image file attachments (PDFs, spreadsheets, etc.). Set to `false` to hide the Attachments UI and 404 the related endpoints. |
 | `BULK_MAX_SELECTION` | `200` | Maximum number of bins that can be operated on in a single bulk action or batch API request. Accepted range: 1–1000. |
 
@@ -202,7 +202,7 @@ Use `app` (default) if you don't have a stable domain or want QR labels to survi
 | Variable | Default | Description |
 |----------|---------|-------------|
 | `LOG_LEVEL` | `info` | Server log verbosity. Accepted values: `debug`, `info`, `warn`, `error`. |
-| `CORS_ORIGIN` | `http://localhost:5173` | Allowed CORS origin for API requests. **Set this to your production URL** (e.g. `https://inventory.example.com`) for any non-localhost deployment — otherwise the dev origin leaks into the `Access-Control-Allow-Origin` header in production. |
+| `CORS_ORIGIN` | `http://localhost:5173` | Allowed CORS origin for API requests. Set this to your production URL (e.g. `https://inventory.example.com`) on any non-localhost deployment, or the default dev origin leaks into the `Access-Control-Allow-Origin` header in production. |
 | `FRAME_ANCESTORS` | _(unset)_ | Comma-separated list of origins allowed to embed OpenBin in an iframe (sets the `frame-ancestors` CSP directive). Leave unset to deny all iframe embedding (the default, which protects against clickjacking). |
 | `TRUST_PROXY` | `false` | Set to `true` when running behind a reverse proxy such as Nginx or Caddy. Required for correct IP detection in rate limiting and for the `Secure` cookie flag to work over HTTPS. |
 

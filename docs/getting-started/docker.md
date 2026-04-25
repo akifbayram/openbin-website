@@ -18,12 +18,12 @@ docker run -d \
 
 Open `http://localhost:1453` in your browser, register an account, and start adding bins. The database and JWT secret are created automatically on first startup.
 
-::: warning Photos and database paths
-You **must** set `PHOTO_STORAGE_PATH=/data/photos` and `DATABASE_PATH=/data/openbin.db` so that photos and the database are written to the mounted volume. Without these, photos default to `./uploads` inside the container and are lost on restart. The bundled Docker Compose file sets these for you.
+::: warning Set PHOTO_STORAGE_PATH and DATABASE_PATH
+Without these env vars, photos write to `./uploads` and the database to `./data/openbin.db` inside the container's writable layer, both of which vanish on restart. Set them under `/data` so they land on the mounted volume. The bundled Docker Compose file already sets them.
 :::
 
-::: tip Production: set `JWT_SECRET` explicitly
-By default, OpenBin generates a JWT signing secret and persists it to `/data/.jwt_secret`. If that file is ever lost, every existing session is invalidated. For production, set `JWT_SECRET` to a long random string in your `.env` file (or `-e JWT_SECRET=…` for `docker run`) and include it in your off-host backup strategy. See [Configuration → Security](./configuration#security).
+::: tip Production: set JWT_SECRET explicitly
+OpenBin generates a JWT signing secret on first boot and writes it to `/data/.jwt_secret`. Lose that file and every session breaks; everyone has to log in again. For production, set `JWT_SECRET` to a long random string in your `.env` (or `-e JWT_SECRET=…` for `docker run`) and back it up alongside your database.
 :::
 
 ### Using Docker Compose
@@ -49,10 +49,10 @@ All data is stored in a Docker volume mounted at `/data` inside the container:
 | `/data/backups/` | Automatic backups (if enabled) |
 | `/data/.jwt_secret` | Auto-generated JWT signing secret |
 
-The volume name depends on how you launched the container: `openbin_data` for the `docker run` example above, and `<project>_api_data` (typically `openbin_api_data`) for Docker Compose. Run `docker volume ls` to confirm. Data persists across container restarts and updates.
+The volume name depends on how you started the container: `openbin_data` for the `docker run` example above, or `<project>_api_data` (typically `openbin_api_data`) for Docker Compose. Run `docker volume ls` to check. Data persists across container restarts and updates.
 
 ::: tip Volume ownership (Linux hosts)
-The container runs as the `node` user (uid 1000). If you bind-mount a host directory instead of using a named volume, it must be owned by `1000:1000` or the container will exit on startup with `EACCES`. Named volumes (the default) are managed by Docker and don't need this.
+The container runs as the `node` user (uid 1000). If you bind-mount a host directory instead of using a named volume, the directory must be owned by `1000:1000` or the container exits on startup with `EACCES`. Named volumes (the default) are managed by Docker and don't need this.
 :::
 
 ::: warning Backing up your data
