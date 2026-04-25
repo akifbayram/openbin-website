@@ -18,7 +18,6 @@ Navigation shortcuts use a two-key sequence: press **G** followed by a second ke
 |---|---|
 | `G` then `H` | Dashboard (Home) |
 | `G` then `B` | Bins list |
-| `G` then `S` | Search |
 | `G` then `P` | Print Labels |
 | `G` then `L` | Locations |
 | `G` then `I` | Items |
@@ -32,7 +31,17 @@ Press the keys in sequence — press and release **G**, then press the second ke
 | Shortcut | Action |
 |---|---|
 | `N` | Create new bin |
+| `G` then `S` | Open the QR scanner |
 | `/` | Focus the search input |
+| `Mod+A` | Select all (in selectable lists) |
+| `Mod+J` | Open Ask AI |
 | `?` | Show keyboard shortcuts help |
 | `[` | Toggle sidebar (desktop only) |
+| `Mod+K` | Open command palette |
+
+`Mod` = `Cmd` on macOS, `Ctrl` on Windows/Linux.
+
+::: tip Disable shortcuts
+Keyboard shortcuts can be turned off in **Settings → Preferences → Keyboard Shortcuts** if they conflict with assistive tools or muscle memory.
+:::
 

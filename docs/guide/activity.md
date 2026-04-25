@@ -2,7 +2,7 @@
 
 The activity log records every change made in a location — who did what and when. It is available to admins from **Location Settings → Activity Log**.
 
-<!-- TODO: screenshot of activity log page -->
+![Activity log](/screenshots/activity-log.webp)
 
 ## What it tracks
 

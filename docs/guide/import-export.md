@@ -8,30 +8,53 @@ Go to **Settings → Data** to access export options. Exports always include all
 
 ### JSON Export
 
-Downloads a structured JSON file (`openbin-backup-YYYY-MM-DD.json`) containing:
+Downloads a structured JSON file (`openbin-export-<locationId>.json`) containing:
 
 - All bins (name, items with quantities, tags, notes, icon, color, card style, short code, area, visibility, custom field values, timestamps)
+- Trashed bins (soft-deleted, recoverable on import)
+- Areas (full hierarchy as path strings)
 - Tag color assignments for the location
-- Photos embedded as base64 strings inside each bin's data
+- Custom field definitions
+- Pinned bins (per user)
+- Saved views (per user)
+- Members (id, email, role, joined date)
+- Location settings (terminology, retention, default join role)
+- Photos embedded as base64 strings inside each bin
 
-JSON is the recommended format for full-fidelity backups. It preserves all metadata and photos.
+JSON is the recommended format for full-fidelity backups. It preserves all metadata and photos. The export streams to disk so very large locations don't run out of memory on the server.
 
 ### ZIP Export
 
 Downloads a ZIP archive (`openbin-export-YYYY-MM-DD.zip`) containing:
 
-- A JSON file with all bin data
-- Original photo files in their native format (JPEG, PNG, etc.)
+| Entry | Contents |
+|---|---|
+| `manifest.json` | Format version, export timestamp, location settings, members, areas, custom field defs, pins, saved views, tag colors |
+| `bins.json` | Array of all active bins (without photo blobs) |
+| `trashed-bins.json` | Soft-deleted bins (only present when there are any) |
+| `photos/` | Original photo files in their native format, organized by bin |
 
 ZIP is preferable when you want to preserve original photo quality without base64 encoding overhead.
 
 ### CSV Export
 
-Downloads a spreadsheet-compatible CSV file (`openbin-bins-YYYY-MM-DD.csv`) with one row per item:
+Downloads a spreadsheet-compatible CSV file (`openbin-inventory-YYYY-MM-DD.csv`) with one row per item. Columns:
 
-- Bin name, area, item name, quantity, tags (semicolon-separated), notes
+- **Bin Name**
+- **Area** (full hierarchy path)
+- **Item** (item name; blank when the bin has no items)
+- **Quantity** (blank when no quantity is set)
+- **Tags** (semicolon-separated)
 
-CSV does not include photos or card style settings. Use it when you need to open your inventory in a spreadsheet application.
+CSV does not include photos, notes, or card style settings. Use it when you need to open your inventory in a spreadsheet application.
+
+### Export limits
+
+The server enforces hard caps on each export:
+
+- **5,000 bins** per export (active + trashed combined). Use search filters or split into multiple exports if you exceed this.
+- **1,000 total photos** per export.
+- **50 photos per bin**.
 
 ## Import
 
@@ -72,9 +95,17 @@ The preview is generated for all three import formats (JSON, CSV, and ZIP).
 - Short codes are re-generated for all imported bins.
 - If a photo fails to import (e.g. unsupported format or size limit exceeded), the bin is still imported without that photo and the failure is reported in the results summary.
 
-### File Size Limit
+### File Size Limits
 
-The maximum import file size is **50 MB**. For larger collections, split the export into multiple files.
+Limits depend on the file type:
+
+| Format | Max size |
+|---|---|
+| JSON | 50 MB |
+| ZIP | 25 MB |
+| CSV | 10 MB |
+
+For larger collections, split the export into multiple files.
 
 ::: tip
 Always export a backup before importing. Imports cannot be bulk-undone — you would need to manually delete the imported bins or use bulk delete.

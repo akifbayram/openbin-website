@@ -25,7 +25,11 @@ Select one or more tags from the tag list. By default, bins matching **any** of 
 
 ### Filter by Area
 
-Select an area to show only bins assigned to it. Choose **Unassigned** to show bins with no area.
+Select one or more areas to show only bins assigned to them. Choose **Unassigned** to show bins with no area.
+
+### Filter by Usage
+
+The **Usage** filter lets you find stale bins. Pick a date — bins not scanned, edited, or otherwise touched since that date are returned. Useful for finding storage you haven't accessed in a year and might want to consolidate.
 
 ## Sort Options
 
@@ -33,25 +37,27 @@ Use the **Sort** menu to change the order of bins:
 
 | Sort option | Description |
 |---|---|
-| Name A–Z | Alphabetical ascending |
-| Name Z–A | Alphabetical descending |
-| Created (newest) | Most recently created first |
-| Created (oldest) | Oldest first |
-| Updated (newest) | Most recently edited first |
+| Name | Alphabetical ascending |
+| Created | Most recently created first |
+| Updated | Most recently edited first |
 | Area | Grouped by area name |
+| Last used | Most recently scanned or accessed first |
 
 ## Column Visibility
 
-In the **list view** (table mode), use the column visibility menu to toggle which columns are displayed:
+In the **table view**, use the column visibility menu to toggle which columns are displayed:
 
-- Name
+- Icon
 - Area
+- Items (count + preview)
 - Tags
-- Item count
-- Created date
 - Updated date
+- Created date
+- Notes
+- Created by
+- Custom fields (each defined custom field is its own toggle)
 
-Column preferences are saved per session.
+Column preferences are saved in your browser's local storage and persist across sessions on that browser.
 
 ## Saved Views
 
@@ -61,7 +67,7 @@ Save frequently-used filter and sort combinations as named views:
 2. Click the **Save View** button.
 3. Enter a name for the view and confirm.
 
-Saved views appear on the [Dashboard](/docs/guide/dashboard) as quick-access buttons. Clicking a saved view opens the bin list with those filters pre-applied.
+Saved views appear in the bin list as quick-access buttons. Clicking a saved view applies those filters and sort with one tap.
 
 ::: tip
 Saved views are personal — they are stored per user, not shared across the location.

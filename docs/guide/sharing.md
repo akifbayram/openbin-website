@@ -2,6 +2,12 @@
 
 Create a link to share a bin's contents with anyone — no login required. Useful for sending a packing list or showing someone what's in a storage unit.
 
+::: info Permissions
+Only location admins can create or revoke share links. Members and viewers do not see the Share option.
+
+Bins with Private visibility cannot be shared. Change the bin's visibility to "Location" first, or share a different bin.
+:::
+
 ## Creating a share link
 
 Open a bin → overflow menu (three dots) → **Share**. Configure two settings before creating the link:
