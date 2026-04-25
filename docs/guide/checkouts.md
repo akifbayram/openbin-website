@@ -14,7 +14,7 @@ Checked-out items still count toward the bin's item total. They are not removed 
 
 The **Checked Out** page lists every item currently checked out across the entire location. Access it from the sidebar navigation.
 
-<!-- TODO: screenshot of Checkouts page -->
+![Checked Out page](/screenshots/checkouts.webp)
 
 The table shows four columns:
 

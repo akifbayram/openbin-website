@@ -73,6 +73,8 @@ Conversations are per-session only. Closing the dialog or navigating away clears
 
 ## AI Reorganization
 
+![Reorganize page](/screenshots/ai-reorganize.webp)
+
 The Reorganize page lets AI suggest how to restructure an entire location's bins, areas, and tags — then apply those changes in bulk.
 
 1. Navigate to **Reorganize** from the sidebar.

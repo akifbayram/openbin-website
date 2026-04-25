@@ -11,6 +11,8 @@ The in-app scanner recognizes both formats, so labels printed in one mode contin
 
 Tap the **QR icon** in the navigation bar to open the scanner. Point your camera at a label and OpenBin navigates to the bin automatically.
 
+![QR scanner with manual lookup](/screenshots/qr-scanning.webp)
+
 ## Manual Lookup
 
 Type or paste a bin's 6-character short code on the scanner page to look it up without a camera. The short code is printed below the QR code on every label.
