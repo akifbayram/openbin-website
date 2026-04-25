@@ -52,7 +52,7 @@ The color field sets the background tint of the bin card. OpenBin uses a hue-bas
 1. Select a hue from the gradient bar.
 2. Choose a shade from the swatches below it.
 
-The chosen color is applied to the bin card background and affects the label in `colored-card` print mode.
+The chosen color is applied to the bin card background and to the label background when **Color Background** is enabled in Print → Label Options.
 
 ## Card Styles
 
@@ -94,12 +94,12 @@ Set visibility when creating or editing a bin. Admins can see all bins regardles
 
 ## Short Code
 
-Every bin has a 6-character alphanumeric short code auto-generated from its name at creation time. The short code:
+Every bin has a 6-character short code (uppercase letters only — no digits) auto-generated from its name at creation time. The short code:
 
 - Appears printed on QR labels alongside the QR code itself.
 - Can be typed manually into the scanner or search bar to look up a bin without a camera.
 - Is stable — it does not change if you rename the bin.
-- Can be changed by admins via the overflow menu on the bin detail page (Change Code). If the target code belongs to another bin, that bin is permanently deleted.
+- Can be changed by admins via the overflow menu on the bin detail page (**Change Code**). The new code must not already be in use by another bin in the same location — if it is, the change is rejected with a validation error.
 
 ## Soft Delete and Trash
 

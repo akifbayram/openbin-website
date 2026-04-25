@@ -51,7 +51,7 @@ If the first pass missed items or suggested incorrect names, you can re-analyze 
 
 ## AI Assistant
 
-The AI assistant (accessible from the bin list) accepts natural language instructions:
+The AI assistant accepts natural language instructions:
 
 ```
 Add screwdriver to the tools bin
@@ -62,6 +62,14 @@ Where did I put the holiday lights?
 ```
 
 OpenBin shows a preview of the action and asks for confirmation before making changes. Search queries return matching bins with an explanation of why each matched.
+
+::: info Where the assistant lives
+On desktop (≥ 1024 px) the assistant opens as a command-palette dialog over the current page (default shortcut `Mod+J`). On mobile and narrow screens it opens at the dedicated `/ask` route as a full-page conversation. Both surfaces share the same conversation features.
+:::
+
+::: info Conversation memory
+Conversations are **per-session only** — closing the dialog or navigating to a different route clears the chat. Server-side, history is trimmed to the most recent 10 turns when sent to the model, so very long sessions gradually drop the earliest exchanges.
+:::
 
 ## AI Reorganization
 
@@ -141,12 +149,30 @@ One model for all tasks is a fine starting point. You can always add per-group o
 
 Admins can lock task routing for specific groups via environment variables. When a group is configured by the server, it appears as read-only in the UI and cannot be changed by individual users. See the [Configuration Reference](/docs/getting-started/configuration#ai-task-routing) for the full list of per-group variables.
 
+### Env-locked AI keys
+
+When the server-wide `AI_API_KEY` (or a per-group `AI_VISION_API_KEY` / `AI_QUICK_TEXT_API_KEY` / `AI_DEEP_TEXT_API_KEY`) is set, the corresponding fields appear masked and read-only in the user UI — users cannot edit or delete them. This is how self-hosted admins provide AI to all users without storing individual keys.
+
+### Cloud AI credits
+
+On the cloud product, each paid plan includes a monthly AI credit budget. Credits are debited per AI request and refunded automatically if a request fails before producing a result. Your remaining credits and reset date are visible in **Settings → AI**. Self-hosted instances are not credit-limited — AI calls go directly to your configured provider.
+
+### Network security (self-hosted)
+
+AI provider calls run through an allowlist with DNS pinning to prevent SSRF attacks against internal network resources. Self-hosted mode relaxes this to allow private addresses, so local endpoints like Ollama (`http://localhost:11434/v1`) work out of the box.
+
 ## Custom Prompts
 
 Advanced users can override the default AI prompts for each operation:
 
 1. Go to **Settings → AI → Custom Prompts**.
-2. Select a task tab and enter a custom prompt for photo analysis, commands, search queries, text structuring, or reorganization.
+2. Select a task tab and enter a custom prompt. There are **six** tabs:
+   - **Photo Analysis** — guides the bin-name / items suggestions from photos.
+   - **Commands** — classifies user commands and plans the resulting actions.
+   - **Queries** — answers "where is X" style questions.
+   - **Extraction** — structures dictated or pasted text into items.
+   - **Reorganize** — guides bulk reorganization (e.g. "group by room").
+   - **Tag Suggestion** — proposes new or improved tags for existing bins.
 3. Save.
 
 Custom prompts are useful for domain-specific terminology, non-English languages, or specialized inventory contexts.

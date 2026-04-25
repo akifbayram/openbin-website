@@ -14,12 +14,25 @@ The left panel shows bins grouped by area with checkboxes. Select individual bin
 
 ## Label Modes
 
-| Mode | Description |
+A label's rendered mode is chosen automatically from the **Label Options** toggles (QR Code, Bin Name, Bin Icon, Bin Code, Color Background). The three resulting modes are:
+
+| Mode | When | Description |
+|---|---|---|
+| `plain-qr` | QR Code is shown (default) | QR code with bin name and short code. Color Background can be turned on to fill the label with the bin's color, or kept off for a black-and-white label suitable for thermal printers. |
+| `icon-only` | QR Code is off and Bin Icon is on | Large icon centered on the label, with optional name and code. Useful when scanning isn't needed. |
+| `text-only` | QR Code is off and Bin Icon is off | Bin name (and optional code) only. Useful for shelf or drawer labels. |
+
+### Label Options
+
+| Toggle | Effect |
 |---|---|
-| `colored-card` | Full-color label with icon, bin name, a preview of items, and QR code. Reflects the bin's color and card style. |
-| `plain-qr` | Minimal black-and-white label: QR code, bin name, and short code. Best for thermal printers or low-ink situations. |
-| `icon-only` | Large icon with the bin name below it. No QR code. Useful for large, clearly-labeled storage. |
-| `text-only` | Bin name and items list as plain text. No QR code. Useful for shelf labels or inventories. |
+| QR Code | Show or hide the QR. Off → label switches to `icon-only` or `text-only`. |
+| Bin Name | Show or hide the bin name on the label. |
+| Bin Icon | Show or hide the bin's icon. |
+| Bin Code | Show or hide the 6-character short code as text. |
+| Color Background | Fill the label with the bin's color (instead of white). |
+| Label Direction | `auto`, `horizontal`, or `vertical` — controls QR/text layout. `auto` picks the better fit for the chosen format. |
+| Copies per label | Print 1–10 duplicates of each selected bin in one run. |
 
 ## Item List Mode
 
@@ -60,9 +73,11 @@ Switch between **Portrait** and **Landscape** for any page format.
 
 For fine-grained control, switch to custom label sizing and specify:
 
-- Label width and height (mm)
-- Padding inside each label (mm)
+- Label width and height
+- Padding inside each label
 - Labels per row
+
+The display unit (inches or mm) is configurable in the Format card.
 
 ## Font Scale
 
@@ -90,7 +105,7 @@ Once you have a format you're happy with, save it as a named preset:
 1. In the Format card, enter a preset name.
 2. Click **Save Preset**.
 
-Saved presets appear in the format selector for quick reuse across sessions. Presets are stored in your browser's local storage.
+Saved presets appear in the format selector for quick reuse across sessions. Print settings — including saved presets, the active format, label options, QR style, and selected print mode — are persisted **server-side per user** and sync across devices and browsers.
 
 ::: tip
 For best results with browser print, set margins to "None" in the print dialog and match the paper size to your selected format.

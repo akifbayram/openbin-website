@@ -90,7 +90,11 @@ If configured correctly, Claude will call the `list_locations` tool and return y
 
 ## Available Tools
 
-The MCP server exposes 43 tools organized into 9 categories.
+The MCP server exposes 47 tools organized into 10 categories.
+
+::: tip Authentication and scope
+The MCP server authenticates with the API key — every tool call runs as the key's owner, scoped to the locations they belong to and their role in each one. Admin-only tools (`delete_location`, `update_member_role`, `create_area`, `delete_bin`, etc.) require the key owner to be an admin in the target location.
+:::
 
 ### Locations (9 tools)
 
@@ -173,6 +177,15 @@ The MCP server exposes 43 tools organized into 9 categories.
 | Tool | Description |
 |---|---|
 | `get_activity_log` | Get the activity log for a location with optional filters for entity type, entity ID, pagination |
+
+### Item Checkouts (4 tools)
+
+| Tool | Description |
+|---|---|
+| `checkout_item` | Check an item out of its bin (records who took it and when) |
+| `return_item` | Return a checked-out item, optionally to a different bin than the origin |
+| `list_bin_checkouts` | List active and historical checkouts for a single bin |
+| `list_location_checkouts` | List checkouts across an entire location with optional status filtering |
 
 ### Batch Operations (1 tool)
 

@@ -3,7 +3,7 @@
 Bins can hold file attachments alongside photos. Use attachments for manuals, receipts, spreadsheets, or any document you want to keep with a bin's contents.
 
 ::: info
-Attachments are an optional feature. The server must have the `ATTACHMENTS_ENABLED=true` environment variable set. See [Configuration](/docs/getting-started/configuration) for other environment variables.
+Attachments are **enabled by default**. To turn the feature off on a self-hosted instance, set `ATTACHMENTS_ENABLED=false` — this hides the Attachments UI and 404s the related endpoints. See [Configuration](/docs/getting-started/configuration) for other environment variables.
 :::
 
 ## Supported file types

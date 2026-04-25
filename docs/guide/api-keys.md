@@ -2,13 +2,19 @@
 
 Long-lived tokens for scripts, automation, and headless API access. API keys are tied to your user account, not to a specific location. A single key works across all locations you belong to.
 
+::: info Plan requirement
+On the cloud product, API keys require a **Pro plan**. Self-hosted instances have no such restriction. If the API Keys section shows an upgrade prompt instead of a key list, your account doesn't currently have access.
+:::
+
 ## Creating a Key
 
-1. Go to **Settings → API Keys**.
+1. Go to **Settings → Account → API Keys**.
 2. Click **Create Key**.
 3. Enter a descriptive name (e.g. "Home automation script", "Backup script").
 4. Click **Create**.
 5. **Copy the key immediately** — it is shown only once and cannot be retrieved again.
+
+The key list shows a "Last used" timestamp for each key, refreshed each time the key authenticates a request — useful for spotting unused or compromised keys.
 
 ## Key Format
 
@@ -50,7 +56,7 @@ const data = await res.json();
 
 ## Revoking a Key
 
-1. Go to **Settings → API Keys**.
+1. Go to **Settings → Account → API Keys**.
 2. Find the key you want to disable.
 3. Click **Revoke**.
 
