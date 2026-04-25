@@ -18,27 +18,33 @@ cd server && npm install  # Install server dependencies
 
 ## Run Both Servers
 
-Open two terminal windows.
+Run the API and frontend together with one command from the project root:
+
+```bash
+npm run dev:all
+```
+
+This starts the Express API at `http://localhost:1453` and the Vite dev server at `http://localhost:5173`. Open `http://localhost:5173` in your browser.
+
+::: info How the proxy works
+The Vite dev server proxies all `/api` requests to `http://localhost:1453` automatically. You only ever open `http://localhost:5173` in your browser during development.
+:::
+
+### Running the servers individually
+
+If you want logs in separate terminals or need to restart them independently:
 
 **Terminal 1 — API server:**
 
 ```bash
-cd server && npm run dev
+npm run dev:server
 ```
-
-The Express API starts at `http://localhost:1453`.
 
 **Terminal 2 — Frontend dev server:**
 
 ```bash
 npm run dev
 ```
-
-The Vite dev server starts at `http://localhost:5173`. Open this address in your browser.
-
-::: info How the proxy works
-The Vite dev server proxies all `/api` requests to `http://localhost:1453` automatically. You only ever open `http://localhost:5173` in your browser during development.
-:::
 
 ## Environment Variables
 
@@ -63,7 +69,13 @@ For most local development workflows you do not need a `.env` file at all. The d
 
 ## Type Checking
 
-Run type checks before committing to catch errors across both packages:
+Run type checks before committing to catch errors across both packages. The combined script runs both:
+
+```bash
+npm run check
+```
+
+Or run them individually:
 
 ```bash
 # Frontend
@@ -74,7 +86,7 @@ cd server && npx tsc --noEmit
 ```
 
 ::: warning
-Always run `npx tsc --noEmit` on the frontend before submitting changes. The project uses TypeScript strict mode, and type errors will block the production build.
+Always run `npm run check` before submitting changes. The project uses TypeScript strict mode, and type errors will block the production build.
 :::
 
 ## Tests
@@ -88,7 +100,7 @@ npx vitest run
 Run a specific test file:
 
 ```bash
-npx vitest run src/features/bins/__tests__/useBins.test.ts
+npx vitest run src/features/bins/__tests__/ItemList.test.tsx
 ```
 
 Tests mock `apiFetch` from `@/lib/api` and `useAuth` from `@/lib/auth`. No running server or database is needed to execute tests.
@@ -105,19 +117,19 @@ The output lands in `dist/`. In production (and in Docker), Express serves this 
 
 ## Linting
 
-The project uses [Biome](https://biomejs.dev/) for linting and formatting — not ESLint or Prettier.
+The project uses [Biome](https://biomejs.dev/) for linting and formatting — not ESLint or Prettier. Run from the project root to cover both `src/` (frontend) and `server/src/` (backend):
 
 ```bash
-npx biome check src/
+npx biome check .
 ```
 
 To apply auto-fixes:
 
 ```bash
-npx biome check --write src/
+npx biome check --write .
 ```
 
 ::: info
-The `biome.json` in the project root contains all lint and format rules. Do not add ESLint or Prettier configuration files.
+The `biome.json` in the project root contains all lint and format rules for both packages. Running with a narrower path like `src/` skips the server code. Do not add ESLint or Prettier configuration files.
 :::
 

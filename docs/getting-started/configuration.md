@@ -48,6 +48,24 @@ Set `DATABASE_URL` for PostgreSQL **or** use `DATABASE_PATH` for SQLite — not 
 
 ---
 
+### Initial Admin
+
+On first startup, OpenBin can seed an initial admin account. If `ADMIN_PASSWORD` (or `ADMIN_PASSWORD_FILE`) is unset, a random password is generated and printed to the server logs **once** — capture it before restarting.
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `ADMIN_EMAIL` | _(unset)_ | Email address for the seeded admin account. If unset, an admin is still created with a generated email; check the logs. |
+| `ADMIN_PASSWORD` | _(auto-generated)_ | Password for the seeded admin. If unset, a random password is generated and logged on first startup. |
+| `ADMIN_PASSWORD_FILE` | _(unset)_ | Path to a file containing the admin password. Useful with Docker secrets. Takes precedence over `ADMIN_PASSWORD` when both are set. |
+| `ADMIN_PASSWORD_RESET` | `false` | When `true`, resets the seeded admin's password from `ADMIN_PASSWORD`/`ADMIN_PASSWORD_FILE` on next startup. Use to recover a locked-out instance. |
+| `ADMIN_RESEED` | `false` | When `true`, re-creates the seeded admin account on next startup (e.g. after the original was deleted). |
+
+::: tip Recovering a locked-out instance
+If you lose the admin password, set `ADMIN_PASSWORD=<new-password>` and `ADMIN_PASSWORD_RESET=true`, restart, then unset `ADMIN_PASSWORD_RESET`. The new password is now active.
+:::
+
+---
+
 ### Storage
 
 | Variable | Default | Description |
@@ -68,7 +86,9 @@ Set `DATABASE_URL` for PostgreSQL **or** use `DATABASE_PATH` for SQLite — not 
 | Variable | Default | Description |
 |----------|---------|-------------|
 | `MAX_PHOTO_SIZE_MB` | `5` | Maximum size per photo upload in megabytes. Accepted range: 1–50. |
-| `MAX_PHOTOS_PER_BIN` | `1` | Maximum photos per bin. Accepted range: 1–100. |
+| `MAX_PHOTOS_PER_BIN` | `1` | Maximum photos per bin. Accepted range: 1–100. The default is 1 — raise this to allow multiple photos per bin. |
+| `ATTACHMENTS_ENABLED` | `true` | Enables non-image file attachments (PDFs, spreadsheets, etc.). Set to `false` to hide the Attachments UI and 404 the related endpoints. |
+| `BULK_MAX_SELECTION` | `200` | Maximum number of bins that can be operated on in a single bulk action or batch API request. Accepted range: 1–1000. |
 
 ---
 
@@ -147,6 +167,9 @@ Backup files are written to a `backups/` directory next to the database (e.g. `/
 | Variable | Default | Description |
 |----------|---------|-------------|
 | `DISABLE_RATE_LIMIT` | `false` | Set to `true` to disable all rate limiters. Useful in development or automated test environments. Do not disable in production. |
+| `AI_RATE_LIMIT_PER_MINUTE` | `15` | Maximum AI requests per user per minute. Accepted range: 1–1000. |
+| `AI_RATE_LIMIT_PER_HOUR` | `100` | Maximum AI requests per user per hour. Accepted range: 1–10000. |
+| `AI_RATE_LIMIT_PER_DAY` | `200` | Maximum AI requests per user per day. Accepted range: 1–100000. |
 
 ---
 
@@ -179,7 +202,8 @@ Use `app` (default) if you don't have a stable domain or want QR labels to survi
 | Variable | Default | Description |
 |----------|---------|-------------|
 | `LOG_LEVEL` | `info` | Server log verbosity. Accepted values: `debug`, `info`, `warn`, `error`. |
-| `CORS_ORIGIN` | `http://localhost:5173` | Allowed CORS origin for API requests. Only relevant for non-Docker local development where the frontend and API run on different origins. |
+| `CORS_ORIGIN` | `http://localhost:5173` | Allowed CORS origin for API requests. **Set this to your production URL** (e.g. `https://inventory.example.com`) for any non-localhost deployment — otherwise the dev origin leaks into the `Access-Control-Allow-Origin` header in production. |
+| `FRAME_ANCESTORS` | _(unset)_ | Comma-separated list of origins allowed to embed OpenBin in an iframe (sets the `frame-ancestors` CSP directive). Leave unset to deny all iframe embedding (the default, which protects against clickjacking). |
 | `TRUST_PROXY` | `false` | Set to `true` when running behind a reverse proxy such as Nginx or Caddy. Required for correct IP detection in rate limiting and for the `Secure` cookie flag to work over HTTPS. |
 
 ---

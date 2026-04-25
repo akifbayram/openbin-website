@@ -10,7 +10,7 @@ OpenBin organizes physical storage using a hierarchy:
 
 - A **Location** is a shared workspace (e.g. "Home", "Garage", "Self-Storage"). All data lives inside a location.
 - An **Area** is an optional sub-zone within a location (e.g. "Basement", "Bedroom") for grouping bins.
-- A **Bin** is a physical container, like a tote, bin, box, drawer, or shelf. Each bin gets a unique QR code and shortcode (e.g. "BIN001").
+- A **Bin** is a physical container, like a tote, bin, box, drawer, or shelf. Each bin gets a unique QR code and a 6-character short code (e.g. "BINXHM").
 - **Items** are the individual things stored inside a bin. 
 
 ### Typical workflow
