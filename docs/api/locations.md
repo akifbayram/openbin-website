@@ -40,6 +40,10 @@ Returns all locations the authenticated user belongs to, including member count,
 }
 ```
 
+::: info `invite_code` is admin-only
+The `invite_code` field is only included for locations where the caller's role is `admin`. Members and viewers see the same response with `invite_code` omitted.
+:::
+
 ---
 
 ### POST /api/locations
@@ -162,3 +166,52 @@ Generates a new invite code for the location. Admin only. Invalidates the previo
 **Path parameters**: `id` (UUID)
 
 **Response (200)**: `{ "invite_code": "xyz789" }`
+
+---
+
+### GET /api/locations/`{id}`/stats
+
+Returns aggregate statistics for the location, used by the dashboard.
+
+**Path parameters**: `id` (UUID)
+
+**Response (200)**
+
+```json
+{
+  "total_bins": 42,
+  "total_items": 350,
+  "total_areas": 5,
+  "needs_organizing": 3
+}
+```
+
+`needs_organizing` is the count of bins missing items, tags, **and** an area assignment.
+
+---
+
+### POST /api/locations/`{id}`/members/`{userId}`/reset-password
+
+Admin-initiated password reset for a member of the location. Useful for self-hosted teams that don't have email delivery set up. Rate-limited by `sensitiveAuthLimiter`.
+
+**Path parameters**: `id` (location UUID), `userId` (target user UUID)
+
+**Response (200)**
+
+On **self-hosted** instances, the response contains a one-time reset token that the admin can hand to the member out-of-band:
+
+```json
+{
+  "token": "<reset-token>",
+  "expiresAt": "2026-04-25T12:00:00Z"
+}
+```
+
+On the **cloud** product, the token is emailed to the user instead and the response only confirms:
+
+```json
+{
+  "message": "Reset link sent",
+  "expiresAt": "2026-04-25T12:00:00Z"
+}
+```

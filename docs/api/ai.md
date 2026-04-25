@@ -8,13 +8,20 @@ title: AI
 For a user-facing walkthrough, see [AI Features](/docs/guide/ai).
 :::
 
-AI provider configuration, photo analysis, text structuring, AI assistant, inventory queries, and server-side command execution.
+AI provider configuration, photo analysis, transcription, the AI assistant, inventory queries, and bulk reorganization. All inference endpoints stream via Server-Sent Events.
+
+::: warning Streaming and CSRF
+- Inference endpoints stream over Server-Sent Events (`Content-Type: text/event-stream`). Use a streaming HTTP client; do not buffer the response. See [Streaming protocol](#streaming-protocol) below.
+- Cookie-authenticated requests must include the CSRF token (`X-CSRF-Token` header matching the `openbin-csrf` cookie). API-key (`Bearer sk_openbin_…`) requests are exempt.
+:::
 
 ---
 
+## Settings
+
 ### GET /api/ai/settings
 
-Returns the authenticated user's configured AI provider. The API key is masked in the response. Returns null if no AI has been configured.
+Returns the authenticated user's configured AI provider. The API key is masked. Returns `null` if no AI has been configured.
 
 **Response (200)**
 
@@ -30,6 +37,7 @@ Returns the authenticated user's configured AI provider. The API key is masked i
   "queryPrompt": null,
   "structurePrompt": null,
   "reorganizationPrompt": null,
+  "tagSuggestionPrompt": null,
   "temperature": null,
   "maxTokens": null,
   "topP": null,
@@ -47,12 +55,13 @@ Returns the authenticated user's configured AI provider. The API key is masked i
 |---|---|---|
 | `taskOverrides` | object | Per-group overrides. Keys are `vision`, `quickText`, `deepText`. Each value has `provider`, `model`, `endpointUrl`, and `source` (`"user"` or `"env"`). Only groups with an active override are present. |
 | `taskOverridesEnvLocked` | string[] | Task groups locked by server environment variables. These groups appear read-only in the UI. |
+| `source` | `"user"` or `"env"` | When `"env"`, the credentials come from server environment variables and the form is read-only in the UI. |
 
 ---
 
 ### PUT /api/ai/settings
 
-Saves AI provider configuration. The API key is encrypted at rest when the `AI_ENCRYPTION_KEY` environment variable is set. Rate limited to 30 per hour.
+Saves AI provider configuration. The API key is encrypted at rest when `AI_ENCRYPTION_KEY` is set.
 
 **Request body**
 
@@ -62,11 +71,12 @@ Saves AI provider configuration. The API key is encrypted at rest when the `AI_E
 | `apiKey` | string | Yes | Provider API key |
 | `model` | string | Yes | Model identifier (e.g. `gpt-5-mini`) |
 | `endpointUrl` | string | No | Required when `provider` is `"openai-compatible"` |
-| `customPrompt` | string or null | No | Custom system prompt for image analysis. Max 10,000 characters. Use `{available_tags}` placeholder to inject existing tags. |
-| `commandPrompt` | string or null | No | Custom system prompt for the AI assistant. Max 10,000 characters. |
-| `queryPrompt` | string or null | No | Custom system prompt for inventory queries. Max 10,000 characters. |
-| `structurePrompt` | string or null | No | Custom system prompt for item extraction from text/voice. Max 10,000 characters. |
-| `reorganizationPrompt` | string or null | No | Custom system prompt for reorganization. Max 10,000 characters. |
+| `customPrompt` | string or null | No | Custom prompt for photo analysis. Max 10,000 characters. Use `{available_tags}` to inject existing tags. |
+| `commandPrompt` | string or null | No | Custom prompt for the AI assistant (commands). Max 10,000 characters. |
+| `queryPrompt` | string or null | No | Custom prompt for inventory queries. Max 10,000 characters. |
+| `structurePrompt` | string or null | No | Custom prompt for structuring dictated/pasted text into items. Max 10,000 characters. |
+| `reorganizationPrompt` | string or null | No | Custom prompt for bulk reorganization. Max 10,000 characters. |
+| `tagSuggestionPrompt` | string or null | No | Custom prompt for AI tag suggestions. Max 10,000 characters. |
 | `temperature` | number or null | No | Sampling temperature (0.0–2.0). |
 | `maxTokens` | number or null | No | Maximum response tokens (100–16,000). |
 | `topP` | number or null | No | Nucleus sampling probability (0.0–1.0). |
@@ -80,11 +90,11 @@ Saves AI provider configuration. The API key is encrypted at rest when the `AI_E
 
 Removes the authenticated user's AI provider configuration.
 
-**Response (200)**: `{ "message": "AI settings deleted" }`
+**Response (200)**: `{ "deleted": true }`
 
 ---
 
-### PUT /api/ai/task-overrides/:taskGroup
+### PUT /api/ai/task-overrides/`{taskGroup}`
 
 Sets or updates the AI provider override for a specific task group. Each group can override the provider, model, and endpoint URL independently. Fields left empty inherit from the user's default AI configuration.
 
@@ -122,110 +132,17 @@ Sets or updates the AI provider override for a specific task group. Each group c
 
 ---
 
-### DELETE /api/ai/task-overrides/:taskGroup
+### DELETE /api/ai/task-overrides/`{taskGroup}`
 
-Removes the user's override for a specific task group. The group will revert to the user's default AI configuration.
-
-**Path parameters**
-
-| Parameter | Description |
-|---|---|
-| `taskGroup` | One of `vision`, `quickText`, `deepText` |
+Removes the user's override for a specific task group.
 
 **Response (200)**: `{ "deleted": true }`
-
-**Errors**
-
-| Status | Error | Cause |
-|---|---|---|
-| 422 | `VALIDATION_ERROR` | Invalid task group |
-| 409 | `ENV_LOCKED` | Task group is configured by server environment variables and cannot be changed |
-
----
-
-### POST /api/ai/analyze
-
-Sends one or more stored photos (already uploaded to a bin) to the configured AI provider for analysis. Returns suggested bin name, items, tags, and notes. Maximum 5 photos per request. Rate limited to 30 per hour.
-
-**Request body**
-
-| Field | Type | Required | Description |
-|---|---|---|---|
-| `photoId` | UUID | No | Single photo ID to analyze |
-| `photoIds` | UUID[] | No | Multiple photo IDs (max 5). Takes precedence over `photoId`. |
-
-**Response (200)**
-
-```json
-{
-  "name": "Power Tools",
-  "items": [
-    { "name": "Cordless drill", "quantity": null },
-    { "name": "Drill bits", "quantity": 12 },
-    { "name": "Sander", "quantity": null }
-  ],
-  "tags": ["tools", "electric"],
-  "notes": "Stored in the original cases"
-}
-```
-
-Items are returned as objects with a `name` and optional `quantity`. When the AI can identify a countable quantity (e.g. "12 drill bits"), it includes it; otherwise `quantity` is `null`.
-
----
-
-### POST /api/ai/analyze-image
-
-Directly uploads images for AI analysis without storing them first. Used during onboarding. Accepts up to 5 images, 5MB each, via `multipart/form-data` with a `photos` file field. Rate limited to 30 per hour.
-
-**Response (200)**: Same `AiSuggestions` shape as `/ai/analyze` (items include quantities when detectable).
-
----
-
-### POST /api/ai/reanalyze
-
-Re-analyzes stored photos using a previous analysis result as context, allowing the AI to refine its suggestions. Returns the same `AiSuggestions` shape as `/ai/analyze`. Maximum 5 photos per request. Rate limited to 30 per hour.
-
-**Request body**
-
-| Field | Type | Required | Description |
-|---|---|---|---|
-| `photoIds` | UUID[] | Yes | Photo IDs to analyze (max 5) |
-| `previousResult` | object | Yes | Previous AI suggestions to refine (see below) |
-
-The `previousResult` object must include:
-
-| Field | Type | Required | Description |
-|---|---|---|---|
-| `name` | string | Yes | Previously suggested bin name |
-| `items` | array | Yes | Previously suggested items, each with `name` (string) and optional `quantity` (number) |
-
-**Response (200)**
-
-```json
-{
-  "name": "Power Tools",
-  "items": [
-    { "name": "Cordless drill", "quantity": null },
-    { "name": "Drill bits", "quantity": 12 },
-    { "name": "Orbital sander", "quantity": null }
-  ],
-  "tags": ["tools", "electric"],
-  "notes": "Stored in the original cases. Sander previously misidentified."
-}
-```
-
-**Errors**
-
-| Status | Error | Cause |
-|---|---|---|
-| 422 | `VALIDATION_ERROR` | `photoIds` is empty or `previousResult` is missing required fields |
-| 404 | `NOT_FOUND` | Photo not found or access denied |
 
 ---
 
 ### POST /api/ai/test
 
-Validates that AI credentials work by making a test call to the provider.
+Validates that AI credentials work by making a small test call to the provider.
 
 **Request body**
 
@@ -240,47 +157,86 @@ Validates that AI credentials work by making a test call to the provider.
 
 ---
 
-### POST /api/ai/structure-text
+### GET /api/ai/default-prompts
 
-Sends raw dictated or typed text to the AI provider, which extracts and normalizes it into a clean list of inventory items. Handles filler words, quantity normalization, and deduplication. Rate limited to 30 per hour.
+Returns the built-in default prompts for each task group, so the UI can show the user what they would inherit when leaving a custom prompt blank. **Public — no authentication required.**
+
+**Response (200)**: `{ analysis: string, command: string, query: string, structure: string, reorganization: string, tagSuggestion: string }`
+
+---
+
+## Streaming protocol
+
+All inference endpoints (everything ending in `/stream`) write Server-Sent Events. Each event is a JSON payload on a single `data:` line; the stream ends when the server closes the connection.
+
+| Event `type` | Payload | Meaning |
+|---|---|---|
+| `delta` | `{ type, text }` | A chunk of incremental text. Concatenate `text` across deltas. |
+| `done` | `{ type, text }` | Final accumulated text. The stream then closes. |
+| `error` | `{ type, message }` | Provider or server error. The stream closes. |
+| `retry` | `{ type, attempt }` | Provider transient error; the server is retrying. |
+
+For endpoints that return JSON (photo analysis, queries, reorganization), the concatenated text is the JSON document — parse it on `done` (or progressively, if your client supports it).
+
+The client may abort by closing the request; the server cancels the upstream provider call.
+
+::: info AI credits and plan gating
+- All AI endpoints check the user's plan and remaining credits via `requireAiAccess` + `checkAiCredits`. Credits are debited per request and refunded automatically when a stream errors before producing a result.
+- Photo analysis (`analyze-image/stream`, `analyze/stream`, `reanalyze/stream`, `reanalyze-image/stream`) and reorganization (`reorganize/stream`, `reorganize-tags/stream`) additionally require the Plus or higher plan on the cloud product.
+- Self-hosted instances are not credit-limited.
+:::
+
+::: info SSRF guard
+Provider calls go through DNS-pinning to prevent access to private network ranges. Self-hosted mode relaxes this so local endpoints (e.g. Ollama on `http://localhost:11434/v1`) work. Demo users cannot configure custom endpoints.
+:::
+
+### Conversation history
+
+The unified ask, query, and command endpoints accept an optional `history` array of prior turns to maintain context. The server trims history to the most recent 10 turns before sending it to the model.
+
+```json
+{
+  "history": [
+    { "role": "user", "content": "Where are the holiday decorations?" },
+    { "role": "assistant", "content": "In the Holiday Decorations bin in the Garage." }
+  ]
+}
+```
+
+---
+
+## Inference endpoints
+
+### POST /api/ai/ask/stream
+
+Unified entrypoint for the AI assistant. The server classifies the user's message as a **command** (mutation intent) or **query** (read-only question) and streams the appropriate response.
 
 **Request body**
 
 | Field | Type | Required | Description |
 |---|---|---|---|
-| `text` | string | Yes | Raw text to structure. Max 5,000 characters. |
-| `mode` | `"items"` | No | Structuring mode. Only `"items"` is currently supported. |
-| `context.binName` | string | No | Name of the bin for context |
-| `context.existingItems` | string[] | No | Items already in the bin (excluded from results) |
+| `text` | string | Yes | The user's message. Max 5,000 characters. |
+| `locationId` | UUID | Yes | Location to scope the request to. |
+| `binIds` | UUID[] | No | If provided, scopes the model's context to just these bins. |
+| `history` | array | No | Prior conversation turns (capped at 10 server-side). |
 
-**Response (200)**
-
-```json
-{
-  "items": [
-    { "name": "Phillips screwdriver", "quantity": null },
-    { "name": "Flat-head screwdriver", "quantity": 2 },
-    { "name": "Allen key set", "quantity": null }
-  ]
-}
-```
-
-Items include `quantity` when the AI can extract a count from the dictated text (e.g. "two flat-head screwdrivers").
+**Stream**: emits a parsed-action plan for commands, or a query response for reads. The `done` event contains the final structured payload. See `/command/stream` and `/query/stream` for the per-mode shapes.
 
 ---
 
-### POST /api/ai/command
+### POST /api/ai/command/stream
 
-Parses an AI assistant instruction into structured inventory actions for client-side preview and execution. The client is responsible for displaying the parsed actions to the user before executing them via existing mutation endpoints. Rate limited to 30 per hour.
+Parses an AI-assistant instruction into structured inventory actions for client-side preview and confirmation. The client executes the actions via existing mutation endpoints (or batches them via `POST /api/batch`).
 
 **Request body**
 
 | Field | Type | Required | Description |
 |---|---|---|---|
 | `text` | string | Yes | AI assistant instruction. Max 5,000 characters. |
-| `locationId` | string | Yes | Location ID to scope the command context |
+| `locationId` | UUID | Yes | Location ID to scope the command context. |
+| `history` | array | No | Prior conversation turns. |
 
-**Response (200)**
+**Stream payload** (final `done` text is JSON):
 
 ```json
 {
@@ -292,26 +248,23 @@ Parses an AI assistant instruction into structured inventory actions for client-
 }
 ```
 
-Supported action types: `add_items`, `remove_items`, `modify_item`, `create_bin`, `delete_bin`, `add_tags`, `remove_tags`, `modify_tag`, `set_area`, `set_notes`, `set_icon`, `set_color`.
-
-Items in `add_items` and `create_bin` actions may include quantities as `{ name, quantity }` objects.
+Supported action types: `add_items`, `remove_items`, `modify_item`, `create_bin`, `delete_bin`, `add_tags`, `remove_tags`, `modify_tag`, `set_area`, `set_notes`, `set_icon`, `set_color`. Items in `add_items` / `create_bin` may include `{ name, quantity }`.
 
 ---
 
-### POST /api/ai/query
+### POST /api/ai/query/stream
 
-Read-only endpoint that answers natural language questions about the inventory. Returns a natural language answer plus structured matches with bin details. Ideal for smart home integrations.
-
-Rate limits: 30/hour for JWT auth; 1,000/hour for API keys.
+Read-only endpoint that answers natural-language questions about the inventory.
 
 **Request body**
 
 | Field | Type | Required | Description |
 |---|---|---|---|
-| `question` | string | Yes | Natural language question. Max 5,000 characters. |
-| `locationId` | UUID | Yes | Location to search within |
+| `question` | string | Yes | Natural-language question. Max 5,000 characters. |
+| `locationId` | UUID | Yes | Location to search within. |
+| `history` | array | No | Prior conversation turns. |
 
-**Response (200)**
+**Stream payload** (final `done` text is JSON):
 
 ```json
 {
@@ -331,33 +284,149 @@ Rate limits: 30/hour for JWT auth; 1,000/hour for API keys.
 
 ---
 
-### POST /api/ai/execute
+### POST /api/ai/structure-text/stream
 
-Headless fire-and-forget endpoint. Parses an AI assistant instruction and executes all resulting actions server-side in a single transaction. Unlike `/ai/command` (which returns actions for client-side preview), this endpoint performs the mutations directly. Ideal for smart home integrations and automation pipelines.
-
-Rate limits: 30/hour for JWT auth; 1,000/hour for API keys.
+Sends raw dictated or typed text to the AI provider, which extracts and normalizes it into a clean list of inventory items. Handles filler words, quantity normalization, and deduplication.
 
 **Request body**
 
 | Field | Type | Required | Description |
 |---|---|---|---|
-| `text` | string | Yes | AI assistant instruction. Max 5,000 characters. |
-| `locationId` | UUID | Yes | Location to execute the command in |
+| `text` | string | Yes | Raw text to structure. Max 5,000 characters. |
+| `mode` | `"items"` | No | Structuring mode (only `"items"` currently). |
+| `context.binName` | string | No | Bin name context. |
+| `context.existingItems` | string[] | No | Items already in the bin (excluded from results). |
 
-**Response (200)**
+**Stream payload** (final `done` text is JSON):
 
 ```json
 {
-  "executed": [
-    {
-      "type": "add_items",
-      "success": true,
-      "details": "Added [AAA batteries] to Electronics",
-      "bin_id": "uuid",
-      "bin_name": "Electronics"
-    }
-  ],
-  "interpretation": "Added AAA batteries to the Electronics bin",
-  "errors": []
+  "items": [
+    { "name": "Phillips screwdriver", "quantity": null },
+    { "name": "Flat-head screwdriver", "quantity": 2 },
+    { "name": "Allen key set", "quantity": null }
+  ]
 }
 ```
+
+There is also a **non-streaming** variant at `POST /api/ai/structure-text` (same input/output shape) for clients that don't want SSE.
+
+---
+
+### POST /api/ai/analyze/stream
+
+Analyzes one or more **stored** photos (already uploaded to a bin) and streams a suggested bin name, items list, and custom-field values. Plus plan or higher.
+
+**Request body**
+
+| Field | Type | Required | Description |
+|---|---|---|---|
+| `photoId` | UUID | No | Single photo ID. |
+| `photoIds` | UUID[] | No | Multiple photo IDs (max 5). Takes precedence over `photoId`. |
+| `locationId` | UUID | No | Location ID — used to inject custom-field definitions and existing tags into the prompt. |
+
+**Stream payload** (final `done` text is JSON, the `AiSuggestions` shape):
+
+```json
+{
+  "name": "Power Tools",
+  "items": [
+    { "name": "Cordless drill", "quantity": null },
+    { "name": "Drill bits", "quantity": 12 }
+  ],
+  "customFields": {
+    "Purchase Date": "2023-05-12"
+  }
+}
+```
+
+::: info Tags and notes are not AI-generated
+Photo analysis returns only `name`, `items`, and (optionally) `customFields`. Tags and notes are user-provided.
+:::
+
+---
+
+### POST /api/ai/analyze-image/stream
+
+Same as `/analyze/stream` but accepts uploaded image files directly via `multipart/form-data` (`photos` field, up to 5 files). Used during onboarding and bulk-add when the photo isn't yet attached to a bin. Plus plan or higher.
+
+---
+
+### POST /api/ai/reanalyze/stream
+
+Re-analyzes stored photos using a previous result as context, allowing the AI to refine its suggestions. Plus plan or higher.
+
+**Request body**
+
+| Field | Type | Required | Description |
+|---|---|---|---|
+| `photoIds` | UUID[] | Yes | Photo IDs to analyze (max 5). |
+| `previousResult` | object | Yes | Previous AI suggestions (`{ name, items, customFields? }`). |
+| `instruction` | string | No | Optional free-form correction (e.g. "the green tool is a sander, not a drill"). |
+| `locationId` | UUID | No | |
+
+**Stream payload**: same `AiSuggestions` shape as `/analyze/stream`.
+
+---
+
+### POST /api/ai/reanalyze-image/stream
+
+Same as `/reanalyze/stream` but accepts uploaded image files directly via `multipart/form-data`. Plus plan or higher.
+
+---
+
+### POST /api/ai/correct/stream
+
+Refines a previous analysis result using a free-form text correction (no images). Useful when the photo was right but the AI's suggestions need a tweak.
+
+**Request body**
+
+| Field | Type | Required | Description |
+|---|---|---|---|
+| `previousResult` | object | Yes | Previous suggestions to refine. |
+| `instruction` | string | Yes | Correction instructions. Max 5,000 characters. |
+| `locationId` | UUID | No | |
+
+**Stream payload**: same `AiSuggestions` shape.
+
+---
+
+### POST /api/ai/reorganize/stream
+
+Streams a bulk reorganization plan: bin renames, area moves, tag additions, and (optionally) new areas, sized to the user's selection. Plus plan or higher.
+
+**Request body**
+
+| Field | Type | Required | Description |
+|---|---|---|---|
+| `locationId` | UUID | Yes | |
+| `binIds` | UUID[] | No | Restrict to specific bins. Defaults to the entire location. Capped per plan (Plus: 10 / Pro: 40 / self-hosted: unlimited). |
+| `instruction` | string | No | Free-form intent (e.g. "group by room"). |
+
+**Stream payload**: incremental partial JSON (parse with a tolerant parser to render progress) ending in a `done` event with the full plan.
+
+---
+
+### POST /api/ai/reorganize-tags/stream
+
+Suggests tag additions/renames across bins. Plus plan or higher.
+
+**Request body**
+
+| Field | Type | Required | Description |
+|---|---|---|---|
+| `locationId` | UUID | Yes | |
+| `binIds` | UUID[] | No | Restrict to specific bins. |
+| `instruction` | string | No | Free-form guidance for the tag scheme. |
+
+**Stream payload**: streaming JSON of proposed tag changes per bin.
+
+---
+
+### POST /api/ai/transcribe
+
+Transcribes a single uploaded audio clip to text using the configured `quickText` provider. Used by the voice-input UI on mobile.
+
+**Request**: `multipart/form-data` with an `audio` file field (max 25 MB).
+
+**Response (200)**: `{ "text": "transcribed text" }`

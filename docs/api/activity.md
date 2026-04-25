@@ -22,6 +22,9 @@ Returns paginated activity log entries for a location. Entries are auto-pruned b
 | `offset` | integer | 0 | Rows to skip for pagination |
 | `entity_type` | string | — | Filter by entity type: `bin`, `photo`, `area`, `member` |
 | `entity_id` | UUID | — | Filter by specific entity ID |
+| `user_id` | UUID | — | Filter by the user who performed the action |
+| `from` | string (ISO 8601 datetime) | — | Lower bound for `created_at` |
+| `to` | string (ISO 8601 datetime) | — | Upper bound for `created_at` |
 
 **Response (200)**
 

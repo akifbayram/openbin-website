@@ -23,19 +23,10 @@ Returns server configuration flags relevant to the auth UI. No authentication re
   "registrationEnabled": true,
   "registrationMode": "open",
   "demoMode": false,
-  "qrPayloadMode": "app"
-}
-```
-
-When `QR_PAYLOAD_MODE=url`:
-
-```json
-{
-  "registrationEnabled": true,
-  "registrationMode": "open",
-  "demoMode": false,
-  "qrPayloadMode": "url",
-  "baseUrl": "https://inventory.example.com"
+  "qrPayloadMode": "app",
+  "selfHosted": true,
+  "attachmentsEnabled": true,
+  "oauthProviders": []
 }
 ```
 
@@ -45,13 +36,26 @@ When `QR_PAYLOAD_MODE=url`:
 | `registrationMode` | string | One of `"open"`, `"invite"`, or `"closed"` |
 | `demoMode` | boolean | Whether demo mode is enabled |
 | `qrPayloadMode` | string | QR code encoding mode: `"app"` (openbin:// URI) or `"url"` (full web URL) |
+| `selfHosted` | boolean | `true` on self-hosted instances, `false` on the cloud product |
+| `attachmentsEnabled` | boolean | Whether the attachments feature is enabled on the server |
+| `oauthProviders` | array | List of enabled OAuth providers (e.g. `["google", "apple"]`) |
 | `baseUrl` | string? | Present only when `qrPayloadMode` is `"url"`. The base URL used in QR payloads. |
+| `announcement` | object? | Present when the server has an active announcement banner (`{ id, text, type, dismissible }`). |
+| `maintenance` | object? | Present when the server is in maintenance mode (`{ enabled: true, message }`). |
+
+---
+
+### POST /api/auth/demo-login
+
+Logs in as the demo user. Only works when `DEMO_MODE=true` — otherwise returns 403. Sets auth cookies and returns the user plus the active location.
+
+**Response (200)**: `{ "user": { ... }, "activeLocationId": "uuid-or-null" }`
 
 ---
 
 ### GET /api/auth/invite-preview
 
-Looks up a location by invite code without requiring authentication. You can use this to show a preview before the user registers or joins.
+Looks up a location by invite code. **Authentication required** (prevents anonymous enumeration of invite codes). Rate-limited by the `joinLimiter` (10 requests per 15 minutes per IP).
 
 **Query parameters**
 
@@ -72,6 +76,7 @@ Looks up a location by invite code without requiring authentication. You can use
 
 | Status | Code | Description |
 |---|---|---|
+| 401 | `UNAUTHORIZED` | No valid session — log in first |
 | 404 | `NOT_FOUND` | Invalid invite code |
 | 422 | `VALIDATION_ERROR` | Missing or empty `code` parameter |
 
@@ -79,44 +84,60 @@ Looks up a location by invite code without requiring authentication. You can use
 
 ### POST /api/auth/register
 
-Creates a new user account. Rate limited to 3 per hour. Returns 403 if registration is disabled via `REGISTRATION_MODE=closed`. When `REGISTRATION_MODE=invite`, the request must include a valid location invite code.
+Creates a new user account. Rate-limited by the `registerLimiter` (3 per hour per IP). Returns 403 if registration is disabled via `REGISTRATION_MODE=closed`. When `REGISTRATION_MODE=invite`, `inviteCode` is required.
 
 **Request body**
 
 | Field | Type | Required | Description |
 |---|---|---|---|
-| `username` | string | Yes | 3–50 characters |
+| `email` | string (email) | Yes | Used for login and password recovery |
 | `password` | string | Yes | Min 8 characters; must contain uppercase, lowercase, and a digit |
 | `displayName` | string | Yes | 1–100 characters |
+| `inviteCode` | string | Conditional | Required when `REGISTRATION_MODE=invite`. Optional otherwise — when present, the new user is auto-added to the matching location. |
 
 **Response (201)**
 
 ```json
 {
-  "token": "<jwt>",
-  "user": { "id": "...", "username": "alice", "displayName": "Alice", ... },
-  "activeLocationId": null
+  "user": {
+    "id": "uuid",
+    "displayName": "Alice",
+    "email": "alice@example.com",
+    "createdAt": "2024-01-01T00:00:00Z"
+  }
 }
 ```
 
-Sets `openbin-access` and `openbin-refresh` httpOnly cookies.
+Auth happens entirely via `openbin-access` and `openbin-refresh` httpOnly cookies — the JWT is **not** returned in the response body.
 
 ---
 
 ### POST /api/auth/login
 
-Authenticates with username and password. Rate limited to 5 per 15 minutes.
+Authenticates with email and password. Rate-limited by the `authLimiter` (5 per 15 minutes per IP).
 
 **Request body**
 
 | Field | Type | Required | Description |
 |---|---|---|---|
-| `username` | string | Yes | |
+| `email` | string (email) | Yes | |
 | `password` | string | Yes | |
 
 **Response (200)**
 
-Same shape as the register response: `{ token, user, activeLocationId }`. Sets auth cookies.
+```json
+{
+  "user": {
+    "id": "uuid",
+    "displayName": "Alice",
+    "email": "alice@example.com",
+    "avatarUrl": null
+  },
+  "activeLocationId": "uuid-or-null"
+}
+```
+
+Sets `openbin-access` and `openbin-refresh` httpOnly cookies.
 
 ---
 
@@ -157,13 +178,16 @@ Returns the authenticated user's profile plus the persisted active location sele
 ```json
 {
   "id": "uuid",
-  "username": "alice",
   "displayName": "Alice",
-  "email": null,
+  "email": "alice@example.com",
   "avatarUrl": null,
   "activeLocationId": "uuid-or-null",
   "createdAt": "2024-01-01T00:00:00Z",
-  "updatedAt": "2024-01-01T00:00:00Z"
+  "updatedAt": "2024-01-01T00:00:00Z",
+  "hasPassword": true,
+  "isAdmin": false,
+  "plan": "free",
+  "subscriptionStatus": "inactive"
 }
 ```
 
@@ -200,7 +224,7 @@ Updates the authenticated user's display name and/or email.
 
 ### PUT /api/auth/password
 
-Changes the authenticated user's password.
+Changes the authenticated user's password. Rate-limited by the `sensitiveAuthLimiter` (10 per 15 minutes per IP).
 
 **Request body**
 
@@ -209,7 +233,36 @@ Changes the authenticated user's password.
 | `currentPassword` | string | Yes | |
 | `newPassword` | string | Yes | Min 8 characters; must contain uppercase, lowercase, and a digit |
 
-**Response (200)**: `{ "message": "Password updated" }`
+**Response (200)**: `{ "message": "Password updated successfully" }`
+
+---
+
+### POST /api/auth/forgot-password
+
+Initiates a password reset. Sends a reset email if the address corresponds to a known user. The response is the same regardless of whether the email exists — no account enumeration.
+
+**Request body**
+
+| Field | Type | Required | Description |
+|---|---|---|---|
+| `email` | string (email) | Yes | |
+
+**Response (200)**: `{ "message": "If the email exists, a reset link has been sent" }`
+
+---
+
+### POST /api/auth/reset-password
+
+Completes a password reset using a token from the reset email.
+
+**Request body**
+
+| Field | Type | Required | Description |
+|---|---|---|---|
+| `token` | string | Yes | The one-time token from the reset email |
+| `newPassword` | string | Yes | Min 8 characters; must contain uppercase, lowercase, and a digit |
+
+**Response (200)**: `{ "message": "Password reset successfully" }`
 
 ---
 
@@ -245,12 +298,50 @@ Serves an avatar image file. Returns the binary image with appropriate content-t
 
 ### DELETE /api/auth/account
 
-Permanently deletes the authenticated user's account. Requires password confirmation. Cascades to sole-owned locations (and their bins, photos, tag colors). Shared locations are preserved.
+Permanently deletes the authenticated user's account. Requires password confirmation **unless** the account is OAuth-only (`hasPassword: false`). Cascades to sole-owned locations (and their bins, photos, tag colors). Shared locations are preserved.
 
 **Request body**
 
 | Field | Type | Required | Description |
 |---|---|---|---|
-| `password` | string | Yes | Current password for confirmation |
+| `password` | string | Conditional | Required when `hasPassword: true`. Omit for OAuth-only accounts. |
 
 **Response (200)**: `{ "message": "Account deleted" }`
+
+---
+
+## OAuth
+
+OAuth providers are configured server-side. The list of enabled providers is available from `GET /api/auth/status` (`oauthProviders` field).
+
+### GET /api/auth/oauth/`{provider}`
+
+Initiates an OAuth flow. Redirects the browser to the provider's authorization page. `provider` is one of `google` or `apple`.
+
+### GET /api/auth/oauth/`{provider}`/callback (Google)
+
+Handles the OAuth redirect from the provider, completes the token exchange, creates or links the user, and sets auth cookies. For Google this is `GET`. For Apple this is `POST` (Apple POSTs the result back to the registered redirect URL).
+
+### POST /api/auth/oauth/apple/callback
+
+Apple-specific callback (`form_post` response mode). Same effect as the Google callback above.
+
+### GET /api/auth/oauth/links
+
+**Authenticated.** Returns the OAuth providers linked to the current account.
+
+**Response (200)**
+
+```json
+{
+  "links": [
+    { "provider": "google", "linkedAt": "2024-01-01T00:00:00Z" }
+  ]
+}
+```
+
+### DELETE /api/auth/oauth/link/`{provider}`
+
+**Authenticated.** Disconnects an OAuth provider from the current account. Returns 422 if the provider is the user's only sign-in method (set a password first).
+
+**Response (200)**: `{ "message": "Provider unlinked" }`

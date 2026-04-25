@@ -10,6 +10,10 @@ For a user-facing walkthrough, see [Bins — Custom Fields](/docs/guide/bins#cus
 
 Location-scoped custom field definitions. Custom fields appear on every bin in the location as key–value text inputs. Admin only for create/update/delete.
 
+::: info Plan requirement
+On the cloud product, mutating endpoints (create / reorder / update / delete) require a **Pro plan** (`requirePro` middleware). Listing custom fields (`GET`) is available on all plans. Self-hosted instances have no plan gate.
+:::
+
 ---
 
 ### GET /api/locations/`{locationId}`/custom-fields
