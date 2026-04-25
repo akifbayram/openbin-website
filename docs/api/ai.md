@@ -11,7 +11,7 @@ For a user-facing walkthrough, see [AI Features](/docs/guide/ai).
 AI provider configuration, photo analysis, transcription, the AI assistant, inventory queries, and bulk reorganization. All inference endpoints stream via Server-Sent Events.
 
 ::: warning Streaming and CSRF
-- Inference endpoints stream over **Server-Sent Events** (`Content-Type: text/event-stream`). Use a streaming HTTP client; do not buffer the response. See [Streaming protocol](#streaming-protocol) below.
+- Inference endpoints stream over Server-Sent Events (`Content-Type: text/event-stream`). Use a streaming HTTP client; do not buffer the response. See [Streaming protocol](#streaming-protocol) below.
 - Cookie-authenticated requests must include the CSRF token (`X-CSRF-Token` header matching the `openbin-csrf` cookie). API-key (`Bearer sk_openbin_…`) requests are exempt.
 :::
 
@@ -181,18 +181,18 @@ For endpoints that return JSON (photo analysis, queries, reorganization), the co
 The client may abort by closing the request; the server cancels the upstream provider call.
 
 ::: info AI credits and plan gating
-- All AI endpoints check the user's plan and remaining credits via `requireAiAccess` + `checkAiCredits`. Credits are debited per request and **refunded automatically** when a stream errors before producing a result.
-- Photo analysis (`analyze-image/stream`, `analyze/stream`, `reanalyze/stream`, `reanalyze-image/stream`) and reorganization (`reorganize/stream`, `reorganize-tags/stream`) additionally require the **Plus or higher** plan on the cloud product.
+- All AI endpoints check the user's plan and remaining credits via `requireAiAccess` + `checkAiCredits`. Credits are debited per request and refunded automatically when a stream errors before producing a result.
+- Photo analysis (`analyze-image/stream`, `analyze/stream`, `reanalyze/stream`, `reanalyze-image/stream`) and reorganization (`reorganize/stream`, `reorganize-tags/stream`) additionally require the Plus or higher plan on the cloud product.
 - Self-hosted instances are not credit-limited.
 :::
 
 ::: info SSRF guard
-Provider calls go through DNS-pinning to prevent access to private network ranges. **Self-hosted mode** relaxes this so local endpoints (e.g. Ollama on `http://localhost:11434/v1`) work. Demo users cannot configure custom endpoints.
+Provider calls go through DNS-pinning to prevent access to private network ranges. Self-hosted mode relaxes this so local endpoints (e.g. Ollama on `http://localhost:11434/v1`) work. Demo users cannot configure custom endpoints.
 :::
 
 ### Conversation history
 
-The unified ask, query, and command endpoints accept an optional `history` array of prior turns to maintain context. The server trims history to the most recent **10 turns** before sending it to the model.
+The unified ask, query, and command endpoints accept an optional `history` array of prior turns to maintain context. The server trims history to the most recent 10 turns before sending it to the model.
 
 ```json
 {

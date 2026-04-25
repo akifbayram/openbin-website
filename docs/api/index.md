@@ -41,7 +41,7 @@ API keys are per-user, not per-location. A single key works across all locations
 API-key requests are exempt from CSRF (see below) and from interactive limiters; AI and batch endpoints have a separate, higher rate-limit bucket for API-key auth.
 
 ::: warning Cookie auth requires CSRF
-For cookie-authenticated **mutating** requests (`POST`, `PUT`, `PATCH`, `DELETE`), the server enforces a double-submit CSRF token: every such request must include an `X-CSRF-Token` header whose value matches the `openbin-csrf` cookie. The web app's `apiFetch()` helper handles this automatically; integrators using cookies must read the cookie and echo it in the header. Bearer (`sk_openbin_…`) requests are exempt.
+For cookie-authenticated mutating requests (`POST`, `PUT`, `PATCH`, `DELETE`), the server enforces a double-submit CSRF token. Each such request must include an `X-CSRF-Token` header whose value matches the `openbin-csrf` cookie. The web app's `apiFetch()` helper handles this automatically; integrators using cookies must read the cookie and echo it in the header. Bearer (`sk_openbin_…`) requests are exempt.
 
 Mismatched or missing tokens return `403 CSRF_INVALID`.
 :::

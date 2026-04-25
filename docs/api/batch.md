@@ -14,7 +14,7 @@ Execute up to 50 bin operations atomically in a single request.
 
 ### POST /api/batch
 
-Executes multiple bin operations in a single request. Operations run sequentially and are **best-effort** — failures of individual operations are reported in the `errors` array while remaining successful operations are committed. The endpoint is **not transactional**: there is no global rollback if a later operation fails.
+Executes multiple bin operations in a single request. Operations run sequentially and are best-effort: individual failures are reported in the `errors` array while the rest commit. The endpoint is not transactional, so there's no global rollback if a later operation fails.
 
 Use it for AI agents, MCP integrations, and bulk UI flows where you want one network round-trip and per-op result reporting.
 
