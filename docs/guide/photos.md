@@ -1,7 +1,5 @@
 # Photos
 
-Bins can have multiple photos. Photos are served through the API with authentication — not publicly accessible without a session.
-
 ## Attaching photos
 
 Open a bin → expand **Photos** → **Upload**. Accepts JPEG, PNG, WebP. Max size configurable via `MAX_PHOTO_SIZE_MB` (default 5 MB).
@@ -23,7 +21,7 @@ Once a photo is attached to a bin, you can run AI analysis on it:
 3. Review the AI's suggestions (bin name, items list, tags, notes).
 4. Apply whichever suggestions are useful.
 
-See [AI Features](/docs/guide/ai#photo-analysis) for details on setting up an AI provider.
+See [Photo Analysis](/docs/guide/ai/photo-analysis) for details on setting up an AI provider.
 
 ## Photo as Card Background
 

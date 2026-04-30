@@ -2,7 +2,7 @@
 blogPost: true
 title: "What kinds of storage bins are there? A field guide"
 description: Snap-lid totes, latching boxes, gasket-sealed bins, HDPE, fabric — a field guide to eight types of plastic storage bins and when to use each.
-date: "2026-04-16"
+date: "2026-04-30"
 author: akifbayram
 tags: [Organization, Storage, Buying Guide]
 cover: /blog/covers/storage-bin-types.webp

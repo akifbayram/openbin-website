@@ -2,7 +2,7 @@
 blogPost: true
 title: How do you keep track of what's in your self storage unit?
 description: 1 in 3 Americans rents a storage unit, paying $119/month on average for 14+ months. A QR-based inventory lets you check what's inside from home.
-date: "2026-04-21"
+date: "2026-04-16"
 author: akifbayram
 tags: [Organization, QR Codes, Storage, Self Storage]
 cover: /blog/covers/self-storage-inventory.webp
@@ -139,7 +139,7 @@ The fix isn't complicated. You need two things: a label on each bin or box that 
 
 **Create a bin for every box, tote, and shelf section.** Each physical container in your unit gets a corresponding bin in the app. "Unit 42 — Shelf Left — Bin 1" and so on. You don't need to be precious about naming. Just specific enough that you'll know where to look when you search.
 
-**Photograph each bin's contents.** Open a box, snap a photo, and OpenBin's [AI photo recognition](/docs/guide/ai) identifies what it sees — furniture types, electronics, books, holiday items. For a box of mixed stuff, this is significantly faster than typing "blue lamp, old router, three photo albums, winter coat."
+**Photograph each bin's contents.** Open a box, snap a photo, and OpenBin's [AI photo recognition](/docs/guide/ai/photo-analysis) identifies what it sees — furniture types, electronics, books, holiday items. For a box of mixed stuff, this is significantly faster than typing "blue lamp, old router, three photo albums, winter coat."
 
 **Print QR labels and stick them on.** Generate a [label sheet](/docs/guide/print-labels) from the app, print it at home, and bring the labels on your next trip. One sticker per bin. After that, scanning a QR code with your phone shows you everything inside that bin without opening it.
 

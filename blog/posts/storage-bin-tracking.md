@@ -109,7 +109,7 @@ I'll use [OpenBin](https://openbin.app) for this walkthrough since I built it an
 
 **Create bins.** Each bin in the app maps to a physical container. Name it something descriptive ("Holiday — lights and tree") or keep it simple ("Garage Bin 14"). Add items to the bin, or let the AI handle that in the next step.
 
-**Photograph the contents.** Open a bin, snap a photo with your phone. OpenBin's [AI photo recognition](/docs/guide/ai) identifies items in the picture and adds them automatically. You review, fix anything it missed, and save. This is optional. You can always type items manually.
+**Photograph the contents.** Open a bin, snap a photo with your phone. OpenBin's [AI photo recognition](/docs/guide/ai/photo-analysis) identifies items in the picture and adds them automatically. You review, fix anything it missed, and save. This is optional. You can always type items manually.
 
 **Print QR labels.** Generate a sheet of QR codes from the [label printing](/docs/guide/print-labels) screen. Pick a standard label size (Avery-compatible) or go custom. Print on any label paper, peel, stick one on each bin. Total cost for labels: whatever the paper costs. A sheet of Avery 5160 labels is about $0.03 per sticker.
 

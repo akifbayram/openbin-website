@@ -1,6 +1,6 @@
 # What is OpenBin?
 
-OpenBin is an open source inventory system where AI handles the cataloging. Photograph your bins and it identifies what's inside, even across multiple containers at once. When your hands are full, dictate items by voice instead. It can also suggest how to reorganize your storage for a better layout. An activity graph shows how often you actually access each item, so you can decide what's worth keeping. Print QR labels to scan any bin from your phone.
+OpenBin is an open source inventory system where AI handles the cataloging. Photograph your bins and it identifies what's inside, even across multiple containers at once. When your hands are full, dictate items by voice instead. It can also suggest how to reorganize your storage for a better layout. 
 
 ## How it works
 
@@ -19,9 +19,9 @@ OpenBin organizes physical storage using a hierarchy:
 2. [Set up areas](/docs/guide/locations) to organize your space (optional)
 3. Add your bins and items:
     - [Create bins](/docs/guide/bins) manually and add items yourself, or
-    - [Upload photos](/docs/guide/ai) and let AI detect the objects for you
-4. [Print QR labels](/docs/guide/print-labels) and attach them to your bins
-5. [Scan a label](/docs/guide/qr-scanning) to see what's inside
+    - [Upload photos](/docs/guide/ai/photo-analysis) and let AI detect the objects for you
+4. [Print labels](/docs/guide/print-labels) and attach them to your bins
+5. [Scan a label](/docs/guide/qr-scanning) to see and update what's inside
 
 ## Who it's for
 
@@ -68,5 +68,5 @@ Open `http://localhost:1453` and create your first location. If you'd rather not
 - [Install with Docker](/docs/getting-started/docker) — running in under a minute
 - [Create your first bins](/docs/guide/bins) — set up your inventory
 - [Print QR labels](/docs/guide/print-labels) — label your physical containers
-- [Set up AI](/docs/guide/ai) — optional photo analysis and smart features
+- [Set up AI](/docs/guide/ai/) — optional photo analysis and smart features
 - [API Reference](/docs/api/) — build integrations

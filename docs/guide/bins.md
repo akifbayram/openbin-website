@@ -1,6 +1,6 @@
 # Bins
 
-Each bin represents a physical container — a box, drawer, or shelf — with items, tags, notes, and visual settings.
+Each bin represents a physical container — a bin, tote, box, drawer, or shelf — with items, tags, notes, custom fields, and visual settings.
 
 ## View modes
 

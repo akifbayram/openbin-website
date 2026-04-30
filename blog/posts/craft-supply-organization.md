@@ -90,7 +90,7 @@ That's what QR labels + an inventory app solve. For a detailed explanation of ho
 
 Pick whatever matches how you actually search for things. If you think "I need blue fabric," organize by color. If you think "I need worsted-weight," organize by weight.
 
-**Photograph each bin.** Open it, snap a photo. OpenBin's [AI photo recognition](/docs/guide/ai) identifies supplies from the image — "teal yarn skein," "red cotton fabric," "wooden knitting needles." You review, tweak the descriptions, and save. This is where the time savings are biggest. A bin of thirty yarn skeins would take five minutes to type out. The AI handles it in seconds.
+**Photograph each bin.** Open it, snap a photo. OpenBin's [AI photo recognition](/docs/guide/ai/photo-analysis) identifies supplies from the image — "teal yarn skein," "red cotton fabric," "wooden knitting needles." You review, tweak the descriptions, and save. This is where the time savings are biggest. A bin of thirty yarn skeins would take five minutes to type out. The AI handles it in seconds.
 
 **Print QR labels.** Generate a [label sheet](/docs/guide/print-labels), print on any label paper, stick one on each bin. Scan a bin's QR code from your phone and you see its full contents with photos.
 

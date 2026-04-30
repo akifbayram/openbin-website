@@ -282,6 +282,7 @@ export default defineConfig({
         },
         {
           text: 'Getting Started',
+          link: '/docs/getting-started/',
           collapsed: false,
           items: [
             { text: 'Docker', link: '/docs/getting-started/docker' },
@@ -316,7 +317,18 @@ export default defineConfig({
           text: 'AI & Integrations',
           collapsed: false,
           items: [
-            { text: 'AI Features', link: '/docs/guide/ai' },
+            {
+              text: 'AI',
+              collapsed: true,
+              items: [
+                { text: 'Overview & Setup', link: '/docs/guide/ai/' },
+                { text: 'Photo Analysis', link: '/docs/guide/ai/photo-analysis' },
+                { text: 'AI Assistant', link: '/docs/guide/ai/assistant' },
+                { text: 'AI Reorganization', link: '/docs/guide/ai/reorganization' },
+                { text: 'Task Routing', link: '/docs/guide/ai/task-routing' },
+                { text: 'Custom Prompts & Tuning', link: '/docs/guide/ai/advanced' },
+              ],
+            },
             { text: 'API Keys', link: '/docs/guide/api-keys' },
             { text: 'MCP Server', link: '/docs/guide/mcp-server' },
             { text: 'Import & Export', link: '/docs/guide/import-export' },

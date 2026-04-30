@@ -21,7 +21,7 @@ If an AI provider is configured, OpenBin analyzes each group's photos together a
 If AI isn't configured (or is temporarily unavailable), you skip straight to Review with empty suggestions and fill everything in by hand.
 
 ::: tip
-Bulk Add works without AI, but it's most useful when the AI is doing the recognition work. With a provider configured, you can label a closet of bins in a few minutes. See [AI Features](/docs/guide/ai) for setup.
+Bulk Add works without AI, but it's most useful when the AI is doing the recognition work. With a provider configured, you can label a closet of bins in a few minutes. See [AI Overview](/docs/guide/ai/) for setup.
 :::
 
 ## Step 3 — Review
@@ -43,5 +43,5 @@ Confirm the summary and tap **Create**. Each group becomes a bin with the review
 ## Requirements
 
 - Member or admin role; viewers cannot use Bulk Add.
-- An AI provider for the auto-analysis step (otherwise you fill in everything manually). See [AI Features](/docs/guide/ai).
+- An AI provider for the auto-analysis step (otherwise you fill in everything manually). See [AI Overview](/docs/guide/ai/).
 - Photos follow the same format and size limits as regular bin photos. See [Photos](/docs/guide/photos).

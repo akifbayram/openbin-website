@@ -1,48 +1,24 @@
 # Print Labels
 
-![Print labels](/screenshots/print-labels.webp)
-
 ## Print Modes
 
-OpenBin supports three print modes: **Labels**, **Names**, and **Item List** — toggle between them at the top of the print page.
-
-### Labels
-
-QR-coded sheets sized to standard label paper (Avery 5160 and friends). The default for scanning bins back to their detail page.
-
-![Labels mode preview](/screenshots/print-labels-preview.webp)
-
-### Names
-
-Color-coded name cards with icons. Useful for shelf labels, drawer fronts, or anywhere you want a visible tag rather than a scannable code.
-
-![Names mode](/screenshots/print-names.webp)
-
-### Item List
-
-Text-based inventory checklists with quantities, optional QR header, and write-in notes columns. Built for audits, packing lists, and offline inventory checks.
-
-![Item List mode](/screenshots/print-item-list.webp)
+OpenBin supports three print modes: **Labels**, **Names**, and **Item List**. The mode is selected with the **Print Mode** toggle at the top of the left panel. 
 
 ## Selecting Bins
 
 The left panel shows bins grouped by area with checkboxes. Select individual bins, all bins, or all bins within an area. The preview updates live.
 
-## Label Modes
+## Labels
 
-A label's rendered mode is chosen automatically from the Label Options toggles (QR Code, Bin Name, Bin Icon, Bin Code, Color Background). The three resulting modes are:
+QR-coded sheets sized to pre-defined popular label formats. 
 
-| Mode | When | Description |
-|---|---|---|
-| `plain-qr` | QR Code is shown (default) | QR code with bin name and short code. Color Background can be turned on to fill the label with the bin's color, or kept off for a black-and-white label suitable for thermal printers. |
-| `icon-only` | QR Code is off and Bin Icon is on | Large icon centered on the label, with optional name and code. Useful when scanning isn't needed. |
-| `text-only` | QR Code is off and Bin Icon is off | Bin name (and optional code) only. Useful for shelf or drawer labels. |
+![Print labels](/screenshots/print-labels.webp)
 
 ### Label Options
 
 | Toggle | Effect |
 |---|---|
-| QR Code | Show or hide the QR. Off → label switches to `icon-only` or `text-only`. |
+| QR Code | Show or hide the QR. |
 | Bin Name | Show or hide the bin name on the label. |
 | Bin Icon | Show or hide the bin's icon. |
 | Bin Code | Show or hide the 6-character short code as text. |
@@ -50,25 +26,17 @@ A label's rendered mode is chosen automatically from the Label Options toggles (
 | Label Direction | `auto`, `horizontal`, or `vertical` — controls QR/text layout. `auto` picks the better fit for the chosen format. |
 | Copies per label | Print 1–10 duplicates of each selected bin in one run. |
 
-## Item List Mode
+## Item List
 
-In addition to label sheets, you can print a text-based item list:
+Text-based inventory checklists with quantities, optional QR header, and write-in notes columns. Built for audits, packing lists, and offline inventory checks.
 
-1. Switch the **Print Mode** toggle from **Labels** to **Item List**.
-2. Select the bins to include.
-3. Configure options: whether to show areas, tags, quantities, and how items are grouped.
-4. Click **Print** or **Download PDF**.
+![Item List mode](/screenshots/print-item-list.webp)
 
-Item list mode is useful for inventory checklists, packing lists, or auditing what's in each bin without QR codes.
+## Names
 
-## Name Cards Mode
+Name cards with optional icons and color-coding. Useful for shelf labels, drawer fronts, or anywhere you want a visible tag rather than a scannable code.
 
-Name cards print a grid of bin names without QR codes. They work well for shelf labels, drawer fronts, or anywhere you need a visible name tag rather than a scannable code.
-
-1. Switch the **Print Mode** toggle to **Names**.
-2. Select the bins to include.
-3. Configure the options described below.
-4. Click **Print** or **Download PDF**.
+![Names mode](/screenshots/print-names.webp)
 
 The **Name Options** card controls what each card displays:
 

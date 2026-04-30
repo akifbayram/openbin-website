@@ -58,7 +58,7 @@ For a deeper walkthrough of how QR bin tracking works, see [how to keep track of
 
 Each bin in the app maps to a physical container. Six bins, six entries. For what kind of plastic bin to buy (snap-lid vs. latching vs. gasket-sealed), see [the storage bin field guide](/blog/posts/storage-bin-types).
 
-**Photograph everything before you close the lid.** This is where the AI helps. Open a bin, snap a photo, and OpenBin's [photo recognition](/docs/guide/ai) lists what it sees. It'll identify "string lights," "ornament storage box," "extension cord" without you typing a word. Review the list, adjust anything it missed, and save.
+**Photograph everything before you close the lid.** This is where the AI helps. Open a bin, snap a photo, and OpenBin's [photo recognition](/docs/guide/ai/photo-analysis) lists what it sees. It'll identify "string lights," "ornament storage box," "extension cord" without you typing a word. Review the list, adjust anything it missed, and save.
 
 **Print QR labels and stick them on the lids.** Generate a label sheet from the [print labels](/docs/guide/print-labels) screen. Peel, stick, done. One sticker per bin. Standard label paper works. About three cents per sticker if you're using Avery sheets.
 

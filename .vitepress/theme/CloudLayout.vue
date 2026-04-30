@@ -35,7 +35,7 @@ const plans = computed(() => [
       { name: 'Areas & tags', included: true, link: '/docs/guide/items-tags/' },
       { name: 'Saved views', included: true, link: '/docs/guide/search-filter/' },
       { name: 'Bulk operations', included: true, link: '/docs/guide/bulk-operations/' },
-      { name: 'AI assistant', included: true, link: '/docs/guide/ai.html#ai-assistant' },
+      { name: 'AI assistant', included: true, link: '/docs/guide/ai/assistant.html' },
       { name: 'Community support', included: true},
 
     ],
@@ -63,9 +63,9 @@ const plans = computed(() => [
       { name: 'Saved views', included: true, link: '/docs/guide/search-filter/' },
       { name: 'Bulk operations', included: true, link: '/docs/guide/bulk-operations/' },
       { name: 'Photo upload', included: true, link: '/docs/guide/photos/' },
-      { name: 'AI assistant', included: true, link: '/docs/guide/ai.html#ai-assistant' },
-      { name: 'AI reorganization (10 bins at a time)', included: true, link: '/docs/guide/ai.html#ai-reorganization' },
-      { name: 'AI object recognition', included: true, link: '/docs/guide/ai.html#ai-object-recognition' },
+      { name: 'AI assistant', included: true, link: '/docs/guide/ai/assistant.html' },
+      { name: 'AI reorganization (10 bins at a time)', included: true, link: '/docs/guide/ai/reorganization.html' },
+      { name: 'AI object recognition', included: true, link: '/docs/guide/ai/photo-analysis.html' },
       { name: 'Priority support', included: true},
     ],
   },
@@ -93,9 +93,9 @@ const plans = computed(() => [
       { name: 'Saved views', included: true, link: '/docs/guide/search-filter/' },
       { name: 'Bulk operations', included: true, link: '/docs/guide/bulk-operations/' },
       { name: 'Photo upload', included: true, link: '/docs/guide/photos/' },
-      { name: 'AI assistant', included: true, link: '/docs/guide/ai.html#ai-assistant' },
-      { name: 'AI reorganization (40 bins at a time)', included: true, link: '/docs/guide/ai.html#ai-reorganization' },
-      { name: 'AI object recognition', included: true, link: '/docs/guide/ai.html#ai-object-recognition' },
+      { name: 'AI assistant', included: true, link: '/docs/guide/ai/assistant.html' },
+      { name: 'AI reorganization (40 bins at a time)', included: true, link: '/docs/guide/ai/reorganization.html' },
+      { name: 'AI object recognition', included: true, link: '/docs/guide/ai/photo-analysis.html' },
       { name: 'Priority support', included: true},
       { name: 'Custom fields', included: true },
       { name: 'API keys', included: true, link: '/docs/guide/api-keys/' },
@@ -371,7 +371,7 @@ onMounted(() => {
             An AI action is one request to the AI: scanning a photo, chatting with the AI assistant, searching your inventory, or generating a reorganization suggestion. Each request uses one action from your monthly allowance.
           </p>
           <p class="mt-4" style="color: var(--vp-c-text-2)">
-            The <a href="/docs/guide/ai.html#ai-assistant" class="pricing-feature-link">AI assistant</a> and <a href="/docs/guide/ai.html#inventory-search" class="pricing-feature-link">inventory search</a> are included with every plan. <a href="/docs/guide/ai.html#photo-analysis" class="pricing-feature-link">Photo analysis</a>, <a href="/docs/guide/ai.html#ai-reorganization" class="pricing-feature-link">AI reorganization</a>, and <a href="/docs/guide/ai.html#ai-object-recognition" class="pricing-feature-link">object recognition</a> are available on Plus and Pro.
+            The <a href="/docs/guide/ai/assistant.html" class="pricing-feature-link">AI assistant</a> and <a href="/docs/guide/ai/assistant.html" class="pricing-feature-link">inventory search</a> are included with every plan. <a href="/docs/guide/ai/photo-analysis.html" class="pricing-feature-link">Photo analysis</a>, <a href="/docs/guide/ai/reorganization.html" class="pricing-feature-link">AI reorganization</a>, and <a href="/docs/guide/ai/photo-analysis.html" class="pricing-feature-link">object recognition</a> are available on Plus and Pro.
           </p>
         </div>
       </div>

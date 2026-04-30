@@ -91,7 +91,7 @@ For a detailed walkthrough of how QR bin tracking works in general, see [how to 
 
 Specificity matters here more than in other storage categories. Knowing a game is "in the garage" isn't enough. Knowing that expansion components are split across two bins is the information that actually saves you time on game night.
 
-**Use photo recognition for bins of components.** Open a bin full of bagged game components, snap a photo, and OpenBin's [AI photo recognition](/docs/guide/ai) identifies what it sees. It picks up game box art, component types, and card backs. For mixed bins, this is faster than typing out every item.
+**Use photo recognition for bins of components.** Open a bin full of bagged game components, snap a photo, and OpenBin's [AI photo recognition](/docs/guide/ai/photo-analysis) identifies what it sees. It picks up game box art, component types, and card backs. For mixed bins, this is faster than typing out every item.
 
 **Print QR labels.** Generate a [label sheet](/docs/guide/print-labels), stick one on each bin, shelf section, or tote. Scan to see contents. Search across everything.
 

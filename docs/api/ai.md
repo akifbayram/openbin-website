@@ -5,7 +5,7 @@ title: AI
 # AI
 
 ::: tip User Guide
-For a user-facing walkthrough, see [AI Features](/docs/guide/ai).
+For a user-facing walkthrough, see [AI Overview](/docs/guide/ai/).
 :::
 
 AI provider configuration, photo analysis, transcription, the AI assistant, inventory queries, and bulk reorganization. All inference endpoints stream via Server-Sent Events.
