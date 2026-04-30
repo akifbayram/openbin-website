@@ -58,7 +58,7 @@ Yes, if your QR code mode is set to `url`. In URL mode, QR codes encode a web ad
 
 ### AI isn't analyzing my photos
 
-AI is optional and requires configuration. You need to set an AI provider (OpenAI, Anthropic, or Google Gemini) with a valid API key. Check [AI Features](/docs/guide/ai) for setup instructions.
+AI is optional and requires configuration. You need to set an AI provider (OpenAI, Anthropic, or Google Gemini) with a valid API key. Check [AI Overview](/docs/guide/ai/) for setup instructions.
 
 ### Which AI provider should I use?
 
@@ -86,6 +86,50 @@ See [Import & Export](/docs/guide/import-export) for details.
 ### Can I import from a spreadsheet?
 
 Yes. OpenBin supports CSV, TSV, and XLSX imports with column mapping. Imports always create new bins. See [Import & Export](/docs/guide/import-export).
+
+## Account
+
+### How do I delete my account?
+
+In the app: **Settings → Account → Danger Zone → Delete Account**. The dialog walks you through three steps:
+
+1. **Review** — what gets deleted (your sole-member locations, your bins, your photos) and what's preserved (locations shared with others — your bins there stay but lose attribution).
+2. **Subscription** (cloud, paid plans only) — choose whether to cancel with no refund, or cancel and refund the unused time. The default refund policy is set by the operator.
+3. **Confirm** — type `delete my account` and (if you have a password) enter it.
+
+After confirming, your account is **scheduled for deletion in 30 days**. You stay logged out, your subscription is cancelled, and a confirmation email is sent. After 30 days the account and all owned data are permanently removed.
+
+### I deleted my account by mistake — can I recover it?
+
+Yes, within the 30-day window. Just try to log in. The app will detect the pending deletion and offer to recover the account on the spot — no support ticket needed.
+
+After 30 days the deletion is permanent and cannot be reversed.
+
+### Will I be refunded if I cancel mid-period?
+
+It depends on the policy you chose at deletion time:
+
+- **No refund** (default) — your subscription is cancelled immediately and you keep no access. The current period's payment is forfeited.
+- **Prorated refund** — the unused portion of your current billing period is refunded to your original payment method, typically within 5–10 business days.
+
+Self-hosted instances don't have subscriptions, so neither option applies.
+
+### What happens to my locations when I delete?
+
+- **Sole-member locations** (just you) are deleted along with all their bins, items, and photos.
+- **Shared locations** (you + others) are preserved — your co-members keep all the data. Your bins inside them stay too, but the "created by" attribution clears to nothing.
+- **Locations where you're the sole admin but other members exist** — deletion is blocked. Promote another member to admin first, or remove the other members. The error message lists exactly which locations are affected.
+
+### What happens to my data after deletion?
+
+After the 30-day grace period:
+
+- Your account, refresh tokens, API keys, photos, attachments, sole-member locations and their contents, and any AI/email metadata are permanently deleted.
+- Bins/photos in shared locations remain but show no creator.
+- Activity log entries you authored remain so other members can see the history.
+- Cloud only: your billing customer record is removed and the Stripe subscription is fully cancelled.
+
+If you want a copy of your data before deleting, export it first via **Settings → Data → Export**.
 
 ## Still stuck?
 
