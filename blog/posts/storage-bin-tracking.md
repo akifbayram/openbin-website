@@ -75,7 +75,7 @@ There are roughly four approaches, in order of how much they ask from you:
 | Handwritten labels | No | No | Sort of | No | Free |
 | Spreadsheet | Yes | Awkward | With sharing | Rarely | Free |
 | Generic QR generator | Scan only | No | No | Manual | Free–$20 |
-| Inventory app with QR | Yes | Yes | Yes | Yes | Free–$6/mo |
+| Inventory app with QR | Yes | Yes | Yes | Yes | Free–$30/qtr |
 
 Handwritten labels work for five bins. Past that, you're relying on memory.
 

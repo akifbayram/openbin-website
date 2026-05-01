@@ -23,7 +23,7 @@ I tested and compared seven of them. A few are genuinely good. Others are overpr
 
 | App | QR labels | Photos | AI | Multi-user | Self-host | Free tier | Paid price |
 |-----|:---------:|:------:|:--:|:----------:|:---------:|:---------:|------------|
-| **OpenBin** | Print your own | Paid | Yes | Paid | Yes | 10 bins | $3–6/mo cloud |
+| **OpenBin** | Print your own | Paid | Yes | Paid | Yes | 10 bins | $15–30/qtr cloud |
 | **ToteScan** | Buy theirs | Yes | No | Yes | No | Unlimited | Labels ~$12–17/pack |
 | **Sortly** | Paid only | Yes | No | Paid only | No | 100 items | $24–299/mo |
 | **Homebox** | Print your own | Yes | Add-on | Yes | Yes | Unlimited | Free |
@@ -31,7 +31,7 @@ I tested and compared seven of them. A few are genuinely good. Others are overpr
 | **QR Smart Labels** | Buy theirs | Yes | No | No | No | Unlimited | $15/yr |
 | **Snipe-IT** | Print your own | Yes | No | Yes | Yes | Unlimited | $40–250/mo cloud |
 
-A note on "Paid" in the table: OpenBin's AI assistant and search work on all plans including free. Photo upload, AI photo analysis, and AI reorganization require Plus ($3/mo) or Pro ($6/mo). Multi-user (up to 10 members) requires Pro. The self-hosted version has none of these limits.
+A note on "Paid" in the table: OpenBin's AI assistant and search work on all plans including free. Photo upload, AI photo analysis, and AI reorganization require Plus ($15/qtr) or Pro ($30/qtr). Multi-user (up to 10 members) requires Pro. The self-hosted version has none of these limits.
 
 <figure style="margin: 2rem 0; text-align: center;">
   <svg viewBox="0 0 560 420" style="max-width: 100%; height: auto; font-family: 'Inter', system-ui, sans-serif" role="img" aria-label="Radar chart comparing OpenBin, Sortly, and Homebox across five dimensions: AI features, free tier generosity, self-hosting, UI polish, and multi-user support">
@@ -101,10 +101,10 @@ OpenBin also records every QR scan as a usage event and renders an [activity hea
 Three cloud tiers:
 
 - **Free:** 10 bins, 1 location, 1 member, 5 AI actions/month, CSV export. No photos.
-- **Plus ($3/mo):** 100 bins, photo upload (100 MB), AI photo analysis, AI reorganization (10 bins at a time), 20 AI actions/month, full JSON/ZIP export.
-- **Pro ($6/mo):** 1,000 bins, 10 locations, 10 members per location, 1 GB photos, 100 AI actions/month, AI reorganization (40 bins at a time), API keys, custom fields, bin sharing links.
+- **Plus ($15/qtr):** 100 bins, photo upload (100 MB), AI photo analysis, AI reorganization (10 bins at a time), 20 AI actions/month, full JSON/ZIP export.
+- **Pro ($30/qtr):** 1,000 bins, 10 locations, 10 members per location, 1 GB photos, 100 AI actions/month, AI reorganization (40 bins at a time), API keys, custom fields, bin sharing links.
 
-Annual billing drops Plus to $2.50/mo and Pro to $5/mo.
+Annual billing drops Plus to $50/year and Pro to $100/year — about 17% off the quarterly rate.
 
 The self-hosted version has none of these limits. One Docker container, runs on a Raspberry Pi, and you control everything.
 
@@ -212,7 +212,7 @@ Not with every app. OpenBin, Homebox, and Snipe-IT let you generate and print yo
 
 ### Which app is best for a household on a budget?
 
-OpenBin self-hosted or Homebox — both are free and open source with no limits. OpenBin's free cloud tier works for small setups (10 bins) and includes basic AI. Homebox is self-hosted only. If you want photos and AI photo recognition on the cloud without self-hosting, OpenBin Plus is $3/month.
+OpenBin self-hosted or Homebox — both are free and open source with no limits. OpenBin's free cloud tier works for small setups (10 bins) and includes basic AI. Homebox is self-hosted only. If you want photos and AI photo recognition on the cloud without self-hosting, OpenBin Plus is $15 per quarter.
 
 ### Can I switch apps later without losing my data?
 
@@ -224,7 +224,7 @@ No. Sortly has the best UI but costs too much for personal use. ToteScan has the
 
 ## Which storage bin tracking app should you pick?
 
-The right app depends on what matters to you. If you want the simplest possible setup and don't mind buying labels, ToteScan or Elephant Trax will get you started in five minutes. If you want full control over your data and don't mind running Docker, Homebox or OpenBin give you that for free with no limits. If you want AI-powered cataloging and household sharing without self-hosting, OpenBin's cloud plans start at $3/month.
+The right app depends on what matters to you. If you want the simplest possible setup and don't mind buying labels, ToteScan or Elephant Trax will get you started in five minutes. If you want full control over your data and don't mind running Docker, Homebox or OpenBin give you that for free with no limits. If you want AI-powered cataloging and household sharing without self-hosting, OpenBin's cloud plans start at $15 per quarter.
 
 The one approach I'd avoid: building a DIY system with generic QR codes and spreadsheets. It sounds simple, but it falls apart the moment your collection grows past ten bins. Every app on this list exists because someone tried the spreadsheet approach first and gave up.
 

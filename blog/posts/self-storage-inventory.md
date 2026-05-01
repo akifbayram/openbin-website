@@ -181,4 +181,4 @@ That's one of the best uses. If you can see everything you're storing from your 
 
 The [self-storage industry is worth $45.3 billion](https://www.mordorintelligence.com/industry-reports/united-states-self-storage-market), and a meaningful chunk of that revenue comes from people who've lost track of what they're paying for. You don't have to be one of them.
 
-OpenBin is [free to self-host](/docs/getting-started/) and has a [cloud option](https://openbin.app/cloud) starting at $3/month if you'd rather not run your own server. Either way, the setup takes less time than one wasted trip to a storage unit.
+OpenBin is [free to self-host](/docs/getting-started/) and has a [cloud option](https://openbin.app/cloud) starting at $15/quarter if you'd rather not run your own server. Either way, the setup takes less time than one wasted trip to a storage unit.

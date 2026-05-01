@@ -32,8 +32,8 @@ OpenBin Cloud provides managed hosting so you do not need to run your own server
 Three plans are available:
 
 - **Free** — basic inventory management, no cost
-- **Plus** ($3/month) — expanded limits and additional features
-- **Pro** ($6/month) — full feature set including advanced AI capabilities
+- **Plus** ($15/quarter) — expanded limits and additional features
+- **Pro** ($30/quarter) — full feature set including advanced AI capabilities
 
 Plan details and feature comparisons are listed on the [Cloud page](/cloud).
 
@@ -45,9 +45,9 @@ When you self-host, you are responsible for your own infrastructure, security, b
 
 ## Pricing and billing
 
-Paid plans are billed monthly through our billing portal at [billing.openbin.app](https://billing.openbin.app). Prices are listed in USD.
+Paid plans are billed quarterly or annually through our billing portal at [billing.openbin.app](https://billing.openbin.app). Prices are listed in USD.
 
-You can cancel your subscription at any time. When you cancel, your account drops to the Free tier at the end of the current billing period. No refunds are issued for partial months.
+You can cancel your subscription at any time. When you cancel, your account drops to the Free tier at the end of the current billing period. No refunds are issued for partial billing periods.
 
 We may change pricing with 30 days notice. Active subscribers will be notified by email before any price change takes effect.
 

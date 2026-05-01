@@ -3,7 +3,7 @@ import { ref, computed, onMounted } from 'vue'
 import { cloudFaqs as faqs } from '../data/faqs'
 
 // ── Billing toggle ──
-const billing = ref('monthly')
+const billing = ref('quarterly')
 
 // ── FAQ accordion ──
 const openFaq = ref(null)
@@ -17,7 +17,7 @@ const plans = computed(() => [
     name: 'Free',
     badge: null,
     price: '$0',
-    priceDetail: '/month',
+    priceDetail: billing.value === 'quarterly' ? '/quarter' : '/year',
     description: 'No card required.',
     cta: 'Sign Up Free',
     ctaLink: 'https://cloud.openbin.app/',
@@ -43,8 +43,8 @@ const plans = computed(() => [
   {
     name: 'Plus',
     badge: null,
-    price: billing.value === 'monthly' ? '$3' : '$2.50',
-    priceDetail: billing.value === 'monthly' ? '/month' : '/mo, billed annually',
+    price: billing.value === 'quarterly' ? '$15' : '$50',
+    priceDetail: billing.value === 'quarterly' ? '/quarter' : '/year',
     description: 'One person, one location.',
     cta: 'Start Free Trial',
     ctaLink: 'https://cloud.openbin.app/',
@@ -73,8 +73,8 @@ const plans = computed(() => [
     name: 'Pro',
     badge: 'Best Value',
     badgeClass: 'plan-badge--popular',
-    price: billing.value === 'monthly' ? '$6' : '$5',
-    priceDetail: billing.value === 'monthly' ? '/month' : '/mo, billed annually',
+    price: billing.value === 'quarterly' ? '$30' : '$100',
+    priceDetail: billing.value === 'quarterly' ? '/quarter' : '/year',
     description: 'Share it with your team.',
     cta: 'Get Pro',
     ctaLink: 'https://cloud.openbin.app/',
@@ -217,12 +217,12 @@ onMounted(() => {
         >
           <button
             role="radio"
-            :aria-checked="billing === 'monthly'"
+            :aria-checked="billing === 'quarterly'"
             class="billing-pill"
-            :class="{ 'billing-pill--active': billing === 'monthly' }"
-            @click="billing = 'monthly'"
+            :class="{ 'billing-pill--active': billing === 'quarterly' }"
+            @click="billing = 'quarterly'"
           >
-            Monthly
+            Quarterly
           </button>
           <button
             role="radio"
