@@ -181,8 +181,9 @@ For endpoints that return JSON (photo analysis, queries, reorganization), the co
 The client may abort by closing the request; the server cancels the upstream provider call.
 
 ::: info AI credits and plan gating
-- All AI endpoints check the user's plan and remaining credits via `requireAiAccess` + `checkAiCredits`. Credits are debited per request and refunded automatically when a stream errors before producing a result.
-- Photo analysis (`analyze-image/stream`, `analyze/stream`, `reanalyze/stream`, `reanalyze-image/stream`) and reorganization (`reorganize/stream`, `reorganize-tags/stream`) additionally require the Plus or higher plan on the cloud product.
+- All AI endpoints check the user's plan and remaining credits via `requireAiAccess` + `checkAiCredits(weight)`. Credits are debited per request and refunded automatically when a stream errors before producing a result.
+- Flat per-unit cost: quick-text endpoints (`ask`, `command`, `query`, `structure-text`, `correct`) cost **1 credit**, vision endpoints (`analyze-image`, `analyze`, `reanalyze`, `reanalyze-image`) cost **5 × imageCount** credits, and reorganize endpoints (`reorganize`, `reorganize-tags`) cost **2 × binCount** credits. See [Task Routing → Cloud AI credits](/docs/guide/ai/task-routing#cloud-ai-credits) for headline budgets.
+- Photo analysis and reorganize endpoints additionally require the Plus or higher plan on the cloud product.
 - Self-hosted instances are not credit-limited.
 :::
 

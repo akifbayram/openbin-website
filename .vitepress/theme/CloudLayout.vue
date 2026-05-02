@@ -28,7 +28,7 @@ const plans = computed(() => [
       { label: 'Locations', value: '1' },
       { label: 'Members', value: '1' },
       { label: 'Photo storage', value: '—' },
-      { label: 'AI actions', value: '5/mo' },
+      { label: 'AI credits', value: '30/mo' },
     ],
     features: [
       { name: 'Custom labels', included: true, link: '/docs/guide/print-labels/' },
@@ -43,7 +43,7 @@ const plans = computed(() => [
   {
     name: 'Plus',
     badge: null,
-    price: billing.value === 'quarterly' ? '$15' : '$50',
+    price: billing.value === 'quarterly' ? '$9' : '$50',
     priceDetail: billing.value === 'quarterly' ? '/quarter' : '/year',
     description: 'One person, one location.',
     cta: 'Start Free Trial',
@@ -55,7 +55,7 @@ const plans = computed(() => [
       { label: 'Locations', value: '1' },
       { label: 'Members', value: '1' },
       { label: 'Photo storage', value: '100 MB' },
-      { label: 'AI actions', value: '20/mo' },
+      { label: 'AI credits', value: '100/mo' },
     ],
     features: [
       { name: 'Custom labels', included: true, link: '/docs/guide/print-labels/' },
@@ -73,7 +73,7 @@ const plans = computed(() => [
     name: 'Pro',
     badge: 'Best Value',
     badgeClass: 'plan-badge--popular',
-    price: billing.value === 'quarterly' ? '$30' : '$100',
+    price: billing.value === 'quarterly' ? '$18' : '$100',
     priceDetail: billing.value === 'quarterly' ? '/quarter' : '/year',
     description: 'Share it with your team.',
     cta: 'Get Pro',
@@ -85,7 +85,7 @@ const plans = computed(() => [
       { label: 'Locations', value: '10' },
       { label: 'Members', value: '10/loc' },
       { label: 'Photo storage', value: '1 GB' },
-      { label: 'AI actions', value: '100/mo' },
+      { label: 'AI credits', value: '700/mo' },
     ],
     features: [
       { name: 'Custom labels', included: true, link: '/docs/guide/print-labels/' },
@@ -129,7 +129,7 @@ const comparison = [
   {
     category: 'AI',
     rows: [
-      { feature: 'AI actions', free: '5/mo', plus: '20/mo', pro: '100/mo', link: '/docs/guide/ai/' },
+      { feature: 'AI credits (rolling 30 days)', free: '30/mo', plus: '100/mo', pro: '700/mo', link: '/docs/guide/ai/task-routing#cloud-ai-credits' },
       { feature: 'AI assistant', free: true, plus: true, pro: true, link: '/docs/guide/ai/' },
       { feature: 'AI reorganization', free: false, plus: '10 bins/run', pro: '40 bins/run', link: '/docs/guide/ai/' },
       { feature: 'AI object recognition', free: false, plus: true, pro: true, link: '/docs/guide/ai/' },

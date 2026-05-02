@@ -68,7 +68,24 @@ When the server-wide `AI_API_KEY` (or one of the per-group `AI_VISION_API_KEY` /
 
 ## Cloud AI credits
 
-On the cloud product, each paid plan includes a monthly AI credit budget. Credits are debited per AI request and refunded automatically if a request fails before producing a result. Your remaining credits and reset date are visible in **Settings → AI**. Self-hosted instances are not credit-limited; AI calls go directly to your configured provider.
+On the cloud product, each plan includes an AI credit budget on a **rolling 30-day window** — the period resets 30 days after your first request, not on the calendar month. Self-hosted instances are not credit-limited; AI calls go directly to your configured provider.
+
+Cost is flat per unit — no formulas, no batch discounts:
+
+| Class | What it covers | Credit cost |
+|---|---|---|
+| Quick text | Ask, command, query, structure-text, correct | **1 per request** |
+| Vision | Photo analysis, reanalysis | **5 per image** — so 1 photo = 5, 2 = 10, 3 = 15 |
+| Reorganize | Reorganize, tag suggestions | **2 per bin** — so 7 bins = 14, 30 = 60, 100 = 200 |
+
+Headline budgets:
+
+- **Free**: 30 credits/month
+- **Plus**: 100 credits/month
+- **Pro**: 700 credits/month
+- **Trial**: 75 lifetime credits (no monthly reset)
+
+Credits are debited atomically before each request and refunded automatically if the upstream provider fails before producing a usable result. Your remaining credits and reset date are visible in **Settings → AI**, and the in-app composer surfaces the per-request cost before you submit.
 
 ## Network security (self-hosted)
 
