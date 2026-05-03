@@ -364,14 +364,14 @@ onMounted(() => {
           Free plan &middot; 7-day Plus subscription trial &middot; No credit card required
         </p>
 
-        <!-- AI actions explainer -->
+        <!-- AI credits explainer -->
         <div class="scroll-reveal ai-actions-explainer mx-auto mt-10 max-w-3xl text-left">
-          <h3 class="text-xl font-semibold" style="color: var(--vp-c-text-1)">What counts as an AI action?</h3>
+          <h3 class="text-xl font-semibold" style="color: var(--vp-c-text-1)">How AI credits work</h3>
           <p class="mt-4" style="color: var(--vp-c-text-2)">
-            An AI action is one request to the AI: scanning a photo, chatting with the AI assistant, searching your inventory, or generating a reorganization suggestion. Each request uses one action from your monthly allowance.
+            Cost is flat per unit — no formulas, no batch discounts. <strong>1 credit</strong> per chat or command, <strong>5 credits</strong> per photo analyzed, and <strong>2 credits</strong> per bin in a reorganize. The in-app composer surfaces the projected cost before you submit, and failed requests are refunded automatically.
           </p>
           <p class="mt-4" style="color: var(--vp-c-text-2)">
-            The <a href="/docs/guide/ai/assistant.html" class="pricing-feature-link">AI assistant</a> and <a href="/docs/guide/ai/assistant.html" class="pricing-feature-link">inventory search</a> are included with every plan. <a href="/docs/guide/ai/photo-analysis.html" class="pricing-feature-link">Photo analysis</a>, <a href="/docs/guide/ai/reorganization.html" class="pricing-feature-link">AI reorganization</a>, and <a href="/docs/guide/ai/photo-analysis.html" class="pricing-feature-link">object recognition</a> are available on Plus and Pro.
+            Your monthly budget runs on a <strong>rolling 30-day window</strong> — it resets 30 days after your first request, not on the calendar month. The <a href="/docs/guide/ai/assistant.html" class="pricing-feature-link">AI assistant</a> and <a href="/docs/guide/ai/assistant.html" class="pricing-feature-link">inventory search</a> are included with every plan. <a href="/docs/guide/ai/photo-analysis.html" class="pricing-feature-link">Photo analysis</a> and <a href="/docs/guide/ai/reorganization.html" class="pricing-feature-link">AI reorganization</a> are available on Plus and Pro. <a href="/docs/guide/ai/task-routing#cloud-ai-credits" class="pricing-feature-link">More on credits →</a>
           </p>
         </div>
       </div>
@@ -424,8 +424,8 @@ onMounted(() => {
           </p>
 
           <p>
-            <strong style="color: var(--vp-c-text-1)">AI actions, explained.</strong>
-            Every plan includes monthly AI actions. One action covers one task: scanning a photo, running an AI assistant instruction, or getting a reorganization suggestion. Free includes 5, Plus includes 20, and Pro includes 100 per month. Unused actions don't roll over.
+            <strong style="color: var(--vp-c-text-1)">AI credits, explained.</strong>
+            Every plan includes an AI credit budget on a rolling 30-day window. Cost scales with the work: 1 credit per chat or command, 5 per photo analyzed, 2 per bin in a reorganize. Free includes 30, Plus 100, and Pro 700 per cycle. Failed requests are refunded automatically.
           </p>
         </div>
       </div>

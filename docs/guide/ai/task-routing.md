@@ -83,7 +83,7 @@ Headline budgets:
 - **Free**: 30 credits/month
 - **Plus**: 100 credits/month
 - **Pro**: 700 credits/month
-- **Trial**: 75 lifetime credits (no monthly reset)
+- **Trial**: 30 lifetime credits (no monthly reset). CSV export is available during the trial; full JSON/ZIP export unlocks once you subscribe.
 
 Credits are debited atomically before each request and refunded automatically if the upstream provider fails before producing a usable result. Your remaining credits and reset date are visible in **Settings → AI**, and the in-app composer surfaces the per-request cost before you submit.
 

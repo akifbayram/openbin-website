@@ -32,8 +32,8 @@ OpenBin Cloud provides managed hosting so you do not need to run your own server
 Three plans are available:
 
 - **Free** — basic inventory management, no cost
-- **Plus** ($15/quarter) — expanded limits and additional features
-- **Pro** ($30/quarter) — full feature set including advanced AI capabilities
+- **Plus** ($9/quarter or $50/year) — expanded limits and additional features
+- **Pro** ($18/quarter or $100/year) — full feature set including advanced AI capabilities
 
 Plan details and feature comparisons are listed on the [Cloud page](/cloud).
 
@@ -55,7 +55,7 @@ We may change pricing with 30 days notice. Active subscribers will be notified b
 
 The Plus plan includes a 7-day free trial. No credit card is required to start the trial. When the trial ends, your account drops to the Free tier unless you add a payment method and subscribe.
 
-Trial accounts have the same capabilities as paid Plus accounts for the duration of the trial.
+Trial accounts have most Plus capabilities during the trial, with two restrictions: AI usage is capped at 30 lifetime credits (no monthly reset), and full JSON/ZIP export is unavailable. CSV export is included. Both restrictions lift when you subscribe.
 
 ## Acceptable use
 

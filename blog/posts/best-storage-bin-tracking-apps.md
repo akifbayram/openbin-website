@@ -100,9 +100,11 @@ OpenBin also records every QR scan as a usage event and renders an [activity hea
 
 Three cloud tiers:
 
-- **Free:** 10 bins, 1 location, 1 member, 5 AI actions/month, CSV export. No photos.
-- **Plus ($15/qtr):** 100 bins, photo upload (100 MB), AI photo analysis, AI reorganization (10 bins at a time), 20 AI actions/month, full JSON/ZIP export.
-- **Pro ($30/qtr):** 1,000 bins, 10 locations, 10 members per location, 1 GB photos, 100 AI actions/month, AI reorganization (40 bins at a time), API keys, custom fields, bin sharing links.
+- **Free:** 10 bins, 1 location, 1 member, 30 AI credits/month, CSV export. No photos.
+- **Plus ($9/qtr):** 100 bins, photo upload (100 MB), AI photo analysis, AI reorganization (10 bins at a time), 100 AI credits/month, full JSON/ZIP export.
+- **Pro ($18/qtr):** 1,000 bins, 10 locations, 10 members per location, 1 GB photos, 700 AI credits/month, AI reorganization (40 bins at a time), API keys, custom fields, bin sharing links.
+
+AI credits use a flat per-unit cost: 1 credit per chat or command, 5 per photo analyzed, 2 per bin in a reorganize. The monthly budget runs on a rolling 30-day window.
 
 Annual billing drops Plus to $50/year and Pro to $100/year — about 17% off the quarterly rate.
 

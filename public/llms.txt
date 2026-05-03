@@ -6,7 +6,7 @@
 
 - License: AGPL-3.0 (open source)
 - Self-hosted: One Docker container, runs on a Raspberry Pi
-- Cloud: Free tier available, Plus at $3/mo, Pro at $6/mo
+- Cloud: Free tier (30 AI credits/mo), Plus at $9/quarter or $50/year (100 AI credits/mo), Pro at $18/quarter or $100/year (700 AI credits/mo). AI credits cost 1/chat, 5/photo, 2/bin in a reorganize
 - AI providers: OpenAI, Anthropic, Google Gemini (bring your own key for self-hosted)
 - Multi-user: Invite codes, three roles (admin, member, viewer)
 - Data export: CSV and JSON, one-click export

@@ -71,8 +71,8 @@ export default defineConfig({
       operatingSystem: 'Web, Docker (Linux, macOS, Windows)',
       offers: [
         { '@type': 'Offer', name: 'Free', price: '0', priceCurrency: 'USD' },
-        { '@type': 'Offer', name: 'Plus', price: '3.00', priceCurrency: 'USD', description: 'Per month' },
-        { '@type': 'Offer', name: 'Pro', price: '6.00', priceCurrency: 'USD', description: 'Per month' },
+        { '@type': 'Offer', name: 'Plus', price: '9.00', priceCurrency: 'USD', description: 'Per quarter' },
+        { '@type': 'Offer', name: 'Pro', price: '18.00', priceCurrency: 'USD', description: 'Per quarter' },
       ],
       featureList: [
         'QR label generation and scanning',

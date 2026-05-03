@@ -117,9 +117,9 @@ HomeLayout also has three self-running demos that start via IntersectionObserver
 
 ### Cloud (`cloud.md` → `CloudLayout.vue`)
 
-1. **Pricing**: Billing toggle (Quarterly/Annual), three plan cards (Free, Plus $15/qtr, Pro $30/qtr) with key limits section + feature checklist. Prices update with toggle — edit `plans` computed in `CloudLayout.vue`.
+1. **Pricing**: Billing toggle (Quarterly/Annual), three plan cards (Free, Plus $9/qtr, Pro $18/qtr) with key limits section + feature checklist. Prices update with toggle — edit `plans` computed in `CloudLayout.vue`.
 2. **Why Cloud**: 4-card grid (No setup, Always up to date, Managed backups, AI included)
-3. **What to Expect**: Prose section covering maintenance, data portability, AI actions
+3. **What to Expect**: Prose section covering maintenance, data portability, AI credits
 4. **Feature Comparison Table**: Grouped by category, sticky first column on mobile, Pro column highlighted
 5. **FAQ**: 6-question accordion
 6. **Bottom CTA**: "Start organizing"
